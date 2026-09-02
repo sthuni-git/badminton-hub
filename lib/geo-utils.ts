@@ -309,7 +309,7 @@ export async function reverseGeocodeCoords(coords: Coordinates): Promise<string>
       `https://nominatim.openstreetmap.org/reverse?lat=${coords.lat}&lon=${coords.lng}&format=json&accept-language=ko`,
       {
         signal: controller.signal,
-        headers: { 'User-Agent': 'MintonFinder/1.0' },
+        headers: { 'User-Agent': 'BadmintonHub/1.0' },
       }
     );
     clearTimeout(timeoutId);

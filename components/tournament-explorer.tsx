@@ -478,8 +478,8 @@ export function TournamentExplorer({ tournaments }: { tournaments: Tournament[] 
           <div className="flex items-center gap-2.5">
             <div className="grid size-9 place-items-center rounded-xl bg-emerald-700 text-lg shadow-sm">🏸</div>
             <div>
-              <p className="text-[10px] font-bold tracking-[.18em] text-emerald-700">MINTON FINDER</p>
-              <h1 className="-mt-0.5 text-lg font-extrabold tracking-tight">민턴파인더</h1>
+              <p className="text-[10px] font-bold tracking-[.18em] text-emerald-700">BADMINTON HUB</p>
+              <h1 className="-mt-0.5 text-lg font-extrabold tracking-tight">배드민턴 허브</h1>
             </div>
           </div>
 
@@ -927,7 +927,7 @@ export function TournamentExplorer({ tournaments }: { tournaments: Tournament[] 
       {/* 하단 푸터 */}
       <footer className="mt-16 border-t border-slate-200/80 bg-white/60 py-8 text-center text-xs text-muted-foreground">
         <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 px-4 sm:flex-row sm:px-6">
-          <p>© 2026 민턴파인더(MintonFinder). 전국 배드민턴 동호인을 위한 통합 대회 아카이브.</p>
+          <p>© 2026 배드민턴 허브(BadmintonHub). 전국 배드민턴 동호인을 위한 통합 대회 아카이브.</p>
           <div>
             {!isAdmin ? (
               <button
