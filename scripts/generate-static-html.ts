@@ -55,9 +55,9 @@ function generateStaticHtml() {
 </head>
 <body class="antialiased">
   <div id="root">${renderedAppHtml}</div>
-  <script src="/app-bundle.js" defer></script>
+  <script src="/app-bundle.js"></script>
   <script>
-    if (typeof window !== "undefined" && window.__mountApp) {
+    if (typeof window !== "undefined" && typeof window.__mountApp === "function") {
       window.__mountApp();
     }
   </script>
