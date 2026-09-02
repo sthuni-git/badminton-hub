@@ -14,11 +14,12 @@ export default defineConfig({
   build: {
     outDir: "dist/client",
     emptyOutDir: false,
+    minify: true,
     lib: {
       entry: path.resolve(process.cwd(), "app/client-entry.tsx"),
       name: "BadmintonHub",
       fileName: () => "app-bundle.js",
-      formats: ["es"],
+      formats: ["iife"],
     },
   },
 });

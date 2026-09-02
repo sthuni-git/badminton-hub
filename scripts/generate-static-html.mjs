@@ -41,7 +41,12 @@ function generateStaticHtml() {
 </head>
 <body class="antialiased">
   <div id="root"></div>
-  <script type="module" src="/app-bundle.js"></script>
+  <script src="/app-bundle.js"></script>
+  <script>
+    if (typeof window !== "undefined" && window.__mountApp) {
+      window.__mountApp();
+    }
+  </script>
 </body>
 </html>`;
 
