@@ -4,13 +4,21 @@ import { TournamentExplorer } from "@/components/tournament-explorer";
 import { mockTournaments } from "@/lib/tournaments";
 import "./globals.css";
 
-const container = document.getElementById("root");
-if (container) {
-  const root = createRoot(container);
-  root.render(
-    <React.StrictMode>
-      <TournamentExplorer tournaments={mockTournaments} />
-    </React.StrictMode>
-  );
+function init() {
+  const container = document.getElementById("root");
+  if (container) {
+    const root = createRoot(container);
+    root.render(
+      <React.StrictMode>
+        <TournamentExplorer tournaments={mockTournaments} />
+      </React.StrictMode>
+    );
+  }
+}
+
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", init);
+} else {
+  init();
 }
 

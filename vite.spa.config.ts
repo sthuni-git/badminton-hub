@@ -8,14 +8,14 @@ export default defineConfig({
   css: { postcss: { plugins: [tailwindcss()] } },
   resolve: {
     alias: {
-      "@": path.resolve(__dirname, "./"),
+      "@": path.resolve(process.cwd(), "./"),
     },
   },
   build: {
     outDir: "dist/client",
     emptyOutDir: false,
     lib: {
-      entry: path.resolve(__dirname, "app/client-entry.tsx"),
+      entry: path.resolve(process.cwd(), "app/client-entry.tsx"),
       name: "BadmintonHub",
       fileName: () => "app-bundle.js",
       formats: ["es"],
