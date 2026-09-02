@@ -1,49 +1,41 @@
 import fs from "node:fs";
 import path from "node:path";
+import React from "react";
+
+// React JSX 전역 객체 주입
+(globalThis as any).React = React;
+
+import { renderToString } from "react-dom/server";
+import { TournamentExplorer } from "../components/tournament-explorer";
+import { mockTournaments } from "../lib/tournaments";
 
 function generateStaticHtml() {
   const clientDir = path.resolve(process.cwd(), "dist/client");
   if (!fs.existsSync(clientDir)) {
-    console.error("dist/client directory not found");
-    return;
+    fs.mkdirSync(clientDir, { recursive: true });
   }
 
-  // manifest.json 읽기
-  const manifestPath = path.join(clientDir, ".vite/manifest.json");
-  let entryJs = "";
-  let cssFile = "";
-
-  if (fs.existsSync(manifestPath)) {
-    try {
-      const manifest = JSON.parse(fs.readFileSync(manifestPath, "utf-8"));
-      const entryKey = "virtual:vinext-app-browser-entry";
-      if (manifest[entryKey] && manifest[entryKey].file) {
-        entryJs = "/" + manifest[entryKey].file;
-      }
-    } catch (e) {
-      console.warn("Could not parse manifest.json", e);
-    }
-  }
+  // 빌드 타임에 React 컴포넌트를 100% 완전한 HTML로 프리렌더링
+  console.log("⚡ React 컴포넌트 프리렌더링(SSG)을 시작합니다...");
+  const renderedAppHtml = renderToString(
+    React.createElement(TournamentExplorer, { tournaments: mockTournaments })
+  );
+  console.log(`✅ 프리렌더링 성공! HTML 크기: ${renderedAppHtml.length} bytes`);
 
   // CSS 파일 탐색
-  const cssDir = path.join(clientDir, "_next/static/css");
-  if (fs.existsSync(cssDir)) {
-    const files = fs.readdirSync(cssDir);
+  const cssLinks: string[] = [];
+  if (fs.existsSync(path.join(clientDir, "sites-project.css"))) {
+    cssLinks.push(`<link rel="stylesheet" href="/sites-project.css" />`);
+  }
+  if (fs.existsSync(path.join(clientDir, "style.css"))) {
+    cssLinks.push(`<link rel="stylesheet" href="/style.css" />`);
+  }
+  const nextCssDir = path.join(clientDir, "_next/static/css");
+  if (fs.existsSync(nextCssDir)) {
+    const files = fs.readdirSync(nextCssDir);
     const cssMatch = files.find((f) => f.endsWith(".css"));
     if (cssMatch) {
-      cssFile = `/_next/static/css/${cssMatch}`;
-    }
-  }
-
-  // JS chunks 폴더에서 index 엔트리 fallback 탐색
-  if (!entryJs) {
-    const chunksDir = path.join(clientDir, "_next/static/chunks");
-    if (fs.existsSync(chunksDir)) {
-      const files = fs.readdirSync(chunksDir);
-      const indexMatch = files.find((f) => f.startsWith("index-") && f.endsWith(".js"));
-      if (indexMatch) {
-        entryJs = `/_next/static/chunks/${indexMatch}`;
-      }
+      cssLinks.push(`<link rel="stylesheet" href="/_next/static/css/${cssMatch}" />`);
     }
   }
 
@@ -59,16 +51,21 @@ function generateStaticHtml() {
   <meta property="og:description" content="전국 배드민턴 대회 일정을 한눈에" />
   <meta property="og:image" content="/og.png" />
   <meta name="twitter:card" content="summary_large_image" />
-  ${cssFile ? `<link rel="stylesheet" href="${cssFile}" />` : ""}
+  ${cssLinks.join("\n  ")}
 </head>
 <body class="antialiased">
-  <div id="root"></div>
-  ${entryJs ? `<script type="module" src="${entryJs}"></script>` : ""}
+  <div id="root">${renderedAppHtml}</div>
+  <script src="/app-bundle.js" defer></script>
+  <script>
+    if (typeof window !== "undefined" && window.__mountApp) {
+      window.__mountApp();
+    }
+  </script>
 </body>
 </html>`;
 
   fs.writeFileSync(path.join(clientDir, "index.html"), html, "utf-8");
-  console.log("✅ dist/client/index.html 정적 진입점 생성 완료!");
+  console.log("🎉 dist/client/index.html 완전 프리렌더링 SSG 생성 완료!");
 }
 
 generateStaticHtml();
