@@ -1,0 +1,49 @@
+name: Daily Badminton Tournament Scraper
+
+on:
+  # 1. 정기 자동 실행 (매일 한국 시간 오전 6시 = UTC 21:00)
+  schedule:
+    - cron: '0 21 * * *'
+  
+  # 2. GitHub 웹 화면에서 'Run workflow' 버튼으로 언제든 수동 즉시 실행 가능
+  workflow_dispatch:
+
+# 저장소 쓰기 권한 부여 (자동 커밋 및 푸시용)
+permissions:
+  contents: write
+
+jobs:
+  scrape-and-update:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 1. 코드를 가져옵니다 (Checkout)
+        uses: actions/checkout@v4
+
+      - name: 2. Node.js 환경 설정
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: 'npm'
+
+      - name: 3. 의존성 패키지 설치
+        run: npm ci
+
+      - name: 4. 전국 대회 전수 스크랩 실행
+        run: npm run scrape
+
+      - name: 5. 갱신된 데이터 자동 커밋 & 푸시
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          
+          git add lib/tournaments-scraped.json
+          
+          # 변경사항이 있을 때만 커밋
+          if git diff --staged --quiet; then
+            echo "대회 데이터 변경사항이 없습니다."
+          else
+            git commit -m "chore(data): 자동 스크랩 최신 대회 데이터 갱신 [skip ci]"
+            git push
+            echo "새로운 대회 데이터가 성공적으로 커밋되었습니다!"
+          fi
