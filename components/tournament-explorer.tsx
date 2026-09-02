@@ -11,7 +11,8 @@ import type { Tournament } from '@/lib/tournaments';
 type Status = '접수중' | '접수예정' | '마감임박' | '마감';
 type View = 'list' | 'calendar';
 
-const TODAY = new Date('2026-09-02T00:00:00+09:00');
+const nowInKorea = new Date(new Date().toLocaleString('en-US', { timeZone: 'Asia/Seoul' }));
+const TODAY = new Date(nowInKorea.getFullYear(), nowInKorea.getMonth(), nowInKorea.getDate());
 const regions = ['전체', '수도권', '충청', '전라', '경상', '강원', '기타'] as const;
 const categories = ['전체', '전국오픈', '지역구대회', '브랜드대회', '학생선수권'] as const;
 const statuses = ['전체', '접수중', '접수예정', '마감임박', '마감'] as const;
