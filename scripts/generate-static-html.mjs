@@ -8,42 +8,20 @@ function generateStaticHtml() {
     return;
   }
 
-  // manifest.json 읽기
-  const manifestPath = path.join(clientDir, ".vite/manifest.json");
-  let entryJs = "";
-  let cssFile = "";
-
-  if (fs.existsSync(manifestPath)) {
-    try {
-      const manifest = JSON.parse(fs.readFileSync(manifestPath, "utf-8"));
-      const entryKey = "virtual:vinext-app-browser-entry";
-      if (manifest[entryKey] && manifest[entryKey].file) {
-        entryJs = "/" + manifest[entryKey].file;
-      }
-    } catch (e) {
-      console.warn("Could not parse manifest.json", e);
-    }
-  }
-
   // CSS 파일 탐색
-  const cssDir = path.join(clientDir, "_next/static/css");
-  if (fs.existsSync(cssDir)) {
-    const files = fs.readdirSync(cssDir);
+  const cssLinks = [];
+  if (fs.existsSync(path.join(clientDir, "sites-project.css"))) {
+    cssLinks.push(`<link rel="stylesheet" href="/sites-project.css" />`);
+  }
+  if (fs.existsSync(path.join(clientDir, "style.css"))) {
+    cssLinks.push(`<link rel="stylesheet" href="/style.css" />`);
+  }
+  const nextCssDir = path.join(clientDir, "_next/static/css");
+  if (fs.existsSync(nextCssDir)) {
+    const files = fs.readdirSync(nextCssDir);
     const cssMatch = files.find((f) => f.endsWith(".css"));
     if (cssMatch) {
-      cssFile = `/_next/static/css/${cssMatch}`;
-    }
-  }
-
-  // JS chunks 폴더에서 index 엔트리 fallback 탐색
-  if (!entryJs) {
-    const chunksDir = path.join(clientDir, "_next/static/chunks");
-    if (fs.existsSync(chunksDir)) {
-      const files = fs.readdirSync(chunksDir);
-      const indexMatch = files.find((f) => f.startsWith("index-") && f.endsWith(".js"));
-      if (indexMatch) {
-        entryJs = `/_next/static/chunks/${indexMatch}`;
-      }
+      cssLinks.push(`<link rel="stylesheet" href="/_next/static/css/${cssMatch}" />`);
     }
   }
 
@@ -59,11 +37,11 @@ function generateStaticHtml() {
   <meta property="og:description" content="전국 배드민턴 대회 일정을 한눈에" />
   <meta property="og:image" content="/og.png" />
   <meta name="twitter:card" content="summary_large_image" />
-  ${cssFile ? `<link rel="stylesheet" href="${cssFile}" />` : ""}
+  ${cssLinks.join("\n  ")}
 </head>
 <body class="antialiased">
   <div id="root"></div>
-  ${entryJs ? `<script type="module" src="${entryJs}"></script>` : ""}
+  <script type="module" src="/app-bundle.js"></script>
 </body>
 </html>`;
 
