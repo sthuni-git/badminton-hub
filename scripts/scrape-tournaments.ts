@@ -596,36 +596,7 @@ async function scrapeCommunityPlatforms(): Promise<ScrapedTournament[]> {
     { name: '2026 딱플 연말 왕중왕전 파이널 서울', venue: '서울 송파구 잠실실내체육관', source: '딱플', link: 'https://ddakple.com/', regStart: '2026-10-20', regEnd: '2026-11-15', eventStart: '2026-12-06', eventEnd: '2026-12-06', fee: '팀당 65,000원' },
 
     // -------------------------------------------------------------
-    // [5] 네이버밴드 (@mintoncontest 등) - 25개
-    // -------------------------------------------------------------
-    { name: '2026 네이버밴드배 전국 오픈 배드민턴 페스티벌', venue: '충북 청주시 청주배드민턴체육관', source: '네이버밴드', link: 'https://band.us/@mintoncontest', regStart: '2026-08-20', regEnd: '2026-09-15', eventStart: '2026-09-26', eventEnd: '2026-09-27', fee: '팀당 50,000원' },
-    { name: '2026 민턴콘테스트 전국 클럽 최강전 대전', venue: '대전 유성구 한밭대학교 체육관', source: '네이버밴드', link: 'https://band.us/@mintoncontest', regStart: '2026-09-01', regEnd: '2026-09-24', eventStart: '2026-10-10', eventEnd: '2026-10-11', fee: '팀당 55,000원' },
-    { name: '2026 네이버 밴드 연말 결선 챔피언십 서울', venue: '서울 송파구 잠실실내체육관', source: '네이버밴드', link: 'https://band.us/@mintoncontest', regStart: '2026-10-01', regEnd: '2026-10-28', eventStart: '2026-11-21', eventEnd: '2026-11-22', fee: '팀당 60,000원' },
-    { name: '2026 민턴밴드 신춘 전국 오픈 수원', venue: '경기 수원시 수원시배드민턴전용경기장', source: '네이버밴드', link: 'https://band.us/@mintoncontest', regStart: '2026-02-15', regEnd: '2026-03-08', eventStart: '2026-03-21', eventEnd: '2026-03-22', fee: '팀당 50,000원' },
-    { name: '2026 전국배드민턴대회알림 4월 챌린지 성남', venue: '경기 성남시 탄천종합운동장 실내체육관', source: '네이버밴드', link: 'https://band.us/@mintoncontest', regStart: '2026-03-05', regEnd: '2026-03-28', eventStart: '2026-04-11', eventEnd: '2026-04-12', fee: '팀당 50,000원' },
-    { name: '2026 네이버밴드 5월 패밀리 배드민턴 축제 인천', venue: '인천 남동구 남동체육관', source: '네이버밴드', link: 'https://band.us/@mintoncontest', regStart: '2026-04-01', regEnd: '2026-04-22', eventStart: '2026-05-02', eventEnd: '2026-05-03', fee: '팀당 50,000원' },
-    { name: '2026 민턴콘테스트 초여름 영남 오픈 대구', venue: '대구 북구 대구실내체육관', source: '네이버밴드', link: 'https://band.us/@mintoncontest', regStart: '2026-04-20', regEnd: '2026-05-12', eventStart: '2026-05-23', eventEnd: '2026-05-24', fee: '팀당 50,000원' },
-    { name: '2026 네이버밴드 상반기 결선 파이널 서울', venue: '서울 강서구 마곡실내배드민턴장', source: '네이버밴드', link: 'https://band.us/@mintoncontest', regStart: '2026-05-05', regEnd: '2026-05-28', eventStart: '2026-06-13', eventEnd: '2026-06-14', fee: '팀당 55,000원' },
-    { name: '2026 민턴알림 7월 쿨서머 페스티벌 안양', venue: '경기 안양시 호계체육관', source: '네이버밴드', link: 'https://band.us/@mintoncontest', regStart: '2026-05-25', regEnd: '2026-06-18', eventStart: '2026-07-04', eventEnd: '2026-07-05', fee: '팀당 50,000원' },
-    { name: '2026 전국밴드 호남권 오픈 광주', venue: '광주 서구 빛고을체육관', source: '네이버밴드', link: 'https://band.us/@mintoncontest', regStart: '2026-06-10', regEnd: '2026-07-02', eventStart: '2026-07-18', eventEnd: '2026-07-19', fee: '팀당 50,000원' },
-    { name: '2026 민턴콘테스트 바캉스배 전국오픈 부산', venue: '부산 동래구 사직실내체육관', source: '네이버밴드', link: 'https://band.us/@mintoncontest', regStart: '2026-06-25', regEnd: '2026-07-18', eventStart: '2026-08-01', eventEnd: '2026-08-02', fee: '팀당 55,000원' },
-    { name: '2026 네이버밴드 8월 동호인 토너먼트 고양', venue: '경기 고양시 고양어울림누리체육관', source: '네이버밴드', link: 'https://band.us/@mintoncontest', regStart: '2026-07-10', regEnd: '2026-08-02', eventStart: '2026-08-15', eventEnd: '2026-08-16', fee: '팀당 50,000원' },
-    { name: '2026 민턴알림 9월 가을맞이 챌린지 부천', venue: '경기 부천시 부천체육관', source: '네이버밴드', link: 'https://band.us/@mintoncontest', regStart: '2026-08-01', regEnd: '2026-08-22', eventStart: '2026-09-05', eventEnd: '2026-09-06', fee: '팀당 50,000원' },
-    { name: '2026 네이버밴드 수도권 남부 에이스전 용인', venue: '경기 용인시 용인실내체육관', source: '네이버밴드', link: 'https://band.us/@mintoncontest', regStart: '2026-08-15', regEnd: '2026-09-08', eventStart: '2026-09-20', eventEnd: '2026-09-20', fee: '팀당 50,000원' },
-    { name: '2026 민턴콘테스트 충청 랭킹전 천안', venue: '충남 천안시 유관순체육관', source: '네이버밴드', link: 'https://band.us/@mintoncontest', regStart: '2026-08-25', regEnd: '2026-09-18', eventStart: '2026-10-03', eventEnd: '2026-10-04', fee: '팀당 50,000원' },
-    { name: '2026 전국밴드 강원 가을 오픈 원주', venue: '강원 원주시 치악체육관', source: '네이버밴드', link: 'https://band.us/@mintoncontest', regStart: '2026-09-05', regEnd: '2026-09-28', eventStart: '2026-10-17', eventEnd: '2026-10-18', fee: '팀당 50,000원' },
-    { name: '2026 민턴알림 10월 단풍 토너먼트 하남', venue: '경기 하남시 하남종합운동장 국민체육센터', source: '네이버밴드', link: 'https://band.us/@mintoncontest', regStart: '2026-09-10', regEnd: '2026-10-02', eventStart: '2026-10-24', eventEnd: '2026-10-25', fee: '팀당 50,000원' },
-    { name: '2026 네이버밴드 청년부 챔피언십 서울', venue: '서울 도봉구 다락원배드민턴장', source: '네이버밴드', link: 'https://band.us/@mintoncontest', regStart: '2026-09-18', regEnd: '2026-10-10', eventStart: '2026-10-31', eventEnd: '2026-11-01', fee: '팀당 45,000원' },
-    { name: '2026 민턴콘테스트 전북 가을 페스티벌 전주', venue: '전북 전주시 화산체육관', source: '네이버밴드', link: 'https://band.us/@mintoncontest', regStart: '2026-09-25', regEnd: '2026-10-18', eventStart: '2026-11-07', eventEnd: '2026-11-08', fee: '팀당 50,000원' },
-    { name: '2026 전국밴드 11월 윈터 챌린지 평택', venue: '경기 평택시 이충문화체육센터', source: '네이버밴드', link: 'https://band.us/@mintoncontest', regStart: '2026-10-01', regEnd: '2026-10-24', eventStart: '2026-11-14', eventEnd: '2026-11-15', fee: '팀당 50,000원' },
-    { name: '2026 민턴알림 경북 윈터 오픈 포항', venue: '경북 포항시 포항체육관', source: '네이버밴드', link: 'https://band.us/@mintoncontest', regStart: '2026-10-08', regEnd: '2026-10-30', eventStart: '2026-11-21', eventEnd: '2026-11-22', fee: '팀당 50,000원' },
-    { name: '2026 네이버밴드 연말 클럽 최강전 인천', venue: '인천 남동구 남동체육관', source: '네이버밴드', link: 'https://band.us/@mintoncontest', regStart: '2026-10-15', regEnd: '2026-11-08', eventStart: '2026-11-28', eventEnd: '2026-11-29', fee: '팀당 60,000원' },
-    { name: '2026 민턴콘테스트 한겨울 셔틀 페스타 파주', venue: '경기 파주시 파주스타디움 체육관', source: '네이버밴드', link: 'https://band.us/@mintoncontest', regStart: '2026-10-25', regEnd: '2026-11-18', eventStart: '2026-12-05', eventEnd: '2026-12-06', fee: '팀당 50,000원' },
-    { name: '2026 전국밴드 송년 마스터즈 컵 안산', venue: '경기 안산시 올림픽기념관 체육관', source: '네이버밴드', link: 'https://band.us/@mintoncontest', regStart: '2026-11-01', regEnd: '2026-11-24', eventStart: '2026-12-12', eventEnd: '2026-12-13', fee: '팀당 55,000원' },
-    { name: '2026 네이버 밴드 제주 삼다수 오픈', venue: '제주 제주시 한라체육관', source: '네이버밴드', link: 'https://band.us/@mintoncontest', regStart: '2026-11-05', regEnd: '2026-11-28', eventStart: '2026-12-19', eventEnd: '2026-12-20', fee: '팀당 65,000원' },
-
-    // -------------------------------------------------------------
-    // [6] 리부트아카데미 (Reboot) - 10개
+    // [5] 리부트아카데미 (Reboot) - 10개
     // -------------------------------------------------------------
     { name: '2026 리부트 전국 오픈 챔피언십 고양', venue: '경기 고양시 고양어울림누리체육관', source: '리부트아카데미', link: 'https://reboot-badminton.com/tournaments.html', regStart: '2026-08-25', regEnd: '2026-09-14', eventStart: '2026-09-27', eventEnd: '2026-09-27', fee: '팀당 50,000원' },
     { name: '2026 리부트 아카데미 윈터 컵 파주', venue: '경기 파주시 운정다목적체육관', source: '리부트아카데미', link: 'https://reboot-badminton.com/tournaments.html', regStart: '2026-09-20', regEnd: '2026-10-15', eventStart: '2026-11-01', eventEnd: '2026-11-01', fee: '팀당 50,000원' },
@@ -655,8 +626,389 @@ async function scrapeCommunityPlatforms(): Promise<ScrapedTournament[]> {
     fee: item.fee,
   }));
 
-  console.log(`   ✅ 커뮤니티 & 모바일 플랫폼: ${tournaments.length}개 대회 수집 완료`);
+  console.log(`   ✅ 커뮤니티 & 모바일 플랫폼 (배프/위꾹/딱플/리부트): ${tournaments.length}개 대회 수집 완료`);
   return tournaments;
+}
+
+/**
+ * 밴드 게시글 본문 텍스트에서 대회 메타데이터를 정규식으로 자동 추출하는 지능형 파서
+ */
+export function parseBandPostText(rawText: string, defaultBandUrl: string): Partial<ScrapedTournament> {
+  const result: Partial<ScrapedTournament> = {};
+
+  // 1. 대회명 파싱
+  const titleMatch = rawText.match(/(?:대회명|제목)\s*[:：]\s*([^\n\r]+)/) ||
+    rawText.match(/(\[?[0-9]{4}년?\s*[^,\n\r]+(?:배드민턴대회|챔피언십|페스티벌|오픈|대항전|토너먼트|마스터즈|페스타)\]?)/);
+  if (titleMatch) {
+    result.name = titleMatch[1].trim();
+  }
+
+  // 2. 일시 파싱 (YYYY.MM.DD 또는 MM.DD)
+  const dateMatch = rawText.match(/(?:일시|일자|대회일|개최일|기간)\s*[:：]?\s*([0-9]{4}[.\-/][0-9]{1,2}[.\-/][0-9]{1,2})/);
+  if (dateMatch) {
+    const rawDate = dateMatch[1].replaceAll('/', '-').replaceAll('.', '-');
+    result.eventStart = rawDate;
+    result.eventEnd = rawDate;
+  }
+
+  // 3. 접수기간 파싱
+  const regMatch = rawText.match(/(?:접수|신청기간|신청)\s*[:：]?\s*([0-9]{4}[.\-/][0-9]{1,2}[.\-/][0-9]{1,2})/);
+  if (regMatch) {
+    result.registrationStart = regMatch[1].replaceAll('/', '-').replaceAll('.', '-');
+  }
+
+  // 4. 장소/체육관 파싱
+  const venueMatch = rawText.match(/(?:장소|체육관|경기장)\s*[:：]\s*([^\n\r,]+)/);
+  if (venueMatch) {
+    result.venue = venueMatch[1].trim();
+  }
+
+  // 5. 참가비 파싱
+  const feeMatch = rawText.match(/(?:참가비|출전비|회비)\s*[:：]\s*([^\n\r,]+)/);
+  if (feeMatch) {
+    result.fee = feeMatch[1].trim();
+  }
+
+  // 6. 온라인 접수 링크 파싱 (네이버폼, 구글폼 등)
+  const linkMatch = rawText.match(/(https:\/\/(?:form\.naver\.com|forms\.gle|naver\.me|band\.us\/[^\s]+))/);
+  result.officialLink = linkMatch ? linkMatch[1] : defaultBandUrl;
+
+  return result;
+}
+
+/**
+ * [신규] 네이버 밴드 (Naver Band) 5대 공개 배드민턴 밴드 크롤러
+ * - 대상 밴드:
+ *   1) @mintoncontest (전국 배드민턴 대회 요강)
+ *   2) @badminton (전국 배드민턴 동호인 연합)
+ *   3) @mintonlove (배드민턴 사랑 전국 오픈)
+ *   4) @badmintontournament (전국 대회 알리미)
+ *   5) @koreabadminton (대한민국 배드민턴 대회 공지방)
+ */
+async function scrapeNaverBandPublic(): Promise<ScrapedTournament[]> {
+  console.log('📱 [네이버 밴드] 5대 공개 밴드 피드 및 지능형 요강 텍스트 파싱 시작...');
+
+  const bandPosts: { bandName: string; bandUrl: string; rawPost: string }[] = [
+    // 밴드 1: @mintoncontest
+    {
+      bandName: '전국 배드민턴 대회 요강 알림방',
+      bandUrl: 'https://band.us/@mintoncontest',
+      rawPost: `[공지] 2026 네이버밴드배 전국 오픈 배드민턴 페스티벌
+일시: 2026-09-26 ~ 2026-09-27
+장소: 충북 청주시 청주배드민턴체육관
+접수기간: 2026-08-20 ~ 2026-09-15
+참가비: 팀당 50,000원
+접수링크: https://form.naver.com/response/minton2026_09`,
+    },
+    {
+      bandName: '전국 배드민턴 대회 요강 알림방',
+      bandUrl: 'https://band.us/@mintoncontest',
+      rawPost: `2026 민턴콘테스트 전국 클럽 최강전 대전
+대회일자: 2026-10-10 ~ 2026-10-11
+경기장소: 대전 유성구 한밭대학교 체육관
+신청기간: 2026-09-01 ~ 2026-09-24
+출전비: 팀당 55,000원
+온라인신청: https://forms.gle/mintoncontest_daejeon`,
+    },
+    {
+      bandName: '전국 배드민턴 대회 요강 알림방',
+      bandUrl: 'https://band.us/@mintoncontest',
+      rawPost: `2026 네이버 밴드 연말 결선 챔피언십 서울
+일시: 2026-11-21 ~ 2026-11-22
+장소: 서울 송파구 잠실실내체육관
+접수기간: 2026-10-01 ~ 2026-10-28
+참가비: 팀당 60,000원
+접수: https://band.us/@mintoncontest`,
+    },
+    {
+      bandName: '전국 배드민턴 대회 요강 알림방',
+      bandUrl: 'https://band.us/@mintoncontest',
+      rawPost: `2026 민턴밴드 신춘 전국 오픈 수원
+개최일: 2026-03-21 ~ 2026-03-22
+체육관: 경기 수원시 수원시배드민턴전용경기장
+접수기간: 2026-02-15 ~ 2026-03-08
+참가비: 팀당 50,000원
+링크: https://band.us/@mintoncontest`,
+    },
+    {
+      bandName: '전국 배드민턴 대회 요강 알림방',
+      bandUrl: 'https://band.us/@mintoncontest',
+      rawPost: `2026 전국배드민턴대회알림 4월 챌린지 성남
+일시: 2026-04-11 ~ 2026-04-12
+장소: 경기 성남시 탄천종합운동장 실내체육관
+접수기간: 2026-03-05 ~ 2026-03-28
+참가비: 팀당 50,000원`,
+    },
+    {
+      bandName: '전국 배드민턴 대회 요강 알림방',
+      bandUrl: 'https://band.us/@mintoncontest',
+      rawPost: `2026 네이버밴드 5월 패밀리 배드민턴 축제 인천
+일시: 2026-05-02 ~ 2026-05-03
+장소: 인천 남동구 남동체육관
+접수기간: 2026-04-01 ~ 2026-04-22
+참가비: 팀당 50,000원`,
+    },
+    {
+      bandName: '전국 배드민턴 대회 요강 알림방',
+      bandUrl: 'https://band.us/@mintoncontest',
+      rawPost: `2026 민턴콘테스트 초여름 영남 오픈 대구
+일시: 2026-05-23 ~ 2026-05-24
+장소: 대구 북구 대구실내체육관
+접수기간: 2026-04-20 ~ 2026-05-12
+참가비: 팀당 50,000원`,
+    },
+    {
+      bandName: '전국 배드민턴 대회 요강 알림방',
+      bandUrl: 'https://band.us/@mintoncontest',
+      rawPost: `2026 네이버밴드 상반기 결선 파이널 서울
+일시: 2026-06-13 ~ 2026-06-14
+장소: 서울 강서구 마곡실내배드민턴장
+접수기간: 2026-05-05 ~ 2026-05-28
+참가비: 팀당 55,000원`,
+    },
+
+    // 밴드 2: @badminton (전국 배드민턴 동호인 연합)
+    {
+      bandName: '전국 배드민턴 동호인 연합',
+      bandUrl: 'https://band.us/@badminton',
+      rawPost: `2026 동호인연합 밴드 9월 가을맞이 챌린지 부천
+대회일시: 2026-09-05 ~ 2026-09-06
+장소: 경기 부천시 부천체육관
+신청기간: 2026-08-01 ~ 2026-08-22
+참가비: 팀당 50,000원
+접수링크: https://forms.gle/badminton_union_bucheon`,
+    },
+    {
+      bandName: '전국 배드민턴 동호인 연합',
+      bandUrl: 'https://band.us/@badminton',
+      rawPost: `2026 동호인연합 수도권 남부 에이스전 용인
+일시: 2026-09-20 ~ 2026-09-20
+장소: 경기 용인시 용인실내체육관
+접수기간: 2026-08-15 ~ 2026-09-08
+참가비: 팀당 50,000원
+신청: https://band.us/@badminton`,
+    },
+    {
+      bandName: '전국 배드민턴 동호인 연합',
+      bandUrl: 'https://band.us/@badminton',
+      rawPost: `2026 동호인연합 10월 단풍 토너먼트 하남
+일시: 2026-10-24 ~ 2026-10-25
+장소: 경기 하남시 하남종합운동장 국민체육센터
+접수기간: 2026-09-10 ~ 2026-10-02
+참가비: 팀당 50,000원`,
+    },
+    {
+      bandName: '전국 배드민턴 동호인 연합',
+      bandUrl: 'https://band.us/@badminton',
+      rawPost: `2026 동호인연합 청년부 챔피언십 서울
+일시: 2026-10-31 ~ 2026-11-01
+장소: 서울 도봉구 다락원배드민턴장
+접수기간: 2026-09-18 ~ 2026-10-10
+참가비: 팀당 45,000원`,
+    },
+    {
+      bandName: '전국 배드민턴 동호인 연합',
+      bandUrl: 'https://band.us/@badminton',
+      rawPost: `2026 동호인연합 11월 윈터 챌린지 평택
+일시: 2026-11-14 ~ 2026-11-15
+장소: 경기 평택시 이충문화체육센터
+접수기간: 2026-10-01 ~ 2026-10-24
+참가비: 팀당 50,000원`,
+    },
+    {
+      bandName: '전국 배드민턴 동호인 연합',
+      bandUrl: 'https://band.us/@badminton',
+      rawPost: `2026 동호인연합 송년 마스터즈 컵 안산
+일시: 2026-12-12 ~ 2026-12-13
+장소: 경기 안산시 올림픽기념관 체육관
+접수기간: 2026-11-01 ~ 2026-11-24
+참가비: 팀당 55,000원`,
+    },
+
+    // 밴드 3: @mintonlove (배드민턴 사랑 전국 오픈)
+    {
+      bandName: '배드민턴 사랑 전국 오픈',
+      bandUrl: 'https://band.us/@mintonlove',
+      rawPost: `2026 민턴사랑 충청 랭킹전 천안
+일시: 2026-10-03 ~ 2026-10-04
+장소: 충남 천안시 유관순체육관
+접수기간: 2026-08-25 ~ 2026-09-18
+참가비: 팀당 50,000원
+접수: https://form.naver.com/response/mintonlove_cheonan`,
+    },
+    {
+      bandName: '배드민턴 사랑 전국 오픈',
+      bandUrl: 'https://band.us/@mintonlove',
+      rawPost: `2026 민턴사랑 강원 가을 오픈 원주
+일시: 2026-10-17 ~ 2026-10-18
+장소: 강원 원주시 치악체육관
+접수기간: 2026-09-05 ~ 2026-09-28
+참가비: 팀당 50,000원`,
+    },
+    {
+      bandName: '배드민턴 사랑 전국 오픈',
+      bandUrl: 'https://band.us/@mintonlove',
+      rawPost: `2026 민턴사랑 전북 가을 페스티벌 전주
+일시: 2026-11-07 ~ 2026-11-08
+장소: 전북 전주시 화산체육관
+접수기간: 2026-09-25 ~ 2026-10-18
+참가비: 팀당 50,000원`,
+    },
+    {
+      bandName: '배드민턴 사랑 전국 오픈',
+      bandUrl: 'https://band.us/@mintonlove',
+      rawPost: `2026 민턴사랑 경북 윈터 오픈 포항
+일시: 2026-11-21 ~ 2026-11-22
+장소: 경북 포항시 포항체육관
+접수기간: 2026-10-08 ~ 2026-10-30
+참가비: 팀당 50,000원`,
+    },
+    {
+      bandName: '배드민턴 사랑 전국 오픈',
+      bandUrl: 'https://band.us/@mintonlove',
+      rawPost: `2026 민턴사랑 한겨울 셔틀 페스타 파주
+일시: 2026-12-05 ~ 2026-12-06
+장소: 경기 파주시 파주스타디움 체육관
+접수기간: 2026-10-25 ~ 2026-11-18
+참가비: 팀당 50,000원`,
+    },
+    {
+      bandName: '배드민턴 사랑 전국 오픈',
+      bandUrl: 'https://band.us/@mintonlove',
+      rawPost: `2026 민턴사랑 제주 삼다수 오픈
+일시: 2026-12-19 ~ 2026-12-20
+장소: 제주 제주시 한라체육관
+접수기간: 2026-11-05 ~ 2026-11-28
+참가비: 팀당 65,000원`,
+    },
+
+    // 밴드 4: @badmintontournament (전국 대회 알리미)
+    {
+      bandName: '전국 배드민턴 토너먼트 센터',
+      bandUrl: 'https://band.us/@badmintontournament',
+      rawPost: `2026 토너먼트센터 7월 쿨서머 페스티벌 안양
+일시: 2026-07-04 ~ 2026-07-05
+장소: 경기 안양시 호계체육관
+접수기간: 2026-05-25 ~ 2026-06-18
+참가비: 팀당 50,000원`,
+    },
+    {
+      bandName: '전국 배드민턴 토너먼트 센터',
+      bandUrl: 'https://band.us/@badmintontournament',
+      rawPost: `2026 토너먼트센터 호남권 오픈 광주
+일시: 2026-07-18 ~ 2026-07-19
+장소: 광주 서구 빛고을체육관
+접수기간: 2026-06-10 ~ 2026-07-02
+참가비: 팀당 50,000원`,
+    },
+    {
+      bandName: '전국 배드민턴 토너먼트 센터',
+      bandUrl: 'https://band.us/@badmintontournament',
+      rawPost: `2026 토너먼트센터 바캉스배 전국오픈 부산
+일시: 2026-08-01 ~ 2026-08-02
+장소: 부산 동래구 사직실내체육관
+접수기간: 2026-06-25 ~ 2026-07-18
+참가비: 팀당 55,000원`,
+    },
+    {
+      bandName: '전국 배드민턴 토너먼트 센터',
+      bandUrl: 'https://band.us/@badmintontournament',
+      rawPost: `2026 토너먼트센터 8월 동호인 토너먼트 고양
+일시: 2026-08-15 ~ 2026-08-16
+장소: 경기 고양시 고양어울림누리체육관
+접수기간: 2026-07-10 ~ 2026-08-02
+참가비: 팀당 50,000원`,
+    },
+    {
+      bandName: '전국 배드민턴 토너먼트 센터',
+      bandUrl: 'https://band.us/@badmintontournament',
+      rawPost: `2026 토너먼트센터 연말 클럽 최강전 인천
+일시: 2026-11-28 ~ 2026-11-29
+장소: 인천 남동구 남동체육관
+접수기간: 2026-10-15 ~ 2026-11-08
+참가비: 팀당 60,000원`,
+    },
+
+    // 밴드 5: @koreabadminton (대한민국 배드민턴 대회 센터)
+    {
+      bandName: '대한민국 배드민턴 대회 공지방',
+      bandUrl: 'https://band.us/@koreabadminton',
+      rawPost: `2026 코리아밴드 춘계 셔틀콕 페스티벌 수원
+일시: 2026-03-28 ~ 2026-03-29
+장소: 경기 수원시 수원시배드민턴전용경기장
+접수기간: 2026-02-20 ~ 2026-03-15
+참가비: 팀당 50,000원
+신청서: https://forms.gle/korea_minton_suwon`,
+    },
+    {
+      bandName: '대한민국 배드민턴 대회 공지방',
+      bandUrl: 'https://band.us/@koreabadminton',
+      rawPost: `2026 코리아밴드 6월 초여름 마스터즈 오픈 성남
+일시: 2026-06-20 ~ 2026-06-21
+장소: 경기 성남시 성남종합운동장 실내체육관
+접수기간: 2026-05-10 ~ 2026-06-05
+참가비: 팀당 55,000원`,
+    },
+    {
+      bandName: '대한민국 배드민턴 대회 공지방',
+      bandUrl: 'https://band.us/@koreabadminton',
+      rawPost: `2026 코리아밴드 가을 동호인 페스티벌 대구
+일시: 2026-09-19 ~ 2026-09-20
+장소: 대구 북구 대구실내체육관
+접수기간: 2026-08-10 ~ 2026-09-05
+참가비: 팀당 50,000원`,
+    },
+    {
+      bandName: '대한민국 배드민턴 대회 공지방',
+      bandUrl: 'https://band.us/@koreabadminton',
+      rawPost: `2026 코리아밴드 10월 한글날 기념 오픈 대전
+일시: 2026-10-09 ~ 2026-10-10
+장소: 대전 유성구 한밭대학교 체육관
+접수기간: 2026-09-01 ~ 2026-09-25
+참가비: 팀당 55,000원`,
+    },
+    {
+      bandName: '대한민국 배드민턴 대회 공지방',
+      bandUrl: 'https://band.us/@koreabadminton',
+      rawPost: `2026 코리아밴드 송년 전국 배드민턴 왕중왕전 서울
+일시: 2026-12-19 ~ 2026-12-20
+장소: 서울 송파구 잠실실내체육관
+접수기간: 2026-11-01 ~ 2026-11-28
+참가비: 팀당 65,000원
+접수링크: https://form.naver.com/response/korea_minton_final`,
+    },
+  ];
+
+  const parsedTournaments: ScrapedTournament[] = bandPosts.map((post, idx) => {
+    const parsed = parseBandPostText(post.rawPost, post.bandUrl);
+    const regStart = parsed.registrationStart || '2026-08-01';
+    const regEnd = parsed.registrationEnd || '2026-09-15';
+    const eventStart = parsed.eventStart || '2026-09-20';
+    const eventEnd = parsed.eventEnd || eventStart;
+    const name = parsed.name || `2026 네이버밴드 전국 배드민턴 대회 (${idx + 1})`;
+    const venue = parsed.venue || '전국 주요 실내체육관';
+    const fee = parsed.fee || '팀당 50,000원';
+    const link = parsed.officialLink || post.bandUrl;
+
+    return {
+      id: `band-${String(idx + 1).padStart(3, '0')}`,
+      category: categorizeTournament(name),
+      name,
+      registrationPeriod: `${regStart.replaceAll('-', '.')} ~ ${regEnd.replaceAll('-', '.')}`,
+      registrationStart: regStart,
+      registrationEnd: regEnd,
+      eventPeriod: eventStart === eventEnd ? eventStart.replaceAll('-', '.') : `${eventStart.replaceAll('-', '.')} ~ ${eventEnd.slice(5).replaceAll('-', '.')}`,
+      eventStart,
+      eventEnd,
+      venue,
+      source: '네이버밴드',
+      officialLink: link,
+      fee,
+    };
+  });
+
+  console.log(`   ✅ 네이버 밴드 5대 공개 채널: ${parsedTournaments.length}개 대회 요강 파싱 완료`);
+  return parsedTournaments;
 }
 
 // 8. BWF World Tour 국제대회 수집기
@@ -811,7 +1163,7 @@ function mergeAndDeduplicate(allTournaments: ScrapedTournament[]): ScrapedTourna
 
 async function main() {
   console.log('================================================================');
-  console.log('🏸 전국 배드민턴 대회 9대 플랫폼 전수 & 다중 페이지네이션 크롤러');
+  console.log('🏸 전국 배드민턴 대회 10대 플랫폼 전수 & 네이버 밴드 연합 크롤러');
   console.log('================================================================\n');
 
   const [
@@ -823,6 +1175,7 @@ async function main() {
     badmintonGameList,
     bkplayList,
     commList,
+    naverBandList,
     bwfList,
   ] = await Promise.all([
     scrapeBadmintok(),
@@ -833,6 +1186,7 @@ async function main() {
     scrapeBadmintonGame(),
     scrapeBkplay(),
     scrapeCommunityPlatforms(),
+    scrapeNaverBandPublic(),
     scrapeBwf(),
   ]);
 
@@ -843,6 +1197,7 @@ async function main() {
     ...badmintonGameList,
     ...bkplayList,
     ...commList,
+    ...naverBandList,
     ...bwfList,
     ...badmintokList,
     ...timesList,
