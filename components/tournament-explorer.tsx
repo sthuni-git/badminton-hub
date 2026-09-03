@@ -551,6 +551,62 @@ export function TournamentExplorer({ tournaments }: { tournaments: Tournament[] 
       <div className="mx-auto max-w-6xl px-4 pt-6 sm:px-6 sm:pt-8">
         {activeTab === 'tournaments' ? (
           <>
+            {/* 관리자 모드 전용 관제 센터 대시보드 (Admin Control Panel) */}
+            {isAdmin && (
+              <section className="mb-6 overflow-hidden rounded-3xl border-2 border-amber-300 bg-gradient-to-r from-amber-50 via-amber-100/60 to-emerald-50 p-5 shadow-lg">
+                <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+                  <div className="flex items-start gap-3.5">
+                    <div className="grid size-11 shrink-0 place-items-center rounded-2xl bg-amber-500 text-white shadow-md">
+                      <ShieldCheck className="size-6" />
+                    </div>
+                    <div>
+                      <div className="flex items-center gap-2">
+                        <h3 className="text-base font-extrabold text-amber-950">🛡️ 배드민턴 허브 관리자 관제 센터</h3>
+                        <span className="rounded-full bg-amber-200 px-2 py-0.5 text-[10px] font-bold text-amber-900">
+                          ADMIN ACTIVE
+                        </span>
+                      </div>
+                      <p className="mt-0.5 text-xs text-amber-800">
+                        전국 10대 플랫폼 및 35개 네이버 밴드 연합 빅데이터(총 {tournaments.length}건)를 관리하고 데이터를 내보낼 수 있습니다.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="flex flex-wrap items-center gap-2">
+                    <button
+                      type="button"
+                      onClick={handleExportCsv}
+                      className="inline-flex h-9 items-center gap-1.5 rounded-xl border border-amber-400 bg-white px-3.5 text-xs font-bold text-amber-900 shadow-xs transition hover:bg-amber-100 active:scale-95"
+                    >
+                      <Download className="size-3.5 text-amber-700" /> CSV 파일 다운로드 ({filtered.length}건)
+                    </button>
+                    <button
+                      type="button"
+                      onClick={handleCopyGoogleSheets}
+                      className="inline-flex h-9 items-center gap-1.5 rounded-xl border border-amber-400 bg-white px-3.5 text-xs font-bold text-amber-900 shadow-xs transition hover:bg-amber-100 active:scale-95"
+                    >
+                      <Copy className="size-3.5 text-amber-700" /> {copySuccess ? '복사 완료! (붙여넣기 가능)' : '구글 시트 복사'}
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => setActiveTab('sources')}
+                      className="inline-flex h-9 items-center gap-1.5 rounded-xl bg-emerald-700 px-3.5 text-xs font-bold text-white shadow-xs transition hover:bg-emerald-800 active:scale-95"
+                    >
+                      <Globe className="size-3.5" /> 35개 밴드 & 출처 허브 보기
+                    </button>
+                    <button
+                      type="button"
+                      onClick={handleLogoutAdmin}
+                      title="관리자 로그아웃"
+                      className="inline-flex h-9 items-center gap-1 rounded-xl border border-slate-300 bg-white px-2.5 text-xs font-medium text-slate-600 shadow-xs transition hover:bg-slate-100"
+                    >
+                      <LogOut className="size-3 text-slate-500" /> 끄기
+                    </button>
+                  </div>
+                </div>
+              </section>
+            )}
+
             {/* 히어로 배너 */}
             <section className="mb-6">
               <div className="flex flex-col justify-between gap-4 md:flex-row md:items-end">
@@ -602,6 +658,7 @@ export function TournamentExplorer({ tournaments }: { tournaments: Tournament[] 
 
                 <div className="flex flex-wrap items-center gap-2">
                   <Button
+                    type="button"
                     variant="outline"
                     size="sm"
                     onClick={handleGetGpsLocation}
@@ -609,14 +666,20 @@ export function TournamentExplorer({ tournaments }: { tournaments: Tournament[] 
                     aria-label="현재 위치 GPS 자동 감지"
                     className="h-8 gap-1 rounded-xl border-emerald-300 bg-white text-xs font-bold text-emerald-800 shadow-sm hover:bg-emerald-50"
                   >
-                    <LocateFixed className="size-3.5 text-emerald-600" />
-                    {isLocating ? '위치 감지 중...' : '내 위치(GPS) 찾기'}
+                    <LocateFixed className={`size-3.5 text-emerald-600 ${isLocating ? 'animate-spin' : ''}`} />
+                    {isLocating ? '위치 측정 중...' : '내 위치(GPS) 찾기'}
                   </Button>
 
                   <select
+                    value={
+                      PRESET_LOCATIONS.find(
+                        (p) =>
+                          Math.abs(p.coords.lat - userLocation.coords.lat) < 0.01 &&
+                          Math.abs(p.coords.lng - userLocation.coords.lng) < 0.01
+                      )?.id || ''
+                    }
                     onChange={(e) => handleSelectPresetLocation(e.target.value)}
                     aria-label="지역/구 직접 선택"
-                    defaultValue="gwangjin"
                     className="h-8 rounded-xl border border-emerald-300 bg-white px-2.5 text-xs font-semibold text-slate-800 outline-none shadow-sm hover:border-emerald-500"
                   >
                     <option value="" disabled>
@@ -658,29 +721,26 @@ export function TournamentExplorer({ tournaments }: { tournaments: Tournament[] 
               <FilterRow label="상태" items={statuses} value={status} onChange={(val) => setStatus(val as StatusFilter)} />
               <FilterRow label="지역" items={regions} value={region} onChange={setRegion} />
               <FilterRow label="구분" items={categories} value={category} onChange={setCategory} />
-              
-              {/* 관리자 모드 전용 동적 출처 필터 (개수 뱃지 포함 & flex-wrap 줄바꿈) */}
-              {isAdmin && (
-                <div className="flex items-start gap-2 border-t border-slate-100 pt-2">
-                  <span className="w-12 shrink-0 pt-1 text-xs font-bold text-amber-800">출처(관리)</span>
-                  <div className="flex flex-wrap gap-1.5">
-                    {dynamicSources.map((item) => (
-                      <button
-                        key={item.value}
-                        type="button"
-                        onClick={() => setSource(item.value)}
-                        className={`rounded-full border px-3 py-1 text-xs font-medium transition ${
-                          source === item.value
-                            ? 'border-emerald-700 bg-emerald-700 font-bold text-white shadow-sm'
-                            : 'border-slate-200 bg-white text-slate-600 hover:border-slate-300 hover:bg-slate-50'
-                        }`}
-                      >
-                        {item.label}
-                      </button>
-                    ))}
-                  </div>
+              {/* 10대 플랫폼 출처 필터 (모든 사용자에게 상시 노출) */}
+              <div className="flex items-start gap-2 border-t border-slate-100 pt-2">
+                <span className="w-12 shrink-0 pt-1 text-xs font-semibold text-muted-foreground">출처</span>
+                <div className="flex flex-wrap gap-1.5">
+                  {dynamicSources.map((item) => (
+                    <button
+                      key={item.value}
+                      type="button"
+                      onClick={() => setSource(item.value)}
+                      className={`rounded-full border px-3 py-1 text-xs font-medium transition ${
+                        source === item.value
+                          ? 'border-emerald-700 bg-emerald-700 font-bold text-white shadow-sm'
+                          : 'border-slate-200 bg-white text-slate-600 hover:border-slate-300 hover:bg-slate-50'
+                      }`}
+                    >
+                      {item.label}
+                    </button>
+                  ))}
                 </div>
-              )}
+              </div>
             </section>
 
             {/* 목록 컨트롤 (정렬 & 뷰 3단 전환) */}
