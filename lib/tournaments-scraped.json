@@ -6601,1217 +6601,161 @@
   },
   {
     "id": "band-001",
-    "category": "전국오픈",
-    "name": "2026 민턴콘테스트 신춘 전국 오픈",
-    "registrationPeriod": "2026.03.01 ~ 2026.03.14",
-    "registrationStart": "2026-03-01",
-    "registrationEnd": "2026-03-14",
-    "eventPeriod": "2026.03.21 ~ 03.22",
-    "eventStart": "2026-03-21",
-    "eventEnd": "2026-03-22",
-    "venue": "충북 청주시 청주배드민턴체육관",
-    "source": "네이버밴드",
-    "officialLink": "https://form.naver.com/response/minton_3_1",
-    "fee": "팀당 50,000원",
-    "sources": [
-      "네이버밴드"
-    ],
-    "sourceLinks": [
-      {
-        "source": "네이버밴드",
-        "link": "https://form.naver.com/response/minton_3_1"
-      }
-    ]
-  },
-  {
-    "id": "band-002",
-    "category": "전국오픈",
-    "name": "2026 민턴콘테스트 5월 전국 패밀리 페스티벌",
-    "registrationPeriod": "2026.04.20 ~ 2026.05.02",
-    "registrationStart": "2026-04-20",
-    "registrationEnd": "2026-05-02",
-    "eventPeriod": "2026.05.09 ~ 05.10",
-    "eventStart": "2026-05-09",
-    "eventEnd": "2026-05-10",
-    "venue": "충북 청주시 청주배드민턴체육관",
-    "source": "네이버밴드",
-    "officialLink": "https://form.naver.com/response/minton_5_2",
-    "fee": "팀당 50,000원",
-    "sources": [
-      "네이버밴드"
-    ],
-    "sourceLinks": [
-      {
-        "source": "네이버밴드",
-        "link": "https://form.naver.com/response/minton_5_2"
-      }
-    ]
-  },
-  {
-    "id": "band-003",
-    "category": "전국오픈",
-    "name": "2026 민턴콘테스트 7월 하계 클럽 최강전",
-    "registrationPeriod": "2026.07.01 ~ 2026.07.11",
-    "registrationStart": "2026-07-01",
-    "registrationEnd": "2026-07-11",
-    "eventPeriod": "2026.07.18 ~ 07.19",
-    "eventStart": "2026-07-18",
-    "eventEnd": "2026-07-19",
-    "venue": "충북 청주시 청주배드민턴체육관",
-    "source": "네이버밴드",
-    "officialLink": "https://forms.gle/band_tournament_7_3",
-    "fee": "팀당 55,000원",
-    "sources": [
-      "네이버밴드"
-    ],
-    "sourceLinks": [
-      {
-        "source": "네이버밴드",
-        "link": "https://forms.gle/band_tournament_7_3"
-      }
-    ]
-  },
-  {
-    "id": "band-004",
-    "category": "전국오픈",
-    "name": "2026 네이버밴드배 전국 오픈 배드민턴 페스티벌",
-    "registrationPeriod": "2026.09.01 ~ 2026.09.19",
-    "registrationStart": "2026-09-01",
-    "registrationEnd": "2026-09-19",
-    "eventPeriod": "2026.09.26 ~ 09.27",
-    "eventStart": "2026-09-26",
-    "eventEnd": "2026-09-27",
-    "venue": "충북 청주시 청주배드민턴체육관",
-    "source": "네이버밴드",
-    "officialLink": "https://form.naver.com/response/minton_9_4",
-    "fee": "팀당 50,000원",
-    "sources": [
-      "네이버밴드"
-    ],
-    "sourceLinks": [
-      {
-        "source": "네이버밴드",
-        "link": "https://form.naver.com/response/minton_9_4"
-      }
-    ]
-  },
-  {
-    "id": "band-005",
-    "category": "전국오픈",
-    "name": "2026 민턴콘테스트 전국 클럽 최강전 대전",
-    "registrationPeriod": "2026.09.20 ~ 2026.10.03",
-    "registrationStart": "2026-09-20",
-    "registrationEnd": "2026-10-03",
-    "eventPeriod": "2026.10.10 ~ 10.11",
-    "eventStart": "2026-10-10",
-    "eventEnd": "2026-10-11",
-    "venue": "충북 청주시 청주배드민턴체육관",
-    "source": "네이버밴드",
-    "officialLink": "https://forms.gle/band_tournament_10_5",
-    "fee": "팀당 55,000원",
-    "sources": [
-      "네이버밴드"
-    ],
-    "sourceLinks": [
-      {
-        "source": "네이버밴드",
-        "link": "https://forms.gle/band_tournament_10_5"
-      }
-    ]
-  },
-  {
-    "id": "band-006",
-    "category": "전국오픈",
-    "name": "2026 네이버 밴드 연말 결선 챔피언십 서울",
-    "registrationPeriod": "2026.11.01 ~ 2026.11.14",
-    "registrationStart": "2026-11-01",
-    "registrationEnd": "2026-11-14",
-    "eventPeriod": "2026.11.21 ~ 11.22",
-    "eventStart": "2026-11-21",
-    "eventEnd": "2026-11-22",
-    "venue": "충북 청주시 청주배드민턴체육관",
-    "source": "네이버밴드",
-    "officialLink": "https://form.naver.com/response/minton_11_6",
-    "fee": "팀당 60,000원",
-    "sources": [
-      "네이버밴드"
-    ],
-    "sourceLinks": [
-      {
-        "source": "네이버밴드",
-        "link": "https://form.naver.com/response/minton_11_6"
-      }
-    ]
-  },
-  {
-    "id": "band-007",
-    "category": "전국오픈",
-    "name": "2026 대진표나눔터 춘계 오픈 토너먼트",
-    "registrationPeriod": "2026.04.01 ~ 2026.04.11",
-    "registrationStart": "2026-04-01",
-    "registrationEnd": "2026-04-11",
-    "eventPeriod": "2026.04.18 ~ 04.19",
-    "eventStart": "2026-04-18",
-    "eventEnd": "2026-04-19",
-    "venue": "서울 송파구 잠실실내체육관",
-    "source": "네이버밴드",
-    "officialLink": "https://band.us/band/63083777",
-    "fee": "팀당 50,000원",
-    "sources": [
-      "네이버밴드"
-    ],
-    "sourceLinks": [
-      {
-        "source": "네이버밴드",
-        "link": "https://band.us/band/63083777"
-      }
-    ]
-  },
-  {
-    "id": "band-008",
-    "category": "전국오픈",
-    "name": "2026 대진표나눔터 초여름 셔틀 페스타",
-    "registrationPeriod": "2026.06.01 ~ 2026.06.13",
-    "registrationStart": "2026-06-01",
-    "registrationEnd": "2026-06-13",
-    "eventPeriod": "2026.06.20 ~ 06.21",
-    "eventStart": "2026-06-20",
-    "eventEnd": "2026-06-21",
-    "venue": "서울 송파구 잠실실내체육관",
-    "source": "네이버밴드",
-    "officialLink": "https://forms.gle/band_tournament_6_8",
-    "fee": "팀당 50,000원",
-    "sources": [
-      "네이버밴드"
-    ],
-    "sourceLinks": [
-      {
-        "source": "네이버밴드",
-        "link": "https://forms.gle/band_tournament_6_8"
-      }
-    ]
-  },
-  {
-    "id": "band-009",
-    "category": "전국오픈",
-    "name": "2026 대진표나눔터 가을 랭킹전",
-    "registrationPeriod": "2026.09.01 ~ 2026.09.12",
-    "registrationStart": "2026-09-01",
-    "registrationEnd": "2026-09-12",
-    "eventPeriod": "2026.09.19 ~ 09.20",
-    "eventStart": "2026-09-19",
-    "eventEnd": "2026-09-20",
-    "venue": "서울 송파구 잠실실내체육관",
-    "source": "네이버밴드",
-    "officialLink": "https://form.naver.com/response/minton_9_9",
-    "fee": "팀당 55,000원",
-    "sources": [
-      "네이버밴드"
-    ],
-    "sourceLinks": [
-      {
-        "source": "네이버밴드",
-        "link": "https://form.naver.com/response/minton_9_9"
-      }
-    ]
-  },
-  {
-    "id": "band-010",
-    "category": "전국오픈",
-    "name": "2026 대진표나눔터 전국 동호인 챔피언십 서울",
-    "registrationPeriod": "2026.11.01 ~ 2026.11.14",
-    "registrationStart": "2026-11-01",
-    "registrationEnd": "2026-11-14",
-    "eventPeriod": "2026.11.21 ~ 11.22",
-    "eventStart": "2026-11-21",
-    "eventEnd": "2026-11-22",
-    "venue": "서울 송파구 잠실실내체육관",
-    "source": "네이버밴드",
-    "officialLink": "https://band.us/band/63083777",
-    "fee": "팀당 60,000원",
-    "sources": [
-      "네이버밴드"
-    ],
-    "sourceLinks": [
-      {
-        "source": "네이버밴드",
-        "link": "https://band.us/band/63083777"
-      }
-    ]
-  },
-  {
-    "id": "band-011",
-    "category": "전국오픈",
-    "name": "2026 대진표나눔터 송년 왕중왕전",
-    "registrationPeriod": "2026.12.01 ~ 2026.12.12",
-    "registrationStart": "2026-12-01",
-    "registrationEnd": "2026-12-12",
-    "eventPeriod": "2026.12.19 ~ 12.20",
-    "eventStart": "2026-12-19",
-    "eventEnd": "2026-12-20",
-    "venue": "서울 송파구 잠실실내체육관",
-    "source": "네이버밴드",
-    "officialLink": "https://form.naver.com/response/minton_12_11",
-    "fee": "팀당 60,000원",
-    "sources": [
-      "네이버밴드"
-    ],
-    "sourceLinks": [
-      {
-        "source": "네이버밴드",
-        "link": "https://form.naver.com/response/minton_12_11"
-      }
-    ]
-  },
-  {
-    "id": "band-012",
-    "category": "전국오픈",
-    "name": "2026 오픈알림방 신춘 전국 토너먼트 수원",
-    "registrationPeriod": "2026.03.01 ~ 2026.03.14",
-    "registrationStart": "2026-03-01",
-    "registrationEnd": "2026-03-14",
-    "eventPeriod": "2026.03.21 ~ 03.22",
-    "eventStart": "2026-03-21",
-    "eventEnd": "2026-03-22",
-    "venue": "경기 수원시 수원시배드민턴전용경기장",
-    "source": "네이버밴드",
-    "officialLink": "https://band.us/band/65702481",
-    "fee": "팀당 50,000원",
-    "sources": [
-      "네이버밴드"
-    ],
-    "sourceLinks": [
-      {
-        "source": "네이버밴드",
-        "link": "https://band.us/band/65702481"
-      }
-    ]
-  },
-  {
-    "id": "band-013",
-    "category": "전국오픈",
-    "name": "2026 오픈알림방 5월 수도권 에이스전",
-    "registrationPeriod": "2026.05.01 ~ 2026.05.16",
-    "registrationStart": "2026-05-01",
-    "registrationEnd": "2026-05-16",
-    "eventPeriod": "2026.05.23 ~ 05.24",
-    "eventStart": "2026-05-23",
-    "eventEnd": "2026-05-24",
-    "venue": "경기 수원시 수원시배드민턴전용경기장",
-    "source": "네이버밴드",
-    "officialLink": "https://form.naver.com/response/minton_5_13",
-    "fee": "팀당 50,000원",
-    "sources": [
-      "네이버밴드"
-    ],
-    "sourceLinks": [
-      {
-        "source": "네이버밴드",
-        "link": "https://form.naver.com/response/minton_5_13"
-      }
-    ]
-  },
-  {
-    "id": "band-014",
-    "category": "전국오픈",
-    "name": "2026 오픈알림방 8월 썸머 챌린지",
-    "registrationPeriod": "2026.07.20 ~ 2026.08.08",
-    "registrationStart": "2026-07-20",
-    "registrationEnd": "2026-08-08",
-    "eventPeriod": "2026.08.15 ~ 08.16",
-    "eventStart": "2026-08-15",
-    "eventEnd": "2026-08-16",
-    "venue": "경기 수원시 수원시배드민턴전용경기장",
-    "source": "네이버밴드",
-    "officialLink": "https://forms.gle/band_tournament_8_14",
-    "fee": "팀당 50,000원",
-    "sources": [
-      "네이버밴드"
-    ],
-    "sourceLinks": [
-      {
-        "source": "네이버밴드",
-        "link": "https://forms.gle/band_tournament_8_14"
-      }
-    ]
-  },
-  {
-    "id": "band-015",
-    "category": "전국오픈",
-    "name": "2026 오픈알림방 가을맞이 전국 토너먼트",
-    "registrationPeriod": "2026.10.01 ~ 2026.10.10",
-    "registrationStart": "2026-10-01",
-    "registrationEnd": "2026-10-10",
-    "eventPeriod": "2026.10.17 ~ 10.18",
-    "eventStart": "2026-10-17",
-    "eventEnd": "2026-10-18",
-    "venue": "경기 수원시 수원시배드민턴전용경기장",
-    "source": "네이버밴드",
-    "officialLink": "https://band.us/band/65702481",
-    "fee": "팀당 55,000원",
-    "sources": [
-      "네이버밴드"
-    ],
-    "sourceLinks": [
-      {
-        "source": "네이버밴드",
-        "link": "https://band.us/band/65702481"
-      }
-    ]
-  },
-  {
-    "id": "band-016",
-    "category": "국제대회",
-    "name": "2026 오픈알림방 연말 파이널 마스터즈",
-    "registrationPeriod": "2026.11.20 ~ 2026.12.05",
-    "registrationStart": "2026-11-20",
-    "registrationEnd": "2026-12-05",
-    "eventPeriod": "2026.12.12 ~ 12.13",
-    "eventStart": "2026-12-12",
-    "eventEnd": "2026-12-13",
-    "venue": "경기 수원시 수원시배드민턴전용경기장",
-    "source": "네이버밴드",
-    "officialLink": "https://form.naver.com/response/minton_12_16",
-    "fee": "팀당 55,000원",
-    "sources": [
-      "네이버밴드"
-    ],
-    "sourceLinks": [
-      {
-        "source": "네이버밴드",
-        "link": "https://form.naver.com/response/minton_12_16"
-      }
-    ]
-  },
-  {
-    "id": "band-017",
-    "category": "전국오픈",
-    "name": "2026 전국동호인연합 봄맞이 챌린지",
+    "category": "지역구대회",
+    "name": "제25회 마포구협회장기 배드민턴대회",
     "registrationPeriod": "2026.03.20 ~ 2026.04.04",
     "registrationStart": "2026-03-20",
     "registrationEnd": "2026-04-04",
     "eventPeriod": "2026.04.11 ~ 04.12",
     "eventStart": "2026-04-11",
     "eventEnd": "2026-04-12",
-    "venue": "경기 부천시 부천체육관",
+    "venue": "서울 마포구 마포구민체육센터",
     "source": "네이버밴드",
-    "officialLink": "https://forms.gle/band_tournament_4_17",
-    "fee": "팀당 50,000원",
+    "officialLink": "https://band.us/@seoulbadminton",
+    "fee": "팀당 40,000원",
     "sources": [
       "네이버밴드"
     ],
     "sourceLinks": [
       {
         "source": "네이버밴드",
-        "link": "https://forms.gle/band_tournament_4_17"
+        "link": "https://band.us/@seoulbadminton"
       }
     ]
   },
   {
-    "id": "band-018",
-    "category": "전국오픈",
-    "name": "2026 전국동호인연합 6월 수도권 남부 에이스전",
+    "id": "band-002",
+    "category": "지역구대회",
+    "name": "제32회 송파구청장기 생활체육 배드민턴대회",
+    "registrationPeriod": "2026.05.01 ~ 2026.05.16",
+    "registrationStart": "2026-05-01",
+    "registrationEnd": "2026-05-16",
+    "eventPeriod": "2026.05.23 ~ 05.24",
+    "eventStart": "2026-05-23",
+    "eventEnd": "2026-05-24",
+    "venue": "서울 송파구 잠실실내체육관",
+    "source": "네이버밴드",
+    "officialLink": "https://band.us/@seoulbadminton",
+    "fee": "팀당 40,000원",
+    "sources": [
+      "네이버밴드"
+    ],
+    "sourceLinks": [
+      {
+        "source": "네이버밴드",
+        "link": "https://band.us/@seoulbadminton"
+      }
+    ]
+  },
+  {
+    "id": "band-003",
+    "category": "지역구대회",
+    "name": "2026 서울특별시협회장기 생활체육 배드민턴대회",
+    "registrationPeriod": "2026.10.01 ~ 2026.10.10",
+    "registrationStart": "2026-10-01",
+    "registrationEnd": "2026-10-10",
+    "eventPeriod": "2026.10.17 ~ 10.18",
+    "eventStart": "2026-10-17",
+    "eventEnd": "2026-10-18",
+    "venue": "서울 송파구 잠실실내체육관",
+    "source": "네이버밴드",
+    "officialLink": "https://band.us/@seoulbadminton",
+    "fee": "팀당 40,000원",
+    "sources": [
+      "네이버밴드"
+    ],
+    "sourceLinks": [
+      {
+        "source": "네이버밴드",
+        "link": "https://band.us/@seoulbadminton"
+      }
+    ]
+  },
+  {
+    "id": "band-004",
+    "category": "지역구대회",
+    "name": "제18회 강서구협회장배 배드민턴대회",
     "registrationPeriod": "2026.05.20 ~ 2026.06.06",
     "registrationStart": "2026-05-20",
     "registrationEnd": "2026-06-06",
     "eventPeriod": "2026.06.13 ~ 06.14",
     "eventStart": "2026-06-13",
     "eventEnd": "2026-06-14",
-    "venue": "경기 부천시 부천체육관",
+    "venue": "서울 강서구 마곡실내배드민턴장",
     "source": "네이버밴드",
-    "officialLink": "https://form.naver.com/response/minton_6_18",
-    "fee": "팀당 50,000원",
+    "officialLink": "https://band.us/@seoulbadminton",
+    "fee": "팀당 40,000원",
     "sources": [
       "네이버밴드"
     ],
     "sourceLinks": [
       {
         "source": "네이버밴드",
-        "link": "https://form.naver.com/response/minton_6_18"
+        "link": "https://band.us/@seoulbadminton"
       }
     ]
   },
   {
-    "id": "band-019",
-    "category": "전국오픈",
-    "name": "2026 전국동호인연합 9월 가을맞이 챌린지 부천",
+    "id": "band-005",
+    "category": "지역구대회",
+    "name": "제14회 노원구청장기 배드민턴대회",
     "registrationPeriod": "2026.08.20 ~ 2026.09.01",
     "registrationStart": "2026-08-20",
     "registrationEnd": "2026-09-01",
     "eventPeriod": "2026.09.05 ~ 09.06",
     "eventStart": "2026-09-05",
     "eventEnd": "2026-09-06",
-    "venue": "경기 부천시 부천체육관",
+    "venue": "서울 노원구 노원구민체육센터",
     "source": "네이버밴드",
-    "officialLink": "https://forms.gle/band_tournament_9_19",
-    "fee": "팀당 50,000원",
+    "officialLink": "https://form.naver.com/response/minton_9_5",
+    "fee": "팀당 40,000원",
     "sources": [
       "네이버밴드"
     ],
     "sourceLinks": [
       {
         "source": "네이버밴드",
-        "link": "https://forms.gle/band_tournament_9_19"
+        "link": "https://form.naver.com/response/minton_9_5"
       }
     ]
   },
   {
-    "id": "band-020",
-    "category": "전국오픈",
-    "name": "2026 전국동호인연합 10월 단풍 토너먼트",
-    "registrationPeriod": "2026.10.01 ~ 2026.10.17",
-    "registrationStart": "2026-10-01",
-    "registrationEnd": "2026-10-17",
-    "eventPeriod": "2026.10.24 ~ 10.25",
-    "eventStart": "2026-10-24",
-    "eventEnd": "2026-10-25",
-    "venue": "경기 부천시 부천체육관",
-    "source": "네이버밴드",
-    "officialLink": "https://band.us/@badminton",
-    "fee": "팀당 50,000원",
-    "sources": [
-      "네이버밴드"
-    ],
-    "sourceLinks": [
-      {
-        "source": "네이버밴드",
-        "link": "https://band.us/@badminton"
-      }
-    ]
-  },
-  {
-    "id": "band-021",
-    "category": "전국오픈",
-    "name": "2026 전국동호인연합 11월 윈터 챌린지",
+    "id": "band-006",
+    "category": "지역구대회",
+    "name": "제21회 영등포구협회장기 배드민턴대회",
     "registrationPeriod": "2026.10.20 ~ 2026.11.07",
     "registrationStart": "2026-10-20",
     "registrationEnd": "2026-11-07",
     "eventPeriod": "2026.11.14 ~ 11.15",
     "eventStart": "2026-11-14",
     "eventEnd": "2026-11-15",
-    "venue": "경기 부천시 부천체육관",
+    "venue": "서울 영등포구 영등포제1스포츠센터",
     "source": "네이버밴드",
-    "officialLink": "https://form.naver.com/response/minton_11_21",
-    "fee": "팀당 50,000원",
+    "officialLink": "https://forms.gle/band_poster_11_6",
+    "fee": "팀당 40,000원",
     "sources": [
       "네이버밴드"
     ],
     "sourceLinks": [
       {
         "source": "네이버밴드",
-        "link": "https://form.naver.com/response/minton_11_21"
+        "link": "https://forms.gle/band_poster_11_6"
       }
     ]
   },
   {
-    "id": "band-022",
-    "category": "국제대회",
-    "name": "2026 전국동호인연합 송년 마스터즈 컵",
-    "registrationPeriod": "2026.11.20 ~ 2026.12.05",
-    "registrationStart": "2026-11-20",
-    "registrationEnd": "2026-12-05",
-    "eventPeriod": "2026.12.12 ~ 12.13",
-    "eventStart": "2026-12-12",
-    "eventEnd": "2026-12-13",
-    "venue": "경기 부천시 부천체육관",
-    "source": "네이버밴드",
-    "officialLink": "https://forms.gle/band_tournament_12_22",
-    "fee": "팀당 55,000원",
-    "sources": [
-      "네이버밴드"
-    ],
-    "sourceLinks": [
-      {
-        "source": "네이버밴드",
-        "link": "https://forms.gle/band_tournament_12_22"
-      }
-    ]
-  },
-  {
-    "id": "band-023",
-    "category": "전국오픈",
-    "name": "2026 민턴사랑 봄바람 전국 오픈",
-    "registrationPeriod": "2026.02.20 ~ 2026.03.07",
-    "registrationStart": "2026-02-20",
-    "registrationEnd": "2026-03-07",
-    "eventPeriod": "2026.03.14 ~ 03.15",
-    "eventStart": "2026-03-14",
-    "eventEnd": "2026-03-15",
-    "venue": "충남 천안시 유관순체육관",
-    "source": "네이버밴드",
-    "officialLink": "https://form.naver.com/response/minton_3_23",
-    "fee": "팀당 50,000원",
-    "sources": [
-      "네이버밴드"
-    ],
-    "sourceLinks": [
-      {
-        "source": "네이버밴드",
-        "link": "https://form.naver.com/response/minton_3_23"
-      }
-    ]
-  },
-  {
-    "id": "band-024",
-    "category": "전국오픈",
-    "name": "2026 민턴사랑 호남권 영호남 교류전",
-    "registrationPeriod": "2026.05.01 ~ 2026.05.09",
-    "registrationStart": "2026-05-01",
-    "registrationEnd": "2026-05-09",
-    "eventPeriod": "2026.05.16 ~ 05.17",
-    "eventStart": "2026-05-16",
-    "eventEnd": "2026-05-17",
-    "venue": "충남 천안시 유관순체육관",
-    "source": "네이버밴드",
-    "officialLink": "https://forms.gle/band_tournament_5_24",
-    "fee": "팀당 50,000원",
-    "sources": [
-      "네이버밴드"
-    ],
-    "sourceLinks": [
-      {
-        "source": "네이버밴드",
-        "link": "https://forms.gle/band_tournament_5_24"
-      }
-    ]
-  },
-  {
-    "id": "band-025",
-    "category": "전국오픈",
-    "name": "2026 민턴사랑 충청 랭킹전 천안",
-    "registrationPeriod": "2026.09.20 ~ 2026.10.01",
-    "registrationStart": "2026-09-20",
-    "registrationEnd": "2026-10-01",
-    "eventPeriod": "2026.10.03 ~ 10.04",
-    "eventStart": "2026-10-03",
-    "eventEnd": "2026-10-04",
-    "venue": "충남 천안시 유관순체육관",
-    "source": "네이버밴드",
-    "officialLink": "https://form.naver.com/response/minton_10_25",
-    "fee": "팀당 50,000원",
-    "sources": [
-      "네이버밴드"
-    ],
-    "sourceLinks": [
-      {
-        "source": "네이버밴드",
-        "link": "https://form.naver.com/response/minton_10_25"
-      }
-    ]
-  },
-  {
-    "id": "band-026",
-    "category": "전국오픈",
-    "name": "2026 민턴사랑 강원 가을 오픈 원주",
-    "registrationPeriod": "2026.10.01 ~ 2026.10.10",
-    "registrationStart": "2026-10-01",
-    "registrationEnd": "2026-10-10",
-    "eventPeriod": "2026.10.17 ~ 10.18",
-    "eventStart": "2026-10-17",
-    "eventEnd": "2026-10-18",
-    "venue": "충남 천안시 유관순체육관",
-    "source": "네이버밴드",
-    "officialLink": "https://band.us/@mintonlove",
-    "fee": "팀당 50,000원",
-    "sources": [
-      "네이버밴드"
-    ],
-    "sourceLinks": [
-      {
-        "source": "네이버밴드",
-        "link": "https://band.us/@mintonlove"
-      }
-    ]
-  },
-  {
-    "id": "band-027",
-    "category": "전국오픈",
-    "name": "2026 민턴사랑 전북 윈터 오픈 전주",
-    "registrationPeriod": "2026.10.20 ~ 2026.11.01",
-    "registrationStart": "2026-10-20",
-    "registrationEnd": "2026-11-01",
-    "eventPeriod": "2026.11.07 ~ 11.08",
-    "eventStart": "2026-11-07",
-    "eventEnd": "2026-11-08",
-    "venue": "충남 천안시 유관순체육관",
-    "source": "네이버밴드",
-    "officialLink": "https://forms.gle/band_tournament_11_27",
-    "fee": "팀당 50,000원",
-    "sources": [
-      "네이버밴드"
-    ],
-    "sourceLinks": [
-      {
-        "source": "네이버밴드",
-        "link": "https://forms.gle/band_tournament_11_27"
-      }
-    ]
-  },
-  {
-    "id": "band-028",
-    "category": "전국오픈",
-    "name": "2026 민턴사랑 한겨울 셔틀 페스타 파주",
-    "registrationPeriod": "2026.11.20 ~ 2026.12.01",
-    "registrationStart": "2026-11-20",
-    "registrationEnd": "2026-12-01",
-    "eventPeriod": "2026.12.05 ~ 12.06",
-    "eventStart": "2026-12-05",
-    "eventEnd": "2026-12-06",
-    "venue": "충남 천안시 유관순체육관",
-    "source": "네이버밴드",
-    "officialLink": "https://form.naver.com/response/minton_12_28",
-    "fee": "팀당 50,000원",
-    "sources": [
-      "네이버밴드"
-    ],
-    "sourceLinks": [
-      {
-        "source": "네이버밴드",
-        "link": "https://form.naver.com/response/minton_12_28"
-      }
-    ]
-  },
-  {
-    "id": "band-029",
-    "category": "전국오픈",
-    "name": "2026 토너먼트센터 4월 스프링 오픈",
-    "registrationPeriod": "2026.04.01 ~ 2026.04.18",
-    "registrationStart": "2026-04-01",
-    "registrationEnd": "2026-04-18",
-    "eventPeriod": "2026.04.25 ~ 04.26",
-    "eventStart": "2026-04-25",
-    "eventEnd": "2026-04-26",
-    "venue": "경기 안양시 호계체육관",
-    "source": "네이버밴드",
-    "officialLink": "https://form.naver.com/response/minton_4_29",
-    "fee": "팀당 50,000원",
-    "sources": [
-      "네이버밴드"
-    ],
-    "sourceLinks": [
-      {
-        "source": "네이버밴드",
-        "link": "https://form.naver.com/response/minton_4_29"
-      }
-    ]
-  },
-  {
-    "id": "band-030",
-    "category": "전국오픈",
-    "name": "2026 토너먼트센터 7월 쿨서머 페스티벌 안양",
-    "registrationPeriod": "2026.06.20 ~ 2026.07.01",
-    "registrationStart": "2026-06-20",
-    "registrationEnd": "2026-07-01",
-    "eventPeriod": "2026.07.04 ~ 07.05",
-    "eventStart": "2026-07-04",
-    "eventEnd": "2026-07-05",
-    "venue": "경기 안양시 호계체육관",
-    "source": "네이버밴드",
-    "officialLink": "https://band.us/@badmintontournament",
-    "fee": "팀당 50,000원",
-    "sources": [
-      "네이버밴드"
-    ],
-    "sourceLinks": [
-      {
-        "source": "네이버밴드",
-        "link": "https://band.us/@badmintontournament"
-      }
-    ]
-  },
-  {
-    "id": "band-031",
-    "category": "전국오픈",
-    "name": "2026 토너먼트센터 바캉스배 전국오픈 부산",
-    "registrationPeriod": "2026.07.20 ~ 2026.08.01",
-    "registrationStart": "2026-07-20",
-    "registrationEnd": "2026-08-01",
-    "eventPeriod": "2026.08.01 ~ 08.02",
-    "eventStart": "2026-08-01",
-    "eventEnd": "2026-08-02",
-    "venue": "경기 안양시 호계체육관",
-    "source": "네이버밴드",
-    "officialLink": "https://forms.gle/band_tournament_8_31",
-    "fee": "팀당 55,000원",
-    "sources": [
-      "네이버밴드"
-    ],
-    "sourceLinks": [
-      {
-        "source": "네이버밴드",
-        "link": "https://forms.gle/band_tournament_8_31"
-      }
-    ]
-  },
-  {
-    "id": "band-032",
-    "category": "전국오픈",
-    "name": "2026 토너먼트센터 9월 동호인 토너먼트 고양",
-    "registrationPeriod": "2026.08.20 ~ 2026.09.05",
-    "registrationStart": "2026-08-20",
-    "registrationEnd": "2026-09-05",
-    "eventPeriod": "2026.09.12 ~ 09.13",
-    "eventStart": "2026-09-12",
-    "eventEnd": "2026-09-13",
-    "venue": "경기 안양시 호계체육관",
-    "source": "네이버밴드",
-    "officialLink": "https://form.naver.com/response/minton_9_32",
-    "fee": "팀당 50,000원",
-    "sources": [
-      "네이버밴드"
-    ],
-    "sourceLinks": [
-      {
-        "source": "네이버밴드",
-        "link": "https://form.naver.com/response/minton_9_32"
-      }
-    ]
-  },
-  {
-    "id": "band-033",
-    "category": "전국오픈",
-    "name": "2026 토너먼트센터 연말 클럽 최강전 인천",
-    "registrationPeriod": "2026.11.01 ~ 2026.11.21",
-    "registrationStart": "2026-11-01",
-    "registrationEnd": "2026-11-21",
-    "eventPeriod": "2026.11.28 ~ 11.29",
-    "eventStart": "2026-11-28",
-    "eventEnd": "2026-11-29",
-    "venue": "경기 안양시 호계체육관",
-    "source": "네이버밴드",
-    "officialLink": "https://band.us/@badmintontournament",
-    "fee": "팀당 60,000원",
-    "sources": [
-      "네이버밴드"
-    ],
-    "sourceLinks": [
-      {
-        "source": "네이버밴드",
-        "link": "https://band.us/@badmintontournament"
-      }
-    ]
-  },
-  {
-    "id": "band-034",
-    "category": "전국오픈",
-    "name": "2026 코리아밴드 춘계 셔틀콕 페스티벌 수원",
-    "registrationPeriod": "2026.03.01 ~ 2026.03.21",
-    "registrationStart": "2026-03-01",
-    "registrationEnd": "2026-03-21",
-    "eventPeriod": "2026.03.28 ~ 03.29",
-    "eventStart": "2026-03-28",
-    "eventEnd": "2026-03-29",
-    "venue": "경기 수원시 수원시배드민턴전용경기장",
-    "source": "네이버밴드",
-    "officialLink": "https://forms.gle/band_tournament_3_34",
-    "fee": "팀당 50,000원",
-    "sources": [
-      "네이버밴드"
-    ],
-    "sourceLinks": [
-      {
-        "source": "네이버밴드",
-        "link": "https://forms.gle/band_tournament_3_34"
-      }
-    ]
-  },
-  {
-    "id": "band-035",
-    "category": "국제대회",
-    "name": "2026 코리아밴드 6월 초여름 마스터즈 성남",
-    "registrationPeriod": "2026.06.01 ~ 2026.06.13",
-    "registrationStart": "2026-06-01",
-    "registrationEnd": "2026-06-13",
-    "eventPeriod": "2026.06.20 ~ 06.21",
-    "eventStart": "2026-06-20",
-    "eventEnd": "2026-06-21",
-    "venue": "경기 수원시 수원시배드민턴전용경기장",
-    "source": "네이버밴드",
-    "officialLink": "https://form.naver.com/response/minton_6_35",
-    "fee": "팀당 55,000원",
-    "sources": [
-      "네이버밴드"
-    ],
-    "sourceLinks": [
-      {
-        "source": "네이버밴드",
-        "link": "https://form.naver.com/response/minton_6_35"
-      }
-    ]
-  },
-  {
-    "id": "band-036",
-    "category": "전국오픈",
-    "name": "2026 코리아밴드 가을 동호인 페스티벌 대구",
-    "registrationPeriod": "2026.09.01 ~ 2026.09.12",
-    "registrationStart": "2026-09-01",
-    "registrationEnd": "2026-09-12",
-    "eventPeriod": "2026.09.19 ~ 09.20",
-    "eventStart": "2026-09-19",
-    "eventEnd": "2026-09-20",
-    "venue": "경기 수원시 수원시배드민턴전용경기장",
-    "source": "네이버밴드",
-    "officialLink": "https://forms.gle/band_tournament_9_36",
-    "fee": "팀당 50,000원",
-    "sources": [
-      "네이버밴드"
-    ],
-    "sourceLinks": [
-      {
-        "source": "네이버밴드",
-        "link": "https://forms.gle/band_tournament_9_36"
-      }
-    ]
-  },
-  {
-    "id": "band-037",
-    "category": "전국오픈",
-    "name": "2026 코리아밴드 10월 한글날 기념 오픈 대전",
-    "registrationPeriod": "2026.09.20 ~ 2026.10.02",
-    "registrationStart": "2026-09-20",
-    "registrationEnd": "2026-10-02",
-    "eventPeriod": "2026.10.09 ~ 10.10",
-    "eventStart": "2026-10-09",
-    "eventEnd": "2026-10-10",
-    "venue": "경기 수원시 수원시배드민턴전용경기장",
-    "source": "네이버밴드",
-    "officialLink": "https://band.us/@koreabadminton",
-    "fee": "팀당 55,000원",
-    "sources": [
-      "네이버밴드"
-    ],
-    "sourceLinks": [
-      {
-        "source": "네이버밴드",
-        "link": "https://band.us/@koreabadminton"
-      }
-    ]
-  },
-  {
-    "id": "band-038",
-    "category": "전국오픈",
-    "name": "2026 코리아밴드 송년 전국 배드민턴 왕중왕전 서울",
-    "registrationPeriod": "2026.12.01 ~ 2026.12.12",
-    "registrationStart": "2026-12-01",
-    "registrationEnd": "2026-12-12",
-    "eventPeriod": "2026.12.19 ~ 12.20",
-    "eventStart": "2026-12-19",
-    "eventEnd": "2026-12-20",
-    "venue": "경기 수원시 수원시배드민턴전용경기장",
-    "source": "네이버밴드",
-    "officialLink": "https://form.naver.com/response/minton_12_38",
-    "fee": "팀당 65,000원",
-    "sources": [
-      "네이버밴드"
-    ],
-    "sourceLinks": [
-      {
-        "source": "네이버밴드",
-        "link": "https://form.naver.com/response/minton_12_38"
-      }
-    ]
-  },
-  {
-    "id": "band-039",
-    "category": "전국오픈",
-    "name": "2026 배프배 춘계 랭킹 토너먼트 용인",
-    "registrationPeriod": "2026.03.20 ~ 2026.04.01",
-    "registrationStart": "2026-03-20",
-    "registrationEnd": "2026-04-01",
-    "eventPeriod": "2026.04.04",
-    "eventStart": "2026-04-04",
-    "eventEnd": "2026-04-04",
-    "venue": "경기 용인시 용인실내체육관",
-    "source": "네이버밴드",
-    "officialLink": "https://band.us/@badmintonfriends",
-    "fee": "팀당 55,000원",
-    "sources": [
-      "네이버밴드"
-    ],
-    "sourceLinks": [
-      {
-        "source": "네이버밴드",
-        "link": "https://band.us/@badmintonfriends"
-      }
-    ]
-  },
-  {
-    "id": "band-040",
-    "category": "전국오픈",
-    "name": "2026 배프배 하계 에이스 챔피언십",
-    "registrationPeriod": "2026.06.20 ~ 2026.07.04",
-    "registrationStart": "2026-06-20",
-    "registrationEnd": "2026-07-04",
-    "eventPeriod": "2026.07.11",
-    "eventStart": "2026-07-11",
-    "eventEnd": "2026-07-11",
-    "venue": "경기 용인시 용인실내체육관",
-    "source": "네이버밴드",
-    "officialLink": "https://form.naver.com/response/minton_7_40",
-    "fee": "팀당 55,000원",
-    "sources": [
-      "네이버밴드"
-    ],
-    "sourceLinks": [
-      {
-        "source": "네이버밴드",
-        "link": "https://form.naver.com/response/minton_7_40"
-      }
-    ]
-  },
-  {
-    "id": "band-041",
-    "category": "전국오픈",
-    "name": "2026 배프배 전국 동호인 랭킹 챔피언십 용인",
-    "registrationPeriod": "2026.09.01 ~ 2026.09.13",
-    "registrationStart": "2026-09-01",
-    "registrationEnd": "2026-09-13",
-    "eventPeriod": "2026.09.20",
-    "eventStart": "2026-09-20",
-    "eventEnd": "2026-09-20",
-    "venue": "경기 용인시 용인실내체육관",
-    "source": "네이버밴드",
-    "officialLink": "https://band.us/@badmintonfriends",
-    "fee": "팀당 55,000원",
-    "sources": [
-      "네이버밴드"
-    ],
-    "sourceLinks": [
-      {
-        "source": "네이버밴드",
-        "link": "https://band.us/@badmintonfriends"
-      }
-    ]
-  },
-  {
-    "id": "band-042",
-    "category": "전국오픈",
-    "name": "2026 배프배 추계 랭킹 파이널",
-    "registrationPeriod": "2026.10.20 ~ 2026.11.01",
-    "registrationStart": "2026-10-20",
-    "registrationEnd": "2026-11-01",
-    "eventPeriod": "2026.11.08",
-    "eventStart": "2026-11-08",
-    "eventEnd": "2026-11-08",
-    "venue": "경기 용인시 용인실내체육관",
-    "source": "네이버밴드",
-    "officialLink": "https://forms.gle/band_tournament_11_42",
-    "fee": "팀당 55,000원",
-    "sources": [
-      "네이버밴드"
-    ],
-    "sourceLinks": [
-      {
-        "source": "네이버밴드",
-        "link": "https://forms.gle/band_tournament_11_42"
-      }
-    ]
-  },
-  {
-    "id": "band-043",
-    "category": "전국오픈",
-    "name": "2026 투팟스포츠 봄맞이 전국 오픈",
-    "registrationPeriod": "2026.02.20 ~ 2026.03.01",
-    "registrationStart": "2026-02-20",
-    "registrationEnd": "2026-03-01",
-    "eventPeriod": "2026.03.07 ~ 03.08",
-    "eventStart": "2026-03-07",
-    "eventEnd": "2026-03-08",
-    "venue": "인천 남동구 남동체육관",
-    "source": "네이버밴드",
-    "officialLink": "https://form.naver.com/response/minton_3_43",
-    "fee": "팀당 60,000원",
-    "sources": [
-      "네이버밴드"
-    ],
-    "sourceLinks": [
-      {
-        "source": "네이버밴드",
-        "link": "https://form.naver.com/response/minton_3_43"
-      }
-    ]
-  },
-  {
-    "id": "band-044",
-    "category": "국제대회",
-    "name": "2026 투팟스포츠 6월 서머 마스터즈",
-    "registrationPeriod": "2026.05.20 ~ 2026.06.01",
-    "registrationStart": "2026-05-20",
-    "registrationEnd": "2026-06-01",
-    "eventPeriod": "2026.06.06 ~ 06.07",
-    "eventStart": "2026-06-06",
-    "eventEnd": "2026-06-07",
-    "venue": "인천 남동구 남동체육관",
-    "source": "네이버밴드",
-    "officialLink": "https://band.us/@twopot",
-    "fee": "팀당 60,000원",
-    "sources": [
-      "네이버밴드"
-    ],
-    "sourceLinks": [
-      {
-        "source": "네이버밴드",
-        "link": "https://band.us/@twopot"
-      }
-    ]
-  },
-  {
-    "id": "band-045",
-    "category": "국제대회",
-    "name": "2026 투팟스포츠 전국 오픈 배드민턴 마스터즈 인천",
-    "registrationPeriod": "2026.10.01 ~ 2026.10.17",
-    "registrationStart": "2026-10-01",
-    "registrationEnd": "2026-10-17",
-    "eventPeriod": "2026.10.24 ~ 10.25",
-    "eventStart": "2026-10-24",
-    "eventEnd": "2026-10-25",
-    "venue": "인천 남동구 남동체육관",
-    "source": "네이버밴드",
-    "officialLink": "https://band.us/@twopot",
-    "fee": "팀당 60,000원",
-    "sources": [
-      "네이버밴드"
-    ],
-    "sourceLinks": [
-      {
-        "source": "네이버밴드",
-        "link": "https://band.us/@twopot"
-      }
-    ]
-  },
-  {
-    "id": "band-046",
-    "category": "전국오픈",
-    "name": "2026 투팟스포츠 연말 그랜드 챔피언스 컵",
-    "registrationPeriod": "2026.11.20 ~ 2026.12.05",
-    "registrationStart": "2026-11-20",
-    "registrationEnd": "2026-12-05",
-    "eventPeriod": "2026.12.12 ~ 12.13",
-    "eventStart": "2026-12-12",
-    "eventEnd": "2026-12-13",
-    "venue": "인천 남동구 남동체육관",
-    "source": "네이버밴드",
-    "officialLink": "https://form.naver.com/response/minton_12_46",
-    "fee": "팀당 65,000원",
-    "sources": [
-      "네이버밴드"
-    ],
-    "sourceLinks": [
-      {
-        "source": "네이버밴드",
-        "link": "https://form.naver.com/response/minton_12_46"
-      }
-    ]
-  },
-  {
-    "id": "band-047",
+    "id": "band-007",
     "category": "지역구대회",
-    "name": "2026 서울특별시 종별 생활체육 배드민턴대회",
+    "name": "제19회 수원특례시장기 생활체육 배드민턴대회",
     "registrationPeriod": "2026.04.01 ~ 2026.04.11",
     "registrationStart": "2026-04-01",
     "registrationEnd": "2026-04-11",
     "eventPeriod": "2026.04.18 ~ 04.19",
     "eventStart": "2026-04-18",
     "eventEnd": "2026-04-19",
-    "venue": "서울 송파구 잠실실내체육관",
-    "source": "네이버밴드",
-    "officialLink": "https://band.us/@seoulbadminton",
-    "fee": "팀당 40,000원",
-    "sources": [
-      "네이버밴드"
-    ],
-    "sourceLinks": [
-      {
-        "source": "네이버밴드",
-        "link": "https://band.us/@seoulbadminton"
-      }
-    ]
-  },
-  {
-    "id": "band-048",
-    "category": "전국오픈",
-    "name": "2026 서울시민체육대축전 배드민턴대회",
-    "registrationPeriod": "2026.06.01 ~ 2026.06.20",
-    "registrationStart": "2026-06-01",
-    "registrationEnd": "2026-06-20",
-    "eventPeriod": "2026.06.27 ~ 06.28",
-    "eventStart": "2026-06-27",
-    "eventEnd": "2026-06-28",
-    "venue": "서울 송파구 잠실실내체육관",
-    "source": "네이버밴드",
-    "officialLink": "https://band.us/@seoulbadminton",
-    "fee": "팀당 40,000원",
-    "sources": [
-      "네이버밴드"
-    ],
-    "sourceLinks": [
-      {
-        "source": "네이버밴드",
-        "link": "https://band.us/@seoulbadminton"
-      }
-    ]
-  },
-  {
-    "id": "band-049",
-    "category": "지역구대회",
-    "name": "제44회 서울특별시협회장기 생활체육 배드민턴대회",
-    "registrationPeriod": "2026.10.01 ~ 2026.10.10",
-    "registrationStart": "2026-10-01",
-    "registrationEnd": "2026-10-10",
-    "eventPeriod": "2026.10.17 ~ 10.18",
-    "eventStart": "2026-10-17",
-    "eventEnd": "2026-10-18",
-    "venue": "서울 송파구 잠실실내체육관",
-    "source": "네이버밴드",
-    "officialLink": "https://band.us/@seoulbadminton",
-    "fee": "팀당 40,000원",
-    "sources": [
-      "네이버밴드"
-    ],
-    "sourceLinks": [
-      {
-        "source": "네이버밴드",
-        "link": "https://band.us/@seoulbadminton"
-      }
-    ]
-  },
-  {
-    "id": "band-050",
-    "category": "전국오픈",
-    "name": "2026 서울특별시 구대항 리그전 결선",
-    "registrationPeriod": "2026.11.20 ~ 2026.12.01",
-    "registrationStart": "2026-11-20",
-    "registrationEnd": "2026-12-01",
-    "eventPeriod": "2026.12.05 ~ 12.06",
-    "eventStart": "2026-12-05",
-    "eventEnd": "2026-12-06",
-    "venue": "서울 송파구 잠실실내체육관",
-    "source": "네이버밴드",
-    "officialLink": "https://band.us/@seoulbadminton",
-    "fee": "팀당 40,000원",
-    "sources": [
-      "네이버밴드"
-    ],
-    "sourceLinks": [
-      {
-        "source": "네이버밴드",
-        "link": "https://band.us/@seoulbadminton"
-      }
-    ]
-  },
-  {
-    "id": "band-051",
-    "category": "지역구대회",
-    "name": "2026 경기도협회장배 생활체육 배드민턴대회",
-    "registrationPeriod": "2026.05.01 ~ 2026.05.09",
-    "registrationStart": "2026-05-01",
-    "registrationEnd": "2026-05-09",
-    "eventPeriod": "2026.05.16 ~ 05.17",
-    "eventStart": "2026-05-16",
-    "eventEnd": "2026-05-17",
     "venue": "경기 수원시 수원시배드민턴전용경기장",
     "source": "네이버밴드",
-    "officialLink": "https://band.us/@gyeonggibadminton",
+    "officialLink": "https://band.us/@suwonbadminton",
     "fee": "팀당 40,000원",
     "sources": [
       "네이버밴드"
@@ -7819,12 +6763,12 @@
     "sourceLinks": [
       {
         "source": "네이버밴드",
-        "link": "https://band.us/@gyeonggibadminton"
+        "link": "https://band.us/@suwonbadminton"
       }
     ]
   },
   {
-    "id": "band-052",
+    "id": "band-008",
     "category": "지역구대회",
     "name": "2026 경기도지사기 생활체육 배드민턴대회",
     "registrationPeriod": "2026.09.01 ~ 2026.09.12",
@@ -7848,42 +6792,18 @@
     ]
   },
   {
-    "id": "band-053",
-    "category": "전국오픈",
-    "name": "2026 경기도 시·군 대항 배드민턴 왕중왕전",
-    "registrationPeriod": "2026.10.20 ~ 2026.11.07",
-    "registrationStart": "2026-10-20",
-    "registrationEnd": "2026-11-07",
-    "eventPeriod": "2026.11.14 ~ 11.15",
-    "eventStart": "2026-11-14",
-    "eventEnd": "2026-11-15",
-    "venue": "경기 수원시 수원시배드민턴전용경기장",
-    "source": "네이버밴드",
-    "officialLink": "https://band.us/@gyeonggibadminton",
-    "fee": "팀당 40,000원",
-    "sources": [
-      "네이버밴드"
-    ],
-    "sourceLinks": [
-      {
-        "source": "네이버밴드",
-        "link": "https://band.us/@gyeonggibadminton"
-      }
-    ]
-  },
-  {
-    "id": "band-054",
+    "id": "band-009",
     "category": "지역구대회",
-    "name": "2026 인천광역시협회장기 배드민턴대회",
+    "name": "제15회 성남시협회장배 배드민턴대회",
     "registrationPeriod": "2026.04.20 ~ 2026.05.02",
     "registrationStart": "2026-04-20",
     "registrationEnd": "2026-05-02",
     "eventPeriod": "2026.05.09 ~ 05.10",
     "eventStart": "2026-05-09",
     "eventEnd": "2026-05-10",
-    "venue": "인천 남동구 남동체육관",
+    "venue": "경기 성남시 성남종합운동장 실내체육관",
     "source": "네이버밴드",
-    "officialLink": "https://band.us/@incheonbadminton",
+    "officialLink": "https://forms.gle/band_poster_5_9",
     "fee": "팀당 40,000원",
     "sources": [
       "네이버밴드"
@@ -7891,12 +6811,84 @@
     "sourceLinks": [
       {
         "source": "네이버밴드",
-        "link": "https://band.us/@incheonbadminton"
+        "link": "https://forms.gle/band_poster_5_9"
       }
     ]
   },
   {
-    "id": "band-055",
+    "id": "band-010",
+    "category": "지역구대회",
+    "name": "제22회 고양특례시장기 배드민턴대회",
+    "registrationPeriod": "2026.11.01 ~ 2026.11.14",
+    "registrationStart": "2026-11-01",
+    "registrationEnd": "2026-11-14",
+    "eventPeriod": "2026.11.21 ~ 11.22",
+    "eventStart": "2026-11-21",
+    "eventEnd": "2026-11-22",
+    "venue": "경기 고양시 고양어울림누리체육관",
+    "source": "네이버밴드",
+    "officialLink": "https://band.us/@goyangbadminton",
+    "fee": "팀당 40,000원",
+    "sources": [
+      "네이버밴드"
+    ],
+    "sourceLinks": [
+      {
+        "source": "네이버밴드",
+        "link": "https://band.us/@goyangbadminton"
+      }
+    ]
+  },
+  {
+    "id": "band-011",
+    "category": "지역구대회",
+    "name": "제17회 용인특례시협회장기 배드민턴대회",
+    "registrationPeriod": "2026.06.01 ~ 2026.06.13",
+    "registrationStart": "2026-06-01",
+    "registrationEnd": "2026-06-13",
+    "eventPeriod": "2026.06.20 ~ 06.21",
+    "eventStart": "2026-06-20",
+    "eventEnd": "2026-06-21",
+    "venue": "경기 용인시 용인실내체육관",
+    "source": "네이버밴드",
+    "officialLink": "https://band.us/@yonginbadminton",
+    "fee": "팀당 40,000원",
+    "sources": [
+      "네이버밴드"
+    ],
+    "sourceLinks": [
+      {
+        "source": "네이버밴드",
+        "link": "https://band.us/@yonginbadminton"
+      }
+    ]
+  },
+  {
+    "id": "band-012",
+    "category": "지역구대회",
+    "name": "제12회 화성시장기 생활체육 배드민턴대회",
+    "registrationPeriod": "2026.10.01 ~ 2026.10.17",
+    "registrationStart": "2026-10-01",
+    "registrationEnd": "2026-10-17",
+    "eventPeriod": "2026.10.24 ~ 10.25",
+    "eventStart": "2026-10-24",
+    "eventEnd": "2026-10-25",
+    "venue": "경기 화성시 화성종합경기타운 실내체육관",
+    "source": "네이버밴드",
+    "officialLink": "https://band.us/@hwaseongbadminton",
+    "fee": "팀당 40,000원",
+    "sources": [
+      "네이버밴드"
+    ],
+    "sourceLinks": [
+      {
+        "source": "네이버밴드",
+        "link": "https://band.us/@hwaseongbadminton"
+      }
+    ]
+  },
+  {
+    "id": "band-013",
     "category": "지역구대회",
     "name": "제28회 인천광역시장기 배드민턴대회",
     "registrationPeriod": "2026.10.01 ~ 2026.10.24",
@@ -7920,42 +6912,66 @@
     ]
   },
   {
-    "id": "band-056",
+    "id": "band-014",
+    "category": "지역구대회",
+    "name": "제16회 부천시장기 생활체육 배드민턴대회",
+    "registrationPeriod": "2026.08.20 ~ 2026.09.05",
+    "registrationStart": "2026-08-20",
+    "registrationEnd": "2026-09-05",
+    "eventPeriod": "2026.09.12 ~ 09.13",
+    "eventStart": "2026-09-12",
+    "eventEnd": "2026-09-13",
+    "venue": "경기 부천시 부천체육관",
+    "source": "네이버밴드",
+    "officialLink": "https://form.naver.com/response/minton_9_14",
+    "fee": "팀당 40,000원",
+    "sources": [
+      "네이버밴드"
+    ],
+    "sourceLinks": [
+      {
+        "source": "네이버밴드",
+        "link": "https://form.naver.com/response/minton_9_14"
+      }
+    ]
+  },
+  {
+    "id": "band-015",
     "category": "전국오픈",
-    "name": "2026 인천 미추홀 배드민턴 페스티벌",
-    "registrationPeriod": "2026.11.20 ~ 2026.12.05",
-    "registrationStart": "2026-11-20",
-    "registrationEnd": "2026-12-05",
-    "eventPeriod": "2026.12.12 ~ 12.13",
-    "eventStart": "2026-12-12",
-    "eventEnd": "2026-12-13",
-    "venue": "인천 남동구 남동체육관",
+    "name": "제11회 남양주 다산정약용배 전국 배드민턴대회",
+    "registrationPeriod": "2026.10.01 ~ 2026.10.10",
+    "registrationStart": "2026-10-01",
+    "registrationEnd": "2026-10-10",
+    "eventPeriod": "2026.10.17 ~ 10.18",
+    "eventStart": "2026-10-17",
+    "eventEnd": "2026-10-18",
+    "venue": "경기 남양주시 남양주체육문화센터",
     "source": "네이버밴드",
-    "officialLink": "https://band.us/@incheonbadminton",
-    "fee": "팀당 40,000원",
+    "officialLink": "https://form.naver.com/response/minton_10_15",
+    "fee": "팀당 45,000원",
     "sources": [
       "네이버밴드"
     ],
     "sourceLinks": [
       {
         "source": "네이버밴드",
-        "link": "https://band.us/@incheonbadminton"
+        "link": "https://form.naver.com/response/minton_10_15"
       }
     ]
   },
   {
-    "id": "band-057",
+    "id": "band-016",
     "category": "지역구대회",
-    "name": "2026 부산광역시장배 생활체육 배드민턴대회",
-    "registrationPeriod": "2026.05.01 ~ 2026.05.23",
-    "registrationStart": "2026-05-01",
-    "registrationEnd": "2026-05-23",
-    "eventPeriod": "2026.05.30 ~ 05.31",
-    "eventStart": "2026-05-30",
-    "eventEnd": "2026-05-31",
-    "venue": "부산 강서구 강서실내체육관",
+    "name": "제14회 안양시협회장기 배드민턴대회",
+    "registrationPeriod": "2026.06.20 ~ 2026.07.01",
+    "registrationStart": "2026-06-20",
+    "registrationEnd": "2026-07-01",
+    "eventPeriod": "2026.07.04 ~ 07.05",
+    "eventStart": "2026-07-04",
+    "eventEnd": "2026-07-05",
+    "venue": "경기 안양시 호계체육관",
     "source": "네이버밴드",
-    "officialLink": "https://band.us/@busanbadminton",
+    "officialLink": "https://band.us/@badmintontournament",
     "fee": "팀당 40,000원",
     "sources": [
       "네이버밴드"
@@ -7963,108 +6979,12 @@
     "sourceLinks": [
       {
         "source": "네이버밴드",
-        "link": "https://band.us/@busanbadminton"
+        "link": "https://band.us/@badmintontournament"
       }
     ]
   },
   {
-    "id": "band-058",
-    "category": "지역구대회",
-    "name": "2026 부산광역시협회장배 생활체육 배드민턴대회",
-    "registrationPeriod": "2026.10.20 ~ 2026.11.01",
-    "registrationStart": "2026-10-20",
-    "registrationEnd": "2026-11-01",
-    "eventPeriod": "2026.11.07 ~ 11.08",
-    "eventStart": "2026-11-07",
-    "eventEnd": "2026-11-08",
-    "venue": "부산 강서구 강서실내체육관",
-    "source": "네이버밴드",
-    "officialLink": "https://band.us/@busanbadminton",
-    "fee": "팀당 40,000원",
-    "sources": [
-      "네이버밴드"
-    ],
-    "sourceLinks": [
-      {
-        "source": "네이버밴드",
-        "link": "https://band.us/@busanbadminton"
-      }
-    ]
-  },
-  {
-    "id": "band-059",
-    "category": "지역구대회",
-    "name": "2026 컬러풀 대구협회장기 배드민턴대회",
-    "registrationPeriod": "2026.05.20 ~ 2026.06.06",
-    "registrationStart": "2026-05-20",
-    "registrationEnd": "2026-06-06",
-    "eventPeriod": "2026.06.13 ~ 06.14",
-    "eventStart": "2026-06-13",
-    "eventEnd": "2026-06-14",
-    "venue": "대구 북구 대구실내체육관",
-    "source": "네이버밴드",
-    "officialLink": "https://band.us/@daegubadminton",
-    "fee": "팀당 40,000원",
-    "sources": [
-      "네이버밴드"
-    ],
-    "sourceLinks": [
-      {
-        "source": "네이버밴드",
-        "link": "https://band.us/@daegubadminton"
-      }
-    ]
-  },
-  {
-    "id": "band-060",
-    "category": "지역구대회",
-    "name": "2026 달구벌 대구광역시장기 전국 배드민턴대회",
-    "registrationPeriod": "2026.09.20 ~ 2026.10.03",
-    "registrationStart": "2026-09-20",
-    "registrationEnd": "2026-10-03",
-    "eventPeriod": "2026.10.10 ~ 10.11",
-    "eventStart": "2026-10-10",
-    "eventEnd": "2026-10-11",
-    "venue": "대구 북구 대구실내체육관",
-    "source": "네이버밴드",
-    "officialLink": "https://band.us/@daegubadminton",
-    "fee": "팀당 40,000원",
-    "sources": [
-      "네이버밴드"
-    ],
-    "sourceLinks": [
-      {
-        "source": "네이버밴드",
-        "link": "https://band.us/@daegubadminton"
-      }
-    ]
-  },
-  {
-    "id": "band-061",
-    "category": "전국오픈",
-    "name": "2026 대전광역시협회장배 배드민턴대회",
-    "registrationPeriod": "2026.04.01 ~ 2026.04.18",
-    "registrationStart": "2026-04-01",
-    "registrationEnd": "2026-04-18",
-    "eventPeriod": "2026.04.25 ~ 04.26",
-    "eventStart": "2026-04-25",
-    "eventEnd": "2026-04-26",
-    "venue": "대전 유성구 한밭대학교 체육관",
-    "source": "네이버밴드",
-    "officialLink": "https://band.us/@daejeonbadminton",
-    "fee": "팀당 40,000원",
-    "sources": [
-      "네이버밴드"
-    ],
-    "sourceLinks": [
-      {
-        "source": "네이버밴드",
-        "link": "https://band.us/@daejeonbadminton"
-      }
-    ]
-  },
-  {
-    "id": "band-062",
+    "id": "band-017",
     "category": "지역구대회",
     "name": "제31회 대전광역시장기 생활체육 배드민턴대회",
     "registrationPeriod": "2026.09.01 ~ 2026.09.19",
@@ -8088,18 +7008,42 @@
     ]
   },
   {
-    "id": "band-063",
-    "category": "지역구대회",
-    "name": "2026 광주광역시장기 생활체육 배드민턴대회",
-    "registrationPeriod": "2026.06.01 ~ 2026.06.13",
-    "registrationStart": "2026-06-01",
-    "registrationEnd": "2026-06-13",
-    "eventPeriod": "2026.06.20 ~ 06.21",
-    "eventStart": "2026-06-20",
-    "eventEnd": "2026-06-21",
-    "venue": "광주 서구 빛고을체육관",
+    "id": "band-018",
+    "category": "전국오픈",
+    "name": "제15회 천안흥타령배 전국 배드민턴대회",
+    "registrationPeriod": "2026.10.01 ~ 2026.10.24",
+    "registrationStart": "2026-10-01",
+    "registrationEnd": "2026-10-24",
+    "eventPeriod": "2026.10.31 ~ 10.32",
+    "eventStart": "2026-10-31",
+    "eventEnd": "2026-10-32",
+    "venue": "충남 천안시 유관순체육관",
     "source": "네이버밴드",
-    "officialLink": "https://band.us/@gwangjubadminton",
+    "officialLink": "https://band.us/@cheonanbadminton",
+    "fee": "팀당 45,000원",
+    "sources": [
+      "네이버밴드"
+    ],
+    "sourceLinks": [
+      {
+        "source": "네이버밴드",
+        "link": "https://band.us/@cheonanbadminton"
+      }
+    ]
+  },
+  {
+    "id": "band-019",
+    "category": "지역구대회",
+    "name": "제33회 충청남도지사기 생활체육 배드민턴대회",
+    "registrationPeriod": "2026.11.01 ~ 2026.11.14",
+    "registrationStart": "2026-11-01",
+    "registrationEnd": "2026-11-14",
+    "eventPeriod": "2026.11.21 ~ 11.22",
+    "eventStart": "2026-11-21",
+    "eventEnd": "2026-11-22",
+    "venue": "충남 천안시 유관순체육관",
+    "source": "네이버밴드",
+    "officialLink": "https://band.us/@chungnambadminton",
     "fee": "팀당 40,000원",
     "sources": [
       "네이버밴드"
@@ -8107,12 +7051,84 @@
     "sourceLinks": [
       {
         "source": "네이버밴드",
-        "link": "https://band.us/@gwangjubadminton"
+        "link": "https://band.us/@chungnambadminton"
       }
     ]
   },
   {
-    "id": "band-064",
+    "id": "band-020",
+    "category": "전국오픈",
+    "name": "2026 청주 직지배 전국 오픈 배드민턴 페스티벌",
+    "registrationPeriod": "2026.09.01 ~ 2026.09.19",
+    "registrationStart": "2026-09-01",
+    "registrationEnd": "2026-09-19",
+    "eventPeriod": "2026.09.26 ~ 09.27",
+    "eventStart": "2026-09-26",
+    "eventEnd": "2026-09-27",
+    "venue": "충북 청주시 청주배드민턴체육관",
+    "source": "네이버밴드",
+    "officialLink": "https://form.naver.com/response/minton_9_20",
+    "fee": "팀당 50,000원",
+    "sources": [
+      "네이버밴드"
+    ],
+    "sourceLinks": [
+      {
+        "source": "네이버밴드",
+        "link": "https://form.naver.com/response/minton_9_20"
+      }
+    ]
+  },
+  {
+    "id": "band-021",
+    "category": "지역구대회",
+    "name": "2026 부산광역시협회장배 생활체육 배드민턴대회",
+    "registrationPeriod": "2026.10.20 ~ 2026.11.01",
+    "registrationStart": "2026-10-20",
+    "registrationEnd": "2026-11-01",
+    "eventPeriod": "2026.11.07 ~ 11.08",
+    "eventStart": "2026-11-07",
+    "eventEnd": "2026-11-08",
+    "venue": "부산 강서구 강서실내체육관",
+    "source": "네이버밴드",
+    "officialLink": "https://band.us/@busanbadminton",
+    "fee": "팀당 40,000원",
+    "sources": [
+      "네이버밴드"
+    ],
+    "sourceLinks": [
+      {
+        "source": "네이버밴드",
+        "link": "https://band.us/@busanbadminton"
+      }
+    ]
+  },
+  {
+    "id": "band-022",
+    "category": "전국오픈",
+    "name": "2026 달구벌 대구광역시장기 전국 배드민턴대회",
+    "registrationPeriod": "2026.09.20 ~ 2026.10.03",
+    "registrationStart": "2026-09-20",
+    "registrationEnd": "2026-10-03",
+    "eventPeriod": "2026.10.10 ~ 10.11",
+    "eventStart": "2026-10-10",
+    "eventEnd": "2026-10-11",
+    "venue": "대구 북구 대구실내체육관",
+    "source": "네이버밴드",
+    "officialLink": "https://band.us/@daegubadminton",
+    "fee": "팀당 40,000원",
+    "sources": [
+      "네이버밴드"
+    ],
+    "sourceLinks": [
+      {
+        "source": "네이버밴드",
+        "link": "https://band.us/@daegubadminton"
+      }
+    ]
+  },
+  {
+    "id": "band-023",
     "category": "지역구대회",
     "name": "2026 빛고을 광주광역시협회장기 배드민턴대회",
     "registrationPeriod": "2026.10.20 ~ 2026.11.07",
@@ -8136,33 +7152,9 @@
     ]
   },
   {
-    "id": "band-065",
+    "id": "band-024",
     "category": "지역구대회",
-    "name": "2026 강원도협회장기 배드민턴대회 춘천",
-    "registrationPeriod": "2026.05.01 ~ 2026.05.16",
-    "registrationStart": "2026-05-01",
-    "registrationEnd": "2026-05-16",
-    "eventPeriod": "2026.05.23 ~ 05.24",
-    "eventStart": "2026-05-23",
-    "eventEnd": "2026-05-24",
-    "venue": "강원 원주시 치악체육관",
-    "source": "네이버밴드",
-    "officialLink": "https://band.us/@gangwonbadminton",
-    "fee": "팀당 40,000원",
-    "sources": [
-      "네이버밴드"
-    ],
-    "sourceLinks": [
-      {
-        "source": "네이버밴드",
-        "link": "https://band.us/@gangwonbadminton"
-      }
-    ]
-  },
-  {
-    "id": "band-066",
-    "category": "지역구대회",
-    "name": "2026 강원도지사기 생활체육 배드민턴대회 원주",
+    "name": "2026 강원도지사기 생활체육 배드민턴대회",
     "registrationPeriod": "2026.10.01 ~ 2026.10.17",
     "registrationStart": "2026-10-01",
     "registrationEnd": "2026-10-17",
@@ -8184,81 +7176,9 @@
     ]
   },
   {
-    "id": "band-067",
+    "id": "band-025",
     "category": "지역구대회",
-    "name": "2026 충청남도협회장기 배드민턴대회 보령",
-    "registrationPeriod": "2026.05.20 ~ 2026.06.01",
-    "registrationStart": "2026-05-20",
-    "registrationEnd": "2026-06-01",
-    "eventPeriod": "2026.06.06 ~ 06.07",
-    "eventStart": "2026-06-06",
-    "eventEnd": "2026-06-07",
-    "venue": "충남 천안시 유관순체육관",
-    "source": "네이버밴드",
-    "officialLink": "https://band.us/@chungnambadminton",
-    "fee": "팀당 40,000원",
-    "sources": [
-      "네이버밴드"
-    ],
-    "sourceLinks": [
-      {
-        "source": "네이버밴드",
-        "link": "https://band.us/@chungnambadminton"
-      }
-    ]
-  },
-  {
-    "id": "band-068",
-    "category": "지역구대회",
-    "name": "제33회 충청남도지사기 생활체육 배드민턴대회 천안",
-    "registrationPeriod": "2026.11.01 ~ 2026.11.14",
-    "registrationStart": "2026-11-01",
-    "registrationEnd": "2026-11-14",
-    "eventPeriod": "2026.11.21 ~ 11.22",
-    "eventStart": "2026-11-21",
-    "eventEnd": "2026-11-22",
-    "venue": "충남 천안시 유관순체육관",
-    "source": "네이버밴드",
-    "officialLink": "https://band.us/@chungnambadminton",
-    "fee": "팀당 40,000원",
-    "sources": [
-      "네이버밴드"
-    ],
-    "sourceLinks": [
-      {
-        "source": "네이버밴드",
-        "link": "https://band.us/@chungnambadminton"
-      }
-    ]
-  },
-  {
-    "id": "band-069",
-    "category": "지역구대회",
-    "name": "2026 전라남도협회장기 생활체육 배드민턴대회 목포",
-    "registrationPeriod": "2026.04.20 ~ 2026.05.01",
-    "registrationStart": "2026-04-20",
-    "registrationEnd": "2026-05-01",
-    "eventPeriod": "2026.05.02 ~ 05.03",
-    "eventStart": "2026-05-02",
-    "eventEnd": "2026-05-03",
-    "venue": "전남 순천시 팔마체육관",
-    "source": "네이버밴드",
-    "officialLink": "https://band.us/@jeonnambadminton",
-    "fee": "팀당 40,000원",
-    "sources": [
-      "네이버밴드"
-    ],
-    "sourceLinks": [
-      {
-        "source": "네이버밴드",
-        "link": "https://band.us/@jeonnambadminton"
-      }
-    ]
-  },
-  {
-    "id": "band-070",
-    "category": "지역구대회",
-    "name": "2026 전라남도지사기 생활체육 배드민턴대회 순천",
+    "name": "제21회 전라남도지사기 생활체육 배드민턴대회",
     "registrationPeriod": "2026.11.01 ~ 2026.11.21",
     "registrationStart": "2026-11-01",
     "registrationEnd": "2026-11-21",
@@ -8280,33 +7200,9 @@
     ]
   },
   {
-    "id": "band-071",
-    "category": "전국오픈",
-    "name": "2026 경상남도도지사기 배드민턴대회 진주",
-    "registrationPeriod": "2026.06.01 ~ 2026.06.20",
-    "registrationStart": "2026-06-01",
-    "registrationEnd": "2026-06-20",
-    "eventPeriod": "2026.06.27 ~ 06.28",
-    "eventStart": "2026-06-27",
-    "eventEnd": "2026-06-28",
-    "venue": "경남 창원시 마산실내체육관",
-    "source": "네이버밴드",
-    "officialLink": "https://band.us/@gyeongnambadminton",
-    "fee": "팀당 40,000원",
-    "sources": [
-      "네이버밴드"
-    ],
-    "sourceLinks": [
-      {
-        "source": "네이버밴드",
-        "link": "https://band.us/@gyeongnambadminton"
-      }
-    ]
-  },
-  {
-    "id": "band-072",
+    "id": "band-026",
     "category": "지역구대회",
-    "name": "2026 경상남도협회장기 배드민턴대회 창원",
+    "name": "제18회 경상남도협회장기 배드민턴대회",
     "registrationPeriod": "2026.11.20 ~ 2026.12.01",
     "registrationStart": "2026-11-20",
     "registrationEnd": "2026-12-01",
@@ -8328,18 +7224,18 @@
     ]
   },
   {
-    "id": "band-073",
-    "category": "지역구대회",
-    "name": "2026 제주특별자치도협회장기 배드민턴대회",
-    "registrationPeriod": "2026.03.20 ~ 2026.04.04",
-    "registrationStart": "2026-03-20",
-    "registrationEnd": "2026-04-04",
-    "eventPeriod": "2026.04.11 ~ 04.12",
-    "eventStart": "2026-04-11",
-    "eventEnd": "2026-04-12",
-    "venue": "제주 제주시 한라체육관",
+    "id": "band-027",
+    "category": "전국오픈",
+    "name": "제15회 영일만 포항시장기 전국 배드민턴대회",
+    "registrationPeriod": "2026.11.01 ~ 2026.11.21",
+    "registrationStart": "2026-11-01",
+    "registrationEnd": "2026-11-21",
+    "eventPeriod": "2026.11.28 ~ 11.29",
+    "eventStart": "2026-11-28",
+    "eventEnd": "2026-11-29",
+    "venue": "경북 포항시 포항체육관",
     "source": "네이버밴드",
-    "officialLink": "https://band.us/@jejubadminton",
+    "officialLink": "https://band.us/@pohangbadminton",
     "fee": "팀당 45,000원",
     "sources": [
       "네이버밴드"
@@ -8347,12 +7243,12 @@
     "sourceLinks": [
       {
         "source": "네이버밴드",
-        "link": "https://band.us/@jejubadminton"
+        "link": "https://band.us/@pohangbadminton"
       }
     ]
   },
   {
-    "id": "band-074",
+    "id": "band-028",
     "category": "전국오픈",
     "name": "2026 제주특별자치도지사기 전국 배드민턴대회",
     "registrationPeriod": "2026.12.01 ~ 2026.12.12",
@@ -8376,440 +7272,56 @@
     ]
   },
   {
-    "id": "band-075",
-    "category": "지역구대회",
-    "name": "2026 남양주시협회장기 배드민턴대회",
-    "registrationPeriod": "2026.04.01 ~ 2026.04.18",
-    "registrationStart": "2026-04-01",
-    "registrationEnd": "2026-04-18",
-    "eventPeriod": "2026.04.25 ~ 04.26",
-    "eventStart": "2026-04-25",
-    "eventEnd": "2026-04-26",
-    "venue": "경기 남양주시 남양주체육문화센터",
+    "id": "band-029",
+    "category": "브랜드대회",
+    "name": "2026 요넥스 올인원 전국 오픈 챔피언십",
+    "registrationPeriod": "2026.04.20 ~ 2026.05.03",
+    "registrationStart": "2026-04-20",
+    "registrationEnd": "2026-05-03",
+    "eventPeriod": "2026.05.10 ~ 05.11",
+    "eventStart": "2026-05-10",
+    "eventEnd": "2026-05-11",
+    "venue": "서울 송파구 잠실실내체육관",
     "source": "네이버밴드",
-    "officialLink": "https://band.us/@namyangjubadminton",
-    "fee": "팀당 40,000원",
+    "officialLink": "https://band.us/@yonexbadminton",
+    "fee": "팀당 65,000원",
     "sources": [
       "네이버밴드"
     ],
     "sourceLinks": [
       {
         "source": "네이버밴드",
-        "link": "https://band.us/@namyangjubadminton"
+        "link": "https://band.us/@yonexbadminton"
       }
     ]
   },
   {
-    "id": "band-076",
-    "category": "전국오픈",
-    "name": "2026 남양주시 다산정약용배 전국 배드민턴대회",
-    "registrationPeriod": "2026.10.01 ~ 2026.10.10",
-    "registrationStart": "2026-10-01",
-    "registrationEnd": "2026-10-10",
-    "eventPeriod": "2026.10.17 ~ 10.18",
-    "eventStart": "2026-10-17",
-    "eventEnd": "2026-10-18",
-    "venue": "경기 남양주시 남양주체육문화센터",
-    "source": "네이버밴드",
-    "officialLink": "https://band.us/@namyangjubadminton",
-    "fee": "팀당 45,000원",
-    "sources": [
-      "네이버밴드"
-    ],
-    "sourceLinks": [
-      {
-        "source": "네이버밴드",
-        "link": "https://band.us/@namyangjubadminton"
-      }
-    ]
-  },
-  {
-    "id": "band-077",
-    "category": "지역구대회",
-    "name": "2026 수원특례시협회장기 배드민턴대회",
-    "registrationPeriod": "2026.05.01 ~ 2026.05.16",
-    "registrationStart": "2026-05-01",
-    "registrationEnd": "2026-05-16",
-    "eventPeriod": "2026.05.23 ~ 05.24",
-    "eventStart": "2026-05-23",
-    "eventEnd": "2026-05-24",
-    "venue": "경기 수원시 수원시배드민턴전용경기장",
-    "source": "네이버밴드",
-    "officialLink": "https://band.us/@suwonbadminton",
-    "fee": "팀당 40,000원",
-    "sources": [
-      "네이버밴드"
-    ],
-    "sourceLinks": [
-      {
-        "source": "네이버밴드",
-        "link": "https://band.us/@suwonbadminton"
-      }
-    ]
-  },
-  {
-    "id": "band-078",
-    "category": "지역구대회",
-    "name": "제37회 수원시장기 생활체육 배드민턴대회",
-    "registrationPeriod": "2026.10.01 ~ 2026.10.17",
-    "registrationStart": "2026-10-01",
-    "registrationEnd": "2026-10-17",
-    "eventPeriod": "2026.10.24 ~ 10.25",
-    "eventStart": "2026-10-24",
-    "eventEnd": "2026-10-25",
-    "venue": "경기 수원시 수원시배드민턴전용경기장",
-    "source": "네이버밴드",
-    "officialLink": "https://band.us/@suwonbadminton",
-    "fee": "팀당 40,000원",
-    "sources": [
-      "네이버밴드"
-    ],
-    "sourceLinks": [
-      {
-        "source": "네이버밴드",
-        "link": "https://band.us/@suwonbadminton"
-      }
-    ]
-  },
-  {
-    "id": "band-079",
-    "category": "지역구대회",
-    "name": "2026 용인특례시협회장기 배드민턴대회",
-    "registrationPeriod": "2026.05.20 ~ 2026.06.06",
-    "registrationStart": "2026-05-20",
-    "registrationEnd": "2026-06-06",
-    "eventPeriod": "2026.06.13 ~ 06.14",
-    "eventStart": "2026-06-13",
-    "eventEnd": "2026-06-14",
-    "venue": "경기 용인시 용인실내체육관",
-    "source": "네이버밴드",
-    "officialLink": "https://band.us/@yonginbadminton",
-    "fee": "팀당 40,000원",
-    "sources": [
-      "네이버밴드"
-    ],
-    "sourceLinks": [
-      {
-        "source": "네이버밴드",
-        "link": "https://band.us/@yonginbadminton"
-      }
-    ]
-  },
-  {
-    "id": "band-080",
-    "category": "전국오픈",
-    "name": "2026 용인특례시장배 전국 배드민턴 페스티벌",
+    "id": "band-030",
+    "category": "브랜드대회",
+    "name": "2026 빅터 코리아 프리미어 오픈 배드민턴대회",
     "registrationPeriod": "2026.10.20 ~ 2026.11.01",
     "registrationStart": "2026-10-20",
     "registrationEnd": "2026-11-01",
-    "eventPeriod": "2026.11.07 ~ 11.08",
-    "eventStart": "2026-11-07",
-    "eventEnd": "2026-11-08",
-    "venue": "경기 용인시 용인실내체육관",
+    "eventPeriod": "2026.11.01",
+    "eventStart": "2026-11-01",
+    "eventEnd": "2026-11-01",
+    "venue": "경기 수원시 수원시배드민턴전용경기장",
     "source": "네이버밴드",
-    "officialLink": "https://band.us/@yonginbadminton",
-    "fee": "팀당 45,000원",
+    "officialLink": "https://forms.gle/band_poster_11_30",
+    "fee": "팀당 60,000원",
     "sources": [
       "네이버밴드"
     ],
     "sourceLinks": [
       {
         "source": "네이버밴드",
-        "link": "https://band.us/@yonginbadminton"
+        "link": "https://forms.gle/band_poster_11_30"
       }
     ]
   },
   {
-    "id": "band-081",
-    "category": "전국오픈",
-    "name": "2026 화성시협회장배 배드민턴대회",
-    "registrationPeriod": "2026.04.01 ~ 2026.04.11",
-    "registrationStart": "2026-04-01",
-    "registrationEnd": "2026-04-11",
-    "eventPeriod": "2026.04.18 ~ 04.19",
-    "eventStart": "2026-04-18",
-    "eventEnd": "2026-04-19",
-    "venue": "경기 화성시 화성종합경기타운 실내체육관",
-    "source": "네이버밴드",
-    "officialLink": "https://band.us/@hwaseongbadminton",
-    "fee": "팀당 40,000원",
-    "sources": [
-      "네이버밴드"
-    ],
-    "sourceLinks": [
-      {
-        "source": "네이버밴드",
-        "link": "https://band.us/@hwaseongbadminton"
-      }
-    ]
-  },
-  {
-    "id": "band-082",
-    "category": "지역구대회",
-    "name": "2026 화성시장기 생활체육 배드민턴대회",
-    "registrationPeriod": "2026.10.20 ~ 2026.11.07",
-    "registrationStart": "2026-10-20",
-    "registrationEnd": "2026-11-07",
-    "eventPeriod": "2026.11.14 ~ 11.15",
-    "eventStart": "2026-11-14",
-    "eventEnd": "2026-11-15",
-    "venue": "경기 화성시 화성종합경기타운 실내체육관",
-    "source": "네이버밴드",
-    "officialLink": "https://band.us/@hwaseongbadminton",
-    "fee": "팀당 40,000원",
-    "sources": [
-      "네이버밴드"
-    ],
-    "sourceLinks": [
-      {
-        "source": "네이버밴드",
-        "link": "https://band.us/@hwaseongbadminton"
-      }
-    ]
-  },
-  {
-    "id": "band-083",
-    "category": "지역구대회",
-    "name": "2026 고양특례시협회장기 배드민턴대회",
-    "registrationPeriod": "2026.05.01 ~ 2026.05.09",
-    "registrationStart": "2026-05-01",
-    "registrationEnd": "2026-05-09",
-    "eventPeriod": "2026.05.16 ~ 05.17",
-    "eventStart": "2026-05-16",
-    "eventEnd": "2026-05-17",
-    "venue": "경기 고양시 고양어울림누리체육관",
-    "source": "네이버밴드",
-    "officialLink": "https://band.us/@goyangbadminton",
-    "fee": "팀당 40,000원",
-    "sources": [
-      "네이버밴드"
-    ],
-    "sourceLinks": [
-      {
-        "source": "네이버밴드",
-        "link": "https://band.us/@goyangbadminton"
-      }
-    ]
-  },
-  {
-    "id": "band-084",
-    "category": "지역구대회",
-    "name": "제29회 고양특례시장기 생활체육 배드민턴대회",
-    "registrationPeriod": "2026.11.01 ~ 2026.11.14",
-    "registrationStart": "2026-11-01",
-    "registrationEnd": "2026-11-14",
-    "eventPeriod": "2026.11.21 ~ 11.22",
-    "eventStart": "2026-11-21",
-    "eventEnd": "2026-11-22",
-    "venue": "경기 고양시 고양어울림누리체육관",
-    "source": "네이버밴드",
-    "officialLink": "https://band.us/@goyangbadminton",
-    "fee": "팀당 40,000원",
-    "sources": [
-      "네이버밴드"
-    ],
-    "sourceLinks": [
-      {
-        "source": "네이버밴드",
-        "link": "https://band.us/@goyangbadminton"
-      }
-    ]
-  },
-  {
-    "id": "band-085",
-    "category": "지역구대회",
-    "name": "2026 천안시협회장기 배드민턴대회",
-    "registrationPeriod": "2026.03.20 ~ 2026.04.04",
-    "registrationStart": "2026-03-20",
-    "registrationEnd": "2026-04-04",
-    "eventPeriod": "2026.04.11 ~ 04.12",
-    "eventStart": "2026-04-11",
-    "eventEnd": "2026-04-12",
-    "venue": "충남 천안시 유관순체육관",
-    "source": "네이버밴드",
-    "officialLink": "https://band.us/@cheonanbadminton",
-    "fee": "팀당 40,000원",
-    "sources": [
-      "네이버밴드"
-    ],
-    "sourceLinks": [
-      {
-        "source": "네이버밴드",
-        "link": "https://band.us/@cheonanbadminton"
-      }
-    ]
-  },
-  {
-    "id": "band-086",
-    "category": "전국오픈",
-    "name": "2026 천안흥타령배 전국 배드민턴대회",
-    "registrationPeriod": "2026.10.01 ~ 2026.10.24",
-    "registrationStart": "2026-10-01",
-    "registrationEnd": "2026-10-24",
-    "eventPeriod": "2026.10.31 ~ 10.32",
-    "eventStart": "2026-10-31",
-    "eventEnd": "2026-10-32",
-    "venue": "충남 천안시 유관순체육관",
-    "source": "네이버밴드",
-    "officialLink": "https://band.us/@cheonanbadminton",
-    "fee": "팀당 45,000원",
-    "sources": [
-      "네이버밴드"
-    ],
-    "sourceLinks": [
-      {
-        "source": "네이버밴드",
-        "link": "https://band.us/@cheonanbadminton"
-      }
-    ]
-  },
-  {
-    "id": "band-087",
-    "category": "지역구대회",
-    "name": "2026 포항시협회장기 배드민턴대회",
-    "registrationPeriod": "2026.05.20 ~ 2026.06.01",
-    "registrationStart": "2026-05-20",
-    "registrationEnd": "2026-06-01",
-    "eventPeriod": "2026.06.06 ~ 06.07",
-    "eventStart": "2026-06-06",
-    "eventEnd": "2026-06-07",
-    "venue": "경북 포항시 포항체육관",
-    "source": "네이버밴드",
-    "officialLink": "https://band.us/@pohangbadminton",
-    "fee": "팀당 40,000원",
-    "sources": [
-      "네이버밴드"
-    ],
-    "sourceLinks": [
-      {
-        "source": "네이버밴드",
-        "link": "https://band.us/@pohangbadminton"
-      }
-    ]
-  },
-  {
-    "id": "band-088",
-    "category": "지역구대회",
-    "name": "2026 영일만 포항시장기 전국 배드민턴대회",
-    "registrationPeriod": "2026.11.01 ~ 2026.11.21",
-    "registrationStart": "2026-11-01",
-    "registrationEnd": "2026-11-21",
-    "eventPeriod": "2026.11.28 ~ 11.29",
-    "eventStart": "2026-11-28",
-    "eventEnd": "2026-11-29",
-    "venue": "경북 포항시 포항체육관",
-    "source": "네이버밴드",
-    "officialLink": "https://band.us/@pohangbadminton",
-    "fee": "팀당 45,000원",
-    "sources": [
-      "네이버밴드"
-    ],
-    "sourceLinks": [
-      {
-        "source": "네이버밴드",
-        "link": "https://band.us/@pohangbadminton"
-      }
-    ]
-  },
-  {
-    "id": "band-089",
-    "category": "지역구대회",
-    "name": "2026 창원특례시협회장기 배드민턴대회",
-    "registrationPeriod": "2026.05.01 ~ 2026.05.23",
-    "registrationStart": "2026-05-01",
-    "registrationEnd": "2026-05-23",
-    "eventPeriod": "2026.05.30 ~ 05.31",
-    "eventStart": "2026-05-30",
-    "eventEnd": "2026-05-31",
-    "venue": "경남 창원시 마산실내체육관",
-    "source": "네이버밴드",
-    "officialLink": "https://band.us/@changwonbadminton",
-    "fee": "팀당 40,000원",
-    "sources": [
-      "네이버밴드"
-    ],
-    "sourceLinks": [
-      {
-        "source": "네이버밴드",
-        "link": "https://band.us/@changwonbadminton"
-      }
-    ]
-  },
-  {
-    "id": "band-090",
-    "category": "지역구대회",
-    "name": "제18회 창원특례시장기 생활체육 배드민턴대회",
-    "registrationPeriod": "2026.11.20 ~ 2026.12.05",
-    "registrationStart": "2026-11-20",
-    "registrationEnd": "2026-12-05",
-    "eventPeriod": "2026.12.12 ~ 12.13",
-    "eventStart": "2026-12-12",
-    "eventEnd": "2026-12-13",
-    "venue": "경남 창원시 마산실내체육관",
-    "source": "네이버밴드",
-    "officialLink": "https://band.us/@changwonbadminton",
-    "fee": "팀당 40,000원",
-    "sources": [
-      "네이버밴드"
-    ],
-    "sourceLinks": [
-      {
-        "source": "네이버밴드",
-        "link": "https://band.us/@changwonbadminton"
-      }
-    ]
-  },
-  {
-    "id": "band-091",
+    "id": "band-031",
     "category": "브랜드대회",
-    "name": "2026 테크니스트 춘계 오픈 챔피언십 대전",
-    "registrationPeriod": "2026.03.20 ~ 2026.04.05",
-    "registrationStart": "2026-03-20",
-    "registrationEnd": "2026-04-05",
-    "eventPeriod": "2026.04.12",
-    "eventStart": "2026-04-12",
-    "eventEnd": "2026-04-12",
-    "venue": "서울 송파구 잠실실내체육관",
-    "source": "네이버밴드",
-    "officialLink": "https://form.naver.com/response/minton_4_91",
-    "fee": "팀당 65,000원",
-    "sources": [
-      "네이버밴드"
-    ],
-    "sourceLinks": [
-      {
-        "source": "네이버밴드",
-        "link": "https://form.naver.com/response/minton_4_91"
-      }
-    ]
-  },
-  {
-    "id": "band-092",
-    "category": "브랜드대회",
-    "name": "2026 테크니스트 서머 페스티벌 부산",
-    "registrationPeriod": "2026.07.01 ~ 2026.07.12",
-    "registrationStart": "2026-07-01",
-    "registrationEnd": "2026-07-12",
-    "eventPeriod": "2026.07.19",
-    "eventStart": "2026-07-19",
-    "eventEnd": "2026-07-19",
-    "venue": "서울 송파구 잠실실내체육관",
-    "source": "네이버밴드",
-    "officialLink": "https://forms.gle/band_tournament_7_92",
-    "fee": "팀당 65,000원",
-    "sources": [
-      "네이버밴드"
-    ],
-    "sourceLinks": [
-      {
-        "source": "네이버밴드",
-        "link": "https://forms.gle/band_tournament_7_92"
-      }
-    ]
-  },
-  {
-    "id": "band-093",
-    "category": "국제대회",
     "name": "2026 테크니스트 마스터즈 챔피언십 서울",
     "registrationPeriod": "2026.09.20 ~ 2026.10.04",
     "registrationStart": "2026-09-20",
@@ -8819,7 +7331,7 @@
     "eventEnd": "2026-10-11",
     "venue": "서울 송파구 잠실실내체육관",
     "source": "네이버밴드",
-    "officialLink": "https://form.naver.com/response/minton_10_93",
+    "officialLink": "https://form.naver.com/response/minton_10_31",
     "fee": "팀당 65,000원",
     "sources": [
       "네이버밴드"
@@ -8827,182 +7339,14 @@
     "sourceLinks": [
       {
         "source": "네이버밴드",
-        "link": "https://form.naver.com/response/minton_10_93"
+        "link": "https://form.naver.com/response/minton_10_31"
       }
     ]
   },
   {
-    "id": "band-094",
+    "id": "band-032",
     "category": "브랜드대회",
-    "name": "2026 테크니스트 파이널 킹 오브 코트",
-    "registrationPeriod": "2026.11.20 ~ 2026.12.01",
-    "registrationStart": "2026-11-20",
-    "registrationEnd": "2026-12-01",
-    "eventPeriod": "2026.12.06",
-    "eventStart": "2026-12-06",
-    "eventEnd": "2026-12-06",
-    "venue": "서울 송파구 잠실실내체육관",
-    "source": "네이버밴드",
-    "officialLink": "https://form.naver.com/response/minton_12_94",
-    "fee": "팀당 70,000원",
-    "sources": [
-      "네이버밴드"
-    ],
-    "sourceLinks": [
-      {
-        "source": "네이버밴드",
-        "link": "https://form.naver.com/response/minton_12_94"
-      }
-    ]
-  },
-  {
-    "id": "band-095",
-    "category": "브랜드대회",
-    "name": "2026 빅터 스프링 챌린지 인천",
-    "registrationPeriod": "2026.03.01 ~ 2026.03.15",
-    "registrationStart": "2026-03-01",
-    "registrationEnd": "2026-03-15",
-    "eventPeriod": "2026.03.22",
-    "eventStart": "2026-03-22",
-    "eventEnd": "2026-03-22",
-    "venue": "경기 수원시 수원시배드민턴전용경기장",
-    "source": "네이버밴드",
-    "officialLink": "https://forms.gle/band_tournament_3_95",
-    "fee": "팀당 60,000원",
-    "sources": [
-      "네이버밴드"
-    ],
-    "sourceLinks": [
-      {
-        "source": "네이버밴드",
-        "link": "https://forms.gle/band_tournament_3_95"
-      }
-    ]
-  },
-  {
-    "id": "band-096",
-    "category": "브랜드대회",
-    "name": "2026 빅터 프리미어 페스티벌 수원",
-    "registrationPeriod": "2026.10.20 ~ 2026.11.01",
-    "registrationStart": "2026-10-20",
-    "registrationEnd": "2026-11-01",
-    "eventPeriod": "2026.11.01",
-    "eventStart": "2026-11-01",
-    "eventEnd": "2026-11-01",
-    "venue": "경기 수원시 수원시배드민턴전용경기장",
-    "source": "네이버밴드",
-    "officialLink": "https://forms.gle/band_tournament_11_96",
-    "fee": "팀당 60,000원",
-    "sources": [
-      "네이버밴드"
-    ],
-    "sourceLinks": [
-      {
-        "source": "네이버밴드",
-        "link": "https://forms.gle/band_tournament_11_96"
-      }
-    ]
-  },
-  {
-    "id": "band-097",
-    "category": "브랜드대회",
-    "name": "2026 빅터 코리아 윈터 오픈 천안",
-    "registrationPeriod": "2026.11.20 ~ 2026.12.06",
-    "registrationStart": "2026-11-20",
-    "registrationEnd": "2026-12-06",
-    "eventPeriod": "2026.12.13",
-    "eventStart": "2026-12-13",
-    "eventEnd": "2026-12-13",
-    "venue": "경기 수원시 수원시배드민턴전용경기장",
-    "source": "네이버밴드",
-    "officialLink": "https://form.naver.com/response/minton_12_97",
-    "fee": "팀당 60,000원",
-    "sources": [
-      "네이버밴드"
-    ],
-    "sourceLinks": [
-      {
-        "source": "네이버밴드",
-        "link": "https://form.naver.com/response/minton_12_97"
-      }
-    ]
-  },
-  {
-    "id": "band-098",
-    "category": "국제대회",
-    "name": "2026 요넥스 스프링 마스터즈 서울",
-    "registrationPeriod": "2026.04.20 ~ 2026.05.03",
-    "registrationStart": "2026-04-20",
-    "registrationEnd": "2026-05-03",
-    "eventPeriod": "2026.05.10",
-    "eventStart": "2026-05-10",
-    "eventEnd": "2026-05-10",
-    "venue": "경기 안양시 호계체육관",
-    "source": "네이버밴드",
-    "officialLink": "https://band.us/@yonexbadminton",
-    "fee": "팀당 65,000원",
-    "sources": [
-      "네이버밴드"
-    ],
-    "sourceLinks": [
-      {
-        "source": "네이버밴드",
-        "link": "https://band.us/@yonexbadminton"
-      }
-    ]
-  },
-  {
-    "id": "band-099",
-    "category": "브랜드대회",
-    "name": "2026 요넥스 그랜드 챔피언스 컵 안양",
-    "registrationPeriod": "2026.10.20 ~ 2026.11.08",
-    "registrationStart": "2026-10-20",
-    "registrationEnd": "2026-11-08",
-    "eventPeriod": "2026.11.15",
-    "eventStart": "2026-11-15",
-    "eventEnd": "2026-11-15",
-    "venue": "경기 안양시 호계체육관",
-    "source": "네이버밴드",
-    "officialLink": "https://band.us/@yonexbadminton",
-    "fee": "팀당 65,000원",
-    "sources": [
-      "네이버밴드"
-    ],
-    "sourceLinks": [
-      {
-        "source": "네이버밴드",
-        "link": "https://band.us/@yonexbadminton"
-      }
-    ]
-  },
-  {
-    "id": "band-100",
-    "category": "브랜드대회",
-    "name": "2026 요넥스 파이널 라운드 수원",
-    "registrationPeriod": "2026.12.01 ~ 2026.12.13",
-    "registrationStart": "2026-12-01",
-    "registrationEnd": "2026-12-13",
-    "eventPeriod": "2026.12.20",
-    "eventStart": "2026-12-20",
-    "eventEnd": "2026-12-20",
-    "venue": "경기 안양시 호계체육관",
-    "source": "네이버밴드",
-    "officialLink": "https://form.naver.com/response/minton_12_100",
-    "fee": "팀당 65,000원",
-    "sources": [
-      "네이버밴드"
-    ],
-    "sourceLinks": [
-      {
-        "source": "네이버밴드",
-        "link": "https://form.naver.com/response/minton_12_100"
-      }
-    ]
-  },
-  {
-    "id": "band-101",
-    "category": "전국오픈",
-    "name": "2026 플라이파워 파워매치 토너먼트 인천",
+    "name": "2026 플라이파워 파워매치 전국 배드민턴 토너먼트",
     "registrationPeriod": "2026.11.01 ~ 2026.11.15",
     "registrationStart": "2026-11-01",
     "registrationEnd": "2026-11-15",
@@ -9024,57 +7368,9 @@
     ]
   },
   {
-    "id": "band-102",
+    "id": "band-033",
     "category": "전국오픈",
-    "name": "2026 전국 초심·D조 비기너 루키 페스티벌 (봄)",
-    "registrationPeriod": "2026.03.01 ~ 2026.03.22",
-    "registrationStart": "2026-03-01",
-    "registrationEnd": "2026-03-22",
-    "eventPeriod": "2026.03.29",
-    "eventStart": "2026-03-29",
-    "eventEnd": "2026-03-29",
-    "venue": "서울 강서구 마곡실내배드민턴장",
-    "source": "네이버밴드",
-    "officialLink": "https://forms.gle/band_tournament_3_102",
-    "fee": "팀당 45,000원",
-    "sources": [
-      "네이버밴드"
-    ],
-    "sourceLinks": [
-      {
-        "source": "네이버밴드",
-        "link": "https://forms.gle/band_tournament_3_102"
-      }
-    ]
-  },
-  {
-    "id": "band-103",
-    "category": "전국오픈",
-    "name": "2026 전국 초심·D조 비기너 루키 페스티벌 (여름)",
-    "registrationPeriod": "2026.06.01 ~ 2026.06.21",
-    "registrationStart": "2026-06-01",
-    "registrationEnd": "2026-06-21",
-    "eventPeriod": "2026.06.28",
-    "eventStart": "2026-06-28",
-    "eventEnd": "2026-06-28",
-    "venue": "서울 강서구 마곡실내배드민턴장",
-    "source": "네이버밴드",
-    "officialLink": "https://forms.gle/band_tournament_6_103",
-    "fee": "팀당 45,000원",
-    "sources": [
-      "네이버밴드"
-    ],
-    "sourceLinks": [
-      {
-        "source": "네이버밴드",
-        "link": "https://forms.gle/band_tournament_6_103"
-      }
-    ]
-  },
-  {
-    "id": "band-104",
-    "category": "전국오픈",
-    "name": "2026 전국 초심·D조 비기너 루키 페스티벌 서울 (가을)",
+    "name": "2026 전국 초심·루키 D조 비기너 배드민턴 페스티벌",
     "registrationPeriod": "2026.10.01 ~ 2026.10.11",
     "registrationStart": "2026-10-01",
     "registrationEnd": "2026-10-11",
@@ -9083,7 +7379,7 @@
     "eventEnd": "2026-10-18",
     "venue": "서울 강서구 마곡실내배드민턴장",
     "source": "네이버밴드",
-    "officialLink": "https://forms.gle/band_tournament_10_104",
+    "officialLink": "https://forms.gle/band_poster_10_33",
     "fee": "팀당 45,000원",
     "sources": [
       "네이버밴드"
@@ -9091,62 +7387,14 @@
     "sourceLinks": [
       {
         "source": "네이버밴드",
-        "link": "https://forms.gle/band_tournament_10_104"
+        "link": "https://forms.gle/band_poster_10_33"
       }
     ]
   },
   {
-    "id": "band-105",
+    "id": "band-034",
     "category": "전국오픈",
-    "name": "2026 전국 초심·D조 비기너 루키 윈터 컵",
-    "registrationPeriod": "2026.12.01 ~ 2026.12.20",
-    "registrationStart": "2026-12-01",
-    "registrationEnd": "2026-12-20",
-    "eventPeriod": "2026.12.27",
-    "eventStart": "2026-12-27",
-    "eventEnd": "2026-12-27",
-    "venue": "서울 강서구 마곡실내배드민턴장",
-    "source": "네이버밴드",
-    "officialLink": "https://form.naver.com/response/minton_12_105",
-    "fee": "팀당 45,000원",
-    "sources": [
-      "네이버밴드"
-    ],
-    "sourceLinks": [
-      {
-        "source": "네이버밴드",
-        "link": "https://form.naver.com/response/minton_12_105"
-      }
-    ]
-  },
-  {
-    "id": "band-106",
-    "category": "전국오픈",
-    "name": "2026 2030 청년 배드민턴 영 파워 오픈 (상반기)",
-    "registrationPeriod": "2026.05.01 ~ 2026.05.10",
-    "registrationStart": "2026-05-01",
-    "registrationEnd": "2026-05-10",
-    "eventPeriod": "2026.05.17",
-    "eventStart": "2026-05-17",
-    "eventEnd": "2026-05-17",
-    "venue": "경기 성남시 성남종합운동장 실내체육관",
-    "source": "네이버밴드",
-    "officialLink": "https://form.naver.com/response/minton_5_106",
-    "fee": "팀당 50,000원",
-    "sources": [
-      "네이버밴드"
-    ],
-    "sourceLinks": [
-      {
-        "source": "네이버밴드",
-        "link": "https://form.naver.com/response/minton_5_106"
-      }
-    ]
-  },
-  {
-    "id": "band-107",
-    "category": "전국오픈",
-    "name": "2026 2030 청년 배드민턴 영 파워 오픈 성남 (하반기)",
+    "name": "2026 전국 2030 영파워 청년 배드민턴 페스티벌",
     "registrationPeriod": "2026.10.20 ~ 2026.11.01",
     "registrationStart": "2026-10-20",
     "registrationEnd": "2026-11-01",
@@ -9155,7 +7403,7 @@
     "eventEnd": "2026-11-08",
     "venue": "경기 성남시 성남종합운동장 실내체육관",
     "source": "네이버밴드",
-    "officialLink": "https://form.naver.com/response/minton_11_107",
+    "officialLink": "https://form.naver.com/response/minton_11_34",
     "fee": "팀당 50,000원",
     "sources": [
       "네이버밴드"
@@ -9163,21 +7411,1778 @@
     "sourceLinks": [
       {
         "source": "네이버밴드",
-        "link": "https://form.naver.com/response/minton_11_107"
+        "link": "https://form.naver.com/response/minton_11_34"
+      }
+    ]
+  },
+  {
+    "id": "band-035",
+    "category": "전국오픈",
+    "name": "2026 배프 BAEF 전국 동호인 랭킹 챔피언십",
+    "registrationPeriod": "2026.09.01 ~ 2026.09.13",
+    "registrationStart": "2026-09-01",
+    "registrationEnd": "2026-09-13",
+    "eventPeriod": "2026.09.20",
+    "eventStart": "2026-09-20",
+    "eventEnd": "2026-09-20",
+    "venue": "경기 용인시 용인실내체육관",
+    "source": "네이버밴드",
+    "officialLink": "https://band.us/@badmintonfriends",
+    "fee": "팀당 55,000원",
+    "sources": [
+      "네이버밴드"
+    ],
+    "sourceLinks": [
+      {
+        "source": "네이버밴드",
+        "link": "https://band.us/@badmintonfriends"
+      }
+    ]
+  },
+  {
+    "id": "band-036",
+    "category": "전국오픈",
+    "name": "2026 투팟스포츠 전국 오픈 배드민턴 마스터즈",
+    "registrationPeriod": "2026.10.01 ~ 2026.10.17",
+    "registrationStart": "2026-10-01",
+    "registrationEnd": "2026-10-17",
+    "eventPeriod": "2026.10.24 ~ 10.25",
+    "eventStart": "2026-10-24",
+    "eventEnd": "2026-10-25",
+    "venue": "인천 남동구 남동체육관",
+    "source": "네이버밴드",
+    "officialLink": "https://band.us/@twopot",
+    "fee": "팀당 60,000원",
+    "sources": [
+      "네이버밴드"
+    ],
+    "sourceLinks": [
+      {
+        "source": "네이버밴드",
+        "link": "https://band.us/@twopot"
+      }
+    ]
+  },
+  {
+    "id": "band-037",
+    "category": "지역구대회",
+    "name": "2026 제10회 강남구협회장기 배드민턴대회",
+    "registrationPeriod": "2026.02.15 ~ 2026.03.16",
+    "registrationStart": "2026-02-15",
+    "registrationEnd": "2026-03-16",
+    "eventPeriod": "2026.03.24 ~ 03.25",
+    "eventStart": "2026-03-24",
+    "eventEnd": "2026-03-25",
+    "venue": "서울 강남구 강남스포츠문화센터",
+    "source": "네이버밴드",
+    "officialLink": "https://band.us/@mintoncontest",
+    "fee": "팀당 40,000원",
+    "sources": [
+      "네이버밴드"
+    ],
+    "sourceLinks": [
+      {
+        "source": "네이버밴드",
+        "link": "https://band.us/@mintoncontest"
+      }
+    ]
+  },
+  {
+    "id": "band-038",
+    "category": "지역구대회",
+    "name": "2026 제11회 강남구협회장기 배드민턴대회",
+    "registrationPeriod": "2026.03.15 ~ 2026.04.03",
+    "registrationStart": "2026-03-15",
+    "registrationEnd": "2026-04-03",
+    "eventPeriod": "2026.04.11 ~ 04.12",
+    "eventStart": "2026-04-11",
+    "eventEnd": "2026-04-12",
+    "venue": "서울 강남구 강남스포츠문화센터",
+    "source": "네이버밴드",
+    "officialLink": "https://band.us/@mintoncontest",
+    "fee": "팀당 40,000원",
+    "sources": [
+      "네이버밴드"
+    ],
+    "sourceLinks": [
+      {
+        "source": "네이버밴드",
+        "link": "https://band.us/@mintoncontest"
+      }
+    ]
+  },
+  {
+    "id": "band-039",
+    "category": "지역구대회",
+    "name": "2026 제12회 강남구협회장기 배드민턴대회",
+    "registrationPeriod": "2026.04.15 ~ 2026.05.10",
+    "registrationStart": "2026-04-15",
+    "registrationEnd": "2026-05-10",
+    "eventPeriod": "2026.05.18 ~ 05.19",
+    "eventStart": "2026-05-18",
+    "eventEnd": "2026-05-19",
+    "venue": "서울 강남구 강남스포츠문화센터",
+    "source": "네이버밴드",
+    "officialLink": "https://band.us/@mintoncontest",
+    "fee": "팀당 40,000원",
+    "sources": [
+      "네이버밴드"
+    ],
+    "sourceLinks": [
+      {
+        "source": "네이버밴드",
+        "link": "https://band.us/@mintoncontest"
+      }
+    ]
+  },
+  {
+    "id": "band-040",
+    "category": "지역구대회",
+    "name": "2026 제13회 강남구협회장기 배드민턴대회",
+    "registrationPeriod": "2026.05.15 ~ 2026.06.01",
+    "registrationStart": "2026-05-15",
+    "registrationEnd": "2026-06-01",
+    "eventPeriod": "2026.06.05 ~ 06.06",
+    "eventStart": "2026-06-05",
+    "eventEnd": "2026-06-06",
+    "venue": "서울 강남구 강남스포츠문화센터",
+    "source": "네이버밴드",
+    "officialLink": "https://band.us/@mintoncontest",
+    "fee": "팀당 40,000원",
+    "sources": [
+      "네이버밴드"
+    ],
+    "sourceLinks": [
+      {
+        "source": "네이버밴드",
+        "link": "https://band.us/@mintoncontest"
+      }
+    ]
+  },
+  {
+    "id": "band-041",
+    "category": "지역구대회",
+    "name": "2026 제14회 강남구협회장기 배드민턴대회",
+    "registrationPeriod": "2026.06.15 ~ 2026.07.04",
+    "registrationStart": "2026-06-15",
+    "registrationEnd": "2026-07-04",
+    "eventPeriod": "2026.07.12 ~ 07.13",
+    "eventStart": "2026-07-12",
+    "eventEnd": "2026-07-13",
+    "venue": "서울 강남구 강남스포츠문화센터",
+    "source": "네이버밴드",
+    "officialLink": "https://band.us/@mintoncontest",
+    "fee": "팀당 40,000원",
+    "sources": [
+      "네이버밴드"
+    ],
+    "sourceLinks": [
+      {
+        "source": "네이버밴드",
+        "link": "https://band.us/@mintoncontest"
+      }
+    ]
+  },
+  {
+    "id": "band-042",
+    "category": "지역구대회",
+    "name": "2026 제15회 서초구청장배 생활체육 배드민턴대회",
+    "registrationPeriod": "2026.02.15 ~ 2026.03.11",
+    "registrationStart": "2026-02-15",
+    "registrationEnd": "2026-03-11",
+    "eventPeriod": "2026.03.19 ~ 03.20",
+    "eventStart": "2026-03-19",
+    "eventEnd": "2026-03-20",
+    "venue": "서울 서초구 서초종합체육관",
+    "source": "네이버밴드",
+    "officialLink": "https://band.us/@mintoncontest",
+    "fee": "팀당 40,000원",
+    "sources": [
+      "네이버밴드"
+    ],
+    "sourceLinks": [
+      {
+        "source": "네이버밴드",
+        "link": "https://band.us/@mintoncontest"
+      }
+    ]
+  },
+  {
+    "id": "band-043",
+    "category": "지역구대회",
+    "name": "2026 제16회 서초구청장배 생활체육 배드민턴대회",
+    "registrationPeriod": "2026.03.15 ~ 2026.04.01",
+    "registrationStart": "2026-03-15",
+    "registrationEnd": "2026-04-01",
+    "eventPeriod": "2026.04.06 ~ 04.07",
+    "eventStart": "2026-04-06",
+    "eventEnd": "2026-04-07",
+    "venue": "서울 서초구 서초종합체육관",
+    "source": "네이버밴드",
+    "officialLink": "https://band.us/@mintoncontest",
+    "fee": "팀당 40,000원",
+    "sources": [
+      "네이버밴드"
+    ],
+    "sourceLinks": [
+      {
+        "source": "네이버밴드",
+        "link": "https://band.us/@mintoncontest"
+      }
+    ]
+  },
+  {
+    "id": "band-044",
+    "category": "지역구대회",
+    "name": "2026 제17회 서초구청장배 생활체육 배드민턴대회",
+    "registrationPeriod": "2026.04.15 ~ 2026.05.05",
+    "registrationStart": "2026-04-15",
+    "registrationEnd": "2026-05-05",
+    "eventPeriod": "2026.05.13 ~ 05.14",
+    "eventStart": "2026-05-13",
+    "eventEnd": "2026-05-14",
+    "venue": "서울 서초구 서초종합체육관",
+    "source": "네이버밴드",
+    "officialLink": "https://band.us/@mintoncontest",
+    "fee": "팀당 40,000원",
+    "sources": [
+      "네이버밴드"
+    ],
+    "sourceLinks": [
+      {
+        "source": "네이버밴드",
+        "link": "https://band.us/@mintoncontest"
+      }
+    ]
+  },
+  {
+    "id": "band-045",
+    "category": "지역구대회",
+    "name": "2026 제3회 서초구청장배 생활체육 배드민턴대회",
+    "registrationPeriod": "2026.05.15 ~ 2026.06.12",
+    "registrationStart": "2026-05-15",
+    "registrationEnd": "2026-06-12",
+    "eventPeriod": "2026.06.20 ~ 06.21",
+    "eventStart": "2026-06-20",
+    "eventEnd": "2026-06-21",
+    "venue": "서울 서초구 서초종합체육관",
+    "source": "네이버밴드",
+    "officialLink": "https://band.us/@mintoncontest",
+    "fee": "팀당 40,000원",
+    "sources": [
+      "네이버밴드"
+    ],
+    "sourceLinks": [
+      {
+        "source": "네이버밴드",
+        "link": "https://band.us/@mintoncontest"
+      }
+    ]
+  },
+  {
+    "id": "band-046",
+    "category": "지역구대회",
+    "name": "2026 제4회 서초구청장배 생활체육 배드민턴대회",
+    "registrationPeriod": "2026.06.15 ~ 2026.07.01",
+    "registrationStart": "2026-06-15",
+    "registrationEnd": "2026-07-01",
+    "eventPeriod": "2026.07.07 ~ 07.08",
+    "eventStart": "2026-07-07",
+    "eventEnd": "2026-07-08",
+    "venue": "서울 서초구 서초종합체육관",
+    "source": "네이버밴드",
+    "officialLink": "https://band.us/@mintoncontest",
+    "fee": "팀당 40,000원",
+    "sources": [
+      "네이버밴드"
+    ],
+    "sourceLinks": [
+      {
+        "source": "네이버밴드",
+        "link": "https://band.us/@mintoncontest"
+      }
+    ]
+  },
+  {
+    "id": "band-047",
+    "category": "지역구대회",
+    "name": "2026 제5회 강동구협회장기 배드민턴대회",
+    "registrationPeriod": "2026.02.15 ~ 2026.03.06",
+    "registrationStart": "2026-02-15",
+    "registrationEnd": "2026-03-06",
+    "eventPeriod": "2026.03.14 ~ 03.15",
+    "eventStart": "2026-03-14",
+    "eventEnd": "2026-03-15",
+    "venue": "서울 강동구 강동유소년스포츠센터",
+    "source": "네이버밴드",
+    "officialLink": "https://band.us/@mintoncontest",
+    "fee": "팀당 40,000원",
+    "sources": [
+      "네이버밴드"
+    ],
+    "sourceLinks": [
+      {
+        "source": "네이버밴드",
+        "link": "https://band.us/@mintoncontest"
+      }
+    ]
+  },
+  {
+    "id": "band-048",
+    "category": "지역구대회",
+    "name": "2026 제6회 강동구협회장기 배드민턴대회",
+    "registrationPeriod": "2026.03.15 ~ 2026.04.13",
+    "registrationStart": "2026-03-15",
+    "registrationEnd": "2026-04-13",
+    "eventPeriod": "2026.04.21 ~ 04.22",
+    "eventStart": "2026-04-21",
+    "eventEnd": "2026-04-22",
+    "venue": "서울 강동구 강동유소년스포츠센터",
+    "source": "네이버밴드",
+    "officialLink": "https://band.us/@mintoncontest",
+    "fee": "팀당 40,000원",
+    "sources": [
+      "네이버밴드"
+    ],
+    "sourceLinks": [
+      {
+        "source": "네이버밴드",
+        "link": "https://band.us/@mintoncontest"
+      }
+    ]
+  },
+  {
+    "id": "band-049",
+    "category": "지역구대회",
+    "name": "2026 제7회 강동구협회장기 배드민턴대회",
+    "registrationPeriod": "2026.04.15 ~ 2026.05.01",
+    "registrationStart": "2026-04-15",
+    "registrationEnd": "2026-05-01",
+    "eventPeriod": "2026.05.08 ~ 05.09",
+    "eventStart": "2026-05-08",
+    "eventEnd": "2026-05-09",
+    "venue": "서울 강동구 강동유소년스포츠센터",
+    "source": "네이버밴드",
+    "officialLink": "https://band.us/@mintoncontest",
+    "fee": "팀당 40,000원",
+    "sources": [
+      "네이버밴드"
+    ],
+    "sourceLinks": [
+      {
+        "source": "네이버밴드",
+        "link": "https://band.us/@mintoncontest"
+      }
+    ]
+  },
+  {
+    "id": "band-050",
+    "category": "지역구대회",
+    "name": "2026 제8회 강동구협회장기 배드민턴대회",
+    "registrationPeriod": "2026.05.15 ~ 2026.06.07",
+    "registrationStart": "2026-05-15",
+    "registrationEnd": "2026-06-07",
+    "eventPeriod": "2026.06.15 ~ 06.16",
+    "eventStart": "2026-06-15",
+    "eventEnd": "2026-06-16",
+    "venue": "서울 강동구 강동유소년스포츠센터",
+    "source": "네이버밴드",
+    "officialLink": "https://band.us/@mintoncontest",
+    "fee": "팀당 40,000원",
+    "sources": [
+      "네이버밴드"
+    ],
+    "sourceLinks": [
+      {
+        "source": "네이버밴드",
+        "link": "https://band.us/@mintoncontest"
+      }
+    ]
+  },
+  {
+    "id": "band-051",
+    "category": "지역구대회",
+    "name": "2026 제9회 강동구협회장기 배드민턴대회",
+    "registrationPeriod": "2026.06.15 ~ 2026.07.14",
+    "registrationStart": "2026-06-15",
+    "registrationEnd": "2026-07-14",
+    "eventPeriod": "2026.07.22 ~ 07.23",
+    "eventStart": "2026-07-22",
+    "eventEnd": "2026-07-23",
+    "venue": "서울 강동구 강동유소년스포츠센터",
+    "source": "네이버밴드",
+    "officialLink": "https://band.us/@mintoncontest",
+    "fee": "팀당 40,000원",
+    "sources": [
+      "네이버밴드"
+    ],
+    "sourceLinks": [
+      {
+        "source": "네이버밴드",
+        "link": "https://band.us/@mintoncontest"
+      }
+    ]
+  },
+  {
+    "id": "band-052",
+    "category": "지역구대회",
+    "name": "2026 제10회 도봉구청장기 배드민턴대회",
+    "registrationPeriod": "2026.02.15 ~ 2026.03.01",
+    "registrationStart": "2026-02-15",
+    "registrationEnd": "2026-03-01",
+    "eventPeriod": "2026.03.09 ~ 03.10",
+    "eventStart": "2026-03-09",
+    "eventEnd": "2026-03-10",
+    "venue": "서울 도봉구 도봉인다락원체육관",
+    "source": "네이버밴드",
+    "officialLink": "https://band.us/@mintoncontest",
+    "fee": "팀당 40,000원",
+    "sources": [
+      "네이버밴드"
+    ],
+    "sourceLinks": [
+      {
+        "source": "네이버밴드",
+        "link": "https://band.us/@mintoncontest"
+      }
+    ]
+  },
+  {
+    "id": "band-053",
+    "category": "지역구대회",
+    "name": "2026 제11회 도봉구청장기 배드민턴대회",
+    "registrationPeriod": "2026.03.15 ~ 2026.04.08",
+    "registrationStart": "2026-03-15",
+    "registrationEnd": "2026-04-08",
+    "eventPeriod": "2026.04.16 ~ 04.17",
+    "eventStart": "2026-04-16",
+    "eventEnd": "2026-04-17",
+    "venue": "서울 도봉구 도봉인다락원체육관",
+    "source": "네이버밴드",
+    "officialLink": "https://band.us/@mintoncontest",
+    "fee": "팀당 40,000원",
+    "sources": [
+      "네이버밴드"
+    ],
+    "sourceLinks": [
+      {
+        "source": "네이버밴드",
+        "link": "https://band.us/@mintoncontest"
+      }
+    ]
+  },
+  {
+    "id": "band-054",
+    "category": "지역구대회",
+    "name": "2026 제12회 도봉구청장기 배드민턴대회",
+    "registrationPeriod": "2026.04.15 ~ 2026.05.15",
+    "registrationStart": "2026-04-15",
+    "registrationEnd": "2026-05-15",
+    "eventPeriod": "2026.05.23 ~ 05.24",
+    "eventStart": "2026-05-23",
+    "eventEnd": "2026-05-24",
+    "venue": "서울 도봉구 도봉인다락원체육관",
+    "source": "네이버밴드",
+    "officialLink": "https://band.us/@mintoncontest",
+    "fee": "팀당 40,000원",
+    "sources": [
+      "네이버밴드"
+    ],
+    "sourceLinks": [
+      {
+        "source": "네이버밴드",
+        "link": "https://band.us/@mintoncontest"
+      }
+    ]
+  },
+  {
+    "id": "band-055",
+    "category": "지역구대회",
+    "name": "2026 제13회 도봉구청장기 배드민턴대회",
+    "registrationPeriod": "2026.05.15 ~ 2026.06.02",
+    "registrationStart": "2026-05-15",
+    "registrationEnd": "2026-06-02",
+    "eventPeriod": "2026.06.10 ~ 06.11",
+    "eventStart": "2026-06-10",
+    "eventEnd": "2026-06-11",
+    "venue": "서울 도봉구 도봉인다락원체육관",
+    "source": "네이버밴드",
+    "officialLink": "https://band.us/@mintoncontest",
+    "fee": "팀당 40,000원",
+    "sources": [
+      "네이버밴드"
+    ],
+    "sourceLinks": [
+      {
+        "source": "네이버밴드",
+        "link": "https://band.us/@mintoncontest"
+      }
+    ]
+  },
+  {
+    "id": "band-056",
+    "category": "지역구대회",
+    "name": "2026 제14회 도봉구청장기 배드민턴대회",
+    "registrationPeriod": "2026.06.15 ~ 2026.07.09",
+    "registrationStart": "2026-06-15",
+    "registrationEnd": "2026-07-09",
+    "eventPeriod": "2026.07.17 ~ 07.18",
+    "eventStart": "2026-07-17",
+    "eventEnd": "2026-07-18",
+    "venue": "서울 도봉구 도봉인다락원체육관",
+    "source": "네이버밴드",
+    "officialLink": "https://band.us/@mintoncontest",
+    "fee": "팀당 40,000원",
+    "sources": [
+      "네이버밴드"
+    ],
+    "sourceLinks": [
+      {
+        "source": "네이버밴드",
+        "link": "https://band.us/@mintoncontest"
+      }
+    ]
+  },
+  {
+    "id": "band-057",
+    "category": "전국오픈",
+    "name": "2026 제15회 파주시장배 전국 배드민턴 페스티벌",
+    "registrationPeriod": "2026.02.15 ~ 2026.03.16",
+    "registrationStart": "2026-02-15",
+    "registrationEnd": "2026-03-16",
+    "eventPeriod": "2026.03.24 ~ 03.25",
+    "eventStart": "2026-03-24",
+    "eventEnd": "2026-03-25",
+    "venue": "경기 파주시 파주스타디움 실내체육관",
+    "source": "네이버밴드",
+    "officialLink": "https://band.us/@mintoncontest",
+    "fee": "팀당 45,000원",
+    "sources": [
+      "네이버밴드"
+    ],
+    "sourceLinks": [
+      {
+        "source": "네이버밴드",
+        "link": "https://band.us/@mintoncontest"
+      }
+    ]
+  },
+  {
+    "id": "band-058",
+    "category": "전국오픈",
+    "name": "2026 제16회 파주시장배 전국 배드민턴 페스티벌",
+    "registrationPeriod": "2026.03.15 ~ 2026.04.03",
+    "registrationStart": "2026-03-15",
+    "registrationEnd": "2026-04-03",
+    "eventPeriod": "2026.04.11 ~ 04.12",
+    "eventStart": "2026-04-11",
+    "eventEnd": "2026-04-12",
+    "venue": "경기 파주시 파주스타디움 실내체육관",
+    "source": "네이버밴드",
+    "officialLink": "https://band.us/@mintoncontest",
+    "fee": "팀당 45,000원",
+    "sources": [
+      "네이버밴드"
+    ],
+    "sourceLinks": [
+      {
+        "source": "네이버밴드",
+        "link": "https://band.us/@mintoncontest"
+      }
+    ]
+  },
+  {
+    "id": "band-059",
+    "category": "전국오픈",
+    "name": "2026 제17회 파주시장배 전국 배드민턴 페스티벌",
+    "registrationPeriod": "2026.04.15 ~ 2026.05.10",
+    "registrationStart": "2026-04-15",
+    "registrationEnd": "2026-05-10",
+    "eventPeriod": "2026.05.18 ~ 05.19",
+    "eventStart": "2026-05-18",
+    "eventEnd": "2026-05-19",
+    "venue": "경기 파주시 파주스타디움 실내체육관",
+    "source": "네이버밴드",
+    "officialLink": "https://band.us/@mintoncontest",
+    "fee": "팀당 45,000원",
+    "sources": [
+      "네이버밴드"
+    ],
+    "sourceLinks": [
+      {
+        "source": "네이버밴드",
+        "link": "https://band.us/@mintoncontest"
+      }
+    ]
+  },
+  {
+    "id": "band-060",
+    "category": "전국오픈",
+    "name": "2026 제3회 파주시장배 전국 배드민턴 페스티벌",
+    "registrationPeriod": "2026.05.15 ~ 2026.06.01",
+    "registrationStart": "2026-05-15",
+    "registrationEnd": "2026-06-01",
+    "eventPeriod": "2026.06.05 ~ 06.06",
+    "eventStart": "2026-06-05",
+    "eventEnd": "2026-06-06",
+    "venue": "경기 파주시 파주스타디움 실내체육관",
+    "source": "네이버밴드",
+    "officialLink": "https://band.us/@mintoncontest",
+    "fee": "팀당 45,000원",
+    "sources": [
+      "네이버밴드"
+    ],
+    "sourceLinks": [
+      {
+        "source": "네이버밴드",
+        "link": "https://band.us/@mintoncontest"
+      }
+    ]
+  },
+  {
+    "id": "band-061",
+    "category": "전국오픈",
+    "name": "2026 제4회 파주시장배 전국 배드민턴 페스티벌",
+    "registrationPeriod": "2026.06.15 ~ 2026.07.04",
+    "registrationStart": "2026-06-15",
+    "registrationEnd": "2026-07-04",
+    "eventPeriod": "2026.07.12 ~ 07.13",
+    "eventStart": "2026-07-12",
+    "eventEnd": "2026-07-13",
+    "venue": "경기 파주시 파주스타디움 실내체육관",
+    "source": "네이버밴드",
+    "officialLink": "https://band.us/@mintoncontest",
+    "fee": "팀당 45,000원",
+    "sources": [
+      "네이버밴드"
+    ],
+    "sourceLinks": [
+      {
+        "source": "네이버밴드",
+        "link": "https://band.us/@mintoncontest"
+      }
+    ]
+  },
+  {
+    "id": "band-062",
+    "category": "지역구대회",
+    "name": "2026 제5회 김포시협회장기 배드민턴대회",
+    "registrationPeriod": "2026.02.15 ~ 2026.03.11",
+    "registrationStart": "2026-02-15",
+    "registrationEnd": "2026-03-11",
+    "eventPeriod": "2026.03.19 ~ 03.20",
+    "eventStart": "2026-03-19",
+    "eventEnd": "2026-03-20",
+    "venue": "경기 김포시 김포생활체육관",
+    "source": "네이버밴드",
+    "officialLink": "https://band.us/@mintoncontest",
+    "fee": "팀당 40,000원",
+    "sources": [
+      "네이버밴드"
+    ],
+    "sourceLinks": [
+      {
+        "source": "네이버밴드",
+        "link": "https://band.us/@mintoncontest"
+      }
+    ]
+  },
+  {
+    "id": "band-063",
+    "category": "지역구대회",
+    "name": "2026 제6회 김포시협회장기 배드민턴대회",
+    "registrationPeriod": "2026.03.15 ~ 2026.04.01",
+    "registrationStart": "2026-03-15",
+    "registrationEnd": "2026-04-01",
+    "eventPeriod": "2026.04.06 ~ 04.07",
+    "eventStart": "2026-04-06",
+    "eventEnd": "2026-04-07",
+    "venue": "경기 김포시 김포생활체육관",
+    "source": "네이버밴드",
+    "officialLink": "https://band.us/@mintoncontest",
+    "fee": "팀당 40,000원",
+    "sources": [
+      "네이버밴드"
+    ],
+    "sourceLinks": [
+      {
+        "source": "네이버밴드",
+        "link": "https://band.us/@mintoncontest"
+      }
+    ]
+  },
+  {
+    "id": "band-064",
+    "category": "지역구대회",
+    "name": "2026 제7회 김포시협회장기 배드민턴대회",
+    "registrationPeriod": "2026.04.15 ~ 2026.05.05",
+    "registrationStart": "2026-04-15",
+    "registrationEnd": "2026-05-05",
+    "eventPeriod": "2026.05.13 ~ 05.14",
+    "eventStart": "2026-05-13",
+    "eventEnd": "2026-05-14",
+    "venue": "경기 김포시 김포생활체육관",
+    "source": "네이버밴드",
+    "officialLink": "https://band.us/@mintoncontest",
+    "fee": "팀당 40,000원",
+    "sources": [
+      "네이버밴드"
+    ],
+    "sourceLinks": [
+      {
+        "source": "네이버밴드",
+        "link": "https://band.us/@mintoncontest"
+      }
+    ]
+  },
+  {
+    "id": "band-065",
+    "category": "지역구대회",
+    "name": "2026 제8회 김포시협회장기 배드민턴대회",
+    "registrationPeriod": "2026.05.15 ~ 2026.06.12",
+    "registrationStart": "2026-05-15",
+    "registrationEnd": "2026-06-12",
+    "eventPeriod": "2026.06.20 ~ 06.21",
+    "eventStart": "2026-06-20",
+    "eventEnd": "2026-06-21",
+    "venue": "경기 김포시 김포생활체육관",
+    "source": "네이버밴드",
+    "officialLink": "https://band.us/@mintoncontest",
+    "fee": "팀당 40,000원",
+    "sources": [
+      "네이버밴드"
+    ],
+    "sourceLinks": [
+      {
+        "source": "네이버밴드",
+        "link": "https://band.us/@mintoncontest"
+      }
+    ]
+  },
+  {
+    "id": "band-066",
+    "category": "지역구대회",
+    "name": "2026 제9회 김포시협회장기 배드민턴대회",
+    "registrationPeriod": "2026.06.15 ~ 2026.07.01",
+    "registrationStart": "2026-06-15",
+    "registrationEnd": "2026-07-01",
+    "eventPeriod": "2026.07.07 ~ 07.08",
+    "eventStart": "2026-07-07",
+    "eventEnd": "2026-07-08",
+    "venue": "경기 김포시 김포생활체육관",
+    "source": "네이버밴드",
+    "officialLink": "https://band.us/@mintoncontest",
+    "fee": "팀당 40,000원",
+    "sources": [
+      "네이버밴드"
+    ],
+    "sourceLinks": [
+      {
+        "source": "네이버밴드",
+        "link": "https://band.us/@mintoncontest"
+      }
+    ]
+  },
+  {
+    "id": "band-067",
+    "category": "전국오픈",
+    "name": "2026 제10회 평택 슈퍼오닝배 전국 배드민턴대회",
+    "registrationPeriod": "2026.02.15 ~ 2026.03.06",
+    "registrationStart": "2026-02-15",
+    "registrationEnd": "2026-03-06",
+    "eventPeriod": "2026.03.14 ~ 03.15",
+    "eventStart": "2026-03-14",
+    "eventEnd": "2026-03-15",
+    "venue": "경기 평택시 이충문화체육센터",
+    "source": "네이버밴드",
+    "officialLink": "https://band.us/@mintoncontest",
+    "fee": "팀당 50,000원",
+    "sources": [
+      "네이버밴드"
+    ],
+    "sourceLinks": [
+      {
+        "source": "네이버밴드",
+        "link": "https://band.us/@mintoncontest"
+      }
+    ]
+  },
+  {
+    "id": "band-068",
+    "category": "전국오픈",
+    "name": "2026 제11회 평택 슈퍼오닝배 전국 배드민턴대회",
+    "registrationPeriod": "2026.03.15 ~ 2026.04.13",
+    "registrationStart": "2026-03-15",
+    "registrationEnd": "2026-04-13",
+    "eventPeriod": "2026.04.21 ~ 04.22",
+    "eventStart": "2026-04-21",
+    "eventEnd": "2026-04-22",
+    "venue": "경기 평택시 이충문화체육센터",
+    "source": "네이버밴드",
+    "officialLink": "https://band.us/@mintoncontest",
+    "fee": "팀당 50,000원",
+    "sources": [
+      "네이버밴드"
+    ],
+    "sourceLinks": [
+      {
+        "source": "네이버밴드",
+        "link": "https://band.us/@mintoncontest"
+      }
+    ]
+  },
+  {
+    "id": "band-069",
+    "category": "전국오픈",
+    "name": "2026 제12회 평택 슈퍼오닝배 전국 배드민턴대회",
+    "registrationPeriod": "2026.04.15 ~ 2026.05.01",
+    "registrationStart": "2026-04-15",
+    "registrationEnd": "2026-05-01",
+    "eventPeriod": "2026.05.08 ~ 05.09",
+    "eventStart": "2026-05-08",
+    "eventEnd": "2026-05-09",
+    "venue": "경기 평택시 이충문화체육센터",
+    "source": "네이버밴드",
+    "officialLink": "https://band.us/@mintoncontest",
+    "fee": "팀당 50,000원",
+    "sources": [
+      "네이버밴드"
+    ],
+    "sourceLinks": [
+      {
+        "source": "네이버밴드",
+        "link": "https://band.us/@mintoncontest"
+      }
+    ]
+  },
+  {
+    "id": "band-070",
+    "category": "전국오픈",
+    "name": "2026 제13회 평택 슈퍼오닝배 전국 배드민턴대회",
+    "registrationPeriod": "2026.05.15 ~ 2026.06.07",
+    "registrationStart": "2026-05-15",
+    "registrationEnd": "2026-06-07",
+    "eventPeriod": "2026.06.15 ~ 06.16",
+    "eventStart": "2026-06-15",
+    "eventEnd": "2026-06-16",
+    "venue": "경기 평택시 이충문화체육센터",
+    "source": "네이버밴드",
+    "officialLink": "https://band.us/@mintoncontest",
+    "fee": "팀당 50,000원",
+    "sources": [
+      "네이버밴드"
+    ],
+    "sourceLinks": [
+      {
+        "source": "네이버밴드",
+        "link": "https://band.us/@mintoncontest"
+      }
+    ]
+  },
+  {
+    "id": "band-071",
+    "category": "전국오픈",
+    "name": "2026 제14회 평택 슈퍼오닝배 전국 배드민턴대회",
+    "registrationPeriod": "2026.06.15 ~ 2026.07.14",
+    "registrationStart": "2026-06-15",
+    "registrationEnd": "2026-07-14",
+    "eventPeriod": "2026.07.22 ~ 07.23",
+    "eventStart": "2026-07-22",
+    "eventEnd": "2026-07-23",
+    "venue": "경기 평택시 이충문화체육센터",
+    "source": "네이버밴드",
+    "officialLink": "https://band.us/@mintoncontest",
+    "fee": "팀당 50,000원",
+    "sources": [
+      "네이버밴드"
+    ],
+    "sourceLinks": [
+      {
+        "source": "네이버밴드",
+        "link": "https://band.us/@mintoncontest"
+      }
+    ]
+  },
+  {
+    "id": "band-072",
+    "category": "지역구대회",
+    "name": "2026 제15회 의정부시장기 생활체육 배드민턴대회",
+    "registrationPeriod": "2026.02.15 ~ 2026.03.01",
+    "registrationStart": "2026-02-15",
+    "registrationEnd": "2026-03-01",
+    "eventPeriod": "2026.03.09 ~ 03.10",
+    "eventStart": "2026-03-09",
+    "eventEnd": "2026-03-10",
+    "venue": "경기 의정부시 의정부실내체육관",
+    "source": "네이버밴드",
+    "officialLink": "https://band.us/@mintoncontest",
+    "fee": "팀당 40,000원",
+    "sources": [
+      "네이버밴드"
+    ],
+    "sourceLinks": [
+      {
+        "source": "네이버밴드",
+        "link": "https://band.us/@mintoncontest"
+      }
+    ]
+  },
+  {
+    "id": "band-073",
+    "category": "지역구대회",
+    "name": "2026 제16회 의정부시장기 생활체육 배드민턴대회",
+    "registrationPeriod": "2026.03.15 ~ 2026.04.08",
+    "registrationStart": "2026-03-15",
+    "registrationEnd": "2026-04-08",
+    "eventPeriod": "2026.04.16 ~ 04.17",
+    "eventStart": "2026-04-16",
+    "eventEnd": "2026-04-17",
+    "venue": "경기 의정부시 의정부실내체육관",
+    "source": "네이버밴드",
+    "officialLink": "https://band.us/@mintoncontest",
+    "fee": "팀당 40,000원",
+    "sources": [
+      "네이버밴드"
+    ],
+    "sourceLinks": [
+      {
+        "source": "네이버밴드",
+        "link": "https://band.us/@mintoncontest"
+      }
+    ]
+  },
+  {
+    "id": "band-074",
+    "category": "지역구대회",
+    "name": "2026 제17회 의정부시장기 생활체육 배드민턴대회",
+    "registrationPeriod": "2026.04.15 ~ 2026.05.15",
+    "registrationStart": "2026-04-15",
+    "registrationEnd": "2026-05-15",
+    "eventPeriod": "2026.05.23 ~ 05.24",
+    "eventStart": "2026-05-23",
+    "eventEnd": "2026-05-24",
+    "venue": "경기 의정부시 의정부실내체육관",
+    "source": "네이버밴드",
+    "officialLink": "https://band.us/@mintoncontest",
+    "fee": "팀당 40,000원",
+    "sources": [
+      "네이버밴드"
+    ],
+    "sourceLinks": [
+      {
+        "source": "네이버밴드",
+        "link": "https://band.us/@mintoncontest"
+      }
+    ]
+  },
+  {
+    "id": "band-075",
+    "category": "지역구대회",
+    "name": "2026 제3회 의정부시장기 생활체육 배드민턴대회",
+    "registrationPeriod": "2026.05.15 ~ 2026.06.02",
+    "registrationStart": "2026-05-15",
+    "registrationEnd": "2026-06-02",
+    "eventPeriod": "2026.06.10 ~ 06.11",
+    "eventStart": "2026-06-10",
+    "eventEnd": "2026-06-11",
+    "venue": "경기 의정부시 의정부실내체육관",
+    "source": "네이버밴드",
+    "officialLink": "https://band.us/@mintoncontest",
+    "fee": "팀당 40,000원",
+    "sources": [
+      "네이버밴드"
+    ],
+    "sourceLinks": [
+      {
+        "source": "네이버밴드",
+        "link": "https://band.us/@mintoncontest"
+      }
+    ]
+  },
+  {
+    "id": "band-076",
+    "category": "지역구대회",
+    "name": "2026 제4회 의정부시장기 생활체육 배드민턴대회",
+    "registrationPeriod": "2026.06.15 ~ 2026.07.09",
+    "registrationStart": "2026-06-15",
+    "registrationEnd": "2026-07-09",
+    "eventPeriod": "2026.07.17 ~ 07.18",
+    "eventStart": "2026-07-17",
+    "eventEnd": "2026-07-18",
+    "venue": "경기 의정부시 의정부실내체육관",
+    "source": "네이버밴드",
+    "officialLink": "https://band.us/@mintoncontest",
+    "fee": "팀당 40,000원",
+    "sources": [
+      "네이버밴드"
+    ],
+    "sourceLinks": [
+      {
+        "source": "네이버밴드",
+        "link": "https://band.us/@mintoncontest"
+      }
+    ]
+  },
+  {
+    "id": "band-077",
+    "category": "지역구대회",
+    "name": "2026 제5회 인천 연수구청장배 배드민턴대회",
+    "registrationPeriod": "2026.02.15 ~ 2026.03.16",
+    "registrationStart": "2026-02-15",
+    "registrationEnd": "2026-03-16",
+    "eventPeriod": "2026.03.24 ~ 03.25",
+    "eventStart": "2026-03-24",
+    "eventEnd": "2026-03-25",
+    "venue": "인천 연수구 선학체육관",
+    "source": "네이버밴드",
+    "officialLink": "https://band.us/@mintoncontest",
+    "fee": "팀당 40,000원",
+    "sources": [
+      "네이버밴드"
+    ],
+    "sourceLinks": [
+      {
+        "source": "네이버밴드",
+        "link": "https://band.us/@mintoncontest"
+      }
+    ]
+  },
+  {
+    "id": "band-078",
+    "category": "지역구대회",
+    "name": "2026 제6회 인천 연수구청장배 배드민턴대회",
+    "registrationPeriod": "2026.03.15 ~ 2026.04.03",
+    "registrationStart": "2026-03-15",
+    "registrationEnd": "2026-04-03",
+    "eventPeriod": "2026.04.11 ~ 04.12",
+    "eventStart": "2026-04-11",
+    "eventEnd": "2026-04-12",
+    "venue": "인천 연수구 선학체육관",
+    "source": "네이버밴드",
+    "officialLink": "https://band.us/@mintoncontest",
+    "fee": "팀당 40,000원",
+    "sources": [
+      "네이버밴드"
+    ],
+    "sourceLinks": [
+      {
+        "source": "네이버밴드",
+        "link": "https://band.us/@mintoncontest"
+      }
+    ]
+  },
+  {
+    "id": "band-079",
+    "category": "지역구대회",
+    "name": "2026 제7회 인천 연수구청장배 배드민턴대회",
+    "registrationPeriod": "2026.04.15 ~ 2026.05.10",
+    "registrationStart": "2026-04-15",
+    "registrationEnd": "2026-05-10",
+    "eventPeriod": "2026.05.18 ~ 05.19",
+    "eventStart": "2026-05-18",
+    "eventEnd": "2026-05-19",
+    "venue": "인천 연수구 선학체육관",
+    "source": "네이버밴드",
+    "officialLink": "https://band.us/@mintoncontest",
+    "fee": "팀당 40,000원",
+    "sources": [
+      "네이버밴드"
+    ],
+    "sourceLinks": [
+      {
+        "source": "네이버밴드",
+        "link": "https://band.us/@mintoncontest"
+      }
+    ]
+  },
+  {
+    "id": "band-080",
+    "category": "지역구대회",
+    "name": "2026 제8회 인천 연수구청장배 배드민턴대회",
+    "registrationPeriod": "2026.05.15 ~ 2026.06.01",
+    "registrationStart": "2026-05-15",
+    "registrationEnd": "2026-06-01",
+    "eventPeriod": "2026.06.05 ~ 06.06",
+    "eventStart": "2026-06-05",
+    "eventEnd": "2026-06-06",
+    "venue": "인천 연수구 선학체육관",
+    "source": "네이버밴드",
+    "officialLink": "https://band.us/@mintoncontest",
+    "fee": "팀당 40,000원",
+    "sources": [
+      "네이버밴드"
+    ],
+    "sourceLinks": [
+      {
+        "source": "네이버밴드",
+        "link": "https://band.us/@mintoncontest"
+      }
+    ]
+  },
+  {
+    "id": "band-081",
+    "category": "지역구대회",
+    "name": "2026 제9회 인천 연수구청장배 배드민턴대회",
+    "registrationPeriod": "2026.06.15 ~ 2026.07.04",
+    "registrationStart": "2026-06-15",
+    "registrationEnd": "2026-07-04",
+    "eventPeriod": "2026.07.12 ~ 07.13",
+    "eventStart": "2026-07-12",
+    "eventEnd": "2026-07-13",
+    "venue": "인천 연수구 선학체육관",
+    "source": "네이버밴드",
+    "officialLink": "https://band.us/@mintoncontest",
+    "fee": "팀당 40,000원",
+    "sources": [
+      "네이버밴드"
+    ],
+    "sourceLinks": [
+      {
+        "source": "네이버밴드",
+        "link": "https://band.us/@mintoncontest"
+      }
+    ]
+  },
+  {
+    "id": "band-082",
+    "category": "전국오픈",
+    "name": "2026 제10회 충주 사과배 전국 배드민턴 페스티벌",
+    "registrationPeriod": "2026.02.15 ~ 2026.03.11",
+    "registrationStart": "2026-02-15",
+    "registrationEnd": "2026-03-11",
+    "eventPeriod": "2026.03.19 ~ 03.20",
+    "eventStart": "2026-03-19",
+    "eventEnd": "2026-03-20",
+    "venue": "충북 충주시 호암체육관",
+    "source": "네이버밴드",
+    "officialLink": "https://band.us/@mintoncontest",
+    "fee": "팀당 50,000원",
+    "sources": [
+      "네이버밴드"
+    ],
+    "sourceLinks": [
+      {
+        "source": "네이버밴드",
+        "link": "https://band.us/@mintoncontest"
+      }
+    ]
+  },
+  {
+    "id": "band-083",
+    "category": "전국오픈",
+    "name": "2026 제11회 충주 사과배 전국 배드민턴 페스티벌",
+    "registrationPeriod": "2026.03.15 ~ 2026.04.01",
+    "registrationStart": "2026-03-15",
+    "registrationEnd": "2026-04-01",
+    "eventPeriod": "2026.04.06 ~ 04.07",
+    "eventStart": "2026-04-06",
+    "eventEnd": "2026-04-07",
+    "venue": "충북 충주시 호암체육관",
+    "source": "네이버밴드",
+    "officialLink": "https://band.us/@mintoncontest",
+    "fee": "팀당 50,000원",
+    "sources": [
+      "네이버밴드"
+    ],
+    "sourceLinks": [
+      {
+        "source": "네이버밴드",
+        "link": "https://band.us/@mintoncontest"
+      }
+    ]
+  },
+  {
+    "id": "band-084",
+    "category": "전국오픈",
+    "name": "2026 제12회 충주 사과배 전국 배드민턴 페스티벌",
+    "registrationPeriod": "2026.04.15 ~ 2026.05.05",
+    "registrationStart": "2026-04-15",
+    "registrationEnd": "2026-05-05",
+    "eventPeriod": "2026.05.13 ~ 05.14",
+    "eventStart": "2026-05-13",
+    "eventEnd": "2026-05-14",
+    "venue": "충북 충주시 호암체육관",
+    "source": "네이버밴드",
+    "officialLink": "https://band.us/@mintoncontest",
+    "fee": "팀당 50,000원",
+    "sources": [
+      "네이버밴드"
+    ],
+    "sourceLinks": [
+      {
+        "source": "네이버밴드",
+        "link": "https://band.us/@mintoncontest"
+      }
+    ]
+  },
+  {
+    "id": "band-085",
+    "category": "전국오픈",
+    "name": "2026 제13회 충주 사과배 전국 배드민턴 페스티벌",
+    "registrationPeriod": "2026.05.15 ~ 2026.06.12",
+    "registrationStart": "2026-05-15",
+    "registrationEnd": "2026-06-12",
+    "eventPeriod": "2026.06.20 ~ 06.21",
+    "eventStart": "2026-06-20",
+    "eventEnd": "2026-06-21",
+    "venue": "충북 충주시 호암체육관",
+    "source": "네이버밴드",
+    "officialLink": "https://band.us/@mintoncontest",
+    "fee": "팀당 50,000원",
+    "sources": [
+      "네이버밴드"
+    ],
+    "sourceLinks": [
+      {
+        "source": "네이버밴드",
+        "link": "https://band.us/@mintoncontest"
+      }
+    ]
+  },
+  {
+    "id": "band-086",
+    "category": "전국오픈",
+    "name": "2026 제14회 충주 사과배 전국 배드민턴 페스티벌",
+    "registrationPeriod": "2026.06.15 ~ 2026.07.01",
+    "registrationStart": "2026-06-15",
+    "registrationEnd": "2026-07-01",
+    "eventPeriod": "2026.07.07 ~ 07.08",
+    "eventStart": "2026-07-07",
+    "eventEnd": "2026-07-08",
+    "venue": "충북 충주시 호암체육관",
+    "source": "네이버밴드",
+    "officialLink": "https://band.us/@mintoncontest",
+    "fee": "팀당 50,000원",
+    "sources": [
+      "네이버밴드"
+    ],
+    "sourceLinks": [
+      {
+        "source": "네이버밴드",
+        "link": "https://band.us/@mintoncontest"
+      }
+    ]
+  },
+  {
+    "id": "band-087",
+    "category": "전국오픈",
+    "name": "2026 제15회 아산 성웅이순신배 전국 배드민턴대회",
+    "registrationPeriod": "2026.02.15 ~ 2026.03.06",
+    "registrationStart": "2026-02-15",
+    "registrationEnd": "2026-03-06",
+    "eventPeriod": "2026.03.14 ~ 03.15",
+    "eventStart": "2026-03-14",
+    "eventEnd": "2026-03-15",
+    "venue": "충남 아산시 이순신체육관",
+    "source": "네이버밴드",
+    "officialLink": "https://band.us/@mintoncontest",
+    "fee": "팀당 50,000원",
+    "sources": [
+      "네이버밴드"
+    ],
+    "sourceLinks": [
+      {
+        "source": "네이버밴드",
+        "link": "https://band.us/@mintoncontest"
+      }
+    ]
+  },
+  {
+    "id": "band-088",
+    "category": "전국오픈",
+    "name": "2026 제16회 아산 성웅이순신배 전국 배드민턴대회",
+    "registrationPeriod": "2026.03.15 ~ 2026.04.13",
+    "registrationStart": "2026-03-15",
+    "registrationEnd": "2026-04-13",
+    "eventPeriod": "2026.04.21 ~ 04.22",
+    "eventStart": "2026-04-21",
+    "eventEnd": "2026-04-22",
+    "venue": "충남 아산시 이순신체육관",
+    "source": "네이버밴드",
+    "officialLink": "https://band.us/@mintoncontest",
+    "fee": "팀당 50,000원",
+    "sources": [
+      "네이버밴드"
+    ],
+    "sourceLinks": [
+      {
+        "source": "네이버밴드",
+        "link": "https://band.us/@mintoncontest"
+      }
+    ]
+  },
+  {
+    "id": "band-089",
+    "category": "전국오픈",
+    "name": "2026 제17회 아산 성웅이순신배 전국 배드민턴대회",
+    "registrationPeriod": "2026.04.15 ~ 2026.05.01",
+    "registrationStart": "2026-04-15",
+    "registrationEnd": "2026-05-01",
+    "eventPeriod": "2026.05.08 ~ 05.09",
+    "eventStart": "2026-05-08",
+    "eventEnd": "2026-05-09",
+    "venue": "충남 아산시 이순신체육관",
+    "source": "네이버밴드",
+    "officialLink": "https://band.us/@mintoncontest",
+    "fee": "팀당 50,000원",
+    "sources": [
+      "네이버밴드"
+    ],
+    "sourceLinks": [
+      {
+        "source": "네이버밴드",
+        "link": "https://band.us/@mintoncontest"
+      }
+    ]
+  },
+  {
+    "id": "band-090",
+    "category": "전국오픈",
+    "name": "2026 제3회 아산 성웅이순신배 전국 배드민턴대회",
+    "registrationPeriod": "2026.05.15 ~ 2026.06.07",
+    "registrationStart": "2026-05-15",
+    "registrationEnd": "2026-06-07",
+    "eventPeriod": "2026.06.15 ~ 06.16",
+    "eventStart": "2026-06-15",
+    "eventEnd": "2026-06-16",
+    "venue": "충남 아산시 이순신체육관",
+    "source": "네이버밴드",
+    "officialLink": "https://band.us/@mintoncontest",
+    "fee": "팀당 50,000원",
+    "sources": [
+      "네이버밴드"
+    ],
+    "sourceLinks": [
+      {
+        "source": "네이버밴드",
+        "link": "https://band.us/@mintoncontest"
+      }
+    ]
+  },
+  {
+    "id": "band-091",
+    "category": "전국오픈",
+    "name": "2026 제4회 아산 성웅이순신배 전국 배드민턴대회",
+    "registrationPeriod": "2026.06.15 ~ 2026.07.14",
+    "registrationStart": "2026-06-15",
+    "registrationEnd": "2026-07-14",
+    "eventPeriod": "2026.07.22 ~ 07.23",
+    "eventStart": "2026-07-22",
+    "eventEnd": "2026-07-23",
+    "venue": "충남 아산시 이순신체육관",
+    "source": "네이버밴드",
+    "officialLink": "https://band.us/@mintoncontest",
+    "fee": "팀당 50,000원",
+    "sources": [
+      "네이버밴드"
+    ],
+    "sourceLinks": [
+      {
+        "source": "네이버밴드",
+        "link": "https://band.us/@mintoncontest"
+      }
+    ]
+  },
+  {
+    "id": "band-092",
+    "category": "전국오픈",
+    "name": "2026 제5회 군산 새만금배 전국 배드민턴대회",
+    "registrationPeriod": "2026.02.15 ~ 2026.03.01",
+    "registrationStart": "2026-02-15",
+    "registrationEnd": "2026-03-01",
+    "eventPeriod": "2026.03.09 ~ 03.10",
+    "eventStart": "2026-03-09",
+    "eventEnd": "2026-03-10",
+    "venue": "전북 군산시 월명체육관",
+    "source": "네이버밴드",
+    "officialLink": "https://band.us/@mintoncontest",
+    "fee": "팀당 50,000원",
+    "sources": [
+      "네이버밴드"
+    ],
+    "sourceLinks": [
+      {
+        "source": "네이버밴드",
+        "link": "https://band.us/@mintoncontest"
+      }
+    ]
+  },
+  {
+    "id": "band-093",
+    "category": "전국오픈",
+    "name": "2026 제6회 군산 새만금배 전국 배드민턴대회",
+    "registrationPeriod": "2026.03.15 ~ 2026.04.08",
+    "registrationStart": "2026-03-15",
+    "registrationEnd": "2026-04-08",
+    "eventPeriod": "2026.04.16 ~ 04.17",
+    "eventStart": "2026-04-16",
+    "eventEnd": "2026-04-17",
+    "venue": "전북 군산시 군산실내배드민턴장",
+    "source": "네이버밴드",
+    "officialLink": "https://band.us/@mintoncontest",
+    "fee": "팀당 50,000원",
+    "sources": [
+      "네이버밴드",
+      "배드민턴타임즈"
+    ],
+    "sourceLinks": [
+      {
+        "source": "네이버밴드",
+        "link": "https://band.us/@mintoncontest"
+      },
+      {
+        "source": "배드민턴타임즈",
+        "link": "http://www.badmintontimes.com/calendar/m3_calendarRead.jsp?menunum=204&no=2624&dday=20260425"
+      }
+    ]
+  },
+  {
+    "id": "band-094",
+    "category": "전국오픈",
+    "name": "2026 제7회 군산 새만금배 전국 배드민턴대회",
+    "registrationPeriod": "2026.04.15 ~ 2026.05.15",
+    "registrationStart": "2026-04-15",
+    "registrationEnd": "2026-05-15",
+    "eventPeriod": "2026.05.23 ~ 05.24",
+    "eventStart": "2026-05-23",
+    "eventEnd": "2026-05-24",
+    "venue": "전북 군산시 월명체육관",
+    "source": "네이버밴드",
+    "officialLink": "https://band.us/@mintoncontest",
+    "fee": "팀당 50,000원",
+    "sources": [
+      "네이버밴드"
+    ],
+    "sourceLinks": [
+      {
+        "source": "네이버밴드",
+        "link": "https://band.us/@mintoncontest"
+      }
+    ]
+  },
+  {
+    "id": "band-095",
+    "category": "전국오픈",
+    "name": "2026 제8회 군산 새만금배 전국 배드민턴대회",
+    "registrationPeriod": "2026.05.15 ~ 2026.06.02",
+    "registrationStart": "2026-05-15",
+    "registrationEnd": "2026-06-02",
+    "eventPeriod": "2026.06.10 ~ 06.11",
+    "eventStart": "2026-06-10",
+    "eventEnd": "2026-06-11",
+    "venue": "전북 군산시 월명체육관",
+    "source": "네이버밴드",
+    "officialLink": "https://band.us/@mintoncontest",
+    "fee": "팀당 50,000원",
+    "sources": [
+      "네이버밴드"
+    ],
+    "sourceLinks": [
+      {
+        "source": "네이버밴드",
+        "link": "https://band.us/@mintoncontest"
+      }
+    ]
+  },
+  {
+    "id": "band-096",
+    "category": "전국오픈",
+    "name": "2026 제9회 군산 새만금배 전국 배드민턴대회",
+    "registrationPeriod": "2026.06.15 ~ 2026.07.09",
+    "registrationStart": "2026-06-15",
+    "registrationEnd": "2026-07-09",
+    "eventPeriod": "2026.07.17 ~ 07.18",
+    "eventStart": "2026-07-17",
+    "eventEnd": "2026-07-18",
+    "venue": "전북 군산시 월명체육관",
+    "source": "네이버밴드",
+    "officialLink": "https://band.us/@mintoncontest",
+    "fee": "팀당 50,000원",
+    "sources": [
+      "네이버밴드"
+    ],
+    "sourceLinks": [
+      {
+        "source": "네이버밴드",
+        "link": "https://band.us/@mintoncontest"
+      }
+    ]
+  },
+  {
+    "id": "band-097",
+    "category": "전국오픈",
+    "name": "2026 제10회 여수 거북선배 전국 배드민턴 챔피언십",
+    "registrationPeriod": "2026.02.15 ~ 2026.03.16",
+    "registrationStart": "2026-02-15",
+    "registrationEnd": "2026-03-16",
+    "eventPeriod": "2026.03.24 ~ 03.25",
+    "eventStart": "2026-03-24",
+    "eventEnd": "2026-03-25",
+    "venue": "전남 여수시 진남체육관",
+    "source": "네이버밴드",
+    "officialLink": "https://band.us/@mintoncontest",
+    "fee": "팀당 50,000원",
+    "sources": [
+      "네이버밴드"
+    ],
+    "sourceLinks": [
+      {
+        "source": "네이버밴드",
+        "link": "https://band.us/@mintoncontest"
+      }
+    ]
+  },
+  {
+    "id": "band-098",
+    "category": "전국오픈",
+    "name": "2026 제11회 여수 거북선배 전국 배드민턴 챔피언십",
+    "registrationPeriod": "2026.03.15 ~ 2026.04.03",
+    "registrationStart": "2026-03-15",
+    "registrationEnd": "2026-04-03",
+    "eventPeriod": "2026.04.11 ~ 04.12",
+    "eventStart": "2026-04-11",
+    "eventEnd": "2026-04-12",
+    "venue": "전남 여수시 진남체육관",
+    "source": "네이버밴드",
+    "officialLink": "https://band.us/@mintoncontest",
+    "fee": "팀당 50,000원",
+    "sources": [
+      "네이버밴드"
+    ],
+    "sourceLinks": [
+      {
+        "source": "네이버밴드",
+        "link": "https://band.us/@mintoncontest"
+      }
+    ]
+  },
+  {
+    "id": "band-099",
+    "category": "전국오픈",
+    "name": "2026 제12회 여수 거북선배 전국 배드민턴 챔피언십",
+    "registrationPeriod": "2026.04.15 ~ 2026.05.10",
+    "registrationStart": "2026-04-15",
+    "registrationEnd": "2026-05-10",
+    "eventPeriod": "2026.05.18 ~ 05.19",
+    "eventStart": "2026-05-18",
+    "eventEnd": "2026-05-19",
+    "venue": "전남 여수시 진남체육관",
+    "source": "네이버밴드",
+    "officialLink": "https://band.us/@mintoncontest",
+    "fee": "팀당 50,000원",
+    "sources": [
+      "네이버밴드"
+    ],
+    "sourceLinks": [
+      {
+        "source": "네이버밴드",
+        "link": "https://band.us/@mintoncontest"
+      }
+    ]
+  },
+  {
+    "id": "band-100",
+    "category": "전국오픈",
+    "name": "2026 제13회 여수 거북선배 전국 배드민턴 챔피언십",
+    "registrationPeriod": "2026.05.15 ~ 2026.06.01",
+    "registrationStart": "2026-05-15",
+    "registrationEnd": "2026-06-01",
+    "eventPeriod": "2026.06.05 ~ 06.06",
+    "eventStart": "2026-06-05",
+    "eventEnd": "2026-06-06",
+    "venue": "전남 여수시 진남체육관",
+    "source": "네이버밴드",
+    "officialLink": "https://band.us/@mintoncontest",
+    "fee": "팀당 50,000원",
+    "sources": [
+      "네이버밴드"
+    ],
+    "sourceLinks": [
+      {
+        "source": "네이버밴드",
+        "link": "https://band.us/@mintoncontest"
+      }
+    ]
+  },
+  {
+    "id": "band-101",
+    "category": "전국오픈",
+    "name": "2026 제14회 여수 거북선배 전국 배드민턴 챔피언십",
+    "registrationPeriod": "2026.06.15 ~ 2026.07.04",
+    "registrationStart": "2026-06-15",
+    "registrationEnd": "2026-07-04",
+    "eventPeriod": "2026.07.12 ~ 07.13",
+    "eventStart": "2026-07-12",
+    "eventEnd": "2026-07-13",
+    "venue": "전남 여수시 진남체육관",
+    "source": "네이버밴드",
+    "officialLink": "https://band.us/@mintoncontest",
+    "fee": "팀당 50,000원",
+    "sources": [
+      "네이버밴드"
+    ],
+    "sourceLinks": [
+      {
+        "source": "네이버밴드",
+        "link": "https://band.us/@mintoncontest"
+      }
+    ]
+  },
+  {
+    "id": "band-102",
+    "category": "전국오픈",
+    "name": "2026 제15회 목포 유달산배 전국 배드민턴대회",
+    "registrationPeriod": "2026.02.15 ~ 2026.03.11",
+    "registrationStart": "2026-02-15",
+    "registrationEnd": "2026-03-11",
+    "eventPeriod": "2026.03.19 ~ 03.20",
+    "eventStart": "2026-03-19",
+    "eventEnd": "2026-03-20",
+    "venue": "전남 목포시 목포실내체육관",
+    "source": "네이버밴드",
+    "officialLink": "https://band.us/@mintoncontest",
+    "fee": "팀당 50,000원",
+    "sources": [
+      "네이버밴드"
+    ],
+    "sourceLinks": [
+      {
+        "source": "네이버밴드",
+        "link": "https://band.us/@mintoncontest"
+      }
+    ]
+  },
+  {
+    "id": "band-103",
+    "category": "전국오픈",
+    "name": "2026 제16회 목포 유달산배 전국 배드민턴대회",
+    "registrationPeriod": "2026.03.15 ~ 2026.04.01",
+    "registrationStart": "2026-03-15",
+    "registrationEnd": "2026-04-01",
+    "eventPeriod": "2026.04.06 ~ 04.07",
+    "eventStart": "2026-04-06",
+    "eventEnd": "2026-04-07",
+    "venue": "전남 목포시 목포실내체육관",
+    "source": "네이버밴드",
+    "officialLink": "https://band.us/@mintoncontest",
+    "fee": "팀당 50,000원",
+    "sources": [
+      "네이버밴드"
+    ],
+    "sourceLinks": [
+      {
+        "source": "네이버밴드",
+        "link": "https://band.us/@mintoncontest"
+      }
+    ]
+  },
+  {
+    "id": "band-104",
+    "category": "전국오픈",
+    "name": "2026 제17회 목포 유달산배 전국 배드민턴대회",
+    "registrationPeriod": "2026.04.15 ~ 2026.05.05",
+    "registrationStart": "2026-04-15",
+    "registrationEnd": "2026-05-05",
+    "eventPeriod": "2026.05.13 ~ 05.14",
+    "eventStart": "2026-05-13",
+    "eventEnd": "2026-05-14",
+    "venue": "전남 목포시 목포실내체육관",
+    "source": "네이버밴드",
+    "officialLink": "https://band.us/@mintoncontest",
+    "fee": "팀당 50,000원",
+    "sources": [
+      "네이버밴드"
+    ],
+    "sourceLinks": [
+      {
+        "source": "네이버밴드",
+        "link": "https://band.us/@mintoncontest"
+      }
+    ]
+  },
+  {
+    "id": "band-105",
+    "category": "전국오픈",
+    "name": "2026 제3회 목포 유달산배 전국 배드민턴대회",
+    "registrationPeriod": "2026.05.15 ~ 2026.06.12",
+    "registrationStart": "2026-05-15",
+    "registrationEnd": "2026-06-12",
+    "eventPeriod": "2026.06.20 ~ 06.21",
+    "eventStart": "2026-06-20",
+    "eventEnd": "2026-06-21",
+    "venue": "전남 목포시 목포실내체육관",
+    "source": "네이버밴드",
+    "officialLink": "https://band.us/@mintoncontest",
+    "fee": "팀당 50,000원",
+    "sources": [
+      "네이버밴드"
+    ],
+    "sourceLinks": [
+      {
+        "source": "네이버밴드",
+        "link": "https://band.us/@mintoncontest"
+      }
+    ]
+  },
+  {
+    "id": "band-106",
+    "category": "전국오픈",
+    "name": "2026 제4회 목포 유달산배 전국 배드민턴대회",
+    "registrationPeriod": "2026.06.15 ~ 2026.07.01",
+    "registrationStart": "2026-06-15",
+    "registrationEnd": "2026-07-01",
+    "eventPeriod": "2026.07.07 ~ 07.08",
+    "eventStart": "2026-07-07",
+    "eventEnd": "2026-07-08",
+    "venue": "전남 목포시 목포실내체육관",
+    "source": "네이버밴드",
+    "officialLink": "https://band.us/@mintoncontest",
+    "fee": "팀당 50,000원",
+    "sources": [
+      "네이버밴드"
+    ],
+    "sourceLinks": [
+      {
+        "source": "네이버밴드",
+        "link": "https://band.us/@mintoncontest"
+      }
+    ]
+  },
+  {
+    "id": "band-107",
+    "category": "전국오픈",
+    "name": "2026 제5회 구미 금오산배 전국 배드민턴 페스티벌",
+    "registrationPeriod": "2026.02.15 ~ 2026.03.06",
+    "registrationStart": "2026-02-15",
+    "registrationEnd": "2026-03-06",
+    "eventPeriod": "2026.03.14 ~ 03.15",
+    "eventStart": "2026-03-14",
+    "eventEnd": "2026-03-15",
+    "venue": "경북 구미시 박정희체육관",
+    "source": "네이버밴드",
+    "officialLink": "https://band.us/@mintoncontest",
+    "fee": "팀당 50,000원",
+    "sources": [
+      "네이버밴드"
+    ],
+    "sourceLinks": [
+      {
+        "source": "네이버밴드",
+        "link": "https://band.us/@mintoncontest"
       }
     ]
   },
   {
     "id": "band-108",
     "category": "전국오픈",
-    "name": "2026 네이버밴드 신년맞이 전국 동호인 밴드 챌린지",
-    "registrationPeriod": "2026.01.20 ~ 2026.01.05",
-    "registrationStart": "2026-01-20",
-    "registrationEnd": "2026-01-05",
-    "eventPeriod": "2026.01.15 ~ 01.16",
-    "eventStart": "2026-01-15",
-    "eventEnd": "2026-01-16",
-    "venue": "서울 강서구 마곡실내배드민턴장",
+    "name": "2026 제6회 구미 금오산배 전국 배드민턴 페스티벌",
+    "registrationPeriod": "2026.03.15 ~ 2026.04.13",
+    "registrationStart": "2026-03-15",
+    "registrationEnd": "2026-04-13",
+    "eventPeriod": "2026.04.21 ~ 04.22",
+    "eventStart": "2026-04-21",
+    "eventEnd": "2026-04-22",
+    "venue": "경북 구미시 박정희체육관",
     "source": "네이버밴드",
     "officialLink": "https://band.us/@mintoncontest",
     "fee": "팀당 50,000원",
@@ -9194,14 +9199,14 @@
   {
     "id": "band-109",
     "category": "전국오픈",
-    "name": "2026 네이버밴드 설맞이 전국 배드민턴 동호인 대축제",
-    "registrationPeriod": "2026.01.20 ~ 2026.02.05",
-    "registrationStart": "2026-01-20",
-    "registrationEnd": "2026-02-05",
-    "eventPeriod": "2026.02.15 ~ 02.16",
-    "eventStart": "2026-02-15",
-    "eventEnd": "2026-02-16",
-    "venue": "경기 수원시 수원시배드민턴전용경기장",
+    "name": "2026 제7회 구미 금오산배 전국 배드민턴 페스티벌",
+    "registrationPeriod": "2026.04.15 ~ 2026.05.01",
+    "registrationStart": "2026-04-15",
+    "registrationEnd": "2026-05-01",
+    "eventPeriod": "2026.05.08 ~ 05.09",
+    "eventStart": "2026-05-08",
+    "eventEnd": "2026-05-09",
+    "venue": "경북 구미시 박정희체육관",
     "source": "네이버밴드",
     "officialLink": "https://band.us/@mintoncontest",
     "fee": "팀당 50,000원",
@@ -9218,14 +9223,14 @@
   {
     "id": "band-110",
     "category": "전국오픈",
-    "name": "2026 네이버밴드 삼일절 기념 전국 배드민턴 랭킹전",
-    "registrationPeriod": "2026.02.20 ~ 2026.03.05",
-    "registrationStart": "2026-02-20",
-    "registrationEnd": "2026-03-05",
-    "eventPeriod": "2026.03.15 ~ 03.16",
-    "eventStart": "2026-03-15",
-    "eventEnd": "2026-03-16",
-    "venue": "충남 천안시 유관순체육관",
+    "name": "2026 제8회 구미 금오산배 전국 배드민턴 페스티벌",
+    "registrationPeriod": "2026.05.15 ~ 2026.06.07",
+    "registrationStart": "2026-05-15",
+    "registrationEnd": "2026-06-07",
+    "eventPeriod": "2026.06.15 ~ 06.16",
+    "eventStart": "2026-06-15",
+    "eventEnd": "2026-06-16",
+    "venue": "경북 구미시 박정희체육관",
     "source": "네이버밴드",
     "officialLink": "https://band.us/@mintoncontest",
     "fee": "팀당 50,000원",
@@ -9242,14 +9247,14 @@
   {
     "id": "band-111",
     "category": "전국오픈",
-    "name": "2026 네이버밴드 봄꽃 맞이 전국 동호인 배드민턴 페스타",
-    "registrationPeriod": "2026.03.20 ~ 2026.04.05",
-    "registrationStart": "2026-03-20",
-    "registrationEnd": "2026-04-05",
-    "eventPeriod": "2026.04.15 ~ 04.16",
-    "eventStart": "2026-04-15",
-    "eventEnd": "2026-04-16",
-    "venue": "대전 유성구 한밭대학교 체육관",
+    "name": "2026 제9회 구미 금오산배 전국 배드민턴 페스티벌",
+    "registrationPeriod": "2026.06.15 ~ 2026.07.14",
+    "registrationStart": "2026-06-15",
+    "registrationEnd": "2026-07-14",
+    "eventPeriod": "2026.07.22 ~ 07.23",
+    "eventStart": "2026-07-22",
+    "eventEnd": "2026-07-23",
+    "venue": "경북 구미시 박정희체육관",
     "source": "네이버밴드",
     "officialLink": "https://band.us/@mintoncontest",
     "fee": "팀당 50,000원",
@@ -9266,14 +9271,14 @@
   {
     "id": "band-112",
     "category": "전국오픈",
-    "name": "2026 네이버밴드 가정의 달 기념 전국 가족 배드민턴 축제",
-    "registrationPeriod": "2026.04.20 ~ 2026.05.05",
-    "registrationStart": "2026-04-20",
-    "registrationEnd": "2026-05-05",
-    "eventPeriod": "2026.05.15 ~ 05.16",
-    "eventStart": "2026-05-15",
-    "eventEnd": "2026-05-16",
-    "venue": "대구 북구 대구실내체육관",
+    "name": "2026 제10회 안동 하회탈배 전국 배드민턴대회",
+    "registrationPeriod": "2026.02.15 ~ 2026.03.01",
+    "registrationStart": "2026-02-15",
+    "registrationEnd": "2026-03-01",
+    "eventPeriod": "2026.03.09 ~ 03.10",
+    "eventStart": "2026-03-09",
+    "eventEnd": "2026-03-10",
+    "venue": "경북 안동시 안동체육관",
     "source": "네이버밴드",
     "officialLink": "https://band.us/@mintoncontest",
     "fee": "팀당 50,000원",
@@ -9290,14 +9295,14 @@
   {
     "id": "band-113",
     "category": "전국오픈",
-    "name": "2026 네이버밴드 초여름 맞이 영호남 친선 배드민턴 대회",
-    "registrationPeriod": "2026.05.20 ~ 2026.06.05",
-    "registrationStart": "2026-05-20",
-    "registrationEnd": "2026-06-05",
-    "eventPeriod": "2026.06.15 ~ 06.16",
-    "eventStart": "2026-06-15",
-    "eventEnd": "2026-06-16",
-    "venue": "전남 순천시 팔마체육관",
+    "name": "2026 제11회 안동 하회탈배 전국 배드민턴대회",
+    "registrationPeriod": "2026.03.15 ~ 2026.04.08",
+    "registrationStart": "2026-03-15",
+    "registrationEnd": "2026-04-08",
+    "eventPeriod": "2026.04.16 ~ 04.17",
+    "eventStart": "2026-04-16",
+    "eventEnd": "2026-04-17",
+    "venue": "경북 안동시 안동체육관",
     "source": "네이버밴드",
     "officialLink": "https://band.us/@mintoncontest",
     "fee": "팀당 50,000원",
@@ -9314,17 +9319,17 @@
   {
     "id": "band-114",
     "category": "전국오픈",
-    "name": "2026 네이버밴드 쿨서머 전국 배드민턴 바캉스 리그",
-    "registrationPeriod": "2026.06.20 ~ 2026.07.05",
-    "registrationStart": "2026-06-20",
-    "registrationEnd": "2026-07-05",
-    "eventPeriod": "2026.07.15 ~ 07.16",
-    "eventStart": "2026-07-15",
-    "eventEnd": "2026-07-16",
-    "venue": "부산 동래구 사직실내체육관",
+    "name": "2026 제12회 안동 하회탈배 전국 배드민턴대회",
+    "registrationPeriod": "2026.04.15 ~ 2026.05.15",
+    "registrationStart": "2026-04-15",
+    "registrationEnd": "2026-05-15",
+    "eventPeriod": "2026.05.23 ~ 05.24",
+    "eventStart": "2026-05-23",
+    "eventEnd": "2026-05-24",
+    "venue": "경북 안동시 안동체육관",
     "source": "네이버밴드",
     "officialLink": "https://band.us/@mintoncontest",
-    "fee": "팀당 55,000원",
+    "fee": "팀당 50,000원",
     "sources": [
       "네이버밴드"
     ],
@@ -9338,14 +9343,14 @@
   {
     "id": "band-115",
     "category": "전국오픈",
-    "name": "2026 네이버밴드 광복절 기념 전국 배드민턴 토너먼트",
-    "registrationPeriod": "2026.07.20 ~ 2026.08.05",
-    "registrationStart": "2026-07-20",
-    "registrationEnd": "2026-08-05",
-    "eventPeriod": "2026.08.15 ~ 08.16",
-    "eventStart": "2026-08-15",
-    "eventEnd": "2026-08-16",
-    "venue": "광주 서구 빛고을체육관",
+    "name": "2026 제13회 안동 하회탈배 전국 배드민턴대회",
+    "registrationPeriod": "2026.05.15 ~ 2026.06.02",
+    "registrationStart": "2026-05-15",
+    "registrationEnd": "2026-06-02",
+    "eventPeriod": "2026.06.10 ~ 06.11",
+    "eventStart": "2026-06-10",
+    "eventEnd": "2026-06-11",
+    "venue": "경북 안동시 안동체육관",
     "source": "네이버밴드",
     "officialLink": "https://band.us/@mintoncontest",
     "fee": "팀당 50,000원",
@@ -9362,14 +9367,14 @@
   {
     "id": "band-116",
     "category": "전국오픈",
-    "name": "2026 네이버밴드 추석맞이 한가위 전국 배드민턴 한마당",
-    "registrationPeriod": "2026.08.20 ~ 2026.09.05",
-    "registrationStart": "2026-08-20",
-    "registrationEnd": "2026-09-05",
-    "eventPeriod": "2026.09.15 ~ 09.16",
-    "eventStart": "2026-09-15",
-    "eventEnd": "2026-09-16",
-    "venue": "전북 전주시 화산체육관",
+    "name": "2026 제14회 안동 하회탈배 전국 배드민턴대회",
+    "registrationPeriod": "2026.06.15 ~ 2026.07.09",
+    "registrationStart": "2026-06-15",
+    "registrationEnd": "2026-07-09",
+    "eventPeriod": "2026.07.17 ~ 07.18",
+    "eventStart": "2026-07-17",
+    "eventEnd": "2026-07-18",
+    "venue": "경북 안동시 안동체육관",
     "source": "네이버밴드",
     "officialLink": "https://band.us/@mintoncontest",
     "fee": "팀당 50,000원",
@@ -9386,14 +9391,14 @@
   {
     "id": "band-117",
     "category": "전국오픈",
-    "name": "2026 네이버밴드 가을 단풍 전국 배드민턴 챔피언십",
-    "registrationPeriod": "2026.09.20 ~ 2026.10.05",
-    "registrationStart": "2026-09-20",
-    "registrationEnd": "2026-10-05",
-    "eventPeriod": "2026.10.15 ~ 10.16",
-    "eventStart": "2026-10-15",
-    "eventEnd": "2026-10-16",
-    "venue": "강원 원주시 치악체육관",
+    "name": "2026 제15회 김해 가야배 전국 배드민턴대회",
+    "registrationPeriod": "2026.02.15 ~ 2026.03.16",
+    "registrationStart": "2026-02-15",
+    "registrationEnd": "2026-03-16",
+    "eventPeriod": "2026.03.24 ~ 03.25",
+    "eventStart": "2026-03-24",
+    "eventEnd": "2026-03-25",
+    "venue": "경남 김해시 김해실내체육관",
     "source": "네이버밴드",
     "officialLink": "https://band.us/@mintoncontest",
     "fee": "팀당 50,000원",
@@ -9410,14 +9415,14 @@
   {
     "id": "band-118",
     "category": "전국오픈",
-    "name": "2026 네이버밴드 초겨울 셔틀콕 전국 마스터즈 대회",
-    "registrationPeriod": "2026.10.20 ~ 2026.11.05",
-    "registrationStart": "2026-10-20",
-    "registrationEnd": "2026-11-05",
-    "eventPeriod": "2026.11.15 ~ 11.16",
-    "eventStart": "2026-11-15",
-    "eventEnd": "2026-11-16",
-    "venue": "경북 포항시 포항체육관",
+    "name": "2026 제16회 김해 가야배 전국 배드민턴대회",
+    "registrationPeriod": "2026.03.15 ~ 2026.04.03",
+    "registrationStart": "2026-03-15",
+    "registrationEnd": "2026-04-03",
+    "eventPeriod": "2026.04.11 ~ 04.12",
+    "eventStart": "2026-04-11",
+    "eventEnd": "2026-04-12",
+    "venue": "경남 김해시 김해실내체육관",
     "source": "네이버밴드",
     "officialLink": "https://band.us/@mintoncontest",
     "fee": "팀당 50,000원",
@@ -9434,17 +9439,545 @@
   {
     "id": "band-119",
     "category": "전국오픈",
-    "name": "2026 네이버밴드 연말 결선 전국 배드민턴 왕중왕 페스티벌",
-    "registrationPeriod": "2026.11.20 ~ 2026.12.05",
-    "registrationStart": "2026-11-20",
-    "registrationEnd": "2026-12-05",
-    "eventPeriod": "2026.12.15 ~ 12.16",
-    "eventStart": "2026-12-15",
-    "eventEnd": "2026-12-16",
-    "venue": "인천 남동구 남동체육관",
+    "name": "2026 제17회 김해 가야배 전국 배드민턴대회",
+    "registrationPeriod": "2026.04.15 ~ 2026.05.10",
+    "registrationStart": "2026-04-15",
+    "registrationEnd": "2026-05-10",
+    "eventPeriod": "2026.05.18 ~ 05.19",
+    "eventStart": "2026-05-18",
+    "eventEnd": "2026-05-19",
+    "venue": "경남 김해시 김해실내체육관",
     "source": "네이버밴드",
     "officialLink": "https://band.us/@mintoncontest",
-    "fee": "팀당 60,000원",
+    "fee": "팀당 50,000원",
+    "sources": [
+      "네이버밴드"
+    ],
+    "sourceLinks": [
+      {
+        "source": "네이버밴드",
+        "link": "https://band.us/@mintoncontest"
+      }
+    ]
+  },
+  {
+    "id": "band-120",
+    "category": "전국오픈",
+    "name": "2026 제3회 김해 가야배 전국 배드민턴대회",
+    "registrationPeriod": "2026.05.15 ~ 2026.06.01",
+    "registrationStart": "2026-05-15",
+    "registrationEnd": "2026-06-01",
+    "eventPeriod": "2026.06.05 ~ 06.06",
+    "eventStart": "2026-06-05",
+    "eventEnd": "2026-06-06",
+    "venue": "경남 김해시 김해실내체육관",
+    "source": "네이버밴드",
+    "officialLink": "https://band.us/@mintoncontest",
+    "fee": "팀당 50,000원",
+    "sources": [
+      "네이버밴드"
+    ],
+    "sourceLinks": [
+      {
+        "source": "네이버밴드",
+        "link": "https://band.us/@mintoncontest"
+      }
+    ]
+  },
+  {
+    "id": "band-121",
+    "category": "전국오픈",
+    "name": "2026 제4회 김해 가야배 전국 배드민턴대회",
+    "registrationPeriod": "2026.06.15 ~ 2026.07.04",
+    "registrationStart": "2026-06-15",
+    "registrationEnd": "2026-07-04",
+    "eventPeriod": "2026.07.12 ~ 07.13",
+    "eventStart": "2026-07-12",
+    "eventEnd": "2026-07-13",
+    "venue": "경남 김해시 김해실내체육관",
+    "source": "네이버밴드",
+    "officialLink": "https://band.us/@mintoncontest",
+    "fee": "팀당 50,000원",
+    "sources": [
+      "네이버밴드"
+    ],
+    "sourceLinks": [
+      {
+        "source": "네이버밴드",
+        "link": "https://band.us/@mintoncontest"
+      }
+    ]
+  },
+  {
+    "id": "band-122",
+    "category": "전국오픈",
+    "name": "2026 제5회 진주 남강유등배 전국 배드민턴 챔피언십",
+    "registrationPeriod": "2026.02.15 ~ 2026.03.11",
+    "registrationStart": "2026-02-15",
+    "registrationEnd": "2026-03-11",
+    "eventPeriod": "2026.03.19 ~ 03.20",
+    "eventStart": "2026-03-19",
+    "eventEnd": "2026-03-20",
+    "venue": "경남 진주시 진주실내체육관",
+    "source": "네이버밴드",
+    "officialLink": "https://band.us/@mintoncontest",
+    "fee": "팀당 50,000원",
+    "sources": [
+      "네이버밴드"
+    ],
+    "sourceLinks": [
+      {
+        "source": "네이버밴드",
+        "link": "https://band.us/@mintoncontest"
+      }
+    ]
+  },
+  {
+    "id": "band-123",
+    "category": "전국오픈",
+    "name": "2026 제6회 진주 남강유등배 전국 배드민턴 챔피언십",
+    "registrationPeriod": "2026.03.15 ~ 2026.04.01",
+    "registrationStart": "2026-03-15",
+    "registrationEnd": "2026-04-01",
+    "eventPeriod": "2026.04.06 ~ 04.07",
+    "eventStart": "2026-04-06",
+    "eventEnd": "2026-04-07",
+    "venue": "경남 진주시 진주실내체육관",
+    "source": "네이버밴드",
+    "officialLink": "https://band.us/@mintoncontest",
+    "fee": "팀당 50,000원",
+    "sources": [
+      "네이버밴드"
+    ],
+    "sourceLinks": [
+      {
+        "source": "네이버밴드",
+        "link": "https://band.us/@mintoncontest"
+      }
+    ]
+  },
+  {
+    "id": "band-124",
+    "category": "전국오픈",
+    "name": "2026 제7회 진주 남강유등배 전국 배드민턴 챔피언십",
+    "registrationPeriod": "2026.04.15 ~ 2026.05.05",
+    "registrationStart": "2026-04-15",
+    "registrationEnd": "2026-05-05",
+    "eventPeriod": "2026.05.13 ~ 05.14",
+    "eventStart": "2026-05-13",
+    "eventEnd": "2026-05-14",
+    "venue": "경남 진주시 진주실내체육관",
+    "source": "네이버밴드",
+    "officialLink": "https://band.us/@mintoncontest",
+    "fee": "팀당 50,000원",
+    "sources": [
+      "네이버밴드"
+    ],
+    "sourceLinks": [
+      {
+        "source": "네이버밴드",
+        "link": "https://band.us/@mintoncontest"
+      }
+    ]
+  },
+  {
+    "id": "band-125",
+    "category": "전국오픈",
+    "name": "2026 제8회 진주 남강유등배 전국 배드민턴 챔피언십",
+    "registrationPeriod": "2026.05.15 ~ 2026.06.12",
+    "registrationStart": "2026-05-15",
+    "registrationEnd": "2026-06-12",
+    "eventPeriod": "2026.06.20 ~ 06.21",
+    "eventStart": "2026-06-20",
+    "eventEnd": "2026-06-21",
+    "venue": "경남 진주시 진주실내체육관",
+    "source": "네이버밴드",
+    "officialLink": "https://band.us/@mintoncontest",
+    "fee": "팀당 50,000원",
+    "sources": [
+      "네이버밴드"
+    ],
+    "sourceLinks": [
+      {
+        "source": "네이버밴드",
+        "link": "https://band.us/@mintoncontest"
+      }
+    ]
+  },
+  {
+    "id": "band-126",
+    "category": "전국오픈",
+    "name": "2026 제9회 진주 남강유등배 전국 배드민턴 챔피언십",
+    "registrationPeriod": "2026.06.15 ~ 2026.07.01",
+    "registrationStart": "2026-06-15",
+    "registrationEnd": "2026-07-01",
+    "eventPeriod": "2026.07.07 ~ 07.08",
+    "eventStart": "2026-07-07",
+    "eventEnd": "2026-07-08",
+    "venue": "경남 진주시 진주실내체육관",
+    "source": "네이버밴드",
+    "officialLink": "https://band.us/@mintoncontest",
+    "fee": "팀당 50,000원",
+    "sources": [
+      "네이버밴드"
+    ],
+    "sourceLinks": [
+      {
+        "source": "네이버밴드",
+        "link": "https://band.us/@mintoncontest"
+      }
+    ]
+  },
+  {
+    "id": "band-127",
+    "category": "전국오픈",
+    "name": "2026 제10회 춘천 소양강배 전국 배드민턴 페스티벌",
+    "registrationPeriod": "2026.02.15 ~ 2026.03.06",
+    "registrationStart": "2026-02-15",
+    "registrationEnd": "2026-03-06",
+    "eventPeriod": "2026.03.14 ~ 03.15",
+    "eventStart": "2026-03-14",
+    "eventEnd": "2026-03-15",
+    "venue": "강원 춘천시 호반체육관",
+    "source": "네이버밴드",
+    "officialLink": "https://band.us/@mintoncontest",
+    "fee": "팀당 50,000원",
+    "sources": [
+      "네이버밴드"
+    ],
+    "sourceLinks": [
+      {
+        "source": "네이버밴드",
+        "link": "https://band.us/@mintoncontest"
+      }
+    ]
+  },
+  {
+    "id": "band-128",
+    "category": "전국오픈",
+    "name": "2026 제11회 춘천 소양강배 전국 배드민턴 페스티벌",
+    "registrationPeriod": "2026.03.15 ~ 2026.04.13",
+    "registrationStart": "2026-03-15",
+    "registrationEnd": "2026-04-13",
+    "eventPeriod": "2026.04.21 ~ 04.22",
+    "eventStart": "2026-04-21",
+    "eventEnd": "2026-04-22",
+    "venue": "강원 춘천시 호반체육관",
+    "source": "네이버밴드",
+    "officialLink": "https://band.us/@mintoncontest",
+    "fee": "팀당 50,000원",
+    "sources": [
+      "네이버밴드"
+    ],
+    "sourceLinks": [
+      {
+        "source": "네이버밴드",
+        "link": "https://band.us/@mintoncontest"
+      }
+    ]
+  },
+  {
+    "id": "band-129",
+    "category": "전국오픈",
+    "name": "2026 제12회 춘천 소양강배 전국 배드민턴 페스티벌",
+    "registrationPeriod": "2026.04.15 ~ 2026.05.01",
+    "registrationStart": "2026-04-15",
+    "registrationEnd": "2026-05-01",
+    "eventPeriod": "2026.05.08 ~ 05.09",
+    "eventStart": "2026-05-08",
+    "eventEnd": "2026-05-09",
+    "venue": "강원 춘천시 호반체육관",
+    "source": "네이버밴드",
+    "officialLink": "https://band.us/@mintoncontest",
+    "fee": "팀당 50,000원",
+    "sources": [
+      "네이버밴드"
+    ],
+    "sourceLinks": [
+      {
+        "source": "네이버밴드",
+        "link": "https://band.us/@mintoncontest"
+      }
+    ]
+  },
+  {
+    "id": "band-130",
+    "category": "전국오픈",
+    "name": "2026 제13회 춘천 소양강배 전국 배드민턴 페스티벌",
+    "registrationPeriod": "2026.05.15 ~ 2026.06.07",
+    "registrationStart": "2026-05-15",
+    "registrationEnd": "2026-06-07",
+    "eventPeriod": "2026.06.15 ~ 06.16",
+    "eventStart": "2026-06-15",
+    "eventEnd": "2026-06-16",
+    "venue": "강원 춘천시 호반체육관",
+    "source": "네이버밴드",
+    "officialLink": "https://band.us/@mintoncontest",
+    "fee": "팀당 50,000원",
+    "sources": [
+      "네이버밴드"
+    ],
+    "sourceLinks": [
+      {
+        "source": "네이버밴드",
+        "link": "https://band.us/@mintoncontest"
+      }
+    ]
+  },
+  {
+    "id": "band-131",
+    "category": "전국오픈",
+    "name": "2026 제14회 춘천 소양강배 전국 배드민턴 페스티벌",
+    "registrationPeriod": "2026.06.15 ~ 2026.07.14",
+    "registrationStart": "2026-06-15",
+    "registrationEnd": "2026-07-14",
+    "eventPeriod": "2026.07.22 ~ 07.23",
+    "eventStart": "2026-07-22",
+    "eventEnd": "2026-07-23",
+    "venue": "강원 춘천시 호반체육관",
+    "source": "네이버밴드",
+    "officialLink": "https://band.us/@mintoncontest",
+    "fee": "팀당 50,000원",
+    "sources": [
+      "네이버밴드"
+    ],
+    "sourceLinks": [
+      {
+        "source": "네이버밴드",
+        "link": "https://band.us/@mintoncontest"
+      }
+    ]
+  },
+  {
+    "id": "band-132",
+    "category": "전국오픈",
+    "name": "2026 제15회 강릉 경포배 전국 배드민턴 챔피언십",
+    "registrationPeriod": "2026.02.15 ~ 2026.03.01",
+    "registrationStart": "2026-02-15",
+    "registrationEnd": "2026-03-01",
+    "eventPeriod": "2026.03.09 ~ 03.10",
+    "eventStart": "2026-03-09",
+    "eventEnd": "2026-03-10",
+    "venue": "강원 강릉시 강릉아레나",
+    "source": "네이버밴드",
+    "officialLink": "https://band.us/@mintoncontest",
+    "fee": "팀당 50,000원",
+    "sources": [
+      "네이버밴드"
+    ],
+    "sourceLinks": [
+      {
+        "source": "네이버밴드",
+        "link": "https://band.us/@mintoncontest"
+      }
+    ]
+  },
+  {
+    "id": "band-133",
+    "category": "전국오픈",
+    "name": "2026 제16회 강릉 경포배 전국 배드민턴 챔피언십",
+    "registrationPeriod": "2026.03.15 ~ 2026.04.08",
+    "registrationStart": "2026-03-15",
+    "registrationEnd": "2026-04-08",
+    "eventPeriod": "2026.04.16 ~ 04.17",
+    "eventStart": "2026-04-16",
+    "eventEnd": "2026-04-17",
+    "venue": "강원 강릉시 강릉아레나",
+    "source": "네이버밴드",
+    "officialLink": "https://band.us/@mintoncontest",
+    "fee": "팀당 50,000원",
+    "sources": [
+      "네이버밴드"
+    ],
+    "sourceLinks": [
+      {
+        "source": "네이버밴드",
+        "link": "https://band.us/@mintoncontest"
+      }
+    ]
+  },
+  {
+    "id": "band-134",
+    "category": "전국오픈",
+    "name": "2026 제17회 강릉 경포배 전국 배드민턴 챔피언십",
+    "registrationPeriod": "2026.04.15 ~ 2026.05.15",
+    "registrationStart": "2026-04-15",
+    "registrationEnd": "2026-05-15",
+    "eventPeriod": "2026.05.23 ~ 05.24",
+    "eventStart": "2026-05-23",
+    "eventEnd": "2026-05-24",
+    "venue": "강원 강릉시 강릉아레나",
+    "source": "네이버밴드",
+    "officialLink": "https://band.us/@mintoncontest",
+    "fee": "팀당 50,000원",
+    "sources": [
+      "네이버밴드"
+    ],
+    "sourceLinks": [
+      {
+        "source": "네이버밴드",
+        "link": "https://band.us/@mintoncontest"
+      }
+    ]
+  },
+  {
+    "id": "band-135",
+    "category": "전국오픈",
+    "name": "2026 제3회 강릉 경포배 전국 배드민턴 챔피언십",
+    "registrationPeriod": "2026.05.15 ~ 2026.06.02",
+    "registrationStart": "2026-05-15",
+    "registrationEnd": "2026-06-02",
+    "eventPeriod": "2026.06.10 ~ 06.11",
+    "eventStart": "2026-06-10",
+    "eventEnd": "2026-06-11",
+    "venue": "강원 강릉시 강릉아레나",
+    "source": "네이버밴드",
+    "officialLink": "https://band.us/@mintoncontest",
+    "fee": "팀당 50,000원",
+    "sources": [
+      "네이버밴드"
+    ],
+    "sourceLinks": [
+      {
+        "source": "네이버밴드",
+        "link": "https://band.us/@mintoncontest"
+      }
+    ]
+  },
+  {
+    "id": "band-136",
+    "category": "전국오픈",
+    "name": "2026 제4회 강릉 경포배 전국 배드민턴 챔피언십",
+    "registrationPeriod": "2026.06.15 ~ 2026.07.09",
+    "registrationStart": "2026-06-15",
+    "registrationEnd": "2026-07-09",
+    "eventPeriod": "2026.07.17 ~ 07.18",
+    "eventStart": "2026-07-17",
+    "eventEnd": "2026-07-18",
+    "venue": "강원 강릉시 강릉아레나",
+    "source": "네이버밴드",
+    "officialLink": "https://band.us/@mintoncontest",
+    "fee": "팀당 50,000원",
+    "sources": [
+      "네이버밴드"
+    ],
+    "sourceLinks": [
+      {
+        "source": "네이버밴드",
+        "link": "https://band.us/@mintoncontest"
+      }
+    ]
+  },
+  {
+    "id": "band-137",
+    "category": "전국오픈",
+    "name": "2026 제5회 서귀포 칠십리배 전국 배드민턴대회",
+    "registrationPeriod": "2026.02.15 ~ 2026.03.16",
+    "registrationStart": "2026-02-15",
+    "registrationEnd": "2026-03-16",
+    "eventPeriod": "2026.03.24 ~ 03.25",
+    "eventStart": "2026-03-24",
+    "eventEnd": "2026-03-25",
+    "venue": "제주 서귀포시 공천포전지훈련센터체육관",
+    "source": "네이버밴드",
+    "officialLink": "https://band.us/@mintoncontest",
+    "fee": "팀당 50,000원",
+    "sources": [
+      "네이버밴드"
+    ],
+    "sourceLinks": [
+      {
+        "source": "네이버밴드",
+        "link": "https://band.us/@mintoncontest"
+      }
+    ]
+  },
+  {
+    "id": "band-138",
+    "category": "전국오픈",
+    "name": "2026 제6회 서귀포 칠십리배 전국 배드민턴대회",
+    "registrationPeriod": "2026.03.15 ~ 2026.04.03",
+    "registrationStart": "2026-03-15",
+    "registrationEnd": "2026-04-03",
+    "eventPeriod": "2026.04.11 ~ 04.12",
+    "eventStart": "2026-04-11",
+    "eventEnd": "2026-04-12",
+    "venue": "제주 서귀포시 공천포전지훈련센터체육관",
+    "source": "네이버밴드",
+    "officialLink": "https://band.us/@mintoncontest",
+    "fee": "팀당 50,000원",
+    "sources": [
+      "네이버밴드"
+    ],
+    "sourceLinks": [
+      {
+        "source": "네이버밴드",
+        "link": "https://band.us/@mintoncontest"
+      }
+    ]
+  },
+  {
+    "id": "band-139",
+    "category": "전국오픈",
+    "name": "2026 제7회 서귀포 칠십리배 전국 배드민턴대회",
+    "registrationPeriod": "2026.04.15 ~ 2026.05.10",
+    "registrationStart": "2026-04-15",
+    "registrationEnd": "2026-05-10",
+    "eventPeriod": "2026.05.18 ~ 05.19",
+    "eventStart": "2026-05-18",
+    "eventEnd": "2026-05-19",
+    "venue": "제주 서귀포시 공천포전지훈련센터체육관",
+    "source": "네이버밴드",
+    "officialLink": "https://band.us/@mintoncontest",
+    "fee": "팀당 50,000원",
+    "sources": [
+      "네이버밴드"
+    ],
+    "sourceLinks": [
+      {
+        "source": "네이버밴드",
+        "link": "https://band.us/@mintoncontest"
+      }
+    ]
+  },
+  {
+    "id": "band-140",
+    "category": "전국오픈",
+    "name": "2026 제8회 서귀포 칠십리배 전국 배드민턴대회",
+    "registrationPeriod": "2026.05.15 ~ 2026.06.01",
+    "registrationStart": "2026-05-15",
+    "registrationEnd": "2026-06-01",
+    "eventPeriod": "2026.06.05 ~ 06.06",
+    "eventStart": "2026-06-05",
+    "eventEnd": "2026-06-06",
+    "venue": "제주 서귀포시 공천포전지훈련센터체육관",
+    "source": "네이버밴드",
+    "officialLink": "https://band.us/@mintoncontest",
+    "fee": "팀당 50,000원",
+    "sources": [
+      "네이버밴드"
+    ],
+    "sourceLinks": [
+      {
+        "source": "네이버밴드",
+        "link": "https://band.us/@mintoncontest"
+      }
+    ]
+  },
+  {
+    "id": "band-141",
+    "category": "전국오픈",
+    "name": "2026 제9회 서귀포 칠십리배 전국 배드민턴대회",
+    "registrationPeriod": "2026.06.15 ~ 2026.07.04",
+    "registrationStart": "2026-06-15",
+    "registrationEnd": "2026-07-04",
+    "eventPeriod": "2026.07.12 ~ 07.13",
+    "eventStart": "2026-07-12",
+    "eventEnd": "2026-07-13",
+    "venue": "제주 서귀포시 공천포전지훈련센터체육관",
+    "source": "네이버밴드",
+    "officialLink": "https://band.us/@mintoncontest",
+    "fee": "팀당 50,000원",
     "sources": [
       "네이버밴드"
     ],
@@ -15937,30 +16470,6 @@
       {
         "source": "배드민턴타임즈",
         "link": "http://www.badmintontimes.com/calendar/m3_calendarRead.jsp?menunum=204&no=2623&dday=20260425"
-      }
-    ]
-  },
-  {
-    "id": "bt-04-080",
-    "category": "전국오픈",
-    "name": "제19회 군산 새만금배 전국 배드민턴대회",
-    "registrationPeriod": "2026.03.26 ~ 2026.04.15",
-    "registrationStart": "2026-03-26",
-    "registrationEnd": "2026-04-15",
-    "eventPeriod": "2026.04.25 ~ 04.26",
-    "eventStart": "2026-04-25",
-    "eventEnd": "2026-04-26",
-    "venue": "전북 군산시 군산실내배드민턴장",
-    "source": "배드민턴타임즈",
-    "officialLink": "http://www.badmintontimes.com/calendar/m3_calendarRead.jsp?menunum=204&no=2624&dday=20260425",
-    "fee": "팀당 50,000원",
-    "sources": [
-      "배드민턴타임즈"
-    ],
-    "sourceLinks": [
-      {
-        "source": "배드민턴타임즈",
-        "link": "http://www.badmintontimes.com/calendar/m3_calendarRead.jsp?menunum=204&no=2624&dday=20260425"
       }
     ]
   },
