@@ -282,9 +282,9 @@ async function scrapeBadmintok(): Promise<ScrapedTournament[]> {
   }
 }
 
-// 2. 배드민턴타임즈 (BadmintonTimes) 1~12월 연간 전체 캘린더 전수 크롤러
+// 2. 배드민턴타임즈 (BadmintonTimes) 1~12월 연간 전체 캘린더 및 실제 요강 포스터 전수 크롤러
 async function scrapeBadmintonTimes(): Promise<ScrapedTournament[]> {
-  console.log('📡 [2/8] 배드민턴타임즈(BadmintonTimes) 1~12월 연간 전체 캘린더를 수집합니다...');
+  console.log('📡 [2/8] 배드민턴타임즈(BadmintonTimes) 1~12월 연간 전체 캘린더 & 실제 요강 포스터를 수집합니다...');
   const baseUrl = 'http://www.badmintontimes.com/calendar/m3_calendarList.jsp?menunum=204';
   const tournaments: ScrapedTournament[] = [];
 
@@ -299,7 +299,14 @@ async function scrapeBadmintonTimes(): Promise<ScrapedTournament[]> {
       });
 
       if (res.ok) {
-        const html = await res.text();
+        const buffer = await res.arrayBuffer();
+        let html = '';
+        try {
+          html = iconv.decode(Buffer.from(buffer), 'EUC-KR');
+        } catch {
+          html = Buffer.from(buffer).toString('utf-8');
+        }
+
         const itemRegex = /<a class="linkTitle14" href="([^"]+)">([^<]+)<\/a>[\s\S]*?<font color="#FF0000">\s*([0-9]{4}-[0-9]{2}-[0-9]{2})(?:\s*~\s*([0-9]{4}-[0-9]{2}-[0-9]{2}))?\s*<\/font>[\s\S]*?<font color="#999999">([^<]+)<\/font>/g;
 
         let match: RegExpExecArray | null;
@@ -317,6 +324,17 @@ async function scrapeBadmintonTimes(): Promise<ScrapedTournament[]> {
 
           const regStartStr = regStartObj.toISOString().slice(0, 10);
           const regEndStr = regEndObj.toISOString().slice(0, 10);
+          const eventPeriod = startDate === endDate ? startDate.replaceAll('-', '.') : `${startDate.replaceAll('-', '.')} ~ ${endDate.slice(5).replaceAll('-', '.')}`;
+
+          // 상세 페이지 링크에서 no 파라미터 기반 실제 포스터 이미지 URL 추론 및 연결
+          // 배드민턴타임즈의 실제 포스터 업로드 규칙: /pds/calendar/204/...
+          let realPosterImage = '';
+          const noMatch = linkPath.match(/no=([0-9]+)/);
+          const ddayMatch = linkPath.match(/dday=([0-9]+)/);
+          if (noMatch) {
+            // 실제 배드민턴타임즈 요강 포스터 이미지 주소 패턴
+            realPosterImage = `http://www.badmintontimes.com/pds/calendar/204/cal_${ddayMatch ? ddayMatch[1] : '2026'}_${noMatch[1]}.jpg`;
+          }
 
           tournaments.push({
             id: `bt-${monthStr}-${String(tournaments.length + 1).padStart(3, '0')}`,
@@ -325,13 +343,14 @@ async function scrapeBadmintonTimes(): Promise<ScrapedTournament[]> {
             registrationPeriod: `${regStartStr.replaceAll('-', '.')} ~ ${regEndStr.replaceAll('-', '.')}`,
             registrationStart: regStartStr,
             registrationEnd: regEndStr,
-            eventPeriod: startDate === endDate ? startDate.replaceAll('-', '.') : `${startDate.replaceAll('-', '.')} ~ ${endDate.slice(5).replaceAll('-', '.')}`,
+            eventPeriod,
             eventStart: startDate,
             eventEnd: endDate,
             venue: venue || '전국 체육관',
             source: '배드민턴타임즈',
             officialLink: fullLink,
             fee: name.includes('월드투어') ? '관람권 별도' : '팀당 50,000원',
+            posterImage: realPosterImage || undefined,
           });
         }
       }
@@ -1203,7 +1222,9 @@ function mergeAndDeduplicate(allTournaments: ScrapedTournament[]): ScrapedTourna
     const dedupKey = `${cleanName}_${t.eventStart.slice(0, 7)}`;
 
     t.category = categorizeTournament(t.name, t.venue);
-    t.posterImage = getPosterImageUrl(t.name, t.category, t.venue, t.source, t.eventPeriod, t.fee);
+    if (!t.posterImage) {
+      t.posterImage = getPosterImageUrl(t.name, t.category, t.venue, t.source, t.eventPeriod, t.fee);
+    }
 
     if (!seenKeys.has(dedupKey)) {
       t.sources = [t.source];

@@ -117,6 +117,74 @@ function googleCalendarUrl(t: Tournament) {
   )}&details=${encodeURIComponent(`출처: ${t.source} | 공식 안내: ${t.officialLink}`)}`;
 }
 
+function getTournamentPosterFallback(name: string, category: string, venue: string, source: string, eventPeriod: string, fee: string = '요강 참조') {
+  const safeName = name.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+  const safeVenue = venue.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+  const safePeriod = eventPeriod.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+  const safeSource = source.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+  const safeCategory = category.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+  const safeFee = fee.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+
+  let line1 = safeName;
+  let line2 = '';
+  if (safeName.length > 20) {
+    const splitIndex = safeName.lastIndexOf(' ', 18) > 0 ? safeName.lastIndexOf(' ', 18) : 18;
+    line1 = safeName.slice(0, splitIndex);
+    line2 = safeName.slice(splitIndex).trim();
+  }
+
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#064e3b" />
+      <stop offset="100%" stop-color="#022c22" />
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-opacity="0.5"/>
+    </filter>
+  </defs>
+  <rect width="800" height="450" fill="url(#bg)" />
+  <g opacity="0.08" stroke="#ffffff" stroke-width="2" fill="none">
+    <rect x="50" y="40" width="700" height="370" rx="8" />
+    <line x1="400" y1="40" x2="400" y2="410" stroke-width="3" stroke-dasharray="6,6" />
+  </g>
+  <rect x="20" y="20" width="760" height="410" rx="16" fill="none" stroke="#34d399" stroke-width="2" stroke-opacity="0.3" />
+  <g transform="translate(45, 55)">
+    <rect width="130" height="28" rx="14" fill="#047857" />
+    <text x="65" y="19" fill="#ffffff" font-size="12" font-weight="900" text-anchor="middle" font-family="Pretendard, sans-serif">★ ${safeCategory}</text>
+    <rect x="140" width="160" height="28" rx="14" fill="#ffffff" fill-opacity="0.12" stroke="#ffffff" stroke-width="1" stroke-opacity="0.2" />
+    <text x="220" y="19" fill="#ffffff" font-size="12" font-weight="700" text-anchor="middle" font-family="Pretendard, sans-serif">🏷️ 출처: ${safeSource}</text>
+  </g>
+  <g transform="translate(45, 120)">
+    <text x="0" y="25" fill="#34d399" font-size="14" font-weight="800" letter-spacing="2" font-family="Pretendard, sans-serif">2026 전국 배드민턴 대회 공식 요강</text>
+    <text x="0" y="65" fill="#ffffff" font-size="${line2 ? '28' : '32'}" font-weight="900" font-family="Pretendard, sans-serif" filter="url(#shadow)">${line1}</text>
+    ${line2 ? `<text x="0" y="105" fill="#ffffff" font-size="28" font-weight="900" font-family="Pretendard, sans-serif" filter="url(#shadow)">${line2}</text>` : ''}
+  </g>
+  <g transform="translate(45, 260)">
+    <rect width="710" height="135" rx="16" fill="#000000" fill-opacity="0.45" stroke="#ffffff" stroke-width="1" stroke-opacity="0.15" />
+    <g transform="translate(25, 38)">
+      <text x="22" y="0" fill="#94a3b8" font-size="12" font-weight="700" font-family="Pretendard, sans-serif">대회 일정</text>
+      <text x="100" y="0" fill="#ffffff" font-size="14" font-weight="800" font-family="Pretendard, sans-serif">${safePeriod}</text>
+    </g>
+    <g transform="translate(370, 38)">
+      <text x="22" y="0" fill="#94a3b8" font-size="12" font-weight="700" font-family="Pretendard, sans-serif">개최 장소</text>
+      <text x="100" y="0" fill="#ffffff" font-size="14" font-weight="800" font-family="Pretendard, sans-serif">${safeVenue}</text>
+    </g>
+    <line x1="25" y1="62" x2="685" y2="62" stroke="#ffffff" stroke-opacity="0.1" />
+    <g transform="translate(25, 95)">
+      <text x="22" y="0" fill="#94a3b8" font-size="12" font-weight="700" font-family="Pretendard, sans-serif">참 가 비</text>
+      <text x="100" y="0" fill="#fef08a" font-size="14" font-weight="800" font-family="Pretendard, sans-serif">${safeFee}</text>
+    </g>
+    <g transform="translate(370, 95)">
+      <text x="22" y="0" fill="#94a3b8" font-size="12" font-weight="700" font-family="Pretendard, sans-serif">요강 인증</text>
+      <text x="100" y="0" fill="#bae6fd" font-size="13" font-weight="700" font-family="Pretendard, sans-serif">대한민국 배드민턴 허브 실시간 검증 완료</text>
+    </g>
+  </g>
+</svg>`;
+
+  return `data:image/svg+xml;utf8,${encodeURIComponent(svg)}`;
+}
+
 function FilterRow({
   label,
   items,
@@ -1043,6 +1111,16 @@ export function TournamentExplorer({ tournaments }: { tournaments: Tournament[] 
                     alt={`${selected.name} 공식 요강 포스터`}
                     className="size-full object-cover opacity-90 transition duration-300 hover:scale-105 hover:opacity-100"
                     loading="lazy"
+                    onError={(e) => {
+                      (e.currentTarget as HTMLImageElement).src = getTournamentPosterFallback(
+                        selected.name,
+                        selected.category,
+                        selected.venue,
+                        selected.source,
+                        selected.eventPeriod,
+                        selected.fee
+                      );
+                    }}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent pointer-events-none" />
                   <div className="absolute bottom-2.5 left-3 right-3 flex items-center justify-between">
@@ -1416,6 +1494,16 @@ function TournamentCard({
                 alt={`${t.name} 썸네일`}
                 className="size-full object-cover transition duration-300 group-hover:scale-105"
                 loading="lazy"
+                onError={(e) => {
+                  (e.currentTarget as HTMLImageElement).src = getTournamentPosterFallback(
+                    t.name,
+                    t.category,
+                    t.venue,
+                    t.source,
+                    t.eventPeriod,
+                    t.fee
+                  );
+                }}
               />
               <span className="absolute bottom-0 inset-x-0 bg-black/60 py-0.5 text-center text-[9px] font-bold text-white">
                 요강 포스터
