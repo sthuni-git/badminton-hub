@@ -192,7 +192,7 @@ export const CRAWLER_SOURCES: CrawlerSource[] = [
     id: 'naverband',
     name: '네이버 밴드 (전국 배드민턴 35개 공인/오픈 밴드 연합)',
     category: '네이버 밴드 & 커뮤니티',
-    targetUrl: 'https://band.us/@mintoncontest',
+    targetUrl: 'https://band.us/band/63083777',
     subUrls: [
       // 1) 전국 오픈 대회 통합 공지 (9개)
       'https://band.us/@mintoncontest',

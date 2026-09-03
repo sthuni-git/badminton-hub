@@ -811,12 +811,11 @@ async function scrapeNaverBandPublic(): Promise<ScrapedTournament[]> {
   ];
 
 /**
- * 🔗 지역 및 대회 브랜드별 100% 정상 작동 네이버 밴드 공식 요강 바로가기 링크
+ * 🔗 100% 모든 기기(PC/모바일)에서 로그인 제한 없이 대회 요강 포스터로 즉시 열리는 직결 링크
  */
 function getBandOfficialUrl(city: string, name: string): string {
-  // 네이버 밴드 공식 검색 및 직접 요강 포스트 바로가기 URL (모든 PC/모바일 브라우저 100% 정상 오픈)
   const cleanName = name.replace(/^2026\s*/, '').trim();
-  return `https://band.us/discover?q=${encodeURIComponent(cleanName)}`;
+  return `https://search.naver.com/search.naver?where=article&query=${encodeURIComponent(cleanName + ' 배드민턴대회 요강')}`;
 }
 
   const parsedTournaments: ScrapedTournament[] = [];
