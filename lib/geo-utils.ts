@@ -48,7 +48,42 @@ const VENUE_COORDINATES: Record<string, Coordinates> = {
   '봄내체육관': { lat: 37.8687, lng: 127.7455 },
   '치악체육관': { lat: 37.3422, lng: 127.9458 },
   '한라체육관': { lat: 33.4975, lng: 126.5186 },
+
+  // 글로벌 & BWF 국제 대회 주요 개최지
+  '일본': { lat: 35.6762, lng: 139.6503 },
+  '구마모토': { lat: 32.8031, lng: 130.7079 },
+  '도쿄': { lat: 35.6762, lng: 139.6503 },
+  '중국': { lat: 30.2741, lng: 120.1551 },
+  '항저우': { lat: 30.2741, lng: 120.1551 },
+  '홍콩': { lat: 22.3193, lng: 114.1694 },
+  '태국': { lat: 13.7563, lng: 100.5018 },
+  '방콕': { lat: 13.7563, lng: 100.5018 },
+  '빠툼타니': { lat: 14.0208, lng: 100.5250 },
+  '인도네시아': { lat: -6.2088, lng: 106.8456 },
+  '자카르타': { lat: -6.2088, lng: 106.8456 },
+  '쿠두스': { lat: -6.8048, lng: 110.8405 },
+  '욕야카르타': { lat: -7.7956, lng: 110.3695 },
+  '말레이시아': { lat: 3.1390, lng: 101.6869 },
+  '쿠알라룸푸르': { lat: 3.1390, lng: 101.6869 },
+  '영국': { lat: 52.4862, lng: -1.8904 },
+  '버밍엄': { lat: 52.4862, lng: -1.8904 },
+  '스코틀랜드': { lat: 55.8642, lng: -4.2518 },
+  '글래스고': { lat: 55.8642, lng: -4.2518 },
+  '아일랜드': { lat: 53.3498, lng: -6.2603 },
+  '더블린': { lat: 53.3498, lng: -6.2603 },
+  '프랑스': { lat: 48.8566, lng: 2.3522 },
+  '파리': { lat: 48.8566, lng: 2.3522 },
+  '독일': { lat: 51.1657, lng: 10.4515 },
+  '덴마크': { lat: 55.6761, lng: 12.5683 },
+  '스위스': { lat: 46.8182, lng: 8.2275 },
 };
+
+/**
+ * 경기장 주소가 해외 국제 대회인지 판별합니다.
+ */
+export function isInternationalVenue(venue: string): boolean {
+  return /일본|구마모토|도쿄|중국|항저우|홍콩|태국|방콕|빠툼타니|인도네시아|쿠두스|욕야카르타|자카르타|말레이시아|쿠알라룸푸르|영국|버밍엄|스코틀랜드|글래스고|아일랜드|더블린|프랑스|파리|독일|덴마크|스위스|BWF/.test(venue);
+}
 
 // 2. 대한민국 시·군·구 단위 정밀 행정구역 좌표 (총 120+개 주요 지자체 전수)
 export const DISTRICT_COORDINATES: Array<{ name: string; keyword: string; coords: Coordinates }> = [
@@ -291,6 +326,16 @@ export function getVenueCoordinates(venue: string): Coordinates {
   if (normalized.includes('경북') || normalized.includes('대구')) return { lat: 35.8714, lng: 128.6014 };
   if (normalized.includes('경남') || normalized.includes('부산') || normalized.includes('울산')) return { lat: 35.1796, lng: 129.0756 };
   if (normalized.includes('제주')) return { lat: 33.4996, lng: 126.5312 };
+
+  // 해외 국가/지역 기본 좌표
+  if (normalized.includes('일본')) return { lat: 35.6762, lng: 139.6503 };
+  if (normalized.includes('중국')) return { lat: 30.2741, lng: 120.1551 };
+  if (normalized.includes('태국')) return { lat: 13.7563, lng: 100.5018 };
+  if (normalized.includes('인도네시아')) return { lat: -6.2088, lng: 106.8456 };
+  if (normalized.includes('말레이시아')) return { lat: 3.1390, lng: 101.6869 };
+  if (normalized.includes('영국') || normalized.includes('스코틀랜드')) return { lat: 52.4862, lng: -1.8904 };
+  if (normalized.includes('아일랜드')) return { lat: 53.3498, lng: -6.2603 };
+  if (normalized.includes('프랑스')) return { lat: 48.8566, lng: 2.3522 };
 
   // 기본값 (서울 중심)
   return { lat: 37.5385, lng: 127.0823 };

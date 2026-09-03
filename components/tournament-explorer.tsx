@@ -38,7 +38,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle } from '@/components/ui/sheet';
 import { CRAWLER_SOURCES, CRAWLER_TIPS, type SourceCategory } from '@/lib/crawler-sources';
-import { calculateDistanceKm, getVenueCoordinates, PRESET_LOCATIONS, reverseGeocodeCoords, type Coordinates } from '@/lib/geo-utils';
+import { calculateDistanceKm, getVenueCoordinates, isInternationalVenue, PRESET_LOCATIONS, reverseGeocodeCoords, type Coordinates } from '@/lib/geo-utils';
 import type { Tournament, TournamentCategory, TournamentSource } from '@/lib/tournaments';
 
 export type Status = '접수중' | '접수예정' | '마감임박' | '접수마감' | '대회종료';
@@ -997,7 +997,11 @@ export function TournamentExplorer({ tournaments }: { tournaments: Tournament[] 
               <Detail
                 icon={<MapPin />}
                 label="장소 및 거리"
-                value={`${selected.venue} (약 ${calculateDistanceKm(userLocation.coords, getVenueCoordinates(selected.venue))}km)`}
+                value={
+                  isInternationalVenue(selected.venue) || selected.category === '국제대회'
+                    ? `✈️ 해외 개최: ${selected.venue} (약 ${calculateDistanceKm(userLocation.coords, getVenueCoordinates(selected.venue)).toLocaleString()}km)`
+                    : `${selected.venue} (${userLocation.label} 기준 약 ${calculateDistanceKm(userLocation.coords, getVenueCoordinates(selected.venue))}km)`
+                }
               />
               <Detail icon={<Trophy />} label="참가비" value={selected.fee} />
               {selected.sources && selected.sources.length > 1 && (
@@ -1243,9 +1247,15 @@ function TournamentCard({
             <Badge variant="secondary">{t.category}</Badge>
             {/* 거리 표시 뱃지 */}
             {t.distanceKm !== undefined && (
-              <span className="inline-flex items-center gap-0.5 rounded-full border border-amber-200 bg-amber-50/90 px-2 py-0.5 text-[11px] font-extrabold text-amber-800">
-                📍 {t.distanceKm}km
-              </span>
+              isInternationalVenue(t.venue) || t.category === '국제대회' ? (
+                <span className="inline-flex items-center gap-0.5 rounded-full border border-sky-300 bg-sky-50 px-2 py-0.5 text-[11px] font-extrabold text-sky-800">
+                  ✈️ 해외 ({t.venue.split(' ')[0]} · 약 {t.distanceKm.toLocaleString()}km)
+                </span>
+              ) : (
+                <span className="inline-flex items-center gap-0.5 rounded-full border border-amber-200 bg-amber-50/90 px-2 py-0.5 text-[11px] font-extrabold text-amber-800">
+                  📍 {t.distanceKm}km
+                </span>
+              )
             )}
           </div>
           <span className={`rounded-lg px-2 py-1 text-xs font-extrabold ${status === '대회종료' ? 'bg-slate-100 text-slate-500' : 'bg-amber-50 text-amber-700'}`}>
