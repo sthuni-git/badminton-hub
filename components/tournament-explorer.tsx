@@ -305,6 +305,43 @@ export function TournamentExplorer({ tournaments }: { tournaments: Tournament[] 
 
   const [onlyFavorites, setOnlyFavorites] = useState(false);
 
+  // 실존하는 대회 ID만 유효한 찜 목록으로 추출 (삭제된 대회 ID 배제)
+  const validFavorites = useMemo(() => {
+    const tournamentIdSet = new Set(tournaments.map((t) => t.id));
+    const valid = new Set<string>();
+    for (const id of favorites) {
+      if (tournamentIdSet.has(id)) {
+        valid.add(id);
+      }
+    }
+    return valid;
+  }, [tournaments, favorites]);
+
+  // DB/목록에서 삭제된 이전 대회 ID 자동 정리 (localStorage 동기화)
+  useEffect(() => {
+    if (tournaments.length === 0) return;
+    const tournamentIdSet = new Set(tournaments.map((t) => t.id));
+    let hasStale = false;
+    for (const id of favorites) {
+      if (!tournamentIdSet.has(id)) {
+        hasStale = true;
+        break;
+      }
+    }
+    if (hasStale) {
+      const cleaned = new Set<string>();
+      for (const id of favorites) {
+        if (tournamentIdSet.has(id)) cleaned.add(id);
+      }
+      setFavorites(cleaned);
+      try {
+        localStorage.setItem('minton_favorites', JSON.stringify(Array.from(cleaned)));
+      } catch {
+        // ignore
+      }
+    }
+  }, [tournaments, favorites]);
+
   // 멀티 필터 토글 헬퍼
   const toggleFilter = (setter: React.Dispatch<React.SetStateAction<Set<string>>>, value: string) => {
     if (value === '전체') {
@@ -320,7 +357,10 @@ export function TournamentExplorer({ tournaments }: { tournaments: Tournament[] 
   };
 
   const toggleFavorite = (id: string, e?: React.SyntheticEvent) => {
-    if (e) e.stopPropagation();
+    if (e) {
+      e.preventDefault();
+      e.stopPropagation();
+    }
     setFavorites((prev) => {
       const next = new Set(prev);
       if (next.has(id)) {
@@ -516,7 +556,7 @@ export function TournamentExplorer({ tournaments }: { tournaments: Tournament[] 
           return t.distanceKm <= maxKm;
         })();
 
-        const matchesFavorite = onlyFavorites ? favorites.has(t.id) : true;
+        const matchesFavorite = onlyFavorites ? validFavorites.has(t.id) : true;
 
         return (
           (!query || text.includes(query.toLowerCase())) &&
@@ -530,15 +570,15 @@ export function TournamentExplorer({ tournaments }: { tournaments: Tournament[] 
       })
       .sort((a, b) => {
         // ❤️ 즐겨찾기(하트) 등록된 대회가 항상 최상단에 우선 표시!
-        const aFav = favorites.has(a.id) ? 1 : 0;
-        const bFav = favorites.has(b.id) ? 1 : 0;
+        const aFav = validFavorites.has(a.id) ? 1 : 0;
+        const bFav = validFavorites.has(b.id) ? 1 : 0;
         if (aFav !== bFav) return bFav - aFav;
 
         if (sortOption === 'eventStart') return a.eventStart.localeCompare(b.eventStart);
         if (sortOption === 'registrationEnd') return a.registrationEnd.localeCompare(b.registrationEnd);
         return a.name.localeCompare(b.name);
       });
-  }, [tournaments, query, regions, categories, statuses, sources, distanceFilter, sortOption, today, userLocation, favorites, onlyFavorites]);
+  }, [tournaments, query, regions, categories, statuses, sources, distanceFilter, sortOption, today, userLocation, validFavorites, onlyFavorites]);
 
   // 구글 시트 및 엑셀용 CSV 내보내기 핸들러 (한글 깨짐 방지 UTF-8 BOM 적용)
   const handleExportCsv = () => {
@@ -975,18 +1015,22 @@ export function TournamentExplorer({ tournaments }: { tournaments: Tournament[] 
                 {/* ❤️ 찜한 대회(즐겨찾기) 모아보기 토글 버튼 */}
                 <button
                   type="button"
-                  onClick={() => setOnlyFavorites((prev) => !prev)}
+                  onClick={() => {
+                    if (validFavorites.size === 0) return;
+                    setOnlyFavorites((prev) => !prev);
+                  }}
+                  disabled={validFavorites.size === 0}
                   className={`inline-flex items-center gap-1.5 rounded-xl border px-3 py-1.5 text-xs font-extrabold transition shadow-xs ${
-                    onlyFavorites
+                    onlyFavorites && validFavorites.size > 0
                       ? 'border-rose-500 bg-rose-600 text-white shadow-rose-200'
-                      : favorites.size > 0
-                      ? 'border-rose-200 bg-rose-50 text-rose-700 hover:bg-rose-100'
-                      : 'border-slate-200 bg-white text-slate-600 hover:bg-slate-50'
+                      : validFavorites.size > 0
+                      ? 'border-rose-200 bg-rose-50 text-rose-700 hover:bg-rose-100 cursor-pointer'
+                      : 'border-slate-200 bg-slate-50 text-slate-400 cursor-not-allowed opacity-75'
                   }`}
-                  title="즐겨찾기(하트) 등록한 대회만 모아서 봅니다."
+                  title={validFavorites.size > 0 ? "즐겨찾기(하트) 등록한 대회만 모아서 봅니다." : "하트를 눌러 찜한 대회가 없습니다."}
                 >
-                  <Heart className={`size-3.5 ${onlyFavorites || favorites.size > 0 ? 'fill-current text-rose-500' : 'text-slate-400'} ${onlyFavorites ? 'text-white fill-white' : ''}`} />
-                  <span>찜한 대회 {favorites.size > 0 ? `(${favorites.size})` : ''}</span>
+                  <Heart className={`size-3.5 ${onlyFavorites && validFavorites.size > 0 ? 'text-white fill-white' : validFavorites.size > 0 ? 'fill-current text-rose-500' : 'text-slate-300'}`} />
+                  <span>찜한 대회 {validFavorites.size > 0 ? `(${validFavorites.size})` : '(0)'}</span>
                 </button>
               </div>
 
@@ -1081,7 +1125,7 @@ export function TournamentExplorer({ tournaments }: { tournaments: Tournament[] 
                     baseDate={today}
                     userLocationLabel={userLocation.label}
                     isAdmin={isAdmin}
-                    isFavorite={favorites.has(t.id)}
+                    isFavorite={validFavorites.has(t.id)}
                     onToggleFavorite={(e) => toggleFavorite(t.id, e)}
                     onSelect={() => setSelected(t)}
                   />
@@ -1093,12 +1137,12 @@ export function TournamentExplorer({ tournaments }: { tournaments: Tournament[] 
                 baseDate={today}
                 userLocationLabel={userLocation.label}
                 isAdmin={isAdmin}
-                favorites={favorites}
+                favorites={validFavorites}
                 onToggleFavorite={toggleFavorite}
                 onSelect={setSelected}
               />
             ) : (
-              <CalendarView tournaments={filtered} baseDate={today} favorites={favorites} onSelect={setSelected} />
+              <CalendarView tournaments={filtered} baseDate={today} favorites={validFavorites} onSelect={setSelected} />
             )}
           </>
         ) : (
@@ -1147,14 +1191,14 @@ export function TournamentExplorer({ tournaments }: { tournaments: Tournament[] 
                   type="button"
                   onClick={(e) => toggleFavorite(selected.id, e)}
                   className={`shrink-0 inline-flex items-center gap-1.5 rounded-full border px-3 py-1.5 text-xs font-bold transition shadow-xs ${
-                    favorites.has(selected.id)
+                    validFavorites.has(selected.id)
                       ? 'border-rose-400 bg-rose-50 text-rose-600'
                       : 'border-slate-200 bg-white text-slate-500 hover:border-rose-300 hover:text-rose-500'
                   }`}
-                  title={favorites.has(selected.id) ? '즐겨찾기 해제' : '즐겨찾기(하트) 추가 - 항상 최상단 고정'}
+                  title={validFavorites.has(selected.id) ? '즐겨찾기 해제' : '즐겨찾기(하트) 추가 - 항상 최상단 고정'}
                 >
-                  <Heart className={`size-4 ${favorites.has(selected.id) ? 'fill-rose-500 text-rose-500' : ''}`} />
-                  <span>{favorites.has(selected.id) ? '찜 완료' : '찜하기'}</span>
+                  <Heart className={`size-4 ${validFavorites.has(selected.id) ? 'fill-rose-500 text-rose-500' : ''}`} />
+                  <span>{validFavorites.has(selected.id) ? '찜 완료' : '찜하기'}</span>
                 </button>
               </div>
               <SheetDescription className="text-xs text-muted-foreground">
