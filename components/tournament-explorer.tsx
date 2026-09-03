@@ -117,6 +117,15 @@ function googleCalendarUrl(t: Tournament) {
   )}&details=${encodeURIComponent(`출처: ${t.source} | 공식 안내: ${t.officialLink}`)}`;
 }
 
+function getSecurePosterUrl(url?: string): string {
+  if (!url) return '';
+  if (url.startsWith('data:') || url.startsWith('blob:')) return url;
+  if (url.startsWith('http://') || url.startsWith('https://')) {
+    return `https://images.weserv.nl/?url=${encodeURIComponent(url)}`;
+  }
+  return url;
+}
+
 function getTournamentPosterFallback(name: string, category: string, venue: string, source: string, eventPeriod: string, fee: string = '요강 참조') {
   const safeName = name.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
   const safeVenue = venue.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
@@ -1107,7 +1116,7 @@ export function TournamentExplorer({ tournaments }: { tournaments: Tournament[] 
                 <div className="relative aspect-[16/9] w-full overflow-hidden bg-slate-950 sm:aspect-[2/1]">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
-                    src={selected.posterImage}
+                    src={getSecurePosterUrl(selected.posterImage)}
                     alt={`${selected.name} 공식 요강 포스터`}
                     className="size-full object-cover opacity-90 transition duration-300 hover:scale-105 hover:opacity-100"
                     loading="lazy"
@@ -1490,7 +1499,7 @@ function TournamentCard({
             <div className="relative size-20 shrink-0 overflow-hidden rounded-xl border border-slate-200 bg-slate-100 shadow-xs sm:size-22">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src={t.posterImage}
+                src={getSecurePosterUrl(t.posterImage)}
                 alt={`${t.name} 썸네일`}
                 className="size-full object-cover transition duration-300 group-hover:scale-105"
                 loading="lazy"
