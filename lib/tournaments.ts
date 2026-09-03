@@ -8,6 +8,7 @@ export type TournamentSource =
   | '페이스콕' 
   | '코트엑스' 
   | '스포넷' 
+  | '위꾹'
   | '배드민턴게임'
   | '오마이플레이'
   | 'BKPLAY' 

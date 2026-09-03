@@ -8201,7 +8201,8 @@
     "fee": "요강 참조",
     "sources": [
       "배드민톡",
-      "코트엑스"
+      "코트엑스",
+      "위꾹"
     ],
     "sourceLinks": [
       {
@@ -8211,6 +8212,10 @@
       {
         "source": "코트엑스",
         "link": "https://www.courtx.co.kr/Tournament/Details/30300"
+      },
+      {
+        "source": "위꾹",
+        "link": "https://app2.wekkuk.com/v2/contest_badminton/contest/1606"
       }
     ]
   },
@@ -8235,6 +8240,31 @@
       {
         "source": "배드민턴타임즈",
         "link": "http://www.badmintontimes.com/calendar/m3_calendarRead.jsp?menunum=204&no=2717&dday=20260905"
+      }
+    ]
+  },
+  {
+    "id": "wk-1730",
+    "category": "전국오픈",
+    "name": "2026 서울시민리그 서남권(5차,6차예선) 9월5일~6일",
+    "registrationPeriod": "공식 상세 페이지 참조",
+    "registrationStart": "",
+    "registrationEnd": "",
+    "eventPeriod": "2026.09.05 ~ 09.06",
+    "eventStart": "2026-09-05",
+    "eventEnd": "2026-09-06",
+    "venue": "강서마곡실내배드민턴장",
+    "source": "위꾹",
+    "officialLink": "https://app2.wekkuk.com/v2/contest_badminton/contest/1730",
+    "posterImage": "https://upload.wekkuk.com/contest_badminton_poster/0001/f100/b8966cda_27756272.png",
+    "fee": "공식 상세 페이지 참조",
+    "sources": [
+      "위꾹"
+    ],
+    "sourceLinks": [
+      {
+        "source": "위꾹",
+        "link": "https://app2.wekkuk.com/v2/contest_badminton/contest/1730"
       }
     ]
   },
@@ -8293,6 +8323,30 @@
     ]
   },
   {
+    "id": "wk-1740",
+    "category": "지역구대회",
+    "name": "2026 여주시 청소년 생활체육 페스티벌(배드민턴)",
+    "registrationPeriod": "공식 상세 페이지 참조",
+    "registrationStart": "",
+    "registrationEnd": "",
+    "eventPeriod": "2026.09.05",
+    "eventStart": "2026-09-05",
+    "eventEnd": "2026-09-05",
+    "venue": "복합체육관",
+    "source": "위꾹",
+    "officialLink": "https://app2.wekkuk.com/v2/contest_badminton/contest/1740",
+    "fee": "공식 상세 페이지 참조",
+    "sources": [
+      "위꾹"
+    ],
+    "sourceLinks": [
+      {
+        "source": "위꾹",
+        "link": "https://app2.wekkuk.com/v2/contest_badminton/contest/1740"
+      }
+    ]
+  },
+  {
     "id": "cx-30395",
     "category": "지역구대회",
     "name": "2026 울주군협회장기 배드민턴 대회",
@@ -8302,18 +8356,23 @@
     "eventPeriod": "2026.09.05 ~ 09.06",
     "eventStart": "2026-09-05",
     "eventEnd": "2026-09-06",
-    "venue": "울산 울주군",
+    "venue": "울주군민체육관",
     "source": "코트엑스",
     "officialLink": "https://www.courtx.co.kr/Tournament/Details/30395",
     "posterImage": "https://imgs.courtx.co.kr/Upload/Tournament/2026/202609/20260901/20260901102707450-982a77a9-poster_1.png",
     "fee": "요강 참조",
     "sources": [
-      "코트엑스"
+      "코트엑스",
+      "위꾹"
     ],
     "sourceLinks": [
       {
         "source": "코트엑스",
         "link": "https://www.courtx.co.kr/Tournament/Details/30395"
+      },
+      {
+        "source": "위꾹",
+        "link": "https://app2.wekkuk.com/v2/contest_badminton/contest/1695"
       }
     ]
   },
@@ -8343,6 +8402,31 @@
     ]
   },
   {
+    "id": "wk-1784",
+    "category": "학생선수권",
+    "name": "2026 제19회 광주광역시교육감배 학교스포츠클럽 배드민턴대회",
+    "registrationPeriod": "공식 상세 페이지 참조",
+    "registrationStart": "",
+    "registrationEnd": "",
+    "eventPeriod": "2026.09.05",
+    "eventStart": "2026-09-05",
+    "eventEnd": "2026-09-05",
+    "venue": "광주여대",
+    "source": "위꾹",
+    "officialLink": "https://app2.wekkuk.com/v2/contest_badminton/contest/1784",
+    "posterImage": "https://upload.wekkuk.com/contest_badminton_poster/0001/f100/c23d4df9_73231825.png",
+    "fee": "공식 상세 페이지 참조",
+    "sources": [
+      "위꾹"
+    ],
+    "sourceLinks": [
+      {
+        "source": "위꾹",
+        "link": "https://app2.wekkuk.com/v2/contest_badminton/contest/1784"
+      }
+    ]
+  },
+  {
     "id": "bm-or3xiy",
     "category": "전국오픈",
     "name": "2026 진영토건배 배드민턴대회",
@@ -8359,7 +8443,8 @@
     "fee": "요강 참조",
     "sources": [
       "배드민톡",
-      "코트엑스"
+      "코트엑스",
+      "위꾹"
     ],
     "sourceLinks": [
       {
@@ -8369,6 +8454,10 @@
       {
         "source": "코트엑스",
         "link": "https://www.courtx.co.kr/Tournament/Details/30345"
+      },
+      {
+        "source": "위꾹",
+        "link": "https://app2.wekkuk.com/v2/contest_badminton/contest/1726"
       }
     ]
   },
@@ -8389,7 +8478,8 @@
     "fee": "요강 참조",
     "sources": [
       "배드민톡",
-      "코트엑스"
+      "코트엑스",
+      "위꾹"
     ],
     "sourceLinks": [
       {
@@ -8399,6 +8489,10 @@
       {
         "source": "코트엑스",
         "link": "https://www.courtx.co.kr/Tournament/Details/30326"
+      },
+      {
+        "source": "위꾹",
+        "link": "https://app2.wekkuk.com/v2/contest_badminton/contest/1715"
       }
     ]
   },
@@ -8420,7 +8514,8 @@
     "sources": [
       "배드민톡",
       "배드민턴타임즈",
-      "코트엑스"
+      "코트엑스",
+      "위꾹"
     ],
     "sourceLinks": [
       {
@@ -8434,6 +8529,10 @@
       {
         "source": "코트엑스",
         "link": "https://www.courtx.co.kr/Tournament/Details/30321"
+      },
+      {
+        "source": "위꾹",
+        "link": "https://app2.wekkuk.com/v2/contest_badminton/contest/1691"
       }
     ]
   },
@@ -8509,6 +8608,56 @@
       {
         "source": "코트엑스",
         "link": "https://www.courtx.co.kr/Tournament/Details/30378"
+      }
+    ]
+  },
+  {
+    "id": "wk-1574",
+    "category": "지역구대회",
+    "name": "고양시 협회장기 배드민턴대회",
+    "registrationPeriod": "공식 상세 페이지 참조",
+    "registrationStart": "",
+    "registrationEnd": "",
+    "eventPeriod": "2026.09.05 ~ 09.06",
+    "eventStart": "2026-09-05",
+    "eventEnd": "2026-09-06",
+    "venue": "어울림누리체육관 외",
+    "source": "위꾹",
+    "officialLink": "https://app2.wekkuk.com/v2/contest_badminton/contest/1574",
+    "posterImage": "https://upload.wekkuk.com/contest_badminton_poster/0001/f100/1c51c6cc_95082345.jpg",
+    "fee": "공식 상세 페이지 참조",
+    "sources": [
+      "위꾹"
+    ],
+    "sourceLinks": [
+      {
+        "source": "위꾹",
+        "link": "https://app2.wekkuk.com/v2/contest_badminton/contest/1574"
+      }
+    ]
+  },
+  {
+    "id": "wk-1703",
+    "category": "전국오픈",
+    "name": "영등포구동호인리그전배드민턴대회",
+    "registrationPeriod": "공식 상세 페이지 참조",
+    "registrationStart": "",
+    "registrationEnd": "",
+    "eventPeriod": "2026.09.05",
+    "eventStart": "2026-09-05",
+    "eventEnd": "2026-09-05",
+    "venue": "영등포다목적체육관",
+    "source": "위꾹",
+    "officialLink": "https://app2.wekkuk.com/v2/contest_badminton/contest/1703",
+    "posterImage": "https://upload.wekkuk.com/contest_badminton_poster/0001/f100/38faab1e_91977419.png",
+    "fee": "공식 상세 페이지 참조",
+    "sources": [
+      "위꾹"
+    ],
+    "sourceLinks": [
+      {
+        "source": "위꾹",
+        "link": "https://app2.wekkuk.com/v2/contest_badminton/contest/1703"
       }
     ]
   },
@@ -8678,7 +8827,8 @@
     "fee": "요강 참조",
     "sources": [
       "배드민톡",
-      "코트엑스"
+      "코트엑스",
+      "위꾹"
     ],
     "sourceLinks": [
       {
@@ -8688,6 +8838,10 @@
       {
         "source": "코트엑스",
         "link": "https://www.courtx.co.kr/Tournament/Details/30334"
+      },
+      {
+        "source": "위꾹",
+        "link": "https://app2.wekkuk.com/v2/contest_badminton/contest/1700"
       }
     ]
   },
@@ -8778,7 +8932,8 @@
     "fee": "요강 참조",
     "sources": [
       "배드민톡",
-      "코트엑스"
+      "코트엑스",
+      "위꾹"
     ],
     "sourceLinks": [
       {
@@ -8788,6 +8943,10 @@
       {
         "source": "코트엑스",
         "link": "https://www.courtx.co.kr/Tournament/Details/30368"
+      },
+      {
+        "source": "위꾹",
+        "link": "https://app2.wekkuk.com/v2/contest_badminton/contest/1773"
       }
     ]
   },
@@ -8808,7 +8967,8 @@
     "fee": "요강 참조",
     "sources": [
       "배드민톡",
-      "코트엑스"
+      "코트엑스",
+      "위꾹"
     ],
     "sourceLinks": [
       {
@@ -8818,6 +8978,10 @@
       {
         "source": "코트엑스",
         "link": "https://www.courtx.co.kr/Tournament/Details/30295"
+      },
+      {
+        "source": "위꾹",
+        "link": "https://app2.wekkuk.com/v2/contest_badminton/contest/1519"
       }
     ]
   },
@@ -8982,10 +9146,12 @@
     "venue": "광주 광산구 광주여대 체육관",
     "source": "배드민톡",
     "officialLink": "https://badmintok.com/badminton-tournament/2026-전남광주통합특별시장배-여성-배드민턴대회/",
+    "posterImage": "https://upload.wekkuk.com/contest_badminton_poster/0001/f100/737c47ff_69263901.jpg",
     "fee": "요강 참조",
     "sources": [
       "배드민톡",
-      "배드민턴타임즈"
+      "배드민턴타임즈",
+      "위꾹"
     ],
     "sourceLinks": [
       {
@@ -8995,6 +9161,10 @@
       {
         "source": "배드민턴타임즈",
         "link": "http://www.badmintontimes.com/calendar/m3_calendarRead.jsp?menunum=204&no=2746&dday=20260906"
+      },
+      {
+        "source": "위꾹",
+        "link": "https://app2.wekkuk.com/v2/contest_badminton/contest/1775"
       }
     ]
   },
@@ -9104,7 +9274,8 @@
     "fee": "요강 참조",
     "sources": [
       "배드민턴타임즈",
-      "코트엑스"
+      "코트엑스",
+      "위꾹"
     ],
     "sourceLinks": [
       {
@@ -9114,6 +9285,10 @@
       {
         "source": "코트엑스",
         "link": "https://www.courtx.co.kr/Tournament/Details/30307"
+      },
+      {
+        "source": "위꾹",
+        "link": "https://app2.wekkuk.com/v2/contest_badminton/contest/1539"
       }
     ],
     "posterImage": "https://imgs.courtx.co.kr/Upload/Tournament/2026/202607/20260721/20260721155738399-52286d0c-poster.png"
@@ -9251,6 +9426,30 @@
     ]
   },
   {
+    "id": "wk-1847",
+    "category": "전국오픈",
+    "name": "제21회 시도 친선 체육대회 배드민턴대회",
+    "registrationPeriod": "공식 상세 페이지 참조",
+    "registrationStart": "",
+    "registrationEnd": "",
+    "eventPeriod": "2026.09.11 ~ 09.12",
+    "eventStart": "2026-09-11",
+    "eventEnd": "2026-09-12",
+    "venue": "전주 덕진실내배드민턴장",
+    "source": "위꾹",
+    "officialLink": "https://app2.wekkuk.com/v2/contest_badminton/contest/1847",
+    "fee": "공식 상세 페이지 참조",
+    "sources": [
+      "위꾹"
+    ],
+    "sourceLinks": [
+      {
+        "source": "위꾹",
+        "link": "https://app2.wekkuk.com/v2/contest_badminton/contest/1847"
+      }
+    ]
+  },
+  {
     "id": "bm-9tzvcy",
     "category": "지역구대회",
     "name": "제34회 강원도민생활체육대회",
@@ -9271,6 +9470,30 @@
       {
         "source": "배드민톡",
         "link": "https://badmintok.com/badminton-tournament/강원도민대회/"
+      }
+    ]
+  },
+  {
+    "id": "wk-1719",
+    "category": "지역구대회",
+    "name": "제37회 경기도생활체육대축전 2026 가평",
+    "registrationPeriod": "공식 상세 페이지 참조",
+    "registrationStart": "",
+    "registrationEnd": "",
+    "eventPeriod": "2026.09.11 ~ 09.13",
+    "eventStart": "2026-09-11",
+    "eventEnd": "2026-09-13",
+    "venue": "가평군 한석봉체육관",
+    "source": "위꾹",
+    "officialLink": "https://app2.wekkuk.com/v2/contest_badminton/contest/1719",
+    "fee": "공식 상세 페이지 참조",
+    "sources": [
+      "위꾹"
+    ],
+    "sourceLinks": [
+      {
+        "source": "위꾹",
+        "link": "https://app2.wekkuk.com/v2/contest_badminton/contest/1719"
       }
     ]
   },
@@ -9368,14 +9591,15 @@
     "eventPeriod": "2026.09.12 ~ 09.13",
     "eventStart": "2026-09-12",
     "eventEnd": "2026-09-13",
-    "venue": "서울 훈련원종합체육관",
+    "venue": "훈련원종합체육관 1층~지하2층",
     "source": "배드민톡",
     "officialLink": "https://badmintok.com/badminton-tournament/중구청장기-배드민턴대회/",
     "posterImage": "https://imgs.courtx.co.kr/Upload/Tournament/2026/202607/20260727/20260727181231043-8db3c15f-poster.jpg",
     "fee": "요강 참조",
     "sources": [
       "배드민톡",
-      "코트엑스"
+      "코트엑스",
+      "위꾹"
     ],
     "sourceLinks": [
       {
@@ -9385,6 +9609,10 @@
       {
         "source": "코트엑스",
         "link": "https://www.courtx.co.kr/Tournament/Details/30312"
+      },
+      {
+        "source": "위꾹",
+        "link": "https://app2.wekkuk.com/v2/contest_badminton/contest/1681"
       }
     ]
   },
@@ -9540,7 +9768,8 @@
     "sources": [
       "페이스콕",
       "배드민톡",
-      "배드민턴게임"
+      "배드민턴게임",
+      "코트엑스"
     ],
     "sourceLinks": [
       {
@@ -9554,6 +9783,10 @@
       {
         "source": "배드민턴게임",
         "link": "http://www.badmintongame.co.kr/game/game_view.html?ga_id=4362"
+      },
+      {
+        "source": "코트엑스",
+        "link": "https://www.courtx.co.kr/Tournament/Details/30403"
       }
     ]
   },
@@ -9573,12 +9806,17 @@
     "posterImage": "https://imgs.courtx.co.kr/Upload/Tournament/2026/202609/20260902/20260902095911032-8b9fa0ce-poster_1.png",
     "fee": "요강 참조",
     "sources": [
-      "코트엑스"
+      "코트엑스",
+      "위꾹"
     ],
     "sourceLinks": [
       {
         "source": "코트엑스",
         "link": "https://www.courtx.co.kr/Tournament/Details/30401"
+      },
+      {
+        "source": "위꾹",
+        "link": "https://app2.wekkuk.com/v2/contest_badminton/contest/1842"
       }
     ]
   },
@@ -9623,7 +9861,8 @@
     "fee": "요강 참조",
     "sources": [
       "배드민톡",
-      "코트엑스"
+      "코트엑스",
+      "위꾹"
     ],
     "sourceLinks": [
       {
@@ -9633,6 +9872,10 @@
       {
         "source": "코트엑스",
         "link": "https://www.courtx.co.kr/Tournament/Details/30363"
+      },
+      {
+        "source": "위꾹",
+        "link": "https://app2.wekkuk.com/v2/contest_badminton/contest/1824"
       }
     ]
   },
@@ -9663,6 +9906,30 @@
       {
         "source": "코트엑스",
         "link": "https://www.courtx.co.kr/Tournament/Details/30364"
+      }
+    ]
+  },
+  {
+    "id": "wk-1854",
+    "category": "지역구대회",
+    "name": "제28회 시민생활체육대축전",
+    "registrationPeriod": "공식 상세 페이지 참조",
+    "registrationStart": "",
+    "registrationEnd": "",
+    "eventPeriod": "2026.09.13",
+    "eventStart": "2026-09-13",
+    "eventEnd": "2026-09-13",
+    "venue": "울주군민체육관",
+    "source": "위꾹",
+    "officialLink": "https://app2.wekkuk.com/v2/contest_badminton/contest/1854",
+    "fee": "공식 상세 페이지 참조",
+    "sources": [
+      "위꾹"
+    ],
+    "sourceLinks": [
+      {
+        "source": "위꾹",
+        "link": "https://app2.wekkuk.com/v2/contest_badminton/contest/1854"
       }
     ]
   },
@@ -9706,12 +9973,17 @@
     "posterImage": "https://imgs.courtx.co.kr/Upload/Tournament/2026/202607/20260729/20260729110204501-430868b8-poster.jpg",
     "fee": "요강 참조",
     "sources": [
-      "코트엑스"
+      "코트엑스",
+      "위꾹"
     ],
     "sourceLinks": [
       {
         "source": "코트엑스",
         "link": "https://www.courtx.co.kr/Tournament/Details/30316"
+      },
+      {
+        "source": "위꾹",
+        "link": "https://app2.wekkuk.com/v2/contest_badminton/contest/1667"
       }
     ]
   },
@@ -9819,7 +10091,7 @@
     "eventPeriod": "2026.09.19 ~ 09.20",
     "eventStart": "2026-09-19",
     "eventEnd": "2026-09-20",
-    "venue": "경기 동두천시 동두천국민체육센터 ...",
+    "venue": "동두천 국민체육센터 (예비구장 : 동두천시배드민턴체육관)",
     "source": "배드민톡",
     "officialLink": "https://badmintok.com/badminton-tournament/2026-동두천-소요산배-배드민턴대회/",
     "posterImage": "https://imgs.courtx.co.kr/Upload/Tournament/2026/202608/20260807/20260807094138621-d040a064-poster_1.png",
@@ -9827,7 +10099,8 @@
     "sources": [
       "배드민톡",
       "배드민턴타임즈",
-      "코트엑스"
+      "코트엑스",
+      "위꾹"
     ],
     "sourceLinks": [
       {
@@ -9841,6 +10114,10 @@
       {
         "source": "코트엑스",
         "link": "https://www.courtx.co.kr/Tournament/Details/30346"
+      },
+      {
+        "source": "위꾹",
+        "link": "https://app2.wekkuk.com/v2/contest_badminton/contest/1727"
       }
     ]
   },
@@ -9902,7 +10179,8 @@
     "sources": [
       "배드민톡",
       "배드민턴타임즈",
-      "코트엑스"
+      "코트엑스",
+      "위꾹"
     ],
     "sourceLinks": [
       {
@@ -9916,6 +10194,10 @@
       {
         "source": "코트엑스",
         "link": "https://www.courtx.co.kr/Tournament/Details/30394"
+      },
+      {
+        "source": "위꾹",
+        "link": "https://app2.wekkuk.com/v2/contest_badminton/contest/1776"
       }
     ]
   },
@@ -9936,7 +10218,8 @@
     "fee": "요강 참조",
     "sources": [
       "배드민톡",
-      "코트엑스"
+      "코트엑스",
+      "위꾹"
     ],
     "sourceLinks": [
       {
@@ -9946,6 +10229,10 @@
       {
         "source": "코트엑스",
         "link": "https://www.courtx.co.kr/Tournament/Details/30355"
+      },
+      {
+        "source": "위꾹",
+        "link": "https://app2.wekkuk.com/v2/contest_badminton/contest/1742"
       }
     ]
   },
@@ -9966,7 +10253,8 @@
     "fee": "요강 참조",
     "sources": [
       "배드민톡",
-      "코트엑스"
+      "코트엑스",
+      "위꾹"
     ],
     "sourceLinks": [
       {
@@ -9976,6 +10264,10 @@
       {
         "source": "코트엑스",
         "link": "https://www.courtx.co.kr/Tournament/Details/30397"
+      },
+      {
+        "source": "위꾹",
+        "link": "https://app2.wekkuk.com/v2/contest_badminton/contest/1812"
       }
     ]
   },
@@ -10060,6 +10352,31 @@
       {
         "source": "배드민톡",
         "link": "https://badmintok.com/badminton-tournament/김동문-올림픽-제패-기념/"
+      }
+    ]
+  },
+  {
+    "id": "wk-1844",
+    "category": "국제대회",
+    "name": "안세영 올림픽 제패기념 나주페어컵 배드민턴대회[S급 전국오픈]",
+    "registrationPeriod": "공식 상세 페이지 참조",
+    "registrationStart": "",
+    "registrationEnd": "",
+    "eventPeriod": "2026.09.19 ~ 09.20",
+    "eventStart": "2026-09-19",
+    "eventEnd": "2026-09-20",
+    "venue": "나주스포츠파크",
+    "source": "위꾹",
+    "officialLink": "https://app2.wekkuk.com/v2/contest_badminton/contest/1844",
+    "posterImage": "https://upload.wekkuk.com/contest_badminton_poster/0001/f100/8dbd1c17_41514591.png",
+    "fee": "공식 상세 페이지 참조",
+    "sources": [
+      "위꾹"
+    ],
+    "sourceLinks": [
+      {
+        "source": "위꾹",
+        "link": "https://app2.wekkuk.com/v2/contest_badminton/contest/1844"
       }
     ]
   },
@@ -10247,6 +10564,30 @@
     ]
   },
   {
+    "id": "wk-1701",
+    "category": "전국오픈",
+    "name": "제2회 이천시장배 장애인 배드민턴대회",
+    "registrationPeriod": "공식 상세 페이지 참조",
+    "registrationStart": "",
+    "registrationEnd": "",
+    "eventPeriod": "2026.09.19",
+    "eventStart": "2026-09-19",
+    "eventEnd": "2026-09-19",
+    "venue": "이천시 부발 대교 눈높이 배드민턴장",
+    "source": "위꾹",
+    "officialLink": "https://app2.wekkuk.com/v2/contest_badminton/contest/1701",
+    "fee": "공식 상세 페이지 참조",
+    "sources": [
+      "위꾹"
+    ],
+    "sourceLinks": [
+      {
+        "source": "위꾹",
+        "link": "https://app2.wekkuk.com/v2/contest_badminton/contest/1701"
+      }
+    ]
+  },
+  {
     "id": "bm-q3aqm7",
     "category": "지역구대회",
     "name": "제35회 강서구청장기 배드민턴대회",
@@ -10263,7 +10604,8 @@
     "fee": "요강 참조",
     "sources": [
       "배드민톡",
-      "코트엑스"
+      "코트엑스",
+      "위꾹"
     ],
     "sourceLinks": [
       {
@@ -10273,6 +10615,10 @@
       {
         "source": "코트엑스",
         "link": "https://www.courtx.co.kr/Tournament/Details/30324"
+      },
+      {
+        "source": "위꾹",
+        "link": "https://app2.wekkuk.com/v2/contest_badminton/contest/1711"
       }
     ]
   },
@@ -10352,6 +10698,31 @@
       {
         "source": "배드민턴타임즈",
         "link": "http://www.badmintontimes.com/calendar/m3_calendarRead.jsp?menunum=204&no=2732&dday=20260919"
+      }
+    ]
+  },
+  {
+    "id": "wk-1675",
+    "category": "전국오픈",
+    "name": "제9회 전국배드민턴 단식마스터즈오픈",
+    "registrationPeriod": "공식 상세 페이지 참조",
+    "registrationStart": "",
+    "registrationEnd": "",
+    "eventPeriod": "2026.09.19",
+    "eventStart": "2026-09-19",
+    "eventEnd": "2026-09-19",
+    "venue": "루키배드민턴센터",
+    "source": "위꾹",
+    "officialLink": "https://app2.wekkuk.com/v2/contest_badminton/contest/1675",
+    "posterImage": "https://upload.wekkuk.com/contest_badminton_poster/0001/f100/bf7d24a3_34101324.png",
+    "fee": "공식 상세 페이지 참조",
+    "sources": [
+      "위꾹"
+    ],
+    "sourceLinks": [
+      {
+        "source": "위꾹",
+        "link": "https://app2.wekkuk.com/v2/contest_badminton/contest/1675"
       }
     ]
   },
@@ -10445,6 +10816,31 @@
     ]
   },
   {
+    "id": "wk-1676",
+    "category": "전국오픈",
+    "name": "제21회 전국ROOKIE배드민턴대회",
+    "registrationPeriod": "공식 상세 페이지 참조",
+    "registrationStart": "",
+    "registrationEnd": "",
+    "eventPeriod": "2026.09.20",
+    "eventStart": "2026-09-20",
+    "eventEnd": "2026-09-20",
+    "venue": "루키배드민턴센터",
+    "source": "위꾹",
+    "officialLink": "https://app2.wekkuk.com/v2/contest_badminton/contest/1676",
+    "posterImage": "https://upload.wekkuk.com/contest_badminton_poster/0001/f100/29bc01a4_25129286.png",
+    "fee": "공식 상세 페이지 참조",
+    "sources": [
+      "위꾹"
+    ],
+    "sourceLinks": [
+      {
+        "source": "위꾹",
+        "link": "https://app2.wekkuk.com/v2/contest_badminton/contest/1676"
+      }
+    ]
+  },
+  {
     "id": "bm-1uzr3hw",
     "category": "전국오픈",
     "name": "제2회 2026 메스타리 S·A조/통합 혼복 배드민턴 클래식",
@@ -10491,7 +10887,8 @@
     "fee": "요강 참조",
     "sources": [
       "배드민톡",
-      "코트엑스"
+      "코트엑스",
+      "위꾹"
     ],
     "sourceLinks": [
       {
@@ -10501,6 +10898,10 @@
       {
         "source": "코트엑스",
         "link": "https://www.courtx.co.kr/Tournament/Details/30376"
+      },
+      {
+        "source": "위꾹",
+        "link": "https://app2.wekkuk.com/v2/contest_badminton/contest/1786"
       }
     ]
   },
@@ -10622,6 +11023,30 @@
     ]
   },
   {
+    "id": "wk-1787",
+    "category": "지역구대회",
+    "name": "2026 부천시장기 배드민턴 대회",
+    "registrationPeriod": "공식 상세 페이지 참조",
+    "registrationStart": "",
+    "registrationEnd": "",
+    "eventPeriod": "2026.10.03 ~ 10.04",
+    "eventStart": "2026-10-03",
+    "eventEnd": "2026-10-04",
+    "venue": "송내사회체육관",
+    "source": "위꾹",
+    "officialLink": "https://app2.wekkuk.com/v2/contest_badminton/contest/1787",
+    "fee": "공식 상세 페이지 참조",
+    "sources": [
+      "위꾹"
+    ],
+    "sourceLinks": [
+      {
+        "source": "위꾹",
+        "link": "https://app2.wekkuk.com/v2/contest_badminton/contest/1787"
+      }
+    ]
+  },
+  {
     "id": "cx-30393",
     "category": "전국오픈",
     "name": "2026 장림연세내과배 제14회 사하구배드민턴협회 청년부 대회",
@@ -10631,18 +11056,23 @@
     "eventPeriod": "2026.10.03",
     "eventStart": "2026-10-03",
     "eventEnd": "2026-10-03",
-    "venue": "부산 남구",
+    "venue": "남구 국민체육센터 실내체육관 2관",
     "source": "코트엑스",
     "officialLink": "https://www.courtx.co.kr/Tournament/Details/30393",
     "posterImage": "https://imgs.courtx.co.kr/Upload/Tournament/2026/202609/20260901/20260901102250899-9c7fb2df-poster_1.jpg",
     "fee": "요강 참조",
     "sources": [
-      "코트엑스"
+      "코트엑스",
+      "위꾹"
     ],
     "sourceLinks": [
       {
         "source": "코트엑스",
         "link": "https://www.courtx.co.kr/Tournament/Details/30393"
+      },
+      {
+        "source": "위꾹",
+        "link": "https://app2.wekkuk.com/v2/contest_badminton/contest/1835"
       }
     ]
   },
@@ -10770,6 +11200,31 @@
     ]
   },
   {
+    "id": "wk-1779",
+    "category": "전국오픈",
+    "name": "2026년 안양시 배드민턴협회와 함께하는 MAXX&플로먼트 유소년, 동호인 배드민턴 대회",
+    "registrationPeriod": "공식 상세 페이지 참조",
+    "registrationStart": "",
+    "registrationEnd": "",
+    "eventPeriod": "2026.10.03 ~ 10.04",
+    "eventStart": "2026-10-03",
+    "eventEnd": "2026-10-04",
+    "venue": "안양호계 배드민턴장",
+    "source": "위꾹",
+    "officialLink": "https://app2.wekkuk.com/v2/contest_badminton/contest/1779",
+    "posterImage": "https://upload.wekkuk.com/contest_badminton_poster/0001/f100/b622e1d2_37900773.png",
+    "fee": "공식 상세 페이지 참조",
+    "sources": [
+      "위꾹"
+    ],
+    "sourceLinks": [
+      {
+        "source": "위꾹",
+        "link": "https://app2.wekkuk.com/v2/contest_badminton/contest/1779"
+      }
+    ]
+  },
+  {
     "id": "fc-4376",
     "category": "전국오픈",
     "name": "2026년 제13회 대전정부청사 배드민턴대회",
@@ -10864,7 +11319,8 @@
     "fee": "요강 참조",
     "sources": [
       "배드민톡",
-      "코트엑스"
+      "코트엑스",
+      "위꾹"
     ],
     "sourceLinks": [
       {
@@ -10874,6 +11330,10 @@
       {
         "source": "코트엑스",
         "link": "https://www.courtx.co.kr/Tournament/Details/30370"
+      },
+      {
+        "source": "위꾹",
+        "link": "https://app2.wekkuk.com/v2/contest_badminton/contest/1731"
       }
     ]
   },
@@ -10949,7 +11409,8 @@
     "fee": "요강 참조",
     "sources": [
       "배드민톡",
-      "코트엑스"
+      "코트엑스",
+      "위꾹"
     ],
     "sourceLinks": [
       {
@@ -10959,6 +11420,10 @@
       {
         "source": "코트엑스",
         "link": "https://www.courtx.co.kr/Tournament/Details/30344"
+      },
+      {
+        "source": "위꾹",
+        "link": "https://app2.wekkuk.com/v2/contest_badminton/contest/1722"
       }
     ]
   },
@@ -10983,6 +11448,31 @@
       {
         "source": "배드민턴타임즈",
         "link": "http://www.badmintontimes.com/calendar/m3_calendarRead.jsp?menunum=204&no=2710&dday=20261005"
+      }
+    ]
+  },
+  {
+    "id": "wk-1780",
+    "category": "전국오픈",
+    "name": "[ODDSON]레드썬&오드스포츠 전국 배드민턴 오픈 대회",
+    "registrationPeriod": "공식 상세 페이지 참조",
+    "registrationStart": "",
+    "registrationEnd": "",
+    "eventPeriod": "2026.10.09",
+    "eventStart": "2026-10-09",
+    "eventEnd": "2026-10-09",
+    "venue": "마곡실내배드민턴장",
+    "source": "위꾹",
+    "officialLink": "https://app2.wekkuk.com/v2/contest_badminton/contest/1780",
+    "posterImage": "https://upload.wekkuk.com/contest_badminton_poster/0001/f100/6033473e_00294032.png",
+    "fee": "공식 상세 페이지 참조",
+    "sources": [
+      "위꾹"
+    ],
+    "sourceLinks": [
+      {
+        "source": "위꾹",
+        "link": "https://app2.wekkuk.com/v2/contest_badminton/contest/1780"
       }
     ]
   },
@@ -11338,18 +11828,23 @@
     "eventPeriod": "2026.10.10 ~ 10.11",
     "eventStart": "2026-10-10",
     "eventEnd": "2026-10-11",
-    "venue": "서울 동작구",
+    "venue": "사당종합체육관",
     "source": "코트엑스",
     "officialLink": "https://www.courtx.co.kr/Tournament/Details/30323",
     "posterImage": "https://imgs.courtx.co.kr/Upload/Tournament/2026/202607/20260731/20260731174322285-3ed532ef-poster_1.png",
     "fee": "요강 참조",
     "sources": [
-      "코트엑스"
+      "코트엑스",
+      "위꾹"
     ],
     "sourceLinks": [
       {
         "source": "코트엑스",
         "link": "https://www.courtx.co.kr/Tournament/Details/30323"
+      },
+      {
+        "source": "위꾹",
+        "link": "https://app2.wekkuk.com/v2/contest_badminton/contest/1706"
       }
     ]
   },
@@ -11374,6 +11869,55 @@
       {
         "source": "배드민톡",
         "link": "https://badmintok.com/badminton-tournament/서울특별시-동작구협회장기-배드민턴대회/"
+      }
+    ]
+  },
+  {
+    "id": "wk-1799",
+    "category": "전국오픈",
+    "name": "평택시 배드민턴협회와 함께하는 유소년, 동호인 전국배드민턴 대회",
+    "registrationPeriod": "공식 상세 페이지 참조",
+    "registrationStart": "",
+    "registrationEnd": "",
+    "eventPeriod": "2026.10.10 ~ 10.11",
+    "eventStart": "2026-10-10",
+    "eventEnd": "2026-10-11",
+    "venue": "평택 이충문화체육공원",
+    "source": "위꾹",
+    "officialLink": "https://app2.wekkuk.com/v2/contest_badminton/contest/1799",
+    "posterImage": "https://upload.wekkuk.com/contest_badminton_poster/0001/f100/51fec267_15208525.png",
+    "fee": "공식 상세 페이지 참조",
+    "sources": [
+      "위꾹"
+    ],
+    "sourceLinks": [
+      {
+        "source": "위꾹",
+        "link": "https://app2.wekkuk.com/v2/contest_badminton/contest/1799"
+      }
+    ]
+  },
+  {
+    "id": "wk-1555",
+    "category": "지역구대회",
+    "name": "제21회 홍천군협회장기 배드민턴대회",
+    "registrationPeriod": "공식 상세 페이지 참조",
+    "registrationStart": "",
+    "registrationEnd": "",
+    "eventPeriod": "2026.10.11",
+    "eventStart": "2026-10-11",
+    "eventEnd": "2026-10-11",
+    "venue": "홍천종합체육관",
+    "source": "위꾹",
+    "officialLink": "https://app2.wekkuk.com/v2/contest_badminton/contest/1555",
+    "fee": "공식 상세 페이지 참조",
+    "sources": [
+      "위꾹"
+    ],
+    "sourceLinks": [
+      {
+        "source": "위꾹",
+        "link": "https://app2.wekkuk.com/v2/contest_badminton/contest/1555"
       }
     ]
   },
@@ -11426,6 +11970,30 @@
     ]
   },
   {
+    "id": "wk-1837",
+    "category": "전국오픈",
+    "name": "2026학년도 양평 사제동행/교직원 배드민턴 대회",
+    "registrationPeriod": "공식 상세 페이지 참조",
+    "registrationStart": "",
+    "registrationEnd": "",
+    "eventPeriod": "2026.10.14",
+    "eventStart": "2026-10-14",
+    "eventEnd": "2026-10-14",
+    "venue": "양평읍배드민턴장",
+    "source": "위꾹",
+    "officialLink": "https://app2.wekkuk.com/v2/contest_badminton/contest/1837",
+    "fee": "공식 상세 페이지 참조",
+    "sources": [
+      "위꾹"
+    ],
+    "sourceLinks": [
+      {
+        "source": "위꾹",
+        "link": "https://app2.wekkuk.com/v2/contest_badminton/contest/1837"
+      }
+    ]
+  },
+  {
     "id": "cx-30392",
     "category": "전국오픈",
     "name": "2026 고양오픈 국제 배드민턴 페스티벌",
@@ -11441,12 +12009,41 @@
     "posterImage": "https://imgs.courtx.co.kr/Upload/Tournament/2026/202609/20260901/20260901101952828-8ae445c6-poster_1.jpg",
     "fee": "요강 참조",
     "sources": [
-      "코트엑스"
+      "코트엑스",
+      "위꾹"
     ],
     "sourceLinks": [
       {
         "source": "코트엑스",
         "link": "https://www.courtx.co.kr/Tournament/Details/30392"
+      },
+      {
+        "source": "위꾹",
+        "link": "https://app2.wekkuk.com/v2/contest_badminton/contest/1841"
+      }
+    ]
+  },
+  {
+    "id": "wk-1829",
+    "category": "전국오픈",
+    "name": "2026 제15회 임금님표 이천쌀배 전국 배드민턴대회",
+    "registrationPeriod": "공식 상세 페이지 참조",
+    "registrationStart": "",
+    "registrationEnd": "",
+    "eventPeriod": "2026.10.17 ~ 10.18",
+    "eventStart": "2026-10-17",
+    "eventEnd": "2026-10-18",
+    "venue": "이천 대교배드민턴전용구장",
+    "source": "위꾹",
+    "officialLink": "https://app2.wekkuk.com/v2/contest_badminton/contest/1829",
+    "fee": "공식 상세 페이지 참조",
+    "sources": [
+      "위꾹"
+    ],
+    "sourceLinks": [
+      {
+        "source": "위꾹",
+        "link": "https://app2.wekkuk.com/v2/contest_badminton/contest/1829"
       }
     ]
   },
@@ -11588,7 +12185,7 @@
     "venue": "전북 전북-전주시",
     "source": "페이스콕",
     "officialLink": "https://facecock.co.kr/page/index.php?pid=game_view&ga_id=4159",
-    "posterImage": "https://facecock.co.kr/data/game/poster_6a98f08389a6d_m.jpg",
+    "posterImage": "https://facecock.co.kr/data/game/poster_6a9921a3b7f54_m.jpg",
     "fee": "요강 참조",
     "sources": [
       "페이스콕",
@@ -11720,6 +12317,31 @@
       {
         "source": "배드민톡",
         "link": "https://badmintok.com/badminton-tournament/2026-삼척시-춘계-종목별-배드민턴대회/"
+      }
+    ]
+  },
+  {
+    "id": "wk-1831",
+    "category": "전국오픈",
+    "name": "2026 서울 마이소울 유,청소년 배드민턴대회",
+    "registrationPeriod": "공식 상세 페이지 참조",
+    "registrationStart": "",
+    "registrationEnd": "",
+    "eventPeriod": "2026.10.18",
+    "eventStart": "2026-10-18",
+    "eventEnd": "2026-10-18",
+    "venue": "마곡실내배드민턴장",
+    "source": "위꾹",
+    "officialLink": "https://app2.wekkuk.com/v2/contest_badminton/contest/1831",
+    "posterImage": "https://upload.wekkuk.com/contest_badminton_poster/0001/f100/c3e6cbc1_75365341.jpg",
+    "fee": "공식 상세 페이지 참조",
+    "sources": [
+      "위꾹"
+    ],
+    "sourceLinks": [
+      {
+        "source": "위꾹",
+        "link": "https://app2.wekkuk.com/v2/contest_badminton/contest/1831"
       }
     ]
   },
@@ -11865,7 +12487,8 @@
     "fee": "요강 참조",
     "sources": [
       "배드민톡",
-      "코트엑스"
+      "코트엑스",
+      "위꾹"
     ],
     "sourceLinks": [
       {
@@ -11875,6 +12498,34 @@
       {
         "source": "코트엑스",
         "link": "https://www.courtx.co.kr/Tournament/Details/30354"
+      },
+      {
+        "source": "위꾹",
+        "link": "https://app2.wekkuk.com/v2/contest_badminton/contest/1713"
+      }
+    ]
+  },
+  {
+    "id": "wk-1823",
+    "category": "전국오픈",
+    "name": "2026 여주 세종대왕배 배드민턴대회",
+    "registrationPeriod": "공식 상세 페이지 참조",
+    "registrationStart": "",
+    "registrationEnd": "",
+    "eventPeriod": "2026.10.24 ~ 10.25",
+    "eventStart": "2026-10-24",
+    "eventEnd": "2026-10-25",
+    "venue": "실내체육관, 복합체육관",
+    "source": "위꾹",
+    "officialLink": "https://app2.wekkuk.com/v2/contest_badminton/contest/1823",
+    "fee": "공식 상세 페이지 참조",
+    "sources": [
+      "위꾹"
+    ],
+    "sourceLinks": [
+      {
+        "source": "위꾹",
+        "link": "https://app2.wekkuk.com/v2/contest_badminton/contest/1823"
       }
     ]
   },
@@ -11954,7 +12605,8 @@
     "fee": "요강 참조",
     "sources": [
       "배드민톡",
-      "코트엑스"
+      "코트엑스",
+      "위꾹"
     ],
     "sourceLinks": [
       {
@@ -11964,6 +12616,10 @@
       {
         "source": "코트엑스",
         "link": "https://www.courtx.co.kr/Tournament/Details/30383"
+      },
+      {
+        "source": "위꾹",
+        "link": "https://app2.wekkuk.com/v2/contest_badminton/contest/1756"
       }
     ]
   },
@@ -12103,7 +12759,8 @@
     "fee": "요강 참조",
     "sources": [
       "배드민톡",
-      "코트엑스"
+      "코트엑스",
+      "위꾹"
     ],
     "sourceLinks": [
       {
@@ -12113,6 +12770,10 @@
       {
         "source": "코트엑스",
         "link": "https://www.courtx.co.kr/Tournament/Details/30375"
+      },
+      {
+        "source": "위꾹",
+        "link": "https://app2.wekkuk.com/v2/contest_badminton/contest/1777"
       }
     ]
   },
@@ -12161,18 +12822,23 @@
     "eventPeriod": "2026.10.25",
     "eventStart": "2026-10-25",
     "eventEnd": "2026-10-25",
-    "venue": "경기 남양주시",
+    "venue": "남양주체육문화센터",
     "source": "코트엑스",
     "officialLink": "https://www.courtx.co.kr/Tournament/Details/30381",
     "posterImage": "https://imgs.courtx.co.kr/Upload/Tournament/2026/202608/20260825/20260825102327291-a579a0da-poster_1.jpg",
     "fee": "요강 참조",
     "sources": [
-      "코트엑스"
+      "코트엑스",
+      "위꾹"
     ],
     "sourceLinks": [
       {
         "source": "코트엑스",
         "link": "https://www.courtx.co.kr/Tournament/Details/30381"
+      },
+      {
+        "source": "위꾹",
+        "link": "https://app2.wekkuk.com/v2/contest_badminton/contest/1800"
       }
     ]
   },
@@ -12222,6 +12888,55 @@
       {
         "source": "코트엑스",
         "link": "https://www.courtx.co.kr/Tournament/Details/30399"
+      }
+    ]
+  },
+  {
+    "id": "wk-1843",
+    "category": "전국오픈",
+    "name": "의정부체육회장배 배드민턴 페스티벌",
+    "registrationPeriod": "공식 상세 페이지 참조",
+    "registrationStart": "",
+    "registrationEnd": "",
+    "eventPeriod": "2026.10.31",
+    "eventStart": "2026-10-31",
+    "eventEnd": "2026-10-31",
+    "venue": "신곡실내배드민턴장",
+    "source": "위꾹",
+    "officialLink": "https://app2.wekkuk.com/v2/contest_badminton/contest/1843",
+    "posterImage": "https://upload.wekkuk.com/contest_badminton_poster/0001/f100/93b204cc_20250666.jpg",
+    "fee": "공식 상세 페이지 참조",
+    "sources": [
+      "위꾹"
+    ],
+    "sourceLinks": [
+      {
+        "source": "위꾹",
+        "link": "https://app2.wekkuk.com/v2/contest_badminton/contest/1843"
+      }
+    ]
+  },
+  {
+    "id": "wk-1729",
+    "category": "지역구대회",
+    "name": "제 31회 금천구청장기 배드민턴대회",
+    "registrationPeriod": "공식 상세 페이지 참조",
+    "registrationStart": "",
+    "registrationEnd": "",
+    "eventPeriod": "2026.10.31 ~ 11.01",
+    "eventStart": "2026-10-31",
+    "eventEnd": "2026-11-01",
+    "venue": "독산배드민턴체육관",
+    "source": "위꾹",
+    "officialLink": "https://app2.wekkuk.com/v2/contest_badminton/contest/1729",
+    "fee": "공식 상세 페이지 참조",
+    "sources": [
+      "위꾹"
+    ],
+    "sourceLinks": [
+      {
+        "source": "위꾹",
+        "link": "https://app2.wekkuk.com/v2/contest_badminton/contest/1729"
       }
     ]
   },
@@ -12300,18 +13015,23 @@
     "eventPeriod": "2026.11.01",
     "eventStart": "2026-11-01",
     "eventEnd": "2026-11-01",
-    "venue": "서울 강서구",
+    "venue": "마곡실내배드민턴장",
     "source": "코트엑스",
     "officialLink": "https://www.courtx.co.kr/Tournament/Details/30391",
     "posterImage": "https://imgs.courtx.co.kr/Upload/Tournament/2026/202609/20260901/20260901101812802-c6fdf500-poster_1.png",
     "fee": "요강 참조",
     "sources": [
-      "코트엑스"
+      "코트엑스",
+      "위꾹"
     ],
     "sourceLinks": [
       {
         "source": "코트엑스",
         "link": "https://www.courtx.co.kr/Tournament/Details/30391"
+      },
+      {
+        "source": "위꾹",
+        "link": "https://app2.wekkuk.com/v2/contest_badminton/contest/1830"
       }
     ]
   },
@@ -12475,7 +13195,8 @@
     "fee": "요강 참조",
     "sources": [
       "배드민톡",
-      "코트엑스"
+      "코트엑스",
+      "위꾹"
     ],
     "sourceLinks": [
       {
@@ -12485,6 +13206,10 @@
       {
         "source": "코트엑스",
         "link": "https://www.courtx.co.kr/Tournament/Details/30374"
+      },
+      {
+        "source": "위꾹",
+        "link": "https://app2.wekkuk.com/v2/contest_badminton/contest/1764"
       }
     ]
   },
@@ -12600,18 +13325,23 @@
     "eventPeriod": "2026.11.14 ~ 11.15",
     "eventStart": "2026-11-14",
     "eventEnd": "2026-11-15",
-    "venue": "경기 군포시",
+    "venue": "군포시민체육광장 제3체육관 외 3개소",
     "source": "코트엑스",
     "officialLink": "https://www.courtx.co.kr/Tournament/Details/30400",
     "posterImage": "https://imgs.courtx.co.kr/Upload/Tournament/2026/202609/20260902/20260902095641187-1f5b37ee-poster_1.png",
     "fee": "요강 참조",
     "sources": [
-      "코트엑스"
+      "코트엑스",
+      "위꾹"
     ],
     "sourceLinks": [
       {
         "source": "코트엑스",
         "link": "https://www.courtx.co.kr/Tournament/Details/30400"
+      },
+      {
+        "source": "위꾹",
+        "link": "https://app2.wekkuk.com/v2/contest_badminton/contest/1761"
       }
     ]
   },
@@ -12667,7 +13397,8 @@
     "fee": "요강 참조",
     "sources": [
       "배드민톡",
-      "코트엑스"
+      "코트엑스",
+      "위꾹"
     ],
     "sourceLinks": [
       {
@@ -12677,6 +13408,10 @@
       {
         "source": "코트엑스",
         "link": "https://www.courtx.co.kr/Tournament/Details/30358"
+      },
+      {
+        "source": "위꾹",
+        "link": "https://app2.wekkuk.com/v2/contest_badminton/contest/1759"
       }
     ]
   },

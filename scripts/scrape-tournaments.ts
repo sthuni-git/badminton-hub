@@ -2,7 +2,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 
 type TournamentCategory = '전국오픈' | '지역구대회' | '학생선수권' | '브랜드대회' | '국제대회';
-type TournamentSource = '배드민톡' | '배드민턴타임즈' | '페이스콕' | '배드민턴게임' | '코트엑스' | '오마이플레이' | '스포넷';
+type TournamentSource = '배드민톡' | '배드민턴타임즈' | '페이스콕' | '배드민턴게임' | '코트엑스' | '오마이플레이' | '스포넷' | '위꾹';
 
 interface ScrapedTournament {
   id: string;
@@ -657,6 +657,76 @@ async function scrapeSponet(): Promise<ScrapedTournament[]> {
   return tournaments;
 }
 
+async function scrapeWekkuk(): Promise<ScrapedTournament[]> {
+  const url = 'https://app2.wekkuk.com/v2/contest_badminton/contest_new_list';
+  const response = await fetch(url, {
+    headers: { 'User-Agent': USER_AGENT },
+    signal: AbortSignal.timeout(REQUEST_TIMEOUT_MS),
+  });
+
+  if (!response.ok) throw new Error(`${response.status} ${response.statusText}`);
+
+  const html = await response.text();
+  const tournaments: ScrapedTournament[] = [];
+  const seen = new Set<string>();
+
+  const chunks = html.split('goto_contest_view(');
+  for (let i = 1; i < chunks.length; i++) {
+    const chunk = chunks[i];
+    const idMatch = chunk.match(/^(\d+)/);
+    const bct_id = idMatch ? idMatch[1] : '';
+
+    const titleMatch = chunk.match(/class="gm-title"[^>]*>([^<]+)<\/p>/);
+    const name = cleanText(titleMatch ? titleMatch[1] : '');
+
+    const nameMatch = chunk.match(/class="gm-name"[^>]*>([^<]+)<\/p>/);
+    const venue = cleanText(nameMatch ? nameMatch[1].replace(/^\(|\)$/g, '') : '공식 상세 페이지 참조');
+
+    const timeMatch = chunk.match(/class="gm-time"[^>]*>([^<]+)<\/span>/);
+    const timeRaw = timeMatch ? timeMatch[1].trim() : '';
+
+    const imgMatch = chunk.match(/src="([^"]+contest_badminton_poster[^"]+)"/);
+    const posterImage = imgMatch ? imgMatch[1] : undefined;
+
+    if (!name || !timeRaw) continue;
+
+    // 일시 파싱 (예: 2026-10-24~2026-10-25 또는 2026-09-13)
+    const dates = timeRaw.split('~').map((d) => d.trim());
+    const eventStart = dates[0] || '2026-06-01';
+    const eventEnd = dates[1] || eventStart;
+
+    if (!eventStart.startsWith('2026') && !eventEnd.startsWith('2026')) continue;
+
+    const key = `${name}|${eventStart}`;
+    if (seen.has(key)) continue;
+    seen.add(key);
+
+    const officialLink = bct_id
+      ? `https://app2.wekkuk.com/v2/contest_badminton/contest/${bct_id}`
+      : url;
+
+    tournaments.push({
+      id: bct_id ? `wk-${bct_id}` : `wk-${stableHash(name)}`,
+      category: categorizeTournament(name, venue),
+      name,
+      registrationPeriod: '공식 상세 페이지 참조',
+      registrationStart: '',
+      registrationEnd: '',
+      eventPeriod: displayPeriod(eventStart, eventEnd),
+      eventStart,
+      eventEnd,
+      venue,
+      source: '위꾹',
+      officialLink,
+      posterImage,
+      fee: '공식 상세 페이지 참조',
+    });
+  }
+
+  console.log(`   ✅ 위꾹 모바일 공식 웹뷰 검증: ${tournaments.length}건`);
+  return tournaments;
+}
+
 function normalizeName(name: string): string {
   return name
     .toLowerCase()
@@ -712,7 +782,7 @@ async function main(): Promise<void> {
   console.log('🏸 검증 가능한 원문 기반 대회 수집을 시작합니다.');
   console.log('   합성 대회, 임의 날짜/참가비, 목록 주소만 있는 레코드는 생성하지 않습니다.');
 
-  const [facecock, badmintok, badmintonTimes, badmintonGame, courtX, ohMyPlay, sponet] = await Promise.all([
+  const [facecock, badmintok, badmintonTimes, badmintonGame, courtX, ohMyPlay, sponet, wekkuk] = await Promise.all([
     safelyCollect('페이스콕', scrapeFacecock),
     safelyCollect('배드민톡', scrapeBadmintok),
     safelyCollect('배드민턴타임즈', scrapeBadmintonTimes),
@@ -720,6 +790,7 @@ async function main(): Promise<void> {
     safelyCollect('코트엑스', scrapeCourtX),
     safelyCollect('오마이플레이', scrapeOhMyPlay),
     safelyCollect('스포넷', scrapeSponet),
+    safelyCollect('위꾹', scrapeWekkuk),
   ]);
 
   const tournaments = mergeAndDeduplicate([
@@ -730,6 +801,7 @@ async function main(): Promise<void> {
     ...courtX,
     ...ohMyPlay,
     ...sponet,
+    ...wekkuk,
   ]);
   if (tournaments.length === 0) throw new Error('검증 가능한 대회를 한 건도 수집하지 못해 기존 파일을 보존합니다.');
 
@@ -738,7 +810,7 @@ async function main(): Promise<void> {
 
   console.log(`✅ ${tournaments.length}건 저장 완료: ${outputPath}`);
   console.log(
-    `   페이스콕 ${facecock.length} / 배드민톡 ${badmintok.length} / 배드민턴타임즈 ${badmintonTimes.length} / 배드민턴게임 ${badmintonGame.length} / 코트엑스 ${courtX.length} / 오마이플레이 ${ohMyPlay.length} / 스포넷 ${sponet.length}`
+    `   페이스콕 ${facecock.length} / 배드민톡 ${badmintok.length} / 배드민턴타임즈 ${badmintonTimes.length} / 배드민턴게임 ${badmintonGame.length} / 코트엑스 ${courtX.length} / 오마이플레이 ${ohMyPlay.length} / 스포넷 ${sponet.length} / 위꾹 ${wekkuk.length}`
   );
 }
 
