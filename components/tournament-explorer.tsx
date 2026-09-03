@@ -1032,10 +1032,10 @@ export function TournamentExplorer({ tournaments }: { tournaments: Tournament[] 
                 </a>
               </div>
 
-              {/* 출처별 공식 링크 버튼 렌더링 (중복 등록 시 출처별 개별 버튼 제공) */}
+              {/* 출처별 공식 링크 버튼 렌더링 */}
               {selected.sourceLinks && selected.sourceLinks.length > 1 ? (
                 <div className="space-y-2 pt-1">
-                  <p className="text-xs font-bold text-slate-700">🏷️ 각 플랫폼별 공식 요강 바로가기:</p>
+                  <p className="text-xs font-bold text-slate-700">🏷️ 각 플랫폼별 공식 접수처·요강 바로가기:</p>
                   <div className="grid gap-2 sm:grid-cols-2">
                     {selected.sourceLinks.map((sl) => (
                       <a
@@ -1043,10 +1043,10 @@ export function TournamentExplorer({ tournaments }: { tournaments: Tournament[] 
                         href={sl.link}
                         target="_blank"
                         rel="noreferrer"
-                        aria-label={`${selected.name} ${sl.source} 요강 페이지 새창 열기`}
+                        aria-label={`${selected.name} ${sl.source} 공식 페이지 새창 열기`}
                         className="inline-flex h-11 items-center justify-center gap-1.5 rounded-xl bg-emerald-700 px-3 text-xs font-bold text-white shadow transition hover:bg-emerald-800"
                       >
-                        {sl.source} 요강 보기 <ExternalLink className="size-3.5" />
+                        {sl.source === 'BKPLAY' ? '대한배드민턴협회 (BKPLAY)' : `${sl.source} 접수·요강`} <ExternalLink className="size-3.5" />
                       </a>
                     ))}
                   </div>
@@ -1060,7 +1060,16 @@ export function TournamentExplorer({ tournaments }: { tournaments: Tournament[] 
                     aria-label={`${selected.name} 공식 요강 및 참가 접수 사이트로 이동`}
                     className="inline-flex h-12 w-full items-center justify-center gap-2 rounded-xl bg-emerald-700 text-sm font-bold text-white shadow transition hover:bg-emerald-800"
                   >
-                    {getStatus(selected, today) === '대회종료' ? '대회 결과 및 요강 보기' : '접수 및 세부 요강 바로가기'} {isAdmin ? `(${selected.source})` : ''} <ExternalLink className="size-4" />
+                    {selected.source === '페이스콕' && '📄 페이스콕 공식 접수처 바로가기'}
+                    {selected.source === '코트엑스' && '📄 코트엑스 공식 접수처 바로가기'}
+                    {selected.source === '스포넷' && '📄 스포넷 공식 접수처 바로가기'}
+                    {selected.source === 'BKPLAY' && '📄 대한배드민턴협회 (BKPLAY) 공고 보기'}
+                    {selected.source === '배드민톡' && '📄 배드민톡 세부 요강 바로가기'}
+                    {selected.source === '배드민턴타임즈' && '📄 배드민턴타임즈 공식 요강 보기'}
+                    {selected.source === '배드민턴게임' && '📄 배드민턴게임 공식 일정 보기'}
+                    {selected.source === 'BWF' && '🌏 BWF World Tour 공식 캘린더 보기'}
+                    {selected.source === '네이버밴드' && (getStatus(selected, today) === '대회종료' ? '📄 대회 결과 및 요강 보기' : '📄 대회 공식 요강 및 접수글 보기')}
+                    <ExternalLink className="size-4" />
                   </a>
 
                   {selected.source === '네이버밴드' && selected.bandUrl && (
