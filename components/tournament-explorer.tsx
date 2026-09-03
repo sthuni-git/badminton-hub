@@ -1119,13 +1119,13 @@ export function TournamentExplorer({ tournaments }: { tournaments: Tournament[] 
 
             {/* 대회 공식 요강 포스터 이미지 뷰어 */}
             {selected.posterImage && (
-              <div className="mx-5 mb-4 overflow-hidden rounded-2xl border border-emerald-200 bg-slate-900 shadow-md sm:mx-7">
-                <div className="relative aspect-[16/9] w-full overflow-hidden bg-slate-950 sm:aspect-[2/1]">
+              <div className="mx-5 mb-4 overflow-hidden rounded-2xl border border-emerald-200 bg-slate-950 shadow-md sm:mx-7">
+                <div className="relative w-full overflow-hidden bg-slate-950 flex items-center justify-center">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
                     src={getSecurePosterUrl(selected.posterImage)}
                     alt={`${selected.name} 공식 요강 포스터`}
-                    className="size-full object-cover opacity-90 transition duration-300 hover:scale-105 hover:opacity-100"
+                    className="w-full h-auto max-h-[70vh] object-contain opacity-95 transition duration-300 hover:opacity-100"
                     loading="lazy"
                     onError={(e) => {
                       const imgEl = e.currentTarget as HTMLImageElement;
@@ -1144,20 +1144,19 @@ export function TournamentExplorer({ tournaments }: { tournaments: Tournament[] 
                       );
                     }}
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent pointer-events-none" />
-                  <div className="absolute bottom-2.5 left-3 right-3 flex items-center justify-between">
-                    <span className="inline-flex items-center gap-1 rounded-md bg-emerald-700/90 px-2 py-0.5 text-[11px] font-bold text-white shadow-xs backdrop-blur-xs">
-                      🖼️ 대회 공식 요강 포스터
-                    </span>
-                    <a
-                      href={selected.posterImage}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="rounded-md bg-black/60 px-2 py-0.5 text-[10px] font-bold text-white hover:bg-black/90"
-                    >
-                      원본 확대 보기 🔍
-                    </a>
-                  </div>
+                </div>
+                <div className="flex items-center justify-between bg-slate-900/80 px-4 py-2">
+                  <span className="inline-flex items-center gap-1 text-[11px] font-bold text-emerald-300">
+                    🖼️ 대회 공식 요강 포스터
+                  </span>
+                  <a
+                    href={getSecurePosterUrl(selected.posterImage)}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="rounded-md bg-emerald-700/80 px-2 py-0.5 text-[10px] font-bold text-white hover:bg-emerald-600"
+                  >
+                    원본 확대 보기 🔍
+                  </a>
                 </div>
               </div>
             )}

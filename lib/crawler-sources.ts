@@ -77,7 +77,7 @@ export const CRAWLER_SOURCES: CrawlerSource[] = [
     name: '오마이플레이 (OHMYPLAY)',
     category: '모바일·온라인 접수 플랫폼',
     targetUrl: 'https://m.ohmyplay.com/tournament/list',
-    subUrls: ['https://ohmyplay.com/', 'https://m.ohmyplay.com/'],
+    subUrls: ['https://ohmyplay.com/', 'https://m.ohmyplay.com/tournament/list'],
     difficulty: '보통',
     phase: 'Phase 2 (보통/정밀수집)',
     method: '모바일 웹 기반 파싱 / REST API',
