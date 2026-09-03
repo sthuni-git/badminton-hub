@@ -542,7 +542,7 @@ async function scrapeOhMyPlay(): Promise<ScrapedTournament[]> {
       eventEnd,
       venue,
       source: '오마이플레이',
-      officialLink: `https://m.ohmyplay.com/tournament/detail/${item.tnmtId}`,
+      officialLink: `https://m.ohmyplay.com/tournament/${item.tnmtId}`,
       posterImage,
       fee: '요강 참조',
     });
