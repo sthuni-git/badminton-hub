@@ -1160,7 +1160,7 @@ export function TournamentExplorer({ tournaments }: { tournaments: Tournament[] 
         {selected && (
           <SheetContent
             side="bottom"
-            className="mx-auto max-h-[90vh] max-w-2xl overflow-y-auto rounded-t-[28px] border-x bg-white px-0 pb-6 sm:bottom-6 sm:rounded-[28px] sm:border sm:shadow-2xl"
+            className="mx-auto max-h-[92vh] max-w-4xl overflow-y-auto rounded-t-[28px] border-x bg-white px-0 pb-8 sm:bottom-4 sm:rounded-[28px] sm:border sm:shadow-2xl"
           >
             <div className="mx-auto mt-2 h-1 w-10 rounded-full bg-zinc-200 sm:hidden" />
             <SheetHeader className="px-5 pb-3 pt-5 sm:px-7">
@@ -1184,7 +1184,7 @@ export function TournamentExplorer({ tournaments }: { tournaments: Tournament[] 
                 </Badge>
               </div>
               <div className="flex items-start justify-between gap-3 pr-8">
-                <SheetTitle className="text-xl font-extrabold leading-snug text-slate-900">
+                <SheetTitle className="text-xl sm:text-2xl font-extrabold leading-snug text-slate-900">
                   {selected.name}
                 </SheetTitle>
                 <button
@@ -1208,18 +1208,45 @@ export function TournamentExplorer({ tournaments }: { tournaments: Tournament[] 
               </SheetDescription>
             </SheetHeader>
 
-            {/* 대회 공식 요강 포스터 이미지 뷰어 */}
+            {/* 대회 공식 요강 포스터 이미지 뷰어 (크고 시원하게 가로폭 100% 렌더링) */}
             {selected.posterImage && (
-              <div className="mx-5 mb-4 overflow-hidden rounded-2xl border border-emerald-200 bg-slate-950 shadow-md sm:mx-7">
-                <div className="relative w-full overflow-hidden bg-slate-950 flex items-center justify-center">
+              <div className="mx-4 mb-5 overflow-hidden rounded-2xl border-2 border-emerald-300/80 bg-slate-950 shadow-lg sm:mx-7">
+                {/* 상단 액션 툴바 */}
+                <div className="flex items-center justify-between bg-slate-900 px-4 py-2.5 text-xs text-white border-b border-slate-800">
+                  <span className="inline-flex items-center gap-1.5 font-bold text-emerald-400">
+                    🖼️ 대회 공식 요강 포스터 원본
+                  </span>
+                  <div className="flex items-center gap-2">
+                    <button
+                      type="button"
+                      onClick={() => setLightboxUrl(getSecurePosterUrl(selected.posterImage))}
+                      className="inline-flex items-center gap-1 rounded-lg bg-emerald-600 px-3 py-1 text-xs font-extrabold text-white shadow-sm transition hover:bg-emerald-500 cursor-pointer"
+                    >
+                      전체화면 확대 🔍
+                    </button>
+                    <a
+                      href={getSecurePosterUrl(selected.posterImage)}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="inline-flex items-center gap-1 rounded-lg bg-slate-800 px-2.5 py-1 text-xs font-semibold text-slate-200 transition hover:bg-slate-700"
+                    >
+                      새 탭 열기 ↗
+                    </a>
+                  </div>
+                </div>
+
+                {/* 포스터 이미지 (가로폭 100% 시원하게 표시하여 글씨/표가 전부 선명하게 읽히도록 구성) */}
+                <div 
+                  className="relative w-full overflow-hidden bg-slate-900/60 flex items-center justify-center p-1 sm:p-2 cursor-zoom-in group"
+                  onClick={() => setLightboxUrl(getSecurePosterUrl(selected.posterImage))}
+                  title="클릭하면 전체화면으로 크게 볼 수 있습니다"
+                >
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
                     src={getSecurePosterUrl(selected.posterImage)}
                     alt={`${selected.name} 공식 요강 포스터`}
-                    className="w-full h-auto max-h-[70vh] object-contain opacity-95 transition duration-300 hover:opacity-100 cursor-zoom-in"
+                    className="w-full h-auto object-contain rounded-lg transition duration-200 group-hover:opacity-95"
                     loading="lazy"
-                    onClick={() => setLightboxUrl(getSecurePosterUrl(selected.posterImage))}
-                    title="클릭하면 크게 볼 수 있습니다"
                     onError={(e) => {
                       const imgEl = e.currentTarget as HTMLImageElement;
                       if (selected.posterImage && !imgEl.src.includes('weserv.nl') && (selected.posterImage.startsWith('http://') || selected.posterImage.startsWith('https://'))) {
@@ -1237,23 +1264,11 @@ export function TournamentExplorer({ tournaments }: { tournaments: Tournament[] 
                       );
                     }}
                   />
-                  <div className="absolute top-2 right-2 pointer-events-none">
-                    <span className="rounded-full bg-black/50 px-2 py-1 text-[10px] font-bold text-white backdrop-blur-sm">
-                      🔍 클릭하면 크게 보기
+                  <div className="absolute bottom-3 right-3 pointer-events-none opacity-90 transition group-hover:opacity-100">
+                    <span className="inline-flex items-center gap-1 rounded-full bg-black/75 px-3 py-1.5 text-xs font-extrabold text-white backdrop-blur-md shadow-md">
+                      🔍 클릭 시 전체화면 확대
                     </span>
                   </div>
-                </div>
-                <div className="flex items-center justify-between bg-slate-900/80 px-4 py-2">
-                  <span className="inline-flex items-center gap-1 text-[11px] font-bold text-emerald-300">
-                    🖼️ 출처 사이트 제공 이미지
-                  </span>
-                  <button
-                    type="button"
-                    onClick={() => setLightboxUrl(getSecurePosterUrl(selected.posterImage))}
-                    className="rounded-md bg-emerald-700/80 px-2 py-0.5 text-[10px] font-bold text-white hover:bg-emerald-600"
-                  >
-                    확대 보기 🔍
-                  </button>
                 </div>
               </div>
             )}
@@ -1261,26 +1276,26 @@ export function TournamentExplorer({ tournaments }: { tournaments: Tournament[] 
             {/* 라이트박스: 포스터 전체화면 확대 */}
             {lightboxUrl && (
               <div
-                className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/90 backdrop-blur-sm"
+                className="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-black/95 p-2 sm:p-4 backdrop-blur-md"
                 onClick={() => setLightboxUrl(null)}
               >
-                <div className="relative max-w-[95vw] max-h-[95vh]" onClick={(e) => e.stopPropagation()}>
+                <div className="relative max-w-[98vw] max-h-[92vh] overflow-auto flex items-center justify-center" onClick={(e) => e.stopPropagation()}>
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
                     src={lightboxUrl}
                     alt="포스터 확대 보기"
-                    className="max-w-[95vw] max-h-[90vh] object-contain rounded-xl shadow-2xl"
+                    className="max-w-[96vw] max-h-[90vh] w-auto h-auto object-contain rounded-xl shadow-2xl"
                   />
                   <button
                     type="button"
-                    className="absolute -top-4 -right-4 flex size-9 items-center justify-center rounded-full bg-white text-xl font-black text-slate-900 shadow-lg hover:bg-slate-100"
+                    className="fixed top-4 right-4 sm:top-6 sm:right-6 flex size-11 items-center justify-center rounded-full bg-white/90 text-2xl font-black text-slate-900 shadow-2xl transition hover:bg-white hover:scale-110 cursor-pointer"
                     onClick={() => setLightboxUrl(null)}
                     aria-label="닫기"
                   >
                     ✕
                   </button>
                 </div>
-                <p className="absolute bottom-5 text-sm font-semibold text-white/60">화면 아무 곳이나 클릭하면 닫힙니다</p>
+                <p className="mt-2 text-xs sm:text-sm font-semibold text-white/70">화면 아무 곳이나 클릭하거나 ✕를 누르면 닫힙니다</p>
               </div>
             )}
 
