@@ -1,5 +1,53 @@
 [
   {
+    "id": "sp-1na6cmm",
+    "category": "전국오픈",
+    "name": "2026 제16회 전국 ROOKIE 배드민턴 대회",
+    "registrationPeriod": "공식 요강(PDF) 참조",
+    "registrationStart": "",
+    "registrationEnd": "",
+    "eventPeriod": "2025.12.15",
+    "eventStart": "2025-12-15",
+    "eventEnd": "2025-12-15",
+    "venue": "경기장소는 공식 요강(PDF) 참조",
+    "source": "스포넷",
+    "officialLink": "https://sponet.co.kr/mobile/tm_outline/2026%20%ec%a0%9c16%ed%9a%8c%20%ec%a0%84%ea%b5%ad%20ROOKIE%20%eb%b0%b0%eb%93%9c%eb%af%bc%ed%84%b4%20%eb%8c%80%ed%9a%8c%20%ec%b0%b8%ea%b0%80%ec%9a%94%ea%b0%95-1.pdf",
+    "fee": "공식 요강(PDF) 참조",
+    "sources": [
+      "스포넷"
+    ],
+    "sourceLinks": [
+      {
+        "source": "스포넷",
+        "link": "https://sponet.co.kr/mobile/tm_outline/2026%20%ec%a0%9c16%ed%9a%8c%20%ec%a0%84%ea%b5%ad%20ROOKIE%20%eb%b0%b0%eb%93%9c%eb%af%bc%ed%84%b4%20%eb%8c%80%ed%9a%8c%20%ec%b0%b8%ea%b0%80%ec%9a%94%ea%b0%95-1.pdf"
+      }
+    ]
+  },
+  {
+    "id": "sp-mk5vtv",
+    "category": "전국오픈",
+    "name": "2026 제17회 전국 ROOKIE 배드민턴 대회",
+    "registrationPeriod": "공식 요강(PDF) 참조",
+    "registrationStart": "",
+    "registrationEnd": "",
+    "eventPeriod": "2025.12.19",
+    "eventStart": "2025-12-19",
+    "eventEnd": "2025-12-19",
+    "venue": "경기장소는 공식 요강(PDF) 참조",
+    "source": "스포넷",
+    "officialLink": "https://sponet.co.kr/mobile/tm_outline/2026%20%ec%a0%9c17%ed%9a%8c%20%ec%a0%84%ea%b5%ad%20ROOKIE%20%eb%b0%b0%eb%93%9c%eb%af%bc%ed%84%b4%20%eb%8c%80%ed%9a%8c%20%ec%b0%b8%ea%b0%80%ec%9a%94%ea%b0%95.pdf",
+    "fee": "공식 요강(PDF) 참조",
+    "sources": [
+      "스포넷"
+    ],
+    "sourceLinks": [
+      {
+        "source": "스포넷",
+        "link": "https://sponet.co.kr/mobile/tm_outline/2026%20%ec%a0%9c17%ed%9a%8c%20%ec%a0%84%ea%b5%ad%20ROOKIE%20%eb%b0%b0%eb%93%9c%eb%af%bc%ed%84%b4%20%eb%8c%80%ed%9a%8c%20%ec%b0%b8%ea%b0%80%ec%9a%94%ea%b0%95.pdf"
+      }
+    ]
+  },
+  {
     "id": "bt-2531",
     "category": "전국오픈",
     "name": "제7회 코리아민턴사랑 유·청소년&청년 배드민턴대회",
@@ -20,6 +68,30 @@
       {
         "source": "배드민턴타임즈",
         "link": "http://www.badmintontimes.com/calendar/m3_calendarRead.jsp?menunum=204&no=2531&dday=20260104"
+      }
+    ]
+  },
+  {
+    "id": "sp-4i1fzk",
+    "category": "전국오픈",
+    "name": "2026 제6회 ROOKIE배 전국 10대 배드민턴 챌린지대회",
+    "registrationPeriod": "공식 요강(PDF) 참조",
+    "registrationStart": "",
+    "registrationEnd": "",
+    "eventPeriod": "2026.01.05",
+    "eventStart": "2026-01-05",
+    "eventEnd": "2026-01-05",
+    "venue": "경기장소는 공식 요강(PDF) 참조",
+    "source": "스포넷",
+    "officialLink": "https://sponet.co.kr/mobile/tm_outline/2026%20%ec%a0%9c6%ed%9a%8c%20ROOKIE%eb%b0%b0%20%ec%a0%84%ea%b5%ad%2010%eb%8c%80%20%eb%b0%b0%eb%93%9c%eb%af%bc%ed%84%b4%20%ec%b1%8c%eb%a6%b0%ec%a7%80%20%ec%b0%b8%ea%b0%80%ec%9a%94%ea%b0%95.pdf",
+    "fee": "공식 요강(PDF) 참조",
+    "sources": [
+      "스포넷"
+    ],
+    "sourceLinks": [
+      {
+        "source": "스포넷",
+        "link": "https://sponet.co.kr/mobile/tm_outline/2026%20%ec%a0%9c6%ed%9a%8c%20ROOKIE%eb%b0%b0%20%ec%a0%84%ea%b5%ad%2010%eb%8c%80%20%eb%b0%b0%eb%93%9c%eb%af%bc%ed%84%b4%20%ec%b1%8c%eb%a6%b0%ec%a7%80%20%ec%b0%b8%ea%b0%80%ec%9a%94%ea%b0%95.pdf"
       }
     ]
   },
@@ -165,6 +237,30 @@
       {
         "source": "배드민턴타임즈",
         "link": "http://www.badmintontimes.com/calendar/m3_calendarRead.jsp?menunum=204&no=2542&dday=20260118"
+      }
+    ]
+  },
+  {
+    "id": "sp-12salt5",
+    "category": "전국오픈",
+    "name": "2026 제5회 샤오넬 코리아배 전국 배드민턴 페스티벌대회",
+    "registrationPeriod": "공식 요강(PDF) 참조",
+    "registrationStart": "",
+    "registrationEnd": "",
+    "eventPeriod": "2026.01.19",
+    "eventStart": "2026-01-19",
+    "eventEnd": "2026-01-19",
+    "venue": "경기장소는 공식 요강(PDF) 참조",
+    "source": "스포넷",
+    "officialLink": "https://sponet.co.kr/mobile/tm_outline/2026%20%ec%a0%9c5%ed%9a%8c%20%ec%83%a4%ec%98%a4%eb%84%ac%20%ec%bd%94%eb%a6%ac%ec%95%84%eb%b0%b0%20%ec%a0%84%ea%b5%ad%20%eb%b0%b0%eb%93%9c%eb%af%bc%ed%84%b4%20%ed%8e%98%ec%8a%a4%ed%8b%b0%eb%b2%8c%20%ec%b0%b8%ea%b0%80%ec%9a%94%ea%b0%95.pdf",
+    "fee": "공식 요강(PDF) 참조",
+    "sources": [
+      "스포넷"
+    ],
+    "sourceLinks": [
+      {
+        "source": "스포넷",
+        "link": "https://sponet.co.kr/mobile/tm_outline/2026%20%ec%a0%9c5%ed%9a%8c%20%ec%83%a4%ec%98%a4%eb%84%ac%20%ec%bd%94%eb%a6%ac%ec%95%84%eb%b0%b0%20%ec%a0%84%ea%b5%ad%20%eb%b0%b0%eb%93%9c%eb%af%bc%ed%84%b4%20%ed%8e%98%ec%8a%a4%ed%8b%b0%eb%b2%8c%20%ec%b0%b8%ea%b0%80%ec%9a%94%ea%b0%95.pdf"
       }
     ]
   },
@@ -685,6 +781,30 @@
     ]
   },
   {
+    "id": "sp-prcb08",
+    "category": "지역구대회",
+    "name": "2026 제9회 용인특례시 협회장기 생활체육 배드민턴 대회",
+    "registrationPeriod": "공식 요강(PDF) 참조",
+    "registrationStart": "",
+    "registrationEnd": "",
+    "eventPeriod": "2026.02.21",
+    "eventStart": "2026-02-21",
+    "eventEnd": "2026-02-21",
+    "venue": "용인특례시 일원 체육관 (공식 요강 참조)",
+    "source": "스포넷",
+    "officialLink": "https://sponet.co.kr/mobile/tm_outline/2026%20%ec%a0%9c9%ed%9a%8c%20%ec%9a%a9%ec%9d%b8%ed%8a%b9%eb%a1%80%ec%8b%9c%20%ed%98%91%ed%9a%8c%ec%9e%a5%ea%b8%b0%20%ec%83%9d%ed%99%9c%ec%b2%b4%ec%9c%a1%20%eb%b0%b0%eb%93%9c%eb%af%bc%ed%84%b4%20%eb%8c%80%ed%9a%8c%20%ec%b0%b8%ea%b0%80%ec%9a%94%ea%b0%95.pdf",
+    "fee": "공식 요강(PDF) 참조",
+    "sources": [
+      "스포넷"
+    ],
+    "sourceLinks": [
+      {
+        "source": "스포넷",
+        "link": "https://sponet.co.kr/mobile/tm_outline/2026%20%ec%a0%9c9%ed%9a%8c%20%ec%9a%a9%ec%9d%b8%ed%8a%b9%eb%a1%80%ec%8b%9c%20%ed%98%91%ed%9a%8c%ec%9e%a5%ea%b8%b0%20%ec%83%9d%ed%99%9c%ec%b2%b4%ec%9c%a1%20%eb%b0%b0%eb%93%9c%eb%af%bc%ed%84%b4%20%eb%8c%80%ed%9a%8c%20%ec%b0%b8%ea%b0%80%ec%9a%94%ea%b0%95.pdf"
+      }
+    ]
+  },
+  {
     "id": "bt-2563",
     "category": "지역구대회",
     "name": "제9회 대전광역시협회장기 배드민턴대회",
@@ -709,6 +829,30 @@
     ]
   },
   {
+    "id": "sp-3la406",
+    "category": "전국오픈",
+    "name": "2026 군포시장배 배드민턴 대회",
+    "registrationPeriod": "공식 요강(PDF) 참조",
+    "registrationStart": "",
+    "registrationEnd": "",
+    "eventPeriod": "2026.02.23",
+    "eventStart": "2026-02-23",
+    "eventEnd": "2026-02-23",
+    "venue": "군포시 일원 체육관 (공식 요강 참조)",
+    "source": "스포넷",
+    "officialLink": "https://sponet.co.kr/mobile/tm_outline/2026%20%ea%b5%b0%ed%8f%ac%ec%8b%9c%ec%9e%a5%eb%b0%b0%20%eb%b0%b0%eb%93%9c%eb%af%bc%ed%84%b4%20%eb%8c%80%ed%9a%8c%20%ec%b0%b8%ea%b0%80%ec%9a%94%ea%b0%95.pdf",
+    "fee": "공식 요강(PDF) 참조",
+    "sources": [
+      "스포넷"
+    ],
+    "sourceLinks": [
+      {
+        "source": "스포넷",
+        "link": "https://sponet.co.kr/mobile/tm_outline/2026%20%ea%b5%b0%ed%8f%ac%ec%8b%9c%ec%9e%a5%eb%b0%b0%20%eb%b0%b0%eb%93%9c%eb%af%bc%ed%84%b4%20%eb%8c%80%ed%9a%8c%20%ec%b0%b8%ea%b0%80%ec%9a%94%ea%b0%95.pdf"
+      }
+    ]
+  },
+  {
     "id": "bt-2525",
     "category": "국제대회",
     "name": "2026 요넥스 독일오픈 월드투어 슈퍼300",
@@ -729,6 +873,30 @@
       {
         "source": "배드민턴타임즈",
         "link": "http://www.badmintontimes.com/calendar/m3_calendarRead.jsp?menunum=204&no=2525&dday=20260224"
+      }
+    ]
+  },
+  {
+    "id": "sp-vje063",
+    "category": "지역구대회",
+    "name": "2026 8회 미추홀 협회장배 배드민턴 대회",
+    "registrationPeriod": "공식 요강(PDF) 참조",
+    "registrationStart": "",
+    "registrationEnd": "",
+    "eventPeriod": "2026.02.25",
+    "eventStart": "2026-02-25",
+    "eventEnd": "2026-02-25",
+    "venue": "경기장소는 공식 요강(PDF) 참조",
+    "source": "스포넷",
+    "officialLink": "https://sponet.co.kr/mobile/tm_outline/8%ed%9a%8c%20%eb%af%b8%ec%b6%94%ed%99%80%20%ed%98%91%ed%9a%8c%ec%9e%a5%eb%b0%b0%20%eb%b0%b0%eb%93%9c%eb%af%bc%ed%84%b4%20%eb%8c%80%ed%9a%8c%20%ec%9a%94%ea%b0%95-3.pdf",
+    "fee": "공식 요강(PDF) 참조",
+    "sources": [
+      "스포넷"
+    ],
+    "sourceLinks": [
+      {
+        "source": "스포넷",
+        "link": "https://sponet.co.kr/mobile/tm_outline/8%ed%9a%8c%20%eb%af%b8%ec%b6%94%ed%99%80%20%ed%98%91%ed%9a%8c%ec%9e%a5%eb%b0%b0%20%eb%b0%b0%eb%93%9c%eb%af%bc%ed%84%b4%20%eb%8c%80%ed%9a%8c%20%ec%9a%94%ea%b0%95-3.pdf"
       }
     ]
   },
@@ -1024,6 +1192,30 @@
     ]
   },
   {
+    "id": "sp-18mmrop",
+    "category": "지역구대회",
+    "name": "2026 제7회 공주시 협회장기 배드민턴 대회",
+    "registrationPeriod": "공식 요강(PDF) 참조",
+    "registrationStart": "",
+    "registrationEnd": "",
+    "eventPeriod": "2026.03.05",
+    "eventStart": "2026-03-05",
+    "eventEnd": "2026-03-05",
+    "venue": "공주시 일원 체육관 (공식 요강 참조)",
+    "source": "스포넷",
+    "officialLink": "https://sponet.co.kr/mobile/tm_outline/2026%20%ec%a0%9c7%ed%9a%8c%20%ea%b3%b5%ec%a3%bc%ec%8b%9c%20%ed%98%91%ed%9a%8c%ec%9e%a5%ea%b8%b0%20%eb%b0%b0%eb%93%9c%eb%af%bc%ed%84%b4%20%eb%8c%80%ed%9a%8c%20%ec%b0%b8%ea%b0%80%ec%9a%94%ea%b0%95.pdf",
+    "fee": "공식 요강(PDF) 참조",
+    "sources": [
+      "스포넷"
+    ],
+    "sourceLinks": [
+      {
+        "source": "스포넷",
+        "link": "https://sponet.co.kr/mobile/tm_outline/2026%20%ec%a0%9c7%ed%9a%8c%20%ea%b3%b5%ec%a3%bc%ec%8b%9c%20%ed%98%91%ed%9a%8c%ec%9e%a5%ea%b8%b0%20%eb%b0%b0%eb%93%9c%eb%af%bc%ed%84%b4%20%eb%8c%80%ed%9a%8c%20%ec%b0%b8%ea%b0%80%ec%9a%94%ea%b0%95.pdf"
+      }
+    ]
+  },
+  {
     "id": "bt-2561",
     "category": "학생선수권",
     "name": "2026 논산딸기축제기념 전국 배드민턴대회",
@@ -1068,6 +1260,30 @@
       {
         "source": "배드민턴타임즈",
         "link": "http://www.badmintontimes.com/calendar/m3_calendarRead.jsp?menunum=204&no=2571&dday=20260307"
+      }
+    ]
+  },
+  {
+    "id": "sp-1m01wna",
+    "category": "지역구대회",
+    "name": "2026 제8회 인천광역시 동구 배드민턴 협회장기 대회",
+    "registrationPeriod": "공식 요강(PDF) 참조",
+    "registrationStart": "",
+    "registrationEnd": "",
+    "eventPeriod": "2026.03.07",
+    "eventStart": "2026-03-07",
+    "eventEnd": "2026-03-07",
+    "venue": "인천광역시 일원 체육관 (공식 요강 참조)",
+    "source": "스포넷",
+    "officialLink": "https://sponet.co.kr/mobile/tm_outline/2026%20%ec%a0%9c8%ed%9a%8c%20%ec%9d%b8%ec%b2%9c%ea%b4%91%ec%97%ad%ec%8b%9c%20%eb%8f%99%ea%b5%ac%20%eb%b0%b0%eb%93%9c%eb%af%bc%ed%84%b4%20%ed%98%91%ed%9a%8c%ec%9e%a5%ea%b8%b0%20%eb%8c%80%ed%9a%8c%20%ec%b0%b8%ea%b0%80%ec%9a%94%ea%b0%95.pdf",
+    "fee": "공식 요강(PDF) 참조",
+    "sources": [
+      "스포넷"
+    ],
+    "sourceLinks": [
+      {
+        "source": "스포넷",
+        "link": "https://sponet.co.kr/mobile/tm_outline/2026%20%ec%a0%9c8%ed%9a%8c%20%ec%9d%b8%ec%b2%9c%ea%b4%91%ec%97%ad%ec%8b%9c%20%eb%8f%99%ea%b5%ac%20%eb%b0%b0%eb%93%9c%eb%af%bc%ed%84%b4%20%ed%98%91%ed%9a%8c%ec%9e%a5%ea%b8%b0%20%eb%8c%80%ed%9a%8c%20%ec%b0%b8%ea%b0%80%ec%9a%94%ea%b0%95.pdf"
       }
     ]
   },
@@ -1169,6 +1385,30 @@
     ]
   },
   {
+    "id": "sp-1rowcg",
+    "category": "지역구대회",
+    "name": "2026 제34회 수원시 배드민턴 협회장기 대회",
+    "registrationPeriod": "공식 요강(PDF) 참조",
+    "registrationStart": "",
+    "registrationEnd": "",
+    "eventPeriod": "2026.03.09",
+    "eventStart": "2026-03-09",
+    "eventEnd": "2026-03-09",
+    "venue": "수원시 일원 체육관 (공식 요강 참조)",
+    "source": "스포넷",
+    "officialLink": "https://sponet.co.kr/mobile/tm_outline/2026%20%ec%a0%9c34%ed%9a%8c%20%ec%88%98%ec%9b%90%ec%8b%9c%20%eb%b0%b0%eb%93%9c%eb%af%bc%ed%84%b4%20%ed%98%91%ed%9a%8c%ec%9e%a5%ea%b8%b0%20%eb%8c%80%ed%9a%8c%20%ec%b0%b8%ea%b0%80%ec%9a%94%ea%b0%95.pdf",
+    "fee": "공식 요강(PDF) 참조",
+    "sources": [
+      "스포넷"
+    ],
+    "sourceLinks": [
+      {
+        "source": "스포넷",
+        "link": "https://sponet.co.kr/mobile/tm_outline/2026%20%ec%a0%9c34%ed%9a%8c%20%ec%88%98%ec%9b%90%ec%8b%9c%20%eb%b0%b0%eb%93%9c%eb%af%bc%ed%84%b4%20%ed%98%91%ed%9a%8c%ec%9e%a5%ea%b8%b0%20%eb%8c%80%ed%9a%8c%20%ec%b0%b8%ea%b0%80%ec%9a%94%ea%b0%95.pdf"
+      }
+    ]
+  },
+  {
     "id": "bt-2593",
     "category": "국제대회",
     "name": "2026 루이창 중국마스터즈 투어 슈퍼100",
@@ -1213,6 +1453,30 @@
       {
         "source": "배드민턴타임즈",
         "link": "http://www.badmintontimes.com/calendar/m3_calendarRead.jsp?menunum=204&no=2527&dday=20260310"
+      }
+    ]
+  },
+  {
+    "id": "sp-1lhqtuo",
+    "category": "지역구대회",
+    "name": "2026 제9회 용인특례시 협회장기 생활체육 배드민턴대회",
+    "registrationPeriod": "공식 요강(PDF) 참조",
+    "registrationStart": "",
+    "registrationEnd": "",
+    "eventPeriod": "2026.03.10",
+    "eventStart": "2026-03-10",
+    "eventEnd": "2026-03-10",
+    "venue": "용인특례시 일원 체육관 (공식 요강 참조)",
+    "source": "스포넷",
+    "officialLink": "https://sponet.co.kr/mobile/tm_outline/2026%20%ec%a0%9c9%ed%9a%8c%20%ec%9a%a9%ec%9d%b8%ed%8a%b9%eb%a1%80%ec%8b%9c%20%ed%98%91%ed%9a%8c%ec%9e%a5%ea%b8%b0%20%ec%83%9d%ed%99%9c%ec%b2%b4%ec%9c%a1%20%eb%b0%b0%eb%93%9c%eb%af%bc%ed%84%b4%eb%8c%80%ed%9a%8c%20%ec%b0%b8%ea%b0%80%20%ec%9a%94%ea%b0%95.pdf",
+    "fee": "공식 요강(PDF) 참조",
+    "sources": [
+      "스포넷"
+    ],
+    "sourceLinks": [
+      {
+        "source": "스포넷",
+        "link": "https://sponet.co.kr/mobile/tm_outline/2026%20%ec%a0%9c9%ed%9a%8c%20%ec%9a%a9%ec%9d%b8%ed%8a%b9%eb%a1%80%ec%8b%9c%20%ed%98%91%ed%9a%8c%ec%9e%a5%ea%b8%b0%20%ec%83%9d%ed%99%9c%ec%b2%b4%ec%9c%a1%20%eb%b0%b0%eb%93%9c%eb%af%bc%ed%84%b4%eb%8c%80%ed%9a%8c%20%ec%b0%b8%ea%b0%80%20%ec%9a%94%ea%b0%95.pdf"
       }
     ]
   },
@@ -1536,6 +1800,78 @@
     ]
   },
   {
+    "id": "sp-13400sf",
+    "category": "지역구대회",
+    "name": "2026 인천광역시 연수구 협회장기 배드민턴 승급 대회",
+    "registrationPeriod": "공식 요강(PDF) 참조",
+    "registrationStart": "",
+    "registrationEnd": "",
+    "eventPeriod": "2026.03.22",
+    "eventStart": "2026-03-22",
+    "eventEnd": "2026-03-22",
+    "venue": "인천광역시 일원 체육관 (공식 요강 참조)",
+    "source": "스포넷",
+    "officialLink": "https://sponet.co.kr/mobile/tm_outline/2026%20%ec%9d%b8%ec%b2%9c%ea%b4%91%ec%97%ad%ec%8b%9c%20%ec%97%b0%ec%88%98%ea%b5%ac%20%ed%98%91%ed%9a%8c%ec%9e%a5%ea%b8%b0%20%eb%b0%b0%eb%93%9c%eb%af%bc%ed%84%b4%20%ec%8a%b9%ea%b8%89%20%eb%8c%80%ed%9a%8c%20%ec%b0%b8%ea%b0%80%ec%9a%94%ea%b0%95.pdf",
+    "fee": "공식 요강(PDF) 참조",
+    "sources": [
+      "스포넷"
+    ],
+    "sourceLinks": [
+      {
+        "source": "스포넷",
+        "link": "https://sponet.co.kr/mobile/tm_outline/2026%20%ec%9d%b8%ec%b2%9c%ea%b4%91%ec%97%ad%ec%8b%9c%20%ec%97%b0%ec%88%98%ea%b5%ac%20%ed%98%91%ed%9a%8c%ec%9e%a5%ea%b8%b0%20%eb%b0%b0%eb%93%9c%eb%af%bc%ed%84%b4%20%ec%8a%b9%ea%b8%89%20%eb%8c%80%ed%9a%8c%20%ec%b0%b8%ea%b0%80%ec%9a%94%ea%b0%95.pdf"
+      }
+    ]
+  },
+  {
+    "id": "sp-4st9rr",
+    "category": "지역구대회",
+    "name": "2026 제8회 서귀포시 협회장기 배드민턴 대회",
+    "registrationPeriod": "공식 요강(PDF) 참조",
+    "registrationStart": "",
+    "registrationEnd": "",
+    "eventPeriod": "2026.03.22",
+    "eventStart": "2026-03-22",
+    "eventEnd": "2026-03-22",
+    "venue": "서귀포시 일원 체육관 (공식 요강 참조)",
+    "source": "스포넷",
+    "officialLink": "https://sponet.co.kr/mobile/tm_outline/2026%20%ec%a0%9c8%ed%9a%8c%20%ec%84%9c%ea%b7%80%ed%8f%ac%ec%8b%9c%20%ed%98%91%ed%9a%8c%ec%9e%a5%ea%b8%b0%20%eb%b0%b0%eb%93%9c%eb%af%bc%ed%84%b4%20%eb%8c%80%ed%9a%8c%20%ec%b0%b8%ea%b0%80%ec%9a%94%ea%b0%95.pdf",
+    "fee": "공식 요강(PDF) 참조",
+    "sources": [
+      "스포넷"
+    ],
+    "sourceLinks": [
+      {
+        "source": "스포넷",
+        "link": "https://sponet.co.kr/mobile/tm_outline/2026%20%ec%a0%9c8%ed%9a%8c%20%ec%84%9c%ea%b7%80%ed%8f%ac%ec%8b%9c%20%ed%98%91%ed%9a%8c%ec%9e%a5%ea%b8%b0%20%eb%b0%b0%eb%93%9c%eb%af%bc%ed%84%b4%20%eb%8c%80%ed%9a%8c%20%ec%b0%b8%ea%b0%80%ec%9a%94%ea%b0%95.pdf"
+      }
+    ]
+  },
+  {
+    "id": "sp-u8cq9x",
+    "category": "지역구대회",
+    "name": "2026 춘계 용인특례시 수지구 한마음 배드민턴 대회",
+    "registrationPeriod": "공식 요강(PDF) 참조",
+    "registrationStart": "",
+    "registrationEnd": "",
+    "eventPeriod": "2026.03.22",
+    "eventStart": "2026-03-22",
+    "eventEnd": "2026-03-22",
+    "venue": "용인특례시 일원 체육관 (공식 요강 참조)",
+    "source": "스포넷",
+    "officialLink": "https://sponet.co.kr/mobile/tm_outline/2026%20%ec%b6%98%ea%b3%84%20%ec%9a%a9%ec%9d%b8%ed%8a%b9%eb%a1%80%ec%8b%9c%20%ec%88%98%ec%a7%80%ea%b5%ac%20%ed%95%9c%eb%a7%88%ec%9d%8c%20%eb%b0%b0%eb%93%9c%eb%af%bc%ed%84%b4%20%eb%8c%80%ed%9a%8c%20%ec%b0%b8%ea%b0%80%ec%9a%94%ea%b0%95.pdf",
+    "fee": "공식 요강(PDF) 참조",
+    "sources": [
+      "스포넷"
+    ],
+    "sourceLinks": [
+      {
+        "source": "스포넷",
+        "link": "https://sponet.co.kr/mobile/tm_outline/2026%20%ec%b6%98%ea%b3%84%20%ec%9a%a9%ec%9d%b8%ed%8a%b9%eb%a1%80%ec%8b%9c%20%ec%88%98%ec%a7%80%ea%b5%ac%20%ed%95%9c%eb%a7%88%ec%9d%8c%20%eb%b0%b0%eb%93%9c%eb%af%bc%ed%84%b4%20%eb%8c%80%ed%9a%8c%20%ec%b0%b8%ea%b0%80%ec%9a%94%ea%b0%95.pdf"
+      }
+    ]
+  },
+  {
     "id": "bt-2575",
     "category": "전국오픈",
     "name": "2026 티에스(TS) 전국 배드민턴대회",
@@ -1628,6 +1964,30 @@
       {
         "source": "배드민턴타임즈",
         "link": "http://www.badmintontimes.com/calendar/m3_calendarRead.jsp?menunum=204&no=2618&dday=20260324"
+      }
+    ]
+  },
+  {
+    "id": "sp-3sg5fs",
+    "category": "전국오픈",
+    "name": "2026 제12회 남도일보배 배드민턴 대회",
+    "registrationPeriod": "공식 요강(PDF) 참조",
+    "registrationStart": "",
+    "registrationEnd": "",
+    "eventPeriod": "2026.03.26",
+    "eventStart": "2026-03-26",
+    "eventEnd": "2026-03-26",
+    "venue": "경기장소는 공식 요강(PDF) 참조",
+    "source": "스포넷",
+    "officialLink": "https://sponet.co.kr/mobile/tm_outline/2026%20%ec%a0%9c12%ed%9a%8c%20%eb%82%a8%eb%8f%84%ec%9d%bc%eb%b3%b4%eb%b0%b0%20%eb%b0%b0%eb%93%9c%eb%af%bc%ed%84%b4%20%eb%8c%80%ed%9a%8c%20%ec%b0%b8%ea%b0%80%ec%9a%94%ea%b0%95.pdf",
+    "fee": "공식 요강(PDF) 참조",
+    "sources": [
+      "스포넷"
+    ],
+    "sourceLinks": [
+      {
+        "source": "스포넷",
+        "link": "https://sponet.co.kr/mobile/tm_outline/2026%20%ec%a0%9c12%ed%9a%8c%20%eb%82%a8%eb%8f%84%ec%9d%bc%eb%b3%b4%eb%b0%b0%20%eb%b0%b0%eb%93%9c%eb%af%bc%ed%84%b4%20%eb%8c%80%ed%9a%8c%20%ec%b0%b8%ea%b0%80%ec%9a%94%ea%b0%95.pdf"
       }
     ]
   },
@@ -1899,6 +2259,78 @@
     ]
   },
   {
+    "id": "sp-1xwbmty",
+    "category": "지역구대회",
+    "name": "2026 용인특례시 기흥구 춘계 한마음 배드민턴 대회",
+    "registrationPeriod": "공식 요강(PDF) 참조",
+    "registrationStart": "",
+    "registrationEnd": "",
+    "eventPeriod": "2026.03.30",
+    "eventStart": "2026-03-30",
+    "eventEnd": "2026-03-30",
+    "venue": "용인특례시 일원 체육관 (공식 요강 참조)",
+    "source": "스포넷",
+    "officialLink": "https://sponet.co.kr/mobile/tm_outline/2026%20%ec%9a%a9%ec%9d%b8%ed%8a%b9%eb%a1%80%ec%8b%9c%20%ea%b8%b0%ed%9d%a5%ea%b5%ac%20%ec%b6%98%ea%b3%84%20%ed%95%9c%eb%a7%88%ec%9d%8c%20%eb%b0%b0%eb%93%9c%eb%af%bc%ed%84%b4%20%eb%8c%80%ed%9a%8c%20%ec%b0%b8%ea%b0%80%ec%9a%94%ea%b0%95.pdf",
+    "fee": "공식 요강(PDF) 참조",
+    "sources": [
+      "스포넷"
+    ],
+    "sourceLinks": [
+      {
+        "source": "스포넷",
+        "link": "https://sponet.co.kr/mobile/tm_outline/2026%20%ec%9a%a9%ec%9d%b8%ed%8a%b9%eb%a1%80%ec%8b%9c%20%ea%b8%b0%ed%9d%a5%ea%b5%ac%20%ec%b6%98%ea%b3%84%20%ed%95%9c%eb%a7%88%ec%9d%8c%20%eb%b0%b0%eb%93%9c%eb%af%bc%ed%84%b4%20%eb%8c%80%ed%9a%8c%20%ec%b0%b8%ea%b0%80%ec%9a%94%ea%b0%95.pdf"
+      }
+    ]
+  },
+  {
+    "id": "sp-1w8125b",
+    "category": "지역구대회",
+    "name": "2026 제8회 서귀포시협회장기 배드민턴대회",
+    "registrationPeriod": "공식 요강(PDF) 참조",
+    "registrationStart": "",
+    "registrationEnd": "",
+    "eventPeriod": "2026.04.01",
+    "eventStart": "2026-04-01",
+    "eventEnd": "2026-04-01",
+    "venue": "서귀포시 일원 체육관 (공식 요강 참조)",
+    "source": "스포넷",
+    "officialLink": "https://sponet.co.kr/mobile/tm_outline/%ec%9e%90%eb%a3%8c3%20%ec%a0%9c8%ed%9a%8c%20%ec%84%9c%ea%b7%80%ed%8f%ac%ec%8b%9c%ed%98%91%ed%9a%8c%ec%9e%a5%ea%b8%b0%20%eb%b0%b0%eb%93%9c%eb%af%bc%ed%84%b4%eb%8c%80%ed%9a%8c%20%ec%9a%94%ea%b0%95.pdf",
+    "fee": "공식 요강(PDF) 참조",
+    "sources": [
+      "스포넷"
+    ],
+    "sourceLinks": [
+      {
+        "source": "스포넷",
+        "link": "https://sponet.co.kr/mobile/tm_outline/%ec%9e%90%eb%a3%8c3%20%ec%a0%9c8%ed%9a%8c%20%ec%84%9c%ea%b7%80%ed%8f%ac%ec%8b%9c%ed%98%91%ed%9a%8c%ec%9e%a5%ea%b8%b0%20%eb%b0%b0%eb%93%9c%eb%af%bc%ed%84%b4%eb%8c%80%ed%9a%8c%20%ec%9a%94%ea%b0%95.pdf"
+      }
+    ]
+  },
+  {
+    "id": "sp-vrd3qp",
+    "category": "전국오픈",
+    "name": "2026 처인구 춘계 배드민턴 대회",
+    "registrationPeriod": "공식 요강(PDF) 참조",
+    "registrationStart": "",
+    "registrationEnd": "",
+    "eventPeriod": "2026.04.01",
+    "eventStart": "2026-04-01",
+    "eventEnd": "2026-04-01",
+    "venue": "처인구 일원 체육관 (공식 요강 참조)",
+    "source": "스포넷",
+    "officialLink": "https://sponet.co.kr/mobile/tm_outline/2026%20%ec%b2%98%ec%9d%b8%ea%b5%ac%20%ec%b6%98%ea%b3%84%20%eb%b0%b0%eb%93%9c%eb%af%bc%ed%84%b4%20%eb%8c%80%ed%9a%8c%20%ec%9a%94%ea%b0%950426.pdf",
+    "fee": "공식 요강(PDF) 참조",
+    "sources": [
+      "스포넷"
+    ],
+    "sourceLinks": [
+      {
+        "source": "스포넷",
+        "link": "https://sponet.co.kr/mobile/tm_outline/2026%20%ec%b2%98%ec%9d%b8%ea%b5%ac%20%ec%b6%98%ea%b3%84%20%eb%b0%b0%eb%93%9c%eb%af%bc%ed%84%b4%20%eb%8c%80%ed%9a%8c%20%ec%9a%94%ea%b0%950426.pdf"
+      }
+    ]
+  },
+  {
     "id": "bt-2617",
     "category": "지역구대회",
     "name": "제40회 부산광역시협회장기 배드민턴대회",
@@ -2120,6 +2552,30 @@
     ]
   },
   {
+    "id": "sp-1nywyka",
+    "category": "전국오픈",
+    "name": "2026 제13회 OBS 전국 배드민턴 대회",
+    "registrationPeriod": "공식 요강(PDF) 참조",
+    "registrationStart": "",
+    "registrationEnd": "",
+    "eventPeriod": "2026.04.13",
+    "eventStart": "2026-04-13",
+    "eventEnd": "2026-04-13",
+    "venue": "경기장소는 공식 요강(PDF) 참조",
+    "source": "스포넷",
+    "officialLink": "https://sponet.co.kr/mobile/tm_outline/2026%20%ec%a0%9c13%ed%9a%8c%20OBS%20%ec%a0%84%ea%b5%ad%20%eb%b0%b0%eb%93%9c%eb%af%bc%ed%84%b4%20%eb%8c%80%ed%9a%8c%20%ec%b0%b8%ea%b0%80%ec%9a%94%ea%b0%95.pdf",
+    "fee": "공식 요강(PDF) 참조",
+    "sources": [
+      "스포넷"
+    ],
+    "sourceLinks": [
+      {
+        "source": "스포넷",
+        "link": "https://sponet.co.kr/mobile/tm_outline/2026%20%ec%a0%9c13%ed%9a%8c%20OBS%20%ec%a0%84%ea%b5%ad%20%eb%b0%b0%eb%93%9c%eb%af%bc%ed%84%b4%20%eb%8c%80%ed%9a%8c%20%ec%b0%b8%ea%b0%80%ec%9a%94%ea%b0%95.pdf"
+      }
+    ]
+  },
+  {
     "id": "bt-2568",
     "category": "학생선수권",
     "name": "제64회 대한배드민턴협회장기 전국종별배드민턴대회(초등)",
@@ -2241,6 +2697,30 @@
       {
         "source": "배드민턴타임즈",
         "link": "http://www.badmintontimes.com/calendar/m3_calendarRead.jsp?menunum=204&no=2609&dday=20260419"
+      }
+    ]
+  },
+  {
+    "id": "sp-cp69e6",
+    "category": "전국오픈",
+    "name": "2026 제6회 공주시 체육회장기 배드민턴대회",
+    "registrationPeriod": "공식 요강(PDF) 참조",
+    "registrationStart": "",
+    "registrationEnd": "",
+    "eventPeriod": "2026.04.23",
+    "eventStart": "2026-04-23",
+    "eventEnd": "2026-04-23",
+    "venue": "공주시 일원 체육관 (공식 요강 참조)",
+    "source": "스포넷",
+    "officialLink": "https://sponet.co.kr/mobile/tm_outline/%ec%a0%9c6%ed%9a%8c%20%ea%b3%b5%ec%a3%bc%ec%8b%9c%20%ec%b2%b4%ec%9c%a1%ed%9a%8c%ec%9e%a5%ea%b8%b0%20%eb%b0%b0%eb%93%9c%eb%af%bc%ed%84%b4%eb%8c%80%ed%9a%8c%20%ec%b0%b8%ea%b0%80%ec%9a%94%ea%b0%95.pdf",
+    "fee": "공식 요강(PDF) 참조",
+    "sources": [
+      "스포넷"
+    ],
+    "sourceLinks": [
+      {
+        "source": "스포넷",
+        "link": "https://sponet.co.kr/mobile/tm_outline/%ec%a0%9c6%ed%9a%8c%20%ea%b3%b5%ec%a3%bc%ec%8b%9c%20%ec%b2%b4%ec%9c%a1%ed%9a%8c%ec%9e%a5%ea%b8%b0%20%eb%b0%b0%eb%93%9c%eb%af%bc%ed%84%b4%eb%8c%80%ed%9a%8c%20%ec%b0%b8%ea%b0%80%ec%9a%94%ea%b0%95.pdf"
       }
     ]
   },
@@ -2939,6 +3419,30 @@
     ]
   },
   {
+    "id": "sp-mjzcn5",
+    "category": "지역구대회",
+    "name": "2026 군포시 협회장배 배드민턴 대회",
+    "registrationPeriod": "공식 요강(PDF) 참조",
+    "registrationStart": "",
+    "registrationEnd": "",
+    "eventPeriod": "2026.05.17",
+    "eventStart": "2026-05-17",
+    "eventEnd": "2026-05-17",
+    "venue": "군포시 일원 체육관 (공식 요강 참조)",
+    "source": "스포넷",
+    "officialLink": "https://sponet.co.kr/mobile/tm_outline/2026%20%ea%b5%b0%ed%8f%ac%ec%8b%9c%20%ed%98%91%ed%9a%8c%ec%9e%a5%eb%b0%b0%20%eb%b0%b0%eb%93%9c%eb%af%bc%ed%84%b4%20%eb%8c%80%ed%9a%8c%20%ec%b0%b8%ea%b0%80%ec%9a%94%ea%b0%95-1.pdf",
+    "fee": "공식 요강(PDF) 참조",
+    "sources": [
+      "스포넷"
+    ],
+    "sourceLinks": [
+      {
+        "source": "스포넷",
+        "link": "https://sponet.co.kr/mobile/tm_outline/2026%20%ea%b5%b0%ed%8f%ac%ec%8b%9c%20%ed%98%91%ed%9a%8c%ec%9e%a5%eb%b0%b0%20%eb%b0%b0%eb%93%9c%eb%af%bc%ed%84%b4%20%eb%8c%80%ed%9a%8c%20%ec%b0%b8%ea%b0%80%ec%9a%94%ea%b0%95-1.pdf"
+      }
+    ]
+  },
+  {
     "id": "bt-2655",
     "category": "전국오픈",
     "name": "2026 르피랩오픈 전국 초심자 배드민턴대회",
@@ -3185,6 +3689,54 @@
     ]
   },
   {
+    "id": "sp-qw6t54",
+    "category": "전국오픈",
+    "name": "2026 제17회 용인특례시 여성부 배드민턴 대회",
+    "registrationPeriod": "공식 요강(PDF) 참조",
+    "registrationStart": "",
+    "registrationEnd": "",
+    "eventPeriod": "2026.06.02",
+    "eventStart": "2026-06-02",
+    "eventEnd": "2026-06-02",
+    "venue": "용인특례시 일원 체육관 (공식 요강 참조)",
+    "source": "스포넷",
+    "officialLink": "https://sponet.co.kr/mobile/tm_outline/2026%20%ec%a0%9c17%ed%9a%8c%20%ec%9a%a9%ec%9d%b8%ed%8a%b9%eb%a1%80%ec%8b%9c%20%ec%97%ac%ec%84%b1%eb%b6%80%20%eb%b0%b0%eb%93%9c%eb%af%bc%ed%84%b4%20%eb%8c%80%ed%9a%8c%20%ec%b0%b8%ea%b0%80%ec%9a%94%ea%b0%95.pdf",
+    "fee": "공식 요강(PDF) 참조",
+    "sources": [
+      "스포넷"
+    ],
+    "sourceLinks": [
+      {
+        "source": "스포넷",
+        "link": "https://sponet.co.kr/mobile/tm_outline/2026%20%ec%a0%9c17%ed%9a%8c%20%ec%9a%a9%ec%9d%b8%ed%8a%b9%eb%a1%80%ec%8b%9c%20%ec%97%ac%ec%84%b1%eb%b6%80%20%eb%b0%b0%eb%93%9c%eb%af%bc%ed%84%b4%20%eb%8c%80%ed%9a%8c%20%ec%b0%b8%ea%b0%80%ec%9a%94%ea%b0%95.pdf"
+      }
+    ]
+  },
+  {
+    "id": "sp-1tl8l12",
+    "category": "지역구대회",
+    "name": "2026 포천시 배드민턴 협회장배 C.D조 배드민턴대회 및 실버한마당대회",
+    "registrationPeriod": "공식 요강(PDF) 참조",
+    "registrationStart": "",
+    "registrationEnd": "",
+    "eventPeriod": "2026.06.02",
+    "eventStart": "2026-06-02",
+    "eventEnd": "2026-06-02",
+    "venue": "포천시 일원 체육관 (공식 요강 참조)",
+    "source": "스포넷",
+    "officialLink": "https://sponet.co.kr/mobile/tm_outline/2026%20%ed%8f%ac%ec%b2%9c%ec%8b%9c%20%eb%b0%b0%eb%93%9c%eb%af%bc%ed%84%b4%20%ed%98%91%ed%9a%8c%ec%9e%a5%eb%b0%b0%20C.D%ec%a1%b0%20%eb%b0%b0%eb%93%9c%eb%af%bc%ed%84%b4%eb%8c%80%ed%9a%8c%20%eb%b0%8f%20%ec%8b%a4%eb%b2%84%ed%95%9c%eb%a7%88%eb%8b%b9%20%ec%b0%b8%ea%b0%80%ec%9a%94%ea%b0%95.pdf",
+    "fee": "공식 요강(PDF) 참조",
+    "sources": [
+      "스포넷"
+    ],
+    "sourceLinks": [
+      {
+        "source": "스포넷",
+        "link": "https://sponet.co.kr/mobile/tm_outline/2026%20%ed%8f%ac%ec%b2%9c%ec%8b%9c%20%eb%b0%b0%eb%93%9c%eb%af%bc%ed%84%b4%20%ed%98%91%ed%9a%8c%ec%9e%a5%eb%b0%b0%20C.D%ec%a1%b0%20%eb%b0%b0%eb%93%9c%eb%af%bc%ed%84%b4%eb%8c%80%ed%9a%8c%20%eb%b0%8f%20%ec%8b%a4%eb%b2%84%ed%95%9c%eb%a7%88%eb%8b%b9%20%ec%b0%b8%ea%b0%80%ec%9a%94%ea%b0%95.pdf"
+      }
+    ]
+  },
+  {
     "id": "bt-2641",
     "category": "전국오픈",
     "name": "제10회 물맑은양평군수배 전국 배드민턴대회",
@@ -3384,6 +3936,30 @@
     ]
   },
   {
+    "id": "sp-1qodhwp",
+    "category": "전국오픈",
+    "name": "2026 제4회+서귀포시+체육회장배+배드민턴대회+대회",
+    "registrationPeriod": "공식 요강(PDF) 참조",
+    "registrationStart": "",
+    "registrationEnd": "",
+    "eventPeriod": "2026.06.08",
+    "eventStart": "2026-06-08",
+    "eventEnd": "2026-06-08",
+    "venue": "서귀포시 일원 체육관 (공식 요강 참조)",
+    "source": "스포넷",
+    "officialLink": "https://sponet.co.kr/mobile/tm_outline/2_%ec%a0%9c4%ed%9a%8c+%ec%84%9c%ea%b7%80%ed%8f%ac%ec%8b%9c+%ec%b2%b4%ec%9c%a1%ed%9a%8c%ec%9e%a5%eb%b0%b0+%eb%b0%b0%eb%93%9c%eb%af%bc%ed%84%b4%eb%8c%80%ed%9a%8c+%ec%9a%94%ea%b0%95_2026_05_27_23_18_41-1_260608_120224.pdf",
+    "fee": "공식 요강(PDF) 참조",
+    "sources": [
+      "스포넷"
+    ],
+    "sourceLinks": [
+      {
+        "source": "스포넷",
+        "link": "https://sponet.co.kr/mobile/tm_outline/2_%ec%a0%9c4%ed%9a%8c+%ec%84%9c%ea%b7%80%ed%8f%ac%ec%8b%9c+%ec%b2%b4%ec%9c%a1%ed%9a%8c%ec%9e%a5%eb%b0%b0+%eb%b0%b0%eb%93%9c%eb%af%bc%ed%84%b4%eb%8c%80%ed%9a%8c+%ec%9a%94%ea%b0%95_2026_05_27_23_18_41-1_260608_120224.pdf"
+      }
+    ]
+  },
+  {
     "id": "bt-2614",
     "category": "국제대회",
     "name": "2026 호주오픈 월드투어 슈퍼500",
@@ -3404,6 +3980,30 @@
       {
         "source": "배드민턴타임즈",
         "link": "http://www.badmintontimes.com/calendar/m3_calendarRead.jsp?menunum=204&no=2614&dday=20260609"
+      }
+    ]
+  },
+  {
+    "id": "sp-6af502",
+    "category": "지역구대회",
+    "name": "2026 제7회 한국 건강관리 협회장배 배드민턴 대회",
+    "registrationPeriod": "공식 요강(PDF) 참조",
+    "registrationStart": "",
+    "registrationEnd": "",
+    "eventPeriod": "2026.06.11",
+    "eventStart": "2026-06-11",
+    "eventEnd": "2026-06-11",
+    "venue": "경기장소는 공식 요강(PDF) 참조",
+    "source": "스포넷",
+    "officialLink": "https://sponet.co.kr/mobile/tm_outline/2026%20%ec%a0%9c7%ed%9a%8c%20%ed%95%9c%ea%b5%ad%20%ea%b1%b4%ea%b0%95%ea%b4%80%eb%a6%ac%20%ed%98%91%ed%9a%8c%ec%9e%a5%eb%b0%b0%20%eb%b0%b0%eb%93%9c%eb%af%bc%ed%84%b4%20%eb%8c%80%ed%9a%8c%20%ec%b0%b8%ea%b0%80%ec%9a%94%ea%b0%95.pdf",
+    "fee": "공식 요강(PDF) 참조",
+    "sources": [
+      "스포넷"
+    ],
+    "sourceLinks": [
+      {
+        "source": "스포넷",
+        "link": "https://sponet.co.kr/mobile/tm_outline/2026%20%ec%a0%9c7%ed%9a%8c%20%ed%95%9c%ea%b5%ad%20%ea%b1%b4%ea%b0%95%ea%b4%80%eb%a6%ac%20%ed%98%91%ed%9a%8c%ec%9e%a5%eb%b0%b0%20%eb%b0%b0%eb%93%9c%eb%af%bc%ed%84%b4%20%eb%8c%80%ed%9a%8c%20%ec%b0%b8%ea%b0%80%ec%9a%94%ea%b0%95.pdf"
       }
     ]
   },
@@ -3534,6 +4134,102 @@
     ]
   },
   {
+    "id": "sp-1z0bqld",
+    "category": "전국오픈",
+    "name": "2026 수원특례시장배 배드민턴 대회",
+    "registrationPeriod": "공식 요강(PDF) 참조",
+    "registrationStart": "",
+    "registrationEnd": "",
+    "eventPeriod": "2026.06.15",
+    "eventStart": "2026-06-15",
+    "eventEnd": "2026-06-15",
+    "venue": "수원특례시 일원 체육관 (공식 요강 참조)",
+    "source": "스포넷",
+    "officialLink": "https://sponet.co.kr/mobile/tm_outline/2026%20%ec%88%98%ec%9b%90%ed%8a%b9%eb%a1%80%ec%8b%9c%ec%9e%a5%eb%b0%b0%20%eb%b0%b0%eb%93%9c%eb%af%bc%ed%84%b4%20%eb%8c%80%ed%9a%8c%20%ec%b0%b8%ea%b0%80%ec%9a%94%ea%b0%95.pdf",
+    "fee": "공식 요강(PDF) 참조",
+    "sources": [
+      "스포넷"
+    ],
+    "sourceLinks": [
+      {
+        "source": "스포넷",
+        "link": "https://sponet.co.kr/mobile/tm_outline/2026%20%ec%88%98%ec%9b%90%ed%8a%b9%eb%a1%80%ec%8b%9c%ec%9e%a5%eb%b0%b0%20%eb%b0%b0%eb%93%9c%eb%af%bc%ed%84%b4%20%eb%8c%80%ed%9a%8c%20%ec%b0%b8%ea%b0%80%ec%9a%94%ea%b0%95.pdf"
+      }
+    ]
+  },
+  {
+    "id": "sp-mw2ct4",
+    "category": "지역구대회",
+    "name": "2026 장안구청장배 생활체육 배드민턴 대회",
+    "registrationPeriod": "공식 요강(PDF) 참조",
+    "registrationStart": "",
+    "registrationEnd": "",
+    "eventPeriod": "2026.06.15",
+    "eventStart": "2026-06-15",
+    "eventEnd": "2026-06-15",
+    "venue": "장안구 일원 체육관 (공식 요강 참조)",
+    "source": "스포넷",
+    "officialLink": "https://sponet.co.kr/mobile/tm_outline/2026%20%ec%9e%a5%ec%95%88%ea%b5%ac%ec%b2%ad%ec%9e%a5%eb%b0%b0%20%ec%83%9d%ed%99%9c%ec%b2%b4%ec%9c%a1%20%eb%b0%b0%eb%93%9c%eb%af%bc%ed%84%b4%20%eb%8c%80%ed%9a%8c%20%ec%b0%b8%ea%b0%80%ec%9a%94%ea%b0%95.pdf",
+    "fee": "공식 요강(PDF) 참조",
+    "sources": [
+      "스포넷"
+    ],
+    "sourceLinks": [
+      {
+        "source": "스포넷",
+        "link": "https://sponet.co.kr/mobile/tm_outline/2026%20%ec%9e%a5%ec%95%88%ea%b5%ac%ec%b2%ad%ec%9e%a5%eb%b0%b0%20%ec%83%9d%ed%99%9c%ec%b2%b4%ec%9c%a1%20%eb%b0%b0%eb%93%9c%eb%af%bc%ed%84%b4%20%eb%8c%80%ed%9a%8c%20%ec%b0%b8%ea%b0%80%ec%9a%94%ea%b0%95.pdf"
+      }
+    ]
+  },
+  {
+    "id": "sp-1l2pdqo",
+    "category": "지역구대회",
+    "name": "2026 제23회 권선구청장배 생활체육 배드민턴 대회",
+    "registrationPeriod": "공식 요강(PDF) 참조",
+    "registrationStart": "",
+    "registrationEnd": "",
+    "eventPeriod": "2026.06.15",
+    "eventStart": "2026-06-15",
+    "eventEnd": "2026-06-15",
+    "venue": "권선구 일원 체육관 (공식 요강 참조)",
+    "source": "스포넷",
+    "officialLink": "https://sponet.co.kr/mobile/tm_outline/2026%20%ec%a0%9c23%ed%9a%8c%20%ea%b6%8c%ec%84%a0%ea%b5%ac%ec%b2%ad%ec%9e%a5%eb%b0%b0%20%ec%83%9d%ed%99%9c%ec%b2%b4%ec%9c%a1%20%eb%b0%b0%eb%93%9c%eb%af%bc%ed%84%b4%20%eb%8c%80%ed%9a%8c%20%ec%b0%b8%ea%b0%80%ec%9a%94%ea%b0%95.pdf",
+    "fee": "공식 요강(PDF) 참조",
+    "sources": [
+      "스포넷"
+    ],
+    "sourceLinks": [
+      {
+        "source": "스포넷",
+        "link": "https://sponet.co.kr/mobile/tm_outline/2026%20%ec%a0%9c23%ed%9a%8c%20%ea%b6%8c%ec%84%a0%ea%b5%ac%ec%b2%ad%ec%9e%a5%eb%b0%b0%20%ec%83%9d%ed%99%9c%ec%b2%b4%ec%9c%a1%20%eb%b0%b0%eb%93%9c%eb%af%bc%ed%84%b4%20%eb%8c%80%ed%9a%8c%20%ec%b0%b8%ea%b0%80%ec%9a%94%ea%b0%95.pdf"
+      }
+    ]
+  },
+  {
+    "id": "sp-uad4p1",
+    "category": "지역구대회",
+    "name": "2026 제6회 수원시 체육회장배 생활체육 배드민턴 대회",
+    "registrationPeriod": "공식 요강(PDF) 참조",
+    "registrationStart": "",
+    "registrationEnd": "",
+    "eventPeriod": "2026.06.15",
+    "eventStart": "2026-06-15",
+    "eventEnd": "2026-06-15",
+    "venue": "수원시 일원 체육관 (공식 요강 참조)",
+    "source": "스포넷",
+    "officialLink": "https://sponet.co.kr/mobile/tm_outline/2026%20%ec%a0%9c6%ed%9a%8c%20%ec%88%98%ec%9b%90%ec%8b%9c%20%ec%b2%b4%ec%9c%a1%ed%9a%8c%ec%9e%a5%eb%b0%b0%20%ec%83%9d%ed%99%9c%ec%b2%b4%ec%9c%a1%20%eb%b0%b0%eb%93%9c%eb%af%bc%ed%84%b4%20%eb%8c%80%ed%9a%8c%20%ec%b0%b8%ea%b0%80%ec%9a%94%ea%b0%95.pdf",
+    "fee": "공식 요강(PDF) 참조",
+    "sources": [
+      "스포넷"
+    ],
+    "sourceLinks": [
+      {
+        "source": "스포넷",
+        "link": "https://sponet.co.kr/mobile/tm_outline/2026%20%ec%a0%9c6%ed%9a%8c%20%ec%88%98%ec%9b%90%ec%8b%9c%20%ec%b2%b4%ec%9c%a1%ed%9a%8c%ec%9e%a5%eb%b0%b0%20%ec%83%9d%ed%99%9c%ec%b2%b4%ec%9c%a1%20%eb%b0%b0%eb%93%9c%eb%af%bc%ed%84%b4%20%eb%8c%80%ed%9a%8c%20%ec%b0%b8%ea%b0%80%ec%9a%94%ea%b0%95.pdf"
+      }
+    ]
+  },
+  {
     "id": "bt-2620",
     "category": "국제대회",
     "name": "2026 마카오오픈 월드투어 슈퍼300",
@@ -3554,6 +4250,30 @@
       {
         "source": "배드민턴타임즈",
         "link": "http://www.badmintontimes.com/calendar/m3_calendarRead.jsp?menunum=204&no=2620&dday=20260616"
+      }
+    ]
+  },
+  {
+    "id": "sp-15csnh0",
+    "category": "전국오픈",
+    "name": "2026 제7회 서귀포시 배드민턴 협회 여성부 배드민턴 대회",
+    "registrationPeriod": "공식 요강(PDF) 참조",
+    "registrationStart": "",
+    "registrationEnd": "",
+    "eventPeriod": "2026.06.17",
+    "eventStart": "2026-06-17",
+    "eventEnd": "2026-06-17",
+    "venue": "서귀포시 일원 체육관 (공식 요강 참조)",
+    "source": "스포넷",
+    "officialLink": "https://sponet.co.kr/mobile/tm_outline/2026%20%ec%a0%9c7%ed%9a%8c%20%ec%84%9c%ea%b7%80%ed%8f%ac%ec%8b%9c%20%eb%b0%b0%eb%93%9c%eb%af%bc%ed%84%b4%20%ed%98%91%ed%9a%8c%20%ec%97%ac%ec%84%b1%eb%b6%80%20%eb%b0%b0%eb%93%9c%eb%af%bc%ed%84%b4%20%eb%8c%80%ed%9a%8c%20%ec%b0%b8%ea%b0%80%ec%9a%94%ea%b0%95.pdf",
+    "fee": "공식 요강(PDF) 참조",
+    "sources": [
+      "스포넷"
+    ],
+    "sourceLinks": [
+      {
+        "source": "스포넷",
+        "link": "https://sponet.co.kr/mobile/tm_outline/2026%20%ec%a0%9c7%ed%9a%8c%20%ec%84%9c%ea%b7%80%ed%8f%ac%ec%8b%9c%20%eb%b0%b0%eb%93%9c%eb%af%bc%ed%84%b4%20%ed%98%91%ed%9a%8c%20%ec%97%ac%ec%84%b1%eb%b6%80%20%eb%b0%b0%eb%93%9c%eb%af%bc%ed%84%b4%20%eb%8c%80%ed%9a%8c%20%ec%b0%b8%ea%b0%80%ec%9a%94%ea%b0%95.pdf"
       }
     ]
   },
@@ -3969,6 +4689,30 @@
     ]
   },
   {
+    "id": "sp-1frtbgr",
+    "category": "지역구대회",
+    "name": "2026년 제24회 용인특례시 경인일보배 전국 생활체육 OPEN 배드민턴 대회",
+    "registrationPeriod": "공식 요강(PDF) 참조",
+    "registrationStart": "",
+    "registrationEnd": "",
+    "eventPeriod": "2026.07.03",
+    "eventStart": "2026-07-03",
+    "eventEnd": "2026-07-03",
+    "venue": "용인특례시 일원 체육관 (공식 요강 참조)",
+    "source": "스포넷",
+    "officialLink": "https://sponet.co.kr/mobile/tm_outline/2026%eb%85%84%20%ec%a0%9c24%ed%9a%8c%20%ec%9a%a9%ec%9d%b8%ed%8a%b9%eb%a1%80%ec%8b%9c%20%ea%b2%bd%ec%9d%b8%ec%9d%bc%eb%b3%b4%eb%b0%b0%20%ec%a0%84%ea%b5%ad%20%ec%83%9d%ed%99%9c%ec%b2%b4%ec%9c%a1%20OPEN%20%eb%b0%b0%eb%93%9c%eb%af%bc%ed%84%b4%20%eb%8c%80%ed%9a%8c%20%ec%9a%94%ea%b0%95.pdf",
+    "fee": "공식 요강(PDF) 참조",
+    "sources": [
+      "스포넷"
+    ],
+    "sourceLinks": [
+      {
+        "source": "스포넷",
+        "link": "https://sponet.co.kr/mobile/tm_outline/2026%eb%85%84%20%ec%a0%9c24%ed%9a%8c%20%ec%9a%a9%ec%9d%b8%ed%8a%b9%eb%a1%80%ec%8b%9c%20%ea%b2%bd%ec%9d%b8%ec%9d%bc%eb%b3%b4%eb%b0%b0%20%ec%a0%84%ea%b5%ad%20%ec%83%9d%ed%99%9c%ec%b2%b4%ec%9c%a1%20OPEN%20%eb%b0%b0%eb%93%9c%eb%af%bc%ed%84%b4%20%eb%8c%80%ed%9a%8c%20%ec%9a%94%ea%b0%95.pdf"
+      }
+    ]
+  },
+  {
     "id": "bm-19diyoo",
     "category": "전국오픈",
     "name": "2026 비트로&고센컵 전국 배드민턴대회",
@@ -4278,6 +5022,30 @@
       {
         "source": "배드민톡",
         "link": "https://badmintok.com/badminton-tournament/안양시체육회장배-OPEN-여성-배드민턴대회/"
+      }
+    ]
+  },
+  {
+    "id": "sp-1hu9kf5",
+    "category": "지역구대회",
+    "name": "2026 제30회 서귀포시장기 배드민턴 대회",
+    "registrationPeriod": "공식 요강(PDF) 참조",
+    "registrationStart": "",
+    "registrationEnd": "",
+    "eventPeriod": "2026.07.10",
+    "eventStart": "2026-07-10",
+    "eventEnd": "2026-07-10",
+    "venue": "서귀포시 일원 체육관 (공식 요강 참조)",
+    "source": "스포넷",
+    "officialLink": "https://sponet.co.kr/mobile/tm_outline/2026%20%ec%a0%9c30%ed%9a%8c%20%ec%84%9c%ea%b7%80%ed%8f%ac%ec%8b%9c%ec%9e%a5%ea%b8%b0%20%eb%b0%b0%eb%93%9c%eb%af%bc%ed%84%b4%20%eb%8c%80%ed%9a%8c%20%ec%b0%b8%ea%b0%80%ec%9a%94%ea%b0%95.pdf",
+    "fee": "공식 요강(PDF) 참조",
+    "sources": [
+      "스포넷"
+    ],
+    "sourceLinks": [
+      {
+        "source": "스포넷",
+        "link": "https://sponet.co.kr/mobile/tm_outline/2026%20%ec%a0%9c30%ed%9a%8c%20%ec%84%9c%ea%b7%80%ed%8f%ac%ec%8b%9c%ec%9e%a5%ea%b8%b0%20%eb%b0%b0%eb%93%9c%eb%af%bc%ed%84%b4%20%eb%8c%80%ed%9a%8c%20%ec%b0%b8%ea%b0%80%ec%9a%94%ea%b0%95.pdf"
       }
     ]
   },
@@ -5185,6 +5953,30 @@
     ]
   },
   {
+    "id": "sp-q37aon",
+    "category": "전국오픈",
+    "name": "2026 군포시 체육회장배 배드민턴 대회",
+    "registrationPeriod": "공식 요강(PDF) 참조",
+    "registrationStart": "",
+    "registrationEnd": "",
+    "eventPeriod": "2026.07.22",
+    "eventStart": "2026-07-22",
+    "eventEnd": "2026-07-22",
+    "venue": "군포시 일원 체육관 (공식 요강 참조)",
+    "source": "스포넷",
+    "officialLink": "https://sponet.co.kr/mobile/tm_outline/2026%20%ea%b5%b0%ed%8f%ac%ec%8b%9c%20%ec%b2%b4%ec%9c%a1%ed%9a%8c%ec%9e%a5%eb%b0%b0%20%eb%b0%b0%eb%93%9c%eb%af%bc%ed%84%b4%20%eb%8c%80%ed%9a%8c%20%ec%b0%b8%ea%b0%80%ec%9a%94%ea%b0%95.pdf",
+    "fee": "공식 요강(PDF) 참조",
+    "sources": [
+      "스포넷"
+    ],
+    "sourceLinks": [
+      {
+        "source": "스포넷",
+        "link": "https://sponet.co.kr/mobile/tm_outline/2026%20%ea%b5%b0%ed%8f%ac%ec%8b%9c%20%ec%b2%b4%ec%9c%a1%ed%9a%8c%ec%9e%a5%eb%b0%b0%20%eb%b0%b0%eb%93%9c%eb%af%bc%ed%84%b4%20%eb%8c%80%ed%9a%8c%20%ec%b0%b8%ea%b0%80%ec%9a%94%ea%b0%95.pdf"
+      }
+    ]
+  },
+  {
     "id": "bm-i8ygyo",
     "category": "전국오픈",
     "name": "2026 서울시민리그(S-리그) 배드민턴 1차예선(서북권)",
@@ -5455,6 +6247,54 @@
       {
         "source": "배드민턴타임즈",
         "link": "http://www.badmintontimes.com/calendar/m3_calendarRead.jsp?menunum=204&no=2650&dday=20260728"
+      }
+    ]
+  },
+  {
+    "id": "sp-19two9b",
+    "category": "지역구대회",
+    "name": "2026 제31회 공주시장기 배드민턴 대회",
+    "registrationPeriod": "공식 요강(PDF) 참조",
+    "registrationStart": "",
+    "registrationEnd": "",
+    "eventPeriod": "2026.07.29",
+    "eventStart": "2026-07-29",
+    "eventEnd": "2026-07-29",
+    "venue": "공주시 일원 체육관 (공식 요강 참조)",
+    "source": "스포넷",
+    "officialLink": "https://sponet.co.kr/mobile/tm_outline/2026%20%ec%a0%9c31%ed%9a%8c%20%ea%b3%b5%ec%a3%bc%ec%8b%9c%ec%9e%a5%ea%b8%b0%20%eb%b0%b0%eb%93%9c%eb%af%bc%ed%84%b4%20%eb%8c%80%ed%9a%8c%20%ec%b0%b8%ea%b0%80%ec%9a%94%ea%b0%95.pdf",
+    "fee": "공식 요강(PDF) 참조",
+    "sources": [
+      "스포넷"
+    ],
+    "sourceLinks": [
+      {
+        "source": "스포넷",
+        "link": "https://sponet.co.kr/mobile/tm_outline/2026%20%ec%a0%9c31%ed%9a%8c%20%ea%b3%b5%ec%a3%bc%ec%8b%9c%ec%9e%a5%ea%b8%b0%20%eb%b0%b0%eb%93%9c%eb%af%bc%ed%84%b4%20%eb%8c%80%ed%9a%8c%20%ec%b0%b8%ea%b0%80%ec%9a%94%ea%b0%95.pdf"
+      }
+    ]
+  },
+  {
+    "id": "sp-z61f6z",
+    "category": "전국오픈",
+    "name": "2026 제8회 공주시 여성 배드민턴 대회",
+    "registrationPeriod": "공식 요강(PDF) 참조",
+    "registrationStart": "",
+    "registrationEnd": "",
+    "eventPeriod": "2026.07.29",
+    "eventStart": "2026-07-29",
+    "eventEnd": "2026-07-29",
+    "venue": "공주시 일원 체육관 (공식 요강 참조)",
+    "source": "스포넷",
+    "officialLink": "https://sponet.co.kr/mobile/tm_outline/2026%20%ec%a0%9c8%ed%9a%8c%20%ea%b3%b5%ec%a3%bc%ec%8b%9c%20%ec%97%ac%ec%84%b1%20%eb%b0%b0%eb%93%9c%eb%af%bc%ed%84%b4%20%eb%8c%80%ed%9a%8c%20%ec%b0%b8%ea%b0%80%ec%9a%94%ea%b0%95.pdf",
+    "fee": "공식 요강(PDF) 참조",
+    "sources": [
+      "스포넷"
+    ],
+    "sourceLinks": [
+      {
+        "source": "스포넷",
+        "link": "https://sponet.co.kr/mobile/tm_outline/2026%20%ec%a0%9c8%ed%9a%8c%20%ea%b3%b5%ec%a3%bc%ec%8b%9c%20%ec%97%ac%ec%84%b1%20%eb%b0%b0%eb%93%9c%eb%af%bc%ed%84%b4%20%eb%8c%80%ed%9a%8c%20%ec%b0%b8%ea%b0%80%ec%9a%94%ea%b0%95.pdf"
       }
     ]
   },
@@ -5951,6 +6791,30 @@
     ]
   },
   {
+    "id": "sp-1a2w1al",
+    "category": "지역구대회",
+    "name": "2026 제22회 연수구청장배 배드민턴 대회",
+    "registrationPeriod": "공식 요강(PDF) 참조",
+    "registrationStart": "",
+    "registrationEnd": "",
+    "eventPeriod": "2026.08.12",
+    "eventStart": "2026-08-12",
+    "eventEnd": "2026-08-12",
+    "venue": "연수구 일원 체육관 (공식 요강 참조)",
+    "source": "스포넷",
+    "officialLink": "https://sponet.co.kr/mobile/tm_outline/2026%20%ec%a0%9c22%ed%9a%8c%20%ec%97%b0%ec%88%98%ea%b5%ac%ec%b2%ad%ec%9e%a5%eb%b0%b0%20%eb%b0%b0%eb%93%9c%eb%af%bc%ed%84%b4%20%eb%8c%80%ed%9a%8c%20%ec%b0%b8%ea%b0%80%ec%9a%94%ea%b0%95.pdf",
+    "fee": "공식 요강(PDF) 참조",
+    "sources": [
+      "스포넷"
+    ],
+    "sourceLinks": [
+      {
+        "source": "스포넷",
+        "link": "https://sponet.co.kr/mobile/tm_outline/2026%20%ec%a0%9c22%ed%9a%8c%20%ec%97%b0%ec%88%98%ea%b5%ac%ec%b2%ad%ec%9e%a5%eb%b0%b0%20%eb%b0%b0%eb%93%9c%eb%af%bc%ed%84%b4%20%eb%8c%80%ed%9a%8c%20%ec%b0%b8%ea%b0%80%ec%9a%94%ea%b0%95.pdf"
+      }
+    ]
+  },
+  {
     "id": "omp-2143",
     "category": "학생선수권",
     "name": "2026 전국학교대항배드민턴선수권대회(초등)",
@@ -6192,6 +7056,30 @@
       {
         "source": "배드민턴타임즈",
         "link": "http://www.badmintontimes.com/calendar/m3_calendarRead.jsp?menunum=204&no=2662&dday=20260817"
+      }
+    ]
+  },
+  {
+    "id": "sp-1a6r7xx",
+    "category": "전국오픈",
+    "name": "2026 용인특례시 청.준장년부 배드민턴 대회",
+    "registrationPeriod": "공식 요강(PDF) 참조",
+    "registrationStart": "",
+    "registrationEnd": "",
+    "eventPeriod": "2026.08.21",
+    "eventStart": "2026-08-21",
+    "eventEnd": "2026-08-21",
+    "venue": "용인특례시 일원 체육관 (공식 요강 참조)",
+    "source": "스포넷",
+    "officialLink": "https://sponet.co.kr/mobile/tm_outline/2026%20%ec%9a%a9%ec%9d%b8%ed%8a%b9%eb%a1%80%ec%8b%9c%20%ec%b2%ad.%ec%a4%80%ec%9e%a5%eb%85%84%eb%b6%80%20%eb%b0%b0%eb%93%9c%eb%af%bc%ed%84%b4%20%eb%8c%80%ed%9a%8c%20%ec%b0%b8%ea%b0%80%ec%9a%94%ea%b0%95.pdf",
+    "fee": "공식 요강(PDF) 참조",
+    "sources": [
+      "스포넷"
+    ],
+    "sourceLinks": [
+      {
+        "source": "스포넷",
+        "link": "https://sponet.co.kr/mobile/tm_outline/2026%20%ec%9a%a9%ec%9d%b8%ed%8a%b9%eb%a1%80%ec%8b%9c%20%ec%b2%ad.%ec%a4%80%ec%9e%a5%eb%85%84%eb%b6%80%20%eb%b0%b0%eb%93%9c%eb%af%bc%ed%84%b4%20%eb%8c%80%ed%9a%8c%20%ec%b0%b8%ea%b0%80%ec%9a%94%ea%b0%95.pdf"
       }
     ]
   },
@@ -6596,6 +7484,30 @@
     ]
   },
   {
+    "id": "sp-1slh6ip",
+    "category": "지역구대회",
+    "name": "2026 제31회 인천광역시 미추홀구청장기 배드민턴 대회",
+    "registrationPeriod": "공식 요강(PDF) 참조",
+    "registrationStart": "",
+    "registrationEnd": "",
+    "eventPeriod": "2026.08.23",
+    "eventStart": "2026-08-23",
+    "eventEnd": "2026-08-23",
+    "venue": "인천광역시 일원 체육관 (공식 요강 참조)",
+    "source": "스포넷",
+    "officialLink": "https://sponet.co.kr/mobile/tm_outline/2026%20%ec%a0%9c31%ed%9a%8c%20%ec%9d%b8%ec%b2%9c%ea%b4%91%ec%97%ad%ec%8b%9c%20%eb%af%b8%ec%b6%94%ed%99%80%ea%b5%ac%ec%b2%ad%ec%9e%a5%ea%b8%b0%20%eb%b0%b0%eb%93%9c%eb%af%bc%ed%84%b4%20%eb%8c%80%ed%9a%8c%20%ec%b0%b8%ea%b0%80%ec%9a%94%ea%b0%95.pdf",
+    "fee": "공식 요강(PDF) 참조",
+    "sources": [
+      "스포넷"
+    ],
+    "sourceLinks": [
+      {
+        "source": "스포넷",
+        "link": "https://sponet.co.kr/mobile/tm_outline/2026%20%ec%a0%9c31%ed%9a%8c%20%ec%9d%b8%ec%b2%9c%ea%b4%91%ec%97%ad%ec%8b%9c%20%eb%af%b8%ec%b6%94%ed%99%80%ea%b5%ac%ec%b2%ad%ec%9e%a5%ea%b8%b0%20%eb%b0%b0%eb%93%9c%eb%af%bc%ed%84%b4%20%eb%8c%80%ed%9a%8c%20%ec%b0%b8%ea%b0%80%ec%9a%94%ea%b0%95.pdf"
+      }
+    ]
+  },
+  {
     "id": "bm-19z55i6",
     "category": "지역구대회",
     "name": "2026년도 부여군수기 읍·면 대항전배드민턴대회",
@@ -6616,6 +7528,30 @@
       {
         "source": "배드민톡",
         "link": "https://badmintok.com/badminton-tournament/2026-도-부여군수기-읍-면-대항전배드민턴대회/"
+      }
+    ]
+  },
+  {
+    "id": "sp-1and4y",
+    "category": "지역구대회",
+    "name": "2026 빅터 아시아 시니어 선수권 대회 홍보 전국 생활체육 대회",
+    "registrationPeriod": "공식 요강(PDF) 참조",
+    "registrationStart": "",
+    "registrationEnd": "",
+    "eventPeriod": "2026.08.26",
+    "eventStart": "2026-08-26",
+    "eventEnd": "2026-08-26",
+    "venue": "경기장소는 공식 요강(PDF) 참조",
+    "source": "스포넷",
+    "officialLink": "https://sponet.co.kr/mobile/tm_outline/2026%20%eb%b9%85%ed%84%b0%20%ec%95%84%ec%8b%9c%ec%95%84%20%ec%8b%9c%eb%8b%88%ec%96%b4%20%ec%84%a0%ec%88%98%ea%b6%8c%20%eb%8c%80%ed%9a%8c%20%ed%99%8d%eb%b3%b4%20%ec%a0%84%ea%b5%ad%20%ec%83%9d%ed%99%9c%ec%b2%b4%ec%9c%a1%20%eb%8c%80%ed%9a%8c%20%ec%b0%b8%ea%b0%80%ec%9a%94%ea%b0%95.pdf",
+    "fee": "공식 요강(PDF) 참조",
+    "sources": [
+      "스포넷"
+    ],
+    "sourceLinks": [
+      {
+        "source": "스포넷",
+        "link": "https://sponet.co.kr/mobile/tm_outline/2026%20%eb%b9%85%ed%84%b0%20%ec%95%84%ec%8b%9c%ec%95%84%20%ec%8b%9c%eb%8b%88%ec%96%b4%20%ec%84%a0%ec%88%98%ea%b6%8c%20%eb%8c%80%ed%9a%8c%20%ed%99%8d%eb%b3%b4%20%ec%a0%84%ea%b5%ad%20%ec%83%9d%ed%99%9c%ec%b2%b4%ec%9c%a1%20%eb%8c%80%ed%9a%8c%20%ec%b0%b8%ea%b0%80%ec%9a%94%ea%b0%95.pdf"
       }
     ]
   },

@@ -2,7 +2,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 
 type TournamentCategory = '전국오픈' | '지역구대회' | '학생선수권' | '브랜드대회' | '국제대회';
-type TournamentSource = '배드민톡' | '배드민턴타임즈' | '페이스콕' | '배드민턴게임' | '코트엑스' | '오마이플레이';
+type TournamentSource = '배드민톡' | '배드민턴타임즈' | '페이스콕' | '배드민턴게임' | '코트엑스' | '오마이플레이' | '스포넷';
 
 interface ScrapedTournament {
   id: string;
@@ -552,6 +552,111 @@ async function scrapeOhMyPlay(): Promise<ScrapedTournament[]> {
   return tournaments;
 }
 
+const MONTH_MAP: Record<string, string> = {
+  Jan: '01', Feb: '02', Mar: '03', Apr: '04', May: '05', Jun: '06',
+  Jul: '07', Aug: '08', Sep: '09', Oct: '10', Nov: '11', Dec: '12'
+};
+
+async function scrapeSponet(): Promise<ScrapedTournament[]> {
+  const origin = 'https://sponet.co.kr';
+  const url = `${origin}/mobile/tm_outline/`;
+  const response = await fetch(url, {
+    headers: { 'User-Agent': USER_AGENT },
+    signal: AbortSignal.timeout(REQUEST_TIMEOUT_MS),
+  });
+
+  if (!response.ok) throw new Error(`${response.status} ${response.statusText}`);
+
+  const html = await response.text();
+  const parts = html.split('<a href=');
+  const tournaments: ScrapedTournament[] = [];
+  const seenNames = new Set<string>();
+
+  for (let i = 1; i < parts.length; i++) {
+    const quote = parts[i][0];
+    const encodedFileName = parts[i].slice(1).split(quote)[0];
+    if (!encodedFileName || encodedFileName.startsWith('?') || encodedFileName.startsWith('/')) continue;
+
+    let fileName = '';
+    try {
+      fileName = decodeURIComponent(encodedFileName).normalize('NFC');
+    } catch {
+      fileName = encodedFileName;
+    }
+
+    if (!fileName.endsWith('.pdf') && !fileName.endsWith('.hwp') && !fileName.endsWith('.jpg') && !fileName.endsWith('.png')) {
+      continue;
+    }
+
+    // 날짜 추출 (수정일: 02-Jul-2026)
+    const dateMatch = parts[i].match(/(\d{2})-([A-Za-z]{3})-(20\d{2})/);
+    let eventDate = '';
+    if (dateMatch) {
+      const day = dateMatch[1];
+      const mon = MONTH_MAP[dateMatch[2]] || '01';
+      const yr = dateMatch[3];
+      eventDate = `${yr}-${mon}-${day}`;
+    }
+
+    // 2026년 관련 대회만 필터링
+    const is2026 = fileName.includes('2026') || eventDate.startsWith('2026');
+    if (!is2026) continue;
+
+    // 파일명에서 불필요한 확장자 및 접미사 제거하여 깔끔한 대회명 추출
+    let cleanName = fileName
+      .replace(/\.(pdf|hwp|jpg|png|jpeg)$/i, '')
+      .replace(/^(자료\d*|첨부\d*|\d+_)\s*/i, '')
+      .replace(/[_-]\d+(_\d+)*$/i, '')
+      .replace(/\s*(참가\s*)?요강.*$/i, '')
+      .replace(/최종본.*$/i, '')
+      .trim();
+
+    if (!cleanName || cleanName.length < 4 || cleanName === '대회') continue;
+    if (!cleanName.includes('2026') && eventDate.startsWith('2026')) {
+      cleanName = `2026 ${cleanName}`;
+    }
+    if (!cleanName.endsWith('대회')) {
+      cleanName = `${cleanName}대회`;
+    }
+
+    if (seenNames.has(cleanName)) continue;
+    seenNames.add(cleanName);
+
+    // 지자체명 기반 venue 추출
+    let venue = '경기장소는 공식 요강(PDF) 참조';
+    const venueMatch = cleanName.match(/([가-힣]{2,}(?:시|군|구))/);
+    if (venueMatch) {
+      venue = `${venueMatch[1]} 일원 체육관 (공식 요강 참조)`;
+    }
+
+    const officialLink = `${url}${encodedFileName}`;
+    const posterImage = (fileName.endsWith('.jpg') || fileName.endsWith('.png')) ? officialLink : undefined;
+
+    const eventStart = eventDate || '2026-06-01';
+    const eventEnd = eventStart;
+
+    tournaments.push({
+      id: `sp-${stableHash(cleanName)}`,
+      category: categorizeTournament(cleanName, venue),
+      name: cleanName,
+      registrationPeriod: '공식 요강(PDF) 참조',
+      registrationStart: '',
+      registrationEnd: '',
+      eventPeriod: displayPeriod(eventStart, eventEnd),
+      eventStart,
+      eventEnd,
+      venue,
+      source: '스포넷',
+      officialLink,
+      posterImage,
+      fee: '공식 요강(PDF) 참조',
+    });
+  }
+
+  console.log(`   ✅ 스포넷 모바일 공식 요강 검증: ${tournaments.length}건`);
+  return tournaments;
+}
+
 function normalizeName(name: string): string {
   return name
     .toLowerCase()
@@ -607,16 +712,25 @@ async function main(): Promise<void> {
   console.log('🏸 검증 가능한 원문 기반 대회 수집을 시작합니다.');
   console.log('   합성 대회, 임의 날짜/참가비, 목록 주소만 있는 레코드는 생성하지 않습니다.');
 
-  const [facecock, badmintok, badmintonTimes, badmintonGame, courtX, ohMyPlay] = await Promise.all([
+  const [facecock, badmintok, badmintonTimes, badmintonGame, courtX, ohMyPlay, sponet] = await Promise.all([
     safelyCollect('페이스콕', scrapeFacecock),
     safelyCollect('배드민톡', scrapeBadmintok),
     safelyCollect('배드민턴타임즈', scrapeBadmintonTimes),
     safelyCollect('배드민턴게임', scrapeBadmintonGame),
     safelyCollect('코트엑스', scrapeCourtX),
     safelyCollect('오마이플레이', scrapeOhMyPlay),
+    safelyCollect('스포넷', scrapeSponet),
   ]);
 
-  const tournaments = mergeAndDeduplicate([...facecock, ...badmintok, ...badmintonTimes, ...badmintonGame, ...courtX, ...ohMyPlay]);
+  const tournaments = mergeAndDeduplicate([
+    ...facecock,
+    ...badmintok,
+    ...badmintonTimes,
+    ...badmintonGame,
+    ...courtX,
+    ...ohMyPlay,
+    ...sponet,
+  ]);
   if (tournaments.length === 0) throw new Error('검증 가능한 대회를 한 건도 수집하지 못해 기존 파일을 보존합니다.');
 
   const outputPath = path.resolve(process.cwd(), 'lib/tournaments-scraped.json');
@@ -624,7 +738,7 @@ async function main(): Promise<void> {
 
   console.log(`✅ ${tournaments.length}건 저장 완료: ${outputPath}`);
   console.log(
-    `   페이스콕 ${facecock.length} / 배드민톡 ${badmintok.length} / 배드민턴타임즈 ${badmintonTimes.length} / 배드민턴게임 ${badmintonGame.length} / 코트엑스 ${courtX.length} / 오마이플레이 ${ohMyPlay.length}`
+    `   페이스콕 ${facecock.length} / 배드민톡 ${badmintok.length} / 배드민턴타임즈 ${badmintonTimes.length} / 배드민턴게임 ${badmintonGame.length} / 코트엑스 ${courtX.length} / 오마이플레이 ${ohMyPlay.length} / 스포넷 ${sponet.length}`
   );
 }
 
