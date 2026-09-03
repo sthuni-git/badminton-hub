@@ -17,6 +17,7 @@ import {
   FileSpreadsheet,
   Flame,
   Globe,
+  Heart,
   KeyRound,
   Layers,
   List,
@@ -28,6 +29,7 @@ import {
   Search,
   ShieldCheck,
   SlidersHorizontal,
+  Star,
   Table as TableIcon,
   Trophy,
   Unlock,
@@ -186,6 +188,37 @@ export function TournamentExplorer({ tournaments }: { tournaments: Tournament[] 
   const [selected, setSelected] = useState<Tournament | null>(null);
   const [sourceCategoryFilter, setSourceCategoryFilter] = useState<string>('전체');
   const [isLocating, setIsLocating] = useState(false);
+
+  // 즐겨찾기 (하트 찜하기) 상태 관리 (localStorage 영구 유지)
+  const [favorites, setFavorites] = useState<Set<string>>(() => {
+    if (typeof window === 'undefined') return new Set();
+    try {
+      const saved = localStorage.getItem('minton_favorites');
+      return saved ? new Set(JSON.parse(saved)) : new Set();
+    } catch {
+      return new Set();
+    }
+  });
+
+  const [onlyFavorites, setOnlyFavorites] = useState(false);
+
+  const toggleFavorite = (id: string, e?: React.SyntheticEvent) => {
+    if (e) e.stopPropagation();
+    setFavorites((prev) => {
+      const next = new Set(prev);
+      if (next.has(id)) {
+        next.delete(id);
+      } else {
+        next.add(id);
+      }
+      try {
+        localStorage.setItem('minton_favorites', JSON.stringify(Array.from(next)));
+      } catch {
+        // ignore
+      }
+      return next;
+    });
+  };
 
   // 관리자 권한 상태 관리 (useState 기반 실시간 반응)
   const [isAdmin, setIsAdmin] = useState<boolean>(() => {
@@ -363,21 +396,29 @@ export function TournamentExplorer({ tournaments }: { tournaments: Tournament[] 
           return t.distanceKm <= maxKm;
         })();
 
+        const matchesFavorite = onlyFavorites ? favorites.has(t.id) : true;
+
         return (
           (!query || text.includes(query.toLowerCase())) &&
           (region === '전체' || regionOf(t.venue) === region) &&
           (category === '전체' || t.category === category) &&
           matchesStatus &&
           matchesSource &&
-          matchesDistance
+          matchesDistance &&
+          matchesFavorite
         );
       })
       .sort((a, b) => {
+        // ❤️ 즐겨찾기(하트) 등록된 대회가 항상 최상단에 우선 표시!
+        const aFav = favorites.has(a.id) ? 1 : 0;
+        const bFav = favorites.has(b.id) ? 1 : 0;
+        if (aFav !== bFav) return bFav - aFav;
+
         if (sortOption === 'eventStart') return a.eventStart.localeCompare(b.eventStart);
         if (sortOption === 'registrationEnd') return a.registrationEnd.localeCompare(b.registrationEnd);
         return a.name.localeCompare(b.name);
       });
-  }, [tournaments, query, region, category, status, source, distanceFilter, sortOption, today, userLocation]);
+  }, [tournaments, query, region, category, status, source, distanceFilter, sortOption, today, userLocation, favorites, onlyFavorites]);
 
   // 구글 시트 및 엑셀용 CSV 내보내기 핸들러 (한글 깨짐 방지 UTF-8 BOM 적용)
   const handleExportCsv = () => {
@@ -799,6 +840,23 @@ export function TournamentExplorer({ tournaments }: { tournaments: Tournament[] 
                     <option value="name">대회명 가나다순</option>
                   </select>
                 </div>
+
+                {/* ❤️ 찜한 대회(즐겨찾기) 모아보기 토글 버튼 */}
+                <button
+                  type="button"
+                  onClick={() => setOnlyFavorites((prev) => !prev)}
+                  className={`inline-flex items-center gap-1.5 rounded-xl border px-3 py-1.5 text-xs font-extrabold transition shadow-xs ${
+                    onlyFavorites
+                      ? 'border-rose-500 bg-rose-600 text-white shadow-rose-200'
+                      : favorites.size > 0
+                      ? 'border-rose-200 bg-rose-50 text-rose-700 hover:bg-rose-100'
+                      : 'border-slate-200 bg-white text-slate-600 hover:bg-slate-50'
+                  }`}
+                  title="즐겨찾기(하트) 등록한 대회만 모아서 봅니다."
+                >
+                  <Heart className={`size-3.5 ${onlyFavorites || favorites.size > 0 ? 'fill-current text-rose-500' : 'text-slate-400'} ${onlyFavorites ? 'text-white fill-white' : ''}`} />
+                  <span>찜한 대회 {favorites.size > 0 ? `(${favorites.size})` : ''}</span>
+                </button>
               </div>
 
               <div className="flex flex-wrap items-center gap-2">
@@ -892,6 +950,8 @@ export function TournamentExplorer({ tournaments }: { tournaments: Tournament[] 
                     baseDate={today}
                     userLocationLabel={userLocation.label}
                     isAdmin={isAdmin}
+                    isFavorite={favorites.has(t.id)}
+                    onToggleFavorite={(e) => toggleFavorite(t.id, e)}
                     onSelect={() => setSelected(t)}
                   />
                 ))}
@@ -902,10 +962,12 @@ export function TournamentExplorer({ tournaments }: { tournaments: Tournament[] 
                 baseDate={today}
                 userLocationLabel={userLocation.label}
                 isAdmin={isAdmin}
+                favorites={favorites}
+                onToggleFavorite={toggleFavorite}
                 onSelect={setSelected}
               />
             ) : (
-              <CalendarView tournaments={filtered} baseDate={today} onSelect={setSelected} />
+              <CalendarView tournaments={filtered} baseDate={today} favorites={favorites} onSelect={setSelected} />
             )}
           </>
         ) : (
@@ -946,9 +1008,24 @@ export function TournamentExplorer({ tournaments }: { tournaments: Tournament[] 
                   📍 {userLocation.label} 기준 약 {calculateDistanceKm(userLocation.coords, getVenueCoordinates(selected.venue))}km
                 </Badge>
               </div>
-              <SheetTitle className="pr-8 text-xl font-extrabold leading-snug text-slate-900">
-                {selected.name}
-              </SheetTitle>
+              <div className="flex items-start justify-between gap-3 pr-8">
+                <SheetTitle className="text-xl font-extrabold leading-snug text-slate-900">
+                  {selected.name}
+                </SheetTitle>
+                <button
+                  type="button"
+                  onClick={(e) => toggleFavorite(selected.id, e)}
+                  className={`shrink-0 inline-flex items-center gap-1.5 rounded-full border px-3 py-1.5 text-xs font-bold transition shadow-xs ${
+                    favorites.has(selected.id)
+                      ? 'border-rose-400 bg-rose-50 text-rose-600'
+                      : 'border-slate-200 bg-white text-slate-500 hover:border-rose-300 hover:text-rose-500'
+                  }`}
+                  title={favorites.has(selected.id) ? '즐겨찾기 해제' : '즐겨찾기(하트) 추가 - 항상 최상단 고정'}
+                >
+                  <Heart className={`size-4 ${favorites.has(selected.id) ? 'fill-rose-500 text-rose-500' : ''}`} />
+                  <span>{favorites.has(selected.id) ? '찜 완료' : '찜하기'}</span>
+                </button>
+              </div>
               <SheetDescription className="text-xs text-muted-foreground">
                 {selected.sources && selected.sources.length > 1
                   ? `${selected.sources.join(', ')} 등 ${selected.sources.length}개 공식 출처에서 제공하는 대회 요강 정보입니다.`
@@ -1227,12 +1304,16 @@ function TournamentCard({
   baseDate,
   userLocationLabel,
   isAdmin = false,
+  isFavorite = false,
+  onToggleFavorite,
   onSelect,
 }: {
   tournament: Tournament & { distanceKm?: number };
   baseDate: Date;
   userLocationLabel: string;
   isAdmin?: boolean;
+  isFavorite?: boolean;
+  onToggleFavorite: (e: React.SyntheticEvent) => void;
   onSelect: () => void;
 }) {
   const status = getStatus(t, baseDate);
@@ -1240,10 +1321,23 @@ function TournamentCard({
   const regD = daysFromToday(t.registrationEnd, baseDate);
 
   return (
-    <article className="group rounded-2xl border bg-white p-4 shadow-[0_4px_20px_rgb(20_83_45/5%)] transition hover:-translate-y-0.5 hover:border-emerald-300 hover:shadow-[0_10px_32px_rgb(20_83_45/10%)] sm:p-5">
+    <article
+      className={`group relative rounded-2xl border p-4 transition hover:-translate-y-0.5 sm:p-5 ${
+        isFavorite
+          ? 'border-rose-300 bg-rose-50/25 shadow-[0_4px_24px_rgb(225_29_72/8%)] hover:border-rose-400 hover:shadow-[0_10px_32px_rgb(225_29_72/14%)]'
+          : 'border-slate-200/90 bg-white shadow-[0_4px_20px_rgb(20_83_45/5%)] hover:border-emerald-300 hover:shadow-[0_10px_32px_rgb(20_83_45/10%)]'
+      }`}
+    >
       <button type="button" onClick={onSelect} className="w-full text-left">
         <div className="mb-3 flex items-center justify-between gap-2">
-          <div className="flex flex-wrap gap-1.5">
+          <div className="flex flex-wrap items-center gap-1.5">
+            {/* ❤️ 즐겨찾기 고정 뱃지 */}
+            {isFavorite && (
+              <span className="inline-flex items-center gap-1 rounded-full border border-rose-300 bg-rose-50 px-2 py-0.5 text-[11px] font-extrabold text-rose-700 shadow-xs">
+                <Heart className="size-3 fill-rose-500 text-rose-500" />
+                찜한 대회
+              </span>
+            )}
             <Badge variant="outline" className={statusStyle(status)}>
               {status}
             </Badge>
@@ -1261,9 +1355,25 @@ function TournamentCard({
               )
             )}
           </div>
-          <span className={`rounded-lg px-2 py-1 text-xs font-extrabold ${status === '대회종료' ? 'bg-slate-100 text-slate-500' : 'bg-amber-50 text-amber-700'}`}>
-            {status === '대회종료' ? (eventD < 0 ? `종료 (${Math.abs(eventD)}일 전)` : '대회 종료') : eventD > 0 ? `대회 D-${eventD}` : '오늘 대회'}
-          </span>
+          <div className="flex items-center gap-1.5">
+            <span className={`rounded-lg px-2 py-1 text-xs font-extrabold ${status === '대회종료' ? 'bg-slate-100 text-slate-500' : 'bg-amber-50 text-amber-700'}`}>
+              {status === '대회종료' ? (eventD < 0 ? `종료 (${Math.abs(eventD)}일 전)` : '대회 종료') : eventD > 0 ? `대회 D-${eventD}` : '오늘 대회'}
+            </span>
+            {/* 하트 찜하기 버튼 */}
+            <button
+              type="button"
+              onClick={onToggleFavorite}
+              className={`flex size-7.5 items-center justify-center rounded-full border transition hover:scale-110 ${
+                isFavorite
+                  ? 'border-rose-300 bg-rose-50 text-rose-600 shadow-xs'
+                  : 'border-slate-200 bg-white text-slate-400 hover:border-rose-200 hover:text-rose-500'
+              }`}
+              title={isFavorite ? '즐겨찾기 해제' : '즐겨찾기(하트) 등록 - 항상 최상단 고정'}
+              aria-label={`${t.name} 즐겨찾기 토글`}
+            >
+              <Heart className={`size-4 ${isFavorite ? 'fill-rose-500 text-rose-500' : ''}`} />
+            </button>
+          </div>
         </div>
 
         <div className="flex items-start justify-between gap-3">
@@ -1366,12 +1476,16 @@ function TableView({
   baseDate,
   userLocationLabel,
   isAdmin = false,
+  favorites = new Set(),
+  onToggleFavorite,
   onSelect,
 }: {
   tournaments: (Tournament & { distanceKm?: number })[];
   baseDate: Date;
   userLocationLabel: string;
   isAdmin?: boolean;
+  favorites?: Set<string>;
+  onToggleFavorite?: (id: string, e: React.SyntheticEvent) => void;
   onSelect: (t: Tournament) => void;
 }) {
   return (
@@ -1380,7 +1494,8 @@ function TableView({
         <table className="w-full text-left text-xs">
           <thead className="border-b bg-slate-50/80 text-slate-700">
             <tr>
-              <th scope="col" className="py-3 pl-4 pr-2 font-bold">상태 / D-Day</th>
+              <th scope="col" className="py-3 pl-3 pr-1 text-center font-bold w-9">찜</th>
+              <th scope="col" className="py-3 pl-2 pr-2 font-bold">상태 / D-Day</th>
               <th scope="col" className="px-3 py-3 font-bold">대회명</th>
               <th scope="col" className="px-3 py-3 font-bold">구분</th>
               <th scope="col" className="px-3 py-3 font-bold">대회 일정</th>
@@ -1394,13 +1509,26 @@ function TableView({
             {tournaments.map((t) => {
               const status = getStatus(t, baseDate);
               const eventD = daysFromToday(t.eventStart, baseDate);
+              const isFav = favorites.has(t.id);
 
               return (
                 <tr
                   key={t.id}
-                  className="transition hover:bg-emerald-50/50"
+                  className={`transition ${isFav ? 'bg-rose-50/30 hover:bg-rose-50/60' : 'hover:bg-emerald-50/50'}`}
                 >
-                  <td aria-label="상태 및 D-Day" className="py-3 pl-4 pr-2 whitespace-nowrap">
+                  <td aria-label="즐겨찾기" className="py-3 pl-3 pr-1 text-center whitespace-nowrap">
+                    <button
+                      type="button"
+                      onClick={(e) => onToggleFavorite && onToggleFavorite(t.id, e)}
+                      className={`inline-flex size-6 items-center justify-center rounded-full transition hover:scale-110 ${
+                        isFav ? 'text-rose-500' : 'text-slate-300 hover:text-rose-400'
+                      }`}
+                      title={isFav ? '즐겨찾기 해제' : '즐겨찾기(하트) 등록 - 항상 최상단 고정'}
+                    >
+                      <Heart className={`size-3.5 ${isFav ? 'fill-rose-500' : ''}`} />
+                    </button>
+                  </td>
+                  <td aria-label="상태 및 D-Day" className="py-3 pl-2 pr-2 whitespace-nowrap">
                     <div className="flex items-center gap-1.5">
                       <Badge variant="outline" className={statusStyle(status)}>
                         {status}
@@ -1477,10 +1605,12 @@ function TableView({
 function CalendarView({
   tournaments,
   baseDate,
+  favorites = new Set(),
   onSelect,
 }: {
   tournaments: Tournament[];
   baseDate: Date;
+  favorites?: Set<string>;
   onSelect: (t: Tournament) => void;
 }) {
   const [viewDate, setViewDate] = useState<Date>(() => new Date(baseDate.getFullYear(), baseDate.getMonth(), 1));
@@ -1525,7 +1655,7 @@ function CalendarView({
             size="sm"
             onClick={resetToToday}
             aria-label="이번 달로 돌아가기"
-            className="h-8 text-xs text-emerald-700"
+            className="h-8 text-xs font-semibold text-emerald-800 hover:bg-emerald-50"
           >
             오늘
           </Button>
