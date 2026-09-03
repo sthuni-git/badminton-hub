@@ -491,29 +491,27 @@ export function TournamentExplorer({ tournaments }: { tournaments: Tournament[] 
           </div>
 
           <div className="flex items-center gap-2">
-            {/* 관리자 모드일 때만 출처 허브 탭 전환 버튼 노출 */}
-            {isAdmin && (
-              <div className="flex rounded-xl bg-zinc-100 p-1">
-                <button
-                  type="button"
-                  onClick={() => setActiveTab('tournaments')}
-                  className={`flex h-8 items-center gap-1.5 rounded-lg px-3 text-xs font-bold transition ${
-                    activeTab === 'tournaments' ? 'bg-white text-emerald-800 shadow-sm' : 'text-muted-foreground'
-                  }`}
-                >
-                  <Trophy className="size-3.5" /> 대회 탐색
-                </button>
-                <button
-                  type="button"
-                  onClick={() => setActiveTab('sources')}
-                  className={`flex h-8 items-center gap-1.5 rounded-lg px-3 text-xs font-bold transition ${
-                    activeTab === 'sources' ? 'bg-white text-emerald-800 shadow-sm' : 'text-muted-foreground'
-                  }`}
-                >
-                  <Globe className="size-3.5" /> 출처 허브 ({tournaments.length}건)
-                </button>
-              </div>
-            )}
+            {/* 대회 탐색 / 출처 허브 상시 탭 전환 버튼 */}
+            <div className="flex rounded-xl bg-zinc-100 p-1">
+              <button
+                type="button"
+                onClick={() => setActiveTab('tournaments')}
+                className={`flex h-8 items-center gap-1.5 rounded-lg px-3 text-xs font-bold transition ${
+                  activeTab === 'tournaments' ? 'bg-white text-emerald-800 shadow-sm' : 'text-muted-foreground'
+                }`}
+              >
+                <Trophy className="size-3.5" /> 대회 탐색
+              </button>
+              <button
+                type="button"
+                onClick={() => setActiveTab('sources')}
+                className={`flex h-8 items-center gap-1.5 rounded-lg px-3 text-xs font-bold transition ${
+                  activeTab === 'sources' ? 'bg-white text-emerald-800 shadow-sm' : 'text-muted-foreground'
+                }`}
+              >
+                <Globe className="size-3.5" /> 출처 허브 ({tournaments.length}건)
+              </button>
+            </div>
 
             {/* 상단 관리자 모드 로그인 / 로그아웃 버튼 */}
             {!isAdmin ? (
