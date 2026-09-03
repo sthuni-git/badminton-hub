@@ -45,7 +45,7 @@ export type Status = '접수중' | '접수예정' | '마감임박' | '접수마�
 export type StatusFilter = '전체' | '종료 제외' | Status;
 type MainTab = 'tournaments' | 'sources';
 type View = 'list' | 'table' | 'calendar';
-type SortOption = 'distance' | 'eventStart' | 'registrationEnd' | 'name';
+type SortOption = 'eventStart' | 'registrationEnd' | 'name';
 
 interface UserLocation {
   coords: Coordinates;
@@ -181,7 +181,7 @@ export function TournamentExplorer({ tournaments }: { tournaments: Tournament[] 
   const [status, setStatus] = useState<StatusFilter>('전체');
   const [source, setSource] = useState('전체');
   const [distanceFilter, setDistanceFilter] = useState<DistanceFilter>('전체');
-  const [sortOption, setSortOption] = useState<SortOption>('distance');
+  const [sortOption, setSortOption] = useState<SortOption>('eventStart');
   const [view, setView] = useState<View>('list');
   const [selected, setSelected] = useState<Tournament | null>(null);
   const [sourceCategoryFilter, setSourceCategoryFilter] = useState<string>('전체');
@@ -245,7 +245,6 @@ export function TournamentExplorer({ tournaments }: { tournaments: Tournament[] 
         };
 
         setRuntimeLocation(newLocation);
-        setSortOption('distance');
         setIsLocating(false);
 
         try {
@@ -325,7 +324,6 @@ export function TournamentExplorer({ tournaments }: { tournaments: Tournament[] 
         isGps: false,
       };
       setRuntimeLocation(newLocation);
-      setSortOption('distance');
 
       try {
         localStorage.setItem('minton_user_location', JSON.stringify(newLocation));
@@ -375,9 +373,6 @@ export function TournamentExplorer({ tournaments }: { tournaments: Tournament[] 
         );
       })
       .sort((a, b) => {
-        if (sortOption === 'distance') {
-          return a.distanceKm - b.distanceKm;
-        }
         if (sortOption === 'eventStart') return a.eventStart.localeCompare(b.eventStart);
         if (sortOption === 'registrationEnd') return a.registrationEnd.localeCompare(b.registrationEnd);
         return a.name.localeCompare(b.name);
@@ -788,7 +783,7 @@ export function TournamentExplorer({ tournaments }: { tournaments: Tournament[] 
                   <p className="text-lg font-extrabold text-slate-900">총 {filtered.length}개</p>
                 </div>
 
-                {/* 정렬 드롭다운 (거리순 기본 지원) */}
+                {/* 정렬 드롭다운 */}
                 <div className="flex items-center gap-1.5 rounded-xl border bg-white px-2.5 py-1 text-xs font-semibold text-slate-700 shadow-sm">
                   <ArrowUpDown className="size-3.5 text-emerald-700" />
                   <span>정렬:</span>
@@ -799,7 +794,6 @@ export function TournamentExplorer({ tournaments }: { tournaments: Tournament[] 
                     suppressHydrationWarning
                     className="bg-transparent font-bold text-emerald-800 outline-none"
                   >
-                    <option value="distance" suppressHydrationWarning>📍 {userLocation.label} 기준 가까운순</option>
                     <option value="eventStart">대회 시작일순</option>
                     <option value="registrationEnd">접수 마감 임박순</option>
                     <option value="name">대회명 가나다순</option>
