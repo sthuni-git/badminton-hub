@@ -272,6 +272,7 @@ export function TournamentExplorer({ tournaments }: { tournaments: Tournament[] 
   const [selected, setSelected] = useState<Tournament | null>(null);
   const [sourceCategoryFilter, setSourceCategoryFilter] = useState<string>('전체');
   const [isLocating, setIsLocating] = useState(false);
+  const [lightboxUrl, setLightboxUrl] = useState<string | null>(null);
 
   // 즐겨찾기 (하트 찜하기) 상태 관리 (localStorage 영구 유지)
   const [favorites, setFavorites] = useState<Set<string>>(() => {
@@ -1125,8 +1126,10 @@ export function TournamentExplorer({ tournaments }: { tournaments: Tournament[] 
                   <img
                     src={getSecurePosterUrl(selected.posterImage)}
                     alt={`${selected.name} 공식 요강 포스터`}
-                    className="w-full h-auto max-h-[70vh] object-contain opacity-95 transition duration-300 hover:opacity-100"
+                    className="w-full h-auto max-h-[70vh] object-contain opacity-95 transition duration-300 hover:opacity-100 cursor-zoom-in"
                     loading="lazy"
+                    onClick={() => setLightboxUrl(getSecurePosterUrl(selected.posterImage))}
+                    title="클릭하면 크게 볼 수 있습니다"
                     onError={(e) => {
                       const imgEl = e.currentTarget as HTMLImageElement;
                       if (selected.posterImage && !imgEl.src.includes('weserv.nl') && (selected.posterImage.startsWith('http://') || selected.posterImage.startsWith('https://'))) {
@@ -1144,20 +1147,50 @@ export function TournamentExplorer({ tournaments }: { tournaments: Tournament[] 
                       );
                     }}
                   />
+                  <div className="absolute top-2 right-2 pointer-events-none">
+                    <span className="rounded-full bg-black/50 px-2 py-1 text-[10px] font-bold text-white backdrop-blur-sm">
+                      🔍 클릭하면 크게 보기
+                    </span>
+                  </div>
                 </div>
                 <div className="flex items-center justify-between bg-slate-900/80 px-4 py-2">
                   <span className="inline-flex items-center gap-1 text-[11px] font-bold text-emerald-300">
                     🖼️ 대회 공식 요강 포스터
                   </span>
-                  <a
-                    href={getSecurePosterUrl(selected.posterImage)}
-                    target="_blank"
-                    rel="noreferrer"
+                  <button
+                    type="button"
+                    onClick={() => setLightboxUrl(getSecurePosterUrl(selected.posterImage))}
                     className="rounded-md bg-emerald-700/80 px-2 py-0.5 text-[10px] font-bold text-white hover:bg-emerald-600"
                   >
-                    원본 확대 보기 🔍
-                  </a>
+                    확대 보기 🔍
+                  </button>
                 </div>
+              </div>
+            )}
+
+            {/* 라이트박스: 포스터 전체화면 확대 */}
+            {lightboxUrl && (
+              <div
+                className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/90 backdrop-blur-sm"
+                onClick={() => setLightboxUrl(null)}
+              >
+                <div className="relative max-w-[95vw] max-h-[95vh]" onClick={(e) => e.stopPropagation()}>
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={lightboxUrl}
+                    alt="포스터 확대 보기"
+                    className="max-w-[95vw] max-h-[90vh] object-contain rounded-xl shadow-2xl"
+                  />
+                  <button
+                    type="button"
+                    className="absolute -top-4 -right-4 flex size-9 items-center justify-center rounded-full bg-white text-xl font-black text-slate-900 shadow-lg hover:bg-slate-100"
+                    onClick={() => setLightboxUrl(null)}
+                    aria-label="닫기"
+                  >
+                    ✕
+                  </button>
+                </div>
+                <p className="absolute bottom-5 text-sm font-semibold text-white/60">화면 아무 곳이나 클릭하면 닫힙니다</p>
               </div>
             )}
 
