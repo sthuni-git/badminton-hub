@@ -518,156 +518,7 @@ async function scrapeBkplay(): Promise<ScrapedTournament[]> {
   return tournaments;
 }
 
-// 7. 오마이플레이 & 배프 & 위꾹 & 딱플 & 리부트 & 네이버밴드 대규모 수집기
-async function scrapeCommunityPlatforms(): Promise<ScrapedTournament[]> {
-  console.log('📡 [7/8] 오마이플레이 / 배프 / 위꾹 / 딱플 / 리부트 / 네이버밴드 대규모 아카이브를 수집합니다...');
-
-  const commList: Array<{ name: string; venue: string; source: '오마이플레이' | '배프' | '위꾹' | '딱플' | '리부트아카데미' | '네이버밴드'; link: string; regStart: string; regEnd: string; eventStart: string; eventEnd: string; fee: string }> = [
-    // -------------------------------------------------------------
-    // [1] 오마이플레이 (OHMYPLAY) - 30개
-    // -------------------------------------------------------------
-    { name: '2026 오마이플레이 나이트배드민턴 페스티벌 서울', venue: '서울 도봉구 다락원배드민턴장', source: '오마이플레이', link: 'https://m.ohmyplay.com/tournament/list', regStart: '2026-08-18', regEnd: '2026-09-07', eventStart: '2026-09-18', eventEnd: '2026-09-18', fee: '팀당 50,000원' },
-    { name: '2026 오마이플레이 주말 리그전 성남', venue: '경기 성남시 탄천종합운동장 실내체육관', source: '오마이플레이', link: 'https://m.ohmyplay.com/tournament/list', regStart: '2026-08-25', regEnd: '2026-09-15', eventStart: '2026-09-26', eventEnd: '2026-09-26', fee: '팀당 45,000원' },
-    { name: '2026 오마이플레이 비기너 챌린지 인천', venue: '인천 연수구 송도글로벌체육관', source: '오마이플레이', link: 'https://m.ohmyplay.com/tournament/list', regStart: '2026-09-01', regEnd: '2026-09-22', eventStart: '2026-10-10', eventEnd: '2026-10-10', fee: '팀당 45,000원' },
-    { name: '2026 오마이플레이 마스터즈 오픈 일산', venue: '경기 고양시 일산올림픽스포츠센터', source: '오마이플레이', link: 'https://m.ohmyplay.com/tournament/list', regStart: '2026-09-10', regEnd: '2026-10-02', eventStart: '2026-10-24', eventEnd: '2026-10-24', fee: '팀당 50,000원' },
-    { name: '2026 오마이플레이 혼합복식 챔피언스 하남', venue: '경기 하남시 하남종합운동장 국민체육센터', source: '오마이플레이', link: 'https://m.ohmyplay.com/tournament/list', regStart: '2026-09-15', regEnd: '2026-10-08', eventStart: '2026-10-31', eventEnd: '2026-10-31', fee: '팀당 50,000원' },
-    { name: '2026 오마이플레이 청년부 최강전 용인', venue: '경기 용인시 용인실내체육관', source: '오마이플레이', link: 'https://m.ohmyplay.com/tournament/list', regStart: '2026-09-20', regEnd: '2026-10-12', eventStart: '2026-11-07', eventEnd: '2026-11-07', fee: '팀당 50,000원' },
-    { name: '2026 오마이플레이 신춘 나이트 리그 마포', venue: '서울 마포구 상암실내체육관', source: '오마이플레이', link: 'https://m.ohmyplay.com/tournament/list', regStart: '2026-02-15', regEnd: '2026-03-05', eventStart: '2026-03-14', eventEnd: '2026-03-14', fee: '팀당 45,000원' },
-    { name: '2026 오마이플레이 봄맞이 루키 페스타 강서', venue: '서울 강서구 마곡실내배드민턴장', source: '오마이플레이', link: 'https://m.ohmyplay.com/tournament/list', regStart: '2026-02-25', regEnd: '2026-03-18', eventStart: '2026-03-28', eventEnd: '2026-03-28', fee: '팀당 45,000원' },
-    { name: '2026 오마이플레이 4월 주말 최강전 수원', venue: '경기 수원시 수원시배드민턴전용경기장', source: '오마이플레이', link: 'https://m.ohmyplay.com/tournament/list', regStart: '2026-03-10', regEnd: '2026-04-01', eventStart: '2026-04-11', eventEnd: '2026-04-11', fee: '팀당 50,000원' },
-    { name: '2026 오마이플레이 5월 패밀리 듀오 페스티벌 송파', venue: '서울 송파구 잠실실내체육관', source: '오마이플레이', link: 'https://m.ohmyplay.com/tournament/list', regStart: '2026-04-01', regEnd: '2026-04-20', eventStart: '2026-05-02', eventEnd: '2026-05-02', fee: '팀당 50,000원' },
-    { name: '2026 오마이플레이 초여름 나이트 토너먼트 안양', venue: '경기 안양시 호계체육관', source: '오마이플레이', link: 'https://m.ohmyplay.com/tournament/list', regStart: '2026-04-20', regEnd: '2026-05-10', eventStart: '2026-05-23', eventEnd: '2026-05-23', fee: '팀당 45,000원' },
-    { name: '2026 오마이플레이 상반기 결선 마스터즈 부천', venue: '경기 부천시 부천체육관', source: '오마이플레이', link: 'https://m.ohmyplay.com/tournament/list', regStart: '2026-05-10', regEnd: '2026-06-01', eventStart: '2026-06-13', eventEnd: '2026-06-13', fee: '팀당 55,000원' },
-    { name: '2026 오마이플레이 한여름 쿨 나이트리그 대전', venue: '대전 유성구 한밭대학교 체육관', source: '오마이플레이', link: 'https://m.ohmyplay.com/tournament/list', regStart: '2026-06-01', regEnd: '2026-06-25', eventStart: '2026-07-11', eventEnd: '2026-07-11', fee: '팀당 45,000원' },
-    { name: '2026 오마이플레이 썸머 챌린지 부산', venue: '부산 동래구 사직실내체육관', source: '오마이플레이', link: 'https://m.ohmyplay.com/tournament/list', regStart: '2026-06-20', regEnd: '2026-07-15', eventStart: '2026-07-25', eventEnd: '2026-07-25', fee: '팀당 50,000원' },
-    { name: '2026 오마이플레이 바캉스 셔틀콕 광주', venue: '광주 서구 빛고을체육관', source: '오마이플레이', link: 'https://m.ohmyplay.com/tournament/list', regStart: '2026-07-05', regEnd: '2026-07-28', eventStart: '2026-08-08', eventEnd: '2026-08-08', fee: '팀당 45,000원' },
-    { name: '2026 오마이플레이 가을맞이 루키리그 평택', venue: '경기 평택시 이충문화체육센터', source: '오마이플레이', link: 'https://m.ohmyplay.com/tournament/list', regStart: '2026-08-01', regEnd: '2026-08-22', eventStart: '2026-09-05', eventEnd: '2026-09-05', fee: '팀당 45,000원' },
-    { name: '2026 오마이플레이 단체전 슈퍼배틀 서울', venue: '서울 송파구 송파구체육문화회관', source: '오마이플레이', link: 'https://m.ohmyplay.com/tournament/list', regStart: '2026-09-25', regEnd: '2026-10-18', eventStart: '2026-10-31', eventEnd: '2026-10-31', fee: '팀당 80,000원' },
-    { name: '2026 오마이플레이 11월 랭킹 포인트전 안산', venue: '경기 안산시 올림픽기념관 체육관', source: '오마이플레이', link: 'https://m.ohmyplay.com/tournament/list', regStart: '2026-10-01', regEnd: '2026-10-25', eventStart: '2026-11-14', eventEnd: '2026-11-14', fee: '팀당 50,000원' },
-    { name: '2026 오마이플레이 윈터 챔피언스 고양', venue: '경기 고양시 고양어울림누리체육관', source: '오마이플레이', link: 'https://m.ohmyplay.com/tournament/list', regStart: '2026-10-15', regEnd: '2026-11-05', eventStart: '2026-11-21', eventEnd: '2026-11-21', fee: '팀당 50,000원' },
-    { name: '2026 오마이플레이 연말 결선 그랜드파이널 서울', venue: '서울 송파구 잠실실내체육관', source: '오마이플레이', link: 'https://m.ohmyplay.com/tournament/list', regStart: '2026-11-01', regEnd: '2026-11-25', eventStart: '2026-12-12', eventEnd: '2026-12-12', fee: '팀당 60,000원' },
-    { name: '2026 오마이플레이 남부권 셔틀배틀 대구', venue: '대구 북구 대구실내체육관', source: '오마이플레이', link: 'https://m.ohmyplay.com/tournament/list', regStart: '2026-08-10', regEnd: '2026-09-02', eventStart: '2026-09-19', eventEnd: '2026-09-19', fee: '팀당 45,000원' },
-    { name: '2026 오마이플레이 충청권 주말 토너먼트 청주', venue: '충북 청주시 청주배드민턴체육관', source: '오마이플레이', link: 'https://m.ohmyplay.com/tournament/list', regStart: '2026-08-15', regEnd: '2026-09-08', eventStart: '2026-09-26', eventEnd: '2026-09-26', fee: '팀당 45,000원' },
-    { name: '2026 오마이플레이 강원권 힐링 토너먼트 춘천', venue: '강원 춘천시 호반체육관', source: '오마이플레이', link: 'https://m.ohmyplay.com/tournament/list', regStart: '2026-08-20', regEnd: '2026-09-12', eventStart: '2026-10-03', eventEnd: '2026-10-03', fee: '팀당 45,000원' },
-    { name: '2026 오마이플레이 전북 오픈 배틀 전주', venue: '전북 전주시 화산체육관', source: '오마이플레이', link: 'https://m.ohmyplay.com/tournament/list', regStart: '2026-09-01', regEnd: '2026-09-24', eventStart: '2026-10-17', eventEnd: '2026-10-17', fee: '팀당 45,000원' },
-    { name: '2026 오마이플레이 경남 리그전 창원', venue: '경남 창원시 마산실내체육관', source: '오마이플레이', link: 'https://m.ohmyplay.com/tournament/list', regStart: '2026-09-05', regEnd: '2026-09-28', eventStart: '2026-10-24', eventEnd: '2026-10-24', fee: '팀당 45,000원' },
-    { name: '2026 오마이플레이 수도권 동북부 리그 남양주', venue: '경기 남양주시 남양주체육문화센터', source: '오마이플레이', link: 'https://m.ohmyplay.com/tournament/list', regStart: '2026-09-10', regEnd: '2026-10-02', eventStart: '2026-10-18', eventEnd: '2026-10-18', fee: '팀당 45,000원' },
-    { name: '2026 오마이플레이 직장인 야간 복식리그 판교', venue: '경기 성남시 탄천종합운동장 실내체육관', source: '오마이플레이', link: 'https://m.ohmyplay.com/tournament/list', regStart: '2026-09-12', regEnd: '2026-10-05', eventStart: '2026-10-22', eventEnd: '2026-10-22', fee: '팀당 50,000원' },
-    { name: '2026 오마이플레이 여성부 퀸즈 토너먼트 인천', venue: '인천 남동구 남동체육관', source: '오마이플레이', link: 'https://m.ohmyplay.com/tournament/list', regStart: '2026-09-18', regEnd: '2026-10-10', eventStart: '2026-10-25', eventEnd: '2026-10-25', fee: '팀당 45,000원' },
-    { name: '2026 오마이플레이 초심자 탈출 리그 시흥', venue: '경기 시흥시 시흥시민체육관', source: '오마이플레이', link: 'https://m.ohmyplay.com/tournament/list', regStart: '2026-09-22', regEnd: '2026-10-15', eventStart: '2026-11-01', eventEnd: '2026-11-01', fee: '팀당 40,000원' },
-    { name: '2026 오마이플레이 에이스 마스터즈 김포', venue: '경기 김포시 김포생활체육관', source: '오마이플레이', link: 'https://m.ohmyplay.com/tournament/list', regStart: '2026-10-05', regEnd: '2026-10-28', eventStart: '2026-11-15', eventEnd: '2026-11-15', fee: '팀당 50,000원' },
-
-    // -------------------------------------------------------------
-    // [2] 배프 (Badminton Friends) - 25개
-    // -------------------------------------------------------------
-    { name: '2026 플리트 챔피언십 파이널 서울 (배프)', venue: '서울 강서구 마곡실내배드민턴장', source: '배프', link: 'https://www.badmintonfriends.co.kr/acff4b5f-3746-4049-a013-1f5911ecdae1', regStart: '2026-08-05', regEnd: '2026-08-28', eventStart: '2026-09-05', eventEnd: '2026-09-05', fee: '팀당 65,000원' },
-    { name: '2026 배프배 전국 동호인 챔피언십 안양', venue: '경기 안양시 호계체육관', source: '배프', link: 'https://www.badmintonfriends.co.kr/acff4b5f-3746-4049-a013-1f5911ecdae1', regStart: '2026-09-01', regEnd: '2026-09-20', eventStart: '2026-10-03', eventEnd: '2026-10-04', fee: '팀당 55,000원' },
-    { name: '2026 배프 프렌즈 페스티벌 수원', venue: '경기 수원시 수원시배드민턴전용경기장', source: '배프', link: 'https://www.badmintonfriends.co.kr/acff4b5f-3746-4049-a013-1f5911ecdae1', regStart: '2026-09-10', regEnd: '2026-10-01', eventStart: '2026-10-17', eventEnd: '2026-10-18', fee: '팀당 55,000원' },
-    { name: '2026 배프 윈터 챌린지 성남', venue: '경기 성남시 성남종합운동장 실내체육관', source: '배프', link: 'https://www.badmintonfriends.co.kr/acff4b5f-3746-4049-a013-1f5911ecdae1', regStart: '2026-09-25', regEnd: '2026-10-18', eventStart: '2026-11-08', eventEnd: '2026-11-08', fee: '팀당 50,000원' },
-    { name: '2026 플리트 봄맞이 수도권 오픈 인천 (배프)', venue: '인천 남동구 남동체육관', source: '배프', link: 'https://www.badmintonfriends.co.kr/acff4b5f-3746-4049-a013-1f5911ecdae1', regStart: '2026-02-10', regEnd: '2026-03-02', eventStart: '2026-03-15', eventEnd: '2026-03-15', fee: '팀당 60,000원' },
-    { name: '2026 배프 루키 & 주니어 토너먼트 도봉', venue: '서울 도봉구 다락원배드민턴장', source: '배프', link: 'https://www.badmintonfriends.co.kr/acff4b5f-3746-4049-a013-1f5911ecdae1', regStart: '2026-02-20', regEnd: '2026-03-12', eventStart: '2026-03-22', eventEnd: '2026-03-22', fee: '팀당 45,000원' },
-    { name: '2026 플리트 마스터즈 4월 챔피언십 고양 (배프)', venue: '경기 고양시 고양어울림누리체육관', source: '배프', link: 'https://www.badmintonfriends.co.kr/acff4b5f-3746-4049-a013-1f5911ecdae1', regStart: '2026-03-05', regEnd: '2026-03-25', eventStart: '2026-04-05', eventEnd: '2026-04-05', fee: '팀당 60,000원' },
-    { name: '2026 배프 믹스더블(혼복) 챌린지 용인', venue: '경기 용인시 용인실내체육관', source: '배프', link: 'https://www.badmintonfriends.co.kr/acff4b5f-3746-4049-a013-1f5911ecdae1', regStart: '2026-03-15', regEnd: '2026-04-08', eventStart: '2026-04-19', eventEnd: '2026-04-19', fee: '팀당 50,000원' },
-    { name: '2026 플리트 5월 가정의달 배드민턴 축제 부천 (배프)', venue: '경기 부천시 부천체육관', source: '배프', link: 'https://www.badmintonfriends.co.kr/acff4b5f-3746-4049-a013-1f5911ecdae1', regStart: '2026-04-05', regEnd: '2026-04-28', eventStart: '2026-05-10', eventEnd: '2026-05-10', fee: '팀당 55,000원' },
-    { name: '2026 배프 동호인 서머 페스타 하남', venue: '경기 하남시 하남종합운동장 국민체육센터', source: '배프', link: 'https://www.badmintonfriends.co.kr/acff4b5f-3746-4049-a013-1f5911ecdae1', regStart: '2026-04-20', regEnd: '2026-05-15', eventStart: '2026-05-31', eventEnd: '2026-05-31', fee: '팀당 50,000원' },
-    { name: '2026 플리트 서머 챔피언십 대전 (배프)', venue: '대전 유성구 한밭대학교 체육관', source: '배프', link: 'https://www.badmintonfriends.co.kr/acff4b5f-3746-4049-a013-1f5911ecdae1', regStart: '2026-05-10', regEnd: '2026-06-02', eventStart: '2026-06-20', eventEnd: '2026-06-21', fee: '팀당 60,000원' },
-    { name: '2026 배프 프렌즈 썸머 파크 매치 평택', venue: '경기 평택시 이충문화체육센터', source: '배프', link: 'https://www.badmintonfriends.co.kr/acff4b5f-3746-4049-a013-1f5911ecdae1', regStart: '2026-05-25', regEnd: '2026-06-18', eventStart: '2026-07-04', eventEnd: '2026-07-05', fee: '팀당 50,000원' },
-    { name: '2026 플리트 쿨바캉스 토너먼트 청주 (배프)', venue: '충북 청주시 청주배드민턴체육관', source: '배프', link: 'https://www.badmintonfriends.co.kr/acff4b5f-3746-4049-a013-1f5911ecdae1', regStart: '2026-06-15', regEnd: '2026-07-08', eventStart: '2026-07-18', eventEnd: '2026-07-19', fee: '팀당 55,000원' },
-    { name: '2026 배프 8월 에이스 결정전 서울', venue: '서울 송파구 잠실실내체육관', source: '배프', link: 'https://www.badmintonfriends.co.kr/acff4b5f-3746-4049-a013-1f5911ecdae1', regStart: '2026-07-05', regEnd: '2026-07-28', eventStart: '2026-08-09', eventEnd: '2026-08-09', fee: '팀당 60,000원' },
-    { name: '2026 플리트 가을 그랜드마스터즈 대구 (배프)', venue: '대구 북구 대구실내체육관', source: '배프', link: 'https://www.badmintonfriends.co.kr/acff4b5f-3746-4049-a013-1f5911ecdae1', regStart: '2026-08-15', regEnd: '2026-09-08', eventStart: '2026-09-20', eventEnd: '2026-09-20', fee: '팀당 65,000원' },
-    { name: '2026 배프 수도권 남부 최강전 안산', venue: '경기 안산시 올림픽기념관 체육관', source: '배프', link: 'https://www.badmintonfriends.co.kr/acff4b5f-3746-4049-a013-1f5911ecdae1', regStart: '2026-08-20', regEnd: '2026-09-12', eventStart: '2026-09-27', eventEnd: '2026-09-27', fee: '팀당 50,000원' },
-    { name: '2026 플리트 10월 단풍 배드민턴 축제 원주 (배프)', venue: '강원 원주시 치악체육관', source: '배프', link: 'https://www.badmintonfriends.co.kr/acff4b5f-3746-4049-a013-1f5911ecdae1', regStart: '2026-09-01', regEnd: '2026-09-24', eventStart: '2026-10-11', eventEnd: '2026-10-11', fee: '팀당 55,000원' },
-    { name: '2026 배프 프렌즈 클럽 대항전 파주', venue: '경기 파주시 파주스타디움 체육관', source: '배프', link: 'https://www.badmintonfriends.co.kr/acff4b5f-3746-4049-a013-1f5911ecdae1', regStart: '2026-09-12', regEnd: '2026-10-05', eventStart: '2026-10-25', eventEnd: '2026-10-25', fee: '팀당 70,000원' },
-    { name: '2026 플리트 11월 챔피언스투어 광주 (배프)', venue: '광주 서구 빛고을체육관', source: '배프', link: 'https://www.badmintonfriends.co.kr/acff4b5f-3746-4049-a013-1f5911ecdae1', regStart: '2026-09-25', regEnd: '2026-10-20', eventStart: '2026-11-01', eventEnd: '2026-11-01', fee: '팀당 60,000원' },
-    { name: '2026 배프 윈터 마스터즈 컵 시흥', venue: '경기 시흥시 시흥시민체육관', source: '배프', link: 'https://www.badmintonfriends.co.kr/acff4b5f-3746-4049-a013-1f5911ecdae1', regStart: '2026-10-05', regEnd: '2026-10-28', eventStart: '2026-11-15', eventEnd: '2026-11-15', fee: '팀당 50,000원' },
-    { name: '2026 플리트 연말 왕중왕전 파이널 서울 (배프)', venue: '서울 송파구 올림픽공원 SK핸드볼경기장', source: '배프', link: 'https://www.badmintonfriends.co.kr/acff4b5f-3746-4049-a013-1f5911ecdae1', regStart: '2026-10-20', regEnd: '2026-11-15', eventStart: '2026-12-06', eventEnd: '2026-12-06', fee: '팀당 70,000원' },
-    { name: '2026 배프 비기너 챌린지 구리', venue: '경기 구리시 구리시체육관', source: '배프', link: 'https://www.badmintonfriends.co.kr/acff4b5f-3746-4049-a013-1f5911ecdae1', regStart: '2026-08-01', regEnd: '2026-08-22', eventStart: '2026-09-12', eventEnd: '2026-09-12', fee: '팀당 45,000원' },
-    { name: '2026 플리트 영남 오픈 부산 (배프)', venue: '부산 강서구 강서체육공원 실내체육관', source: '배프', link: 'https://www.badmintonfriends.co.kr/acff4b5f-3746-4049-a013-1f5911ecdae1', regStart: '2026-08-10', regEnd: '2026-09-02', eventStart: '2026-09-20', eventEnd: '2026-09-20', fee: '팀당 60,000원' },
-    { name: '2026 배프 전국 혼합복식 페스타 의정부', venue: '경기 의정부시 신곡실내배드민턴장', source: '배프', link: 'https://www.badmintonfriends.co.kr/acff4b5f-3746-4049-a013-1f5911ecdae1', regStart: '2026-09-05', regEnd: '2026-09-28', eventStart: '2026-10-18', eventEnd: '2026-10-18', fee: '팀당 50,000원' },
-    { name: '2026 플리트 제주 윈터 챔피언십 (배프)', venue: '제주 제주시 한라체육관', source: '배프', link: 'https://www.badmintonfriends.co.kr/acff4b5f-3746-4049-a013-1f5911ecdae1', regStart: '2026-10-10', regEnd: '2026-11-05', eventStart: '2026-11-28', eventEnd: '2026-11-29', fee: '팀당 70,000원' },
-
-    // -------------------------------------------------------------
-    // [3] 위꾹 (Wecook) - 20개
-    // -------------------------------------------------------------
-    { name: '2026 요넥스 슈퍼 매치 서울 (위꾹)', venue: '서울 송파구 잠실실내체육관', source: '위꾹', link: 'https://www.wecook.co.kr', regStart: '2026-08-18', regEnd: '2026-09-08', eventStart: '2026-09-19', eventEnd: '2026-09-20', fee: '팀당 60,000원' },
-    { name: '2026 위꾹 수도권 챔피언스 리그 수원', venue: '경기 수원시 수원시배드민턴전용경기장', source: '위꾹', link: 'https://www.wecook.co.kr', regStart: '2026-08-25', regEnd: '2026-09-16', eventStart: '2026-09-27', eventEnd: '2026-09-27', fee: '팀당 55,000원' },
-    { name: '2026 위꾹 루키 & 비기너 토너먼트 인천', venue: '인천 남동구 남동체육관', source: '위꾹', link: 'https://www.wecook.co.kr', regStart: '2026-09-01', regEnd: '2026-09-22', eventStart: '2026-10-04', eventEnd: '2026-10-04', fee: '팀당 45,000원' },
-    { name: '2026 위꾹 가을맞이 클럽 대항전 성남', venue: '경기 성남시 탄천종합운동장 실내체육관', source: '위꾹', link: 'https://www.wecook.co.kr', regStart: '2026-09-08', regEnd: '2026-09-30', eventStart: '2026-10-11', eventEnd: '2026-10-11', fee: '팀당 60,000원' },
-    { name: '2026 위꾹 전국 동호인 오픈 고양', venue: '경기 고양시 고양어울림누리체육관', source: '위꾹', link: 'https://www.wecook.co.kr', regStart: '2026-09-15', regEnd: '2026-10-08', eventStart: '2026-10-25', eventEnd: '2026-10-25', fee: '팀당 55,000원' },
-    { name: '2026 위꾹 춘계 셔틀콕 페스티벌 서울', venue: '서울 강서구 마곡실내배드민턴장', source: '위꾹', link: 'https://www.wecook.co.kr', regStart: '2026-02-15', regEnd: '2026-03-08', eventStart: '2026-03-21', eventEnd: '2026-03-22', fee: '팀당 55,000원' },
-    { name: '2026 위꾹 4월 랭킹 포인트전 안양', venue: '경기 안양시 호계체육관', source: '위꾹', link: 'https://www.wecook.co.kr', regStart: '2026-03-05', regEnd: '2026-03-28', eventStart: '2026-04-12', eventEnd: '2026-04-12', fee: '팀당 50,000원' },
-    { name: '2026 위꾹 5월 혼합복식 마스터즈 부천', venue: '경기 부천시 부천체육관', source: '위꾹', link: 'https://www.wecook.co.kr', regStart: '2026-04-01', regEnd: '2026-04-22', eventStart: '2026-05-03', eventEnd: '2026-05-03', fee: '팀당 50,000원' },
-    { name: '2026 위꾹 서머 챌린지 용인', venue: '경기 용인시 용인실내체육관', source: '위꾹', link: 'https://www.wecook.co.kr', regStart: '2026-04-25', regEnd: '2026-05-18', eventStart: '2026-05-30', eventEnd: '2026-05-30', fee: '팀당 55,000원' },
-    { name: '2026 위꾹 상반기 결선 파이널 서울', venue: '서울 송파구 잠실실내체육관', source: '위꾹', link: 'https://www.wecook.co.kr', regStart: '2026-05-10', regEnd: '2026-06-02', eventStart: '2026-06-14', eventEnd: '2026-06-14', fee: '팀당 65,000원' },
-    { name: '2026 위꾹 쿨서머 페스티벌 대전', venue: '대전 유성구 한밭대학교 체육관', source: '위꾹', link: 'https://www.wecook.co.kr', regStart: '2026-06-05', regEnd: '2026-06-28', eventStart: '2026-07-12', eventEnd: '2026-07-12', fee: '팀당 50,000원' },
-    { name: '2026 위꾹 영남권 오픈 챔피언십 부산', venue: '부산 동래구 사직실내체육관', source: '위꾹', link: 'https://www.wecook.co.kr', regStart: '2026-06-20', regEnd: '2026-07-15', eventStart: '2026-07-26', eventEnd: '2026-07-26', fee: '팀당 55,000원' },
-    { name: '2026 위꾹 8월 청년부 토너먼트 하남', venue: '경기 하남시 하남종합운동장 국민체육센터', source: '위꾹', link: 'https://www.wecook.co.kr', regStart: '2026-07-10', regEnd: '2026-08-01', eventStart: '2026-08-16', eventEnd: '2026-08-16', fee: '팀당 50,000원' },
-    { name: '2026 위꾹 가을 에이스 컵 평택', venue: '경기 평택시 이충문화체육센터', source: '위꾹', link: 'https://www.wecook.co.kr', regStart: '2026-08-05', regEnd: '2026-08-28', eventStart: '2026-09-13', eventEnd: '2026-09-13', fee: '팀당 50,000원' },
-    { name: '2026 위꾹 충청권 가을 챌린지 천안', venue: '충남 천안시 유관순체육관', source: '위꾹', link: 'https://www.wecook.co.kr', regStart: '2026-08-28', regEnd: '2026-09-20', eventStart: '2026-10-04', eventEnd: '2026-10-04', fee: '팀당 50,000원' },
-    { name: '2026 위꾹 호남권 오픈 광주', venue: '광주 서구 빛고을체육관', source: '위꾹', link: 'https://www.wecook.co.kr', regStart: '2026-09-05', regEnd: '2026-09-28', eventStart: '2026-10-18', eventEnd: '2026-10-18', fee: '팀당 50,000원' },
-    { name: '2026 위꾹 11월 루키 페스티벌 파주', venue: '경기 파주시 파주스타디움 체육관', source: '위꾹', link: 'https://www.wecook.co.kr', regStart: '2026-09-20', regEnd: '2026-10-15', eventStart: '2026-11-01', eventEnd: '2026-11-01', fee: '팀당 45,000원' },
-    { name: '2026 위꾹 수도권 서부 최강전 안산', venue: '경기 안산시 올림픽기념관 체육관', source: '위꾹', link: 'https://www.wecook.co.kr', regStart: '2026-10-01', regEnd: '2026-10-24', eventStart: '2026-11-08', eventEnd: '2026-11-08', fee: '팀당 50,000원' },
-    { name: '2026 위꾹 윈터 챔피언십 구리', venue: '경기 구리시 구리시체육관', source: '위꾹', link: 'https://www.wecook.co.kr', regStart: '2026-10-10', regEnd: '2026-11-02', eventStart: '2026-11-22', eventEnd: '2026-11-22', fee: '팀당 50,000원' },
-    { name: '2026 위꾹 연말 왕중왕전 그랜드파이널 서울', venue: '서울 송파구 잠실실내체육관', source: '위꾹', link: 'https://www.wecook.co.kr', regStart: '2026-10-25', regEnd: '2026-11-18', eventStart: '2026-12-05', eventEnd: '2026-12-05', fee: '팀당 70,000원' },
-
-    // -------------------------------------------------------------
-    // [4] 딱플 (Ddakple) - 20개
-    // -------------------------------------------------------------
-    { name: '2026 딱플 전국 랭킹 토너먼트 용인', venue: '경기 용인시 용인실내체육관', source: '딱플', link: 'https://ddakple.com/', regStart: '2026-08-20', regEnd: '2026-09-10', eventStart: '2026-09-19', eventEnd: '2026-09-20', fee: '팀당 50,000원' },
-    { name: '2026 딱플 수도권 최강전 부천', venue: '경기 부천시 부천체육관', source: '딱플', link: 'https://ddakple.com/', regStart: '2026-09-05', regEnd: '2026-09-28', eventStart: '2026-10-17', eventEnd: '2026-10-18', fee: '팀당 55,000원' },
-    { name: '2026 딱플 남부리그 챔피언십 평택', venue: '경기 평택시 이충문화체육센터', source: '딱플', link: 'https://ddakple.com/', regStart: '2026-09-15', regEnd: '2026-10-08', eventStart: '2026-10-31', eventEnd: '2026-11-01', fee: '팀당 50,000원' },
-    { name: '2026 딱플 봄맞이 청년부 배틀 서울', venue: '서울 강서구 마곡실내배드민턴장', source: '딱플', link: 'https://ddakple.com/', regStart: '2026-02-15', regEnd: '2026-03-08', eventStart: '2026-03-22', eventEnd: '2026-03-22', fee: '팀당 50,000원' },
-    { name: '2026 딱플 4월 듀오 챌린지 수원', venue: '경기 수원시 수원시배드민턴전용경기장', source: '딱플', link: 'https://ddakple.com/', regStart: '2026-03-08', regEnd: '2026-03-30', eventStart: '2026-04-12', eventEnd: '2026-04-12', fee: '팀당 45,000원' },
-    { name: '2026 딱플 5월 클럽 랭킹 포인트전 성남', venue: '경기 성남시 성남종합운동장 실내체육관', source: '딱플', link: 'https://ddakple.com/', regStart: '2026-04-05', regEnd: '2026-04-28', eventStart: '2026-05-10', eventEnd: '2026-05-10', fee: '팀당 50,000원' },
-    { name: '2026 딱플 초여름 비기너 페스티벌 인천', venue: '인천 남동구 남동체육관', source: '딱플', link: 'https://ddakple.com/', regStart: '2026-04-20', regEnd: '2026-05-12', eventStart: '2026-05-24', eventEnd: '2026-05-24', fee: '팀당 40,000원' },
-    { name: '2026 딱플 상반기 결선 챔피언십 서울', venue: '서울 송파구 잠실실내체육관', source: '딱플', link: 'https://ddakple.com/', regStart: '2026-05-08', regEnd: '2026-05-30', eventStart: '2026-06-14', eventEnd: '2026-06-14', fee: '팀당 60,000원' },
-    { name: '2026 딱플 썸머 쿨 토너먼트 고양', venue: '경기 고양시 고양어울림누리체육관', source: '딱플', link: 'https://ddakple.com/', regStart: '2026-05-25', regEnd: '2026-06-18', eventStart: '2026-07-05', eventEnd: '2026-07-05', fee: '팀당 45,000원' },
-    { name: '2026 딱플 대전/충청 청년 랭킹전', venue: '대전 유성구 한밭대학교 체육관', source: '딱플', link: 'https://ddakple.com/', regStart: '2026-06-10', regEnd: '2026-07-02', eventStart: '2026-07-19', eventEnd: '2026-07-19', fee: '팀당 45,000원' },
-    { name: '2026 딱플 대구/경북 서머 파이널', venue: '대구 북구 대구실내체육관', source: '딱플', link: 'https://ddakple.com/', regStart: '2026-06-25', regEnd: '2026-07-18', eventStart: '2026-08-02', eventEnd: '2026-08-02', fee: '팀당 50,000원' },
-    { name: '2026 딱플 부산/경남 셔틀콕 배틀', venue: '부산 강서구 강서체육공원 실내체육관', source: '딱플', link: 'https://ddakple.com/', regStart: '2026-07-08', regEnd: '2026-07-30', eventStart: '2026-08-16', eventEnd: '2026-08-16', fee: '팀당 50,000원' },
-    { name: '2026 딱플 8월 루키 토너먼트 안양', venue: '경기 안양시 호계체육관', source: '딱플', link: 'https://ddakple.com/', regStart: '2026-07-20', regEnd: '2026-08-12', eventStart: '2026-08-29', eventEnd: '2026-08-29', fee: '팀당 40,000원' },
-    { name: '2026 딱플 가을 랭킹 포인트전 하남', venue: '경기 하남시 하남종합운동장 국민체육센터', source: '딱플', link: 'https://ddakple.com/', regStart: '2026-08-10', regEnd: '2026-09-02', eventStart: '2026-09-20', eventEnd: '2026-09-20', fee: '팀당 50,000원' },
-    { name: '2026 딱플 수도권 북부 최강전 파주', venue: '경기 파주시 운정다목적체육관', source: '딱플', link: 'https://ddakple.com/', regStart: '2026-08-28', regEnd: '2026-09-20', eventStart: '2026-10-04', eventEnd: '2026-10-04', fee: '팀당 45,000원' },
-    { name: '2026 딱플 충청권 가을 챌린지 청주', venue: '충북 청주시 청주배드민턴체육관', source: '딱플', link: 'https://ddakple.com/', regStart: '2026-09-01', regEnd: '2026-09-24', eventStart: '2026-10-11', eventEnd: '2026-10-11', fee: '팀당 45,000원' },
-    { name: '2026 딱플 전라권 셔틀배틀 광주', venue: '광주 서구 빛고을체육관', source: '딱플', link: 'https://ddakple.com/', regStart: '2026-09-08', regEnd: '2026-10-01', eventStart: '2026-10-24', eventEnd: '2026-10-24', fee: '팀당 45,000원' },
-    { name: '2026 딱플 11월 동호인 토너먼트 시흥', venue: '경기 시흥시 시흥시민체육관', source: '딱플', link: 'https://ddakple.com/', regStart: '2026-09-25', regEnd: '2026-10-18', eventStart: '2026-11-08', eventEnd: '2026-11-08', fee: '팀당 45,000원' },
-    { name: '2026 딱플 윈터 챌린지 김포', venue: '경기 김포시 김포생활체육관', source: '딱플', link: 'https://ddakple.com/', regStart: '2026-10-05', regEnd: '2026-10-28', eventStart: '2026-11-22', eventEnd: '2026-11-22', fee: '팀당 50,000원' },
-    { name: '2026 딱플 연말 왕중왕전 파이널 서울', venue: '서울 송파구 잠실실내체육관', source: '딱플', link: 'https://ddakple.com/', regStart: '2026-10-20', regEnd: '2026-11-15', eventStart: '2026-12-06', eventEnd: '2026-12-06', fee: '팀당 65,000원' },
-
-    // -------------------------------------------------------------
-    // [5] 리부트아카데미 (Reboot) - 10개
-    // -------------------------------------------------------------
-    { name: '2026 리부트 전국 오픈 챔피언십 고양', venue: '경기 고양시 고양어울림누리체육관', source: '리부트아카데미', link: 'https://reboot-badminton.com/tournaments.html', regStart: '2026-08-25', regEnd: '2026-09-14', eventStart: '2026-09-27', eventEnd: '2026-09-27', fee: '팀당 50,000원' },
-    { name: '2026 리부트 아카데미 윈터 컵 파주', venue: '경기 파주시 운정다목적체육관', source: '리부트아카데미', link: 'https://reboot-badminton.com/tournaments.html', regStart: '2026-09-20', regEnd: '2026-10-15', eventStart: '2026-11-01', eventEnd: '2026-11-01', fee: '팀당 50,000원' },
-    { name: '2026 리부트 주니어 & 성인 클리닉 매치 김포', venue: '경기 김포시 김포생활체육관', source: '리부트아카데미', link: 'https://reboot-badminton.com/tournaments.html', regStart: '2026-10-01', regEnd: '2026-10-24', eventStart: '2026-11-15', eventEnd: '2026-11-15', fee: '팀당 45,000원' },
-    { name: '2026 리부트 봄맞이 수도권 루키 토너먼트 서울', venue: '서울 강서구 마곡실내배드민턴장', source: '리부트아카데미', link: 'https://reboot-badminton.com/tournaments.html', regStart: '2026-02-20', regEnd: '2026-03-15', eventStart: '2026-03-29', eventEnd: '2026-03-29', fee: '팀당 45,000원' },
-    { name: '2026 리부트 5월 마스터즈 오픈 일산', venue: '경기 고양시 일산올림픽스포츠센터', source: '리부트아카데미', link: 'https://reboot-badminton.com/tournaments.html', regStart: '2026-04-10', regEnd: '2026-05-02', eventStart: '2026-05-17', eventEnd: '2026-05-17', fee: '팀당 50,000원' },
-    { name: '2026 리부트 서머 챌린지 인천', venue: '인천 부평구 부평국민체육센터', source: '리부트아카데미', link: 'https://reboot-badminton.com/tournaments.html', regStart: '2026-05-20', regEnd: '2026-06-12', eventStart: '2026-06-28', eventEnd: '2026-06-28', fee: '팀당 45,000원' },
-    { name: '2026 리부트 한여름 쿨배틀 부천', venue: '경기 부천시 부천체육관', source: '리부트아카데미', link: 'https://reboot-badminton.com/tournaments.html', regStart: '2026-06-25', regEnd: '2026-07-18', eventStart: '2026-08-02', eventEnd: '2026-08-02', fee: '팀당 50,000원' },
-    { name: '2026 리부트 가을 동호인 페스타 안양', venue: '경기 안양시 호계체육관', source: '리부트아카데미', link: 'https://reboot-badminton.com/tournaments.html', regStart: '2026-08-10', regEnd: '2026-09-02', eventStart: '2026-09-20', eventEnd: '2026-09-20', fee: '팀당 50,000원' },
-    { name: '2026 리부트 10월 랭킹전 수원', venue: '경기 수원시 수원시배드민턴전용경기장', source: '리부트아카데미', link: 'https://reboot-badminton.com/tournaments.html', regStart: '2026-09-08', regEnd: '2026-09-30', eventStart: '2026-10-18', eventEnd: '2026-10-18', fee: '팀당 50,000원' },
-    { name: '2026 리부트 연말 결선 챔피언십 서울', venue: '서울 송파구 잠실실내체육관', source: '리부트아카데미', link: 'https://reboot-badminton.com/tournaments.html', regStart: '2026-10-20', regEnd: '2026-11-15', eventStart: '2026-12-06', eventEnd: '2026-12-06', fee: '팀당 60,000원' },
-  ];
-
-  const tournaments: ScrapedTournament[] = commList.map((item, idx) => ({
-    id: `comm-${String(idx + 1).padStart(3, '0')}`,
-    category: categorizeTournament(item.name),
-    name: item.name,
-    registrationPeriod: `${item.regStart.replaceAll('-', '.')} ~ ${item.regEnd.replaceAll('-', '.')}`,
-    registrationStart: item.regStart,
-    registrationEnd: item.regEnd,
-    eventPeriod: item.eventStart === item.eventEnd ? item.eventStart.replaceAll('-', '.') : `${item.eventStart.replaceAll('-', '.')} ~ ${item.eventEnd.slice(5).replaceAll('-', '.')}`,
-    eventStart: item.eventStart,
-    eventEnd: item.eventEnd,
-    venue: item.venue,
-    source: item.source,
-    officialLink: item.link,
-    fee: item.fee,
-  }));
-
-  console.log(`   ✅ 커뮤니티 & 모바일 플랫폼 (배프/위꾹/딱플/리부트): ${tournaments.length}개 대회 수집 완료`);
-  return tournaments;
-}
+// 7. 실존 공식 플랫폼 전수 수집
 
 /**
  * 밴드 게시글 본문 텍스트에서 대회 메타데이터를 정규식으로 자동 추출하는 지능형 파서
@@ -1285,7 +1136,6 @@ async function main() {
     sponetList,
     badmintonGameList,
     bkplayList,
-    commList,
     naverBandList,
     bwfList,
   ] = await Promise.all([
@@ -1296,7 +1146,6 @@ async function main() {
     scrapeSponet(),
     scrapeBadmintonGame(),
     scrapeBkplay(),
-    scrapeCommunityPlatforms(),
     scrapeNaverBandPublic(),
     scrapeBwf(),
   ]);
@@ -1307,7 +1156,6 @@ async function main() {
     ...sponetList,
     ...badmintonGameList,
     ...bkplayList,
-    ...commList,
     ...naverBandList,
     ...bwfList,
     ...badmintokList,

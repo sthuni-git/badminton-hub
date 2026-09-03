@@ -3,21 +3,15 @@ import scrapedTournaments from './tournaments-scraped.json';
 export type TournamentCategory = '전국오픈' | '지역구대회' | '학생선수권' | '브랜드대회' | '국제대회';
 
 export type TournamentSource = 
-  | '스포넷' 
-  | '위꾹' 
-  | '오마이플레이' 
-  | '코트엑스' 
-  | '페이스콕' 
-  | 'BKPLAY' 
-  | '리부트아카데미' 
   | '배드민톡' 
-  | '배프' 
-  | '딱플'
-  | '대한체육회'
   | '배드민턴타임즈'
-  | 'BWF'
+  | '페이스콕' 
+  | '코트엑스' 
+  | '스포넷' 
   | '배드민턴게임'
-  | '네이버밴드';
+  | 'BKPLAY' 
+  | '네이버밴드'
+  | 'BWF';
 
 export interface Tournament {
   id: string;
