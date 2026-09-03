@@ -50,6 +50,8 @@ const VENUE_COORDINATES: Record<string, Coordinates> = {
   '한라체육관': { lat: 33.4975, lng: 126.5186 },
 
   // 글로벌 & BWF 국제 대회 주요 개최지
+  '인도': { lat: 28.6139, lng: 77.2090 },
+  '뉴델리': { lat: 28.6139, lng: 77.2090 },
   '일본': { lat: 35.6762, lng: 139.6503 },
   '구마모토': { lat: 32.8031, lng: 130.7079 },
   '도쿄': { lat: 35.6762, lng: 139.6503 },
@@ -65,6 +67,9 @@ const VENUE_COORDINATES: Record<string, Coordinates> = {
   '욕야카르타': { lat: -7.7956, lng: 110.3695 },
   '말레이시아': { lat: 3.1390, lng: 101.6869 },
   '쿠알라룸푸르': { lat: 3.1390, lng: 101.6869 },
+  '싱가포르': { lat: 1.3521, lng: 103.8198 },
+  '대만': { lat: 25.0330, lng: 121.5654 },
+  '타이베이': { lat: 25.0330, lng: 121.5654 },
   '영국': { lat: 52.4862, lng: -1.8904 },
   '버밍엄': { lat: 52.4862, lng: -1.8904 },
   '스코틀랜드': { lat: 55.8642, lng: -4.2518 },
@@ -74,15 +79,21 @@ const VENUE_COORDINATES: Record<string, Coordinates> = {
   '프랑스': { lat: 48.8566, lng: 2.3522 },
   '파리': { lat: 48.8566, lng: 2.3522 },
   '독일': { lat: 51.1657, lng: 10.4515 },
+  '뮐하임': { lat: 51.4273, lng: 6.8829 },
   '덴마크': { lat: 55.6761, lng: 12.5683 },
   '스위스': { lat: 46.8182, lng: 8.2275 },
+  '바젤': { lat: 47.5596, lng: 7.5886 },
+  '스페인': { lat: 40.4168, lng: -3.7038 },
+  '미국': { lat: 34.0522, lng: -118.2437 },
+  '호주': { lat: -33.8688, lng: 151.2093 },
+  '시드니': { lat: -33.8688, lng: 151.2093 },
 };
 
 /**
  * 경기장 주소가 해외 국제 대회인지 판별합니다.
  */
 export function isInternationalVenue(venue: string): boolean {
-  return /일본|구마모토|도쿄|중국|항저우|홍콩|태국|방콕|빠툼타니|인도네시아|쿠두스|욕야카르타|자카르타|말레이시아|쿠알라룸푸르|영국|버밍엄|스코틀랜드|글래스고|아일랜드|더블린|프랑스|파리|독일|덴마크|스위스|BWF/.test(venue);
+  return /인도|뉴델리|일본|구마모토|도쿄|중국|항저우|홍콩|태국|방콕|빠툼타니|인도네시아|쿠두스|욕야카르타|자카르타|말레이시아|쿠알라룸푸르|싱가포르|대만|타이베이|영국|버밍엄|스코틀랜드|글래스고|아일랜드|더블린|프랑스|파리|독일|뮐하임|덴마크|스위스|바젤|스페인|미국|호주|시드니|BWF/.test(venue);
 }
 
 // 2. 대한민국 시·군·구 단위 정밀 행정구역 좌표 (총 120+개 주요 지자체 전수)
@@ -328,14 +339,24 @@ export function getVenueCoordinates(venue: string): Coordinates {
   if (normalized.includes('제주')) return { lat: 33.4996, lng: 126.5312 };
 
   // 해외 국가/지역 기본 좌표
-  if (normalized.includes('일본')) return { lat: 35.6762, lng: 139.6503 };
-  if (normalized.includes('중국')) return { lat: 30.2741, lng: 120.1551 };
-  if (normalized.includes('태국')) return { lat: 13.7563, lng: 100.5018 };
-  if (normalized.includes('인도네시아')) return { lat: -6.2088, lng: 106.8456 };
-  if (normalized.includes('말레이시아')) return { lat: 3.1390, lng: 101.6869 };
-  if (normalized.includes('영국') || normalized.includes('스코틀랜드')) return { lat: 52.4862, lng: -1.8904 };
-  if (normalized.includes('아일랜드')) return { lat: 53.3498, lng: -6.2603 };
-  if (normalized.includes('프랑스')) return { lat: 48.8566, lng: 2.3522 };
+  if (normalized.includes('일본') || normalized.includes('구마모토') || normalized.includes('도쿄')) return { lat: 35.6762, lng: 139.6503 };
+  if (normalized.includes('중국') || normalized.includes('항저우')) return { lat: 30.2741, lng: 120.1551 };
+  if (normalized.includes('홍콩')) return { lat: 22.3193, lng: 114.1694 };
+  if (normalized.includes('태국') || normalized.includes('방콕') || normalized.includes('빠툼타니')) return { lat: 13.7563, lng: 100.5018 };
+  if (normalized.includes('인도네시아') || normalized.includes('자카르타') || normalized.includes('쿠두스') || normalized.includes('욕야카르타')) return { lat: -6.2088, lng: 106.8456 };
+  if (normalized.includes('말레이시아') || normalized.includes('쿠알라룸푸르')) return { lat: 3.1390, lng: 101.6869 };
+  if (normalized.includes('인도') || normalized.includes('뉴델리')) return { lat: 28.6139, lng: 77.2090 };
+  if (normalized.includes('싱가포르')) return { lat: 1.3521, lng: 103.8198 };
+  if (normalized.includes('대만') || normalized.includes('타이베이')) return { lat: 25.0330, lng: 121.5654 };
+  if (normalized.includes('영국') || normalized.includes('버밍엄') || normalized.includes('스코틀랜드') || normalized.includes('글래스고')) return { lat: 52.4862, lng: -1.8904 };
+  if (normalized.includes('아일랜드') || normalized.includes('더블린')) return { lat: 53.3498, lng: -6.2603 };
+  if (normalized.includes('프랑스') || normalized.includes('파리')) return { lat: 48.8566, lng: 2.3522 };
+  if (normalized.includes('독일') || normalized.includes('뮐하임')) return { lat: 51.1657, lng: 10.4515 };
+  if (normalized.includes('덴마크')) return { lat: 55.6761, lng: 12.5683 };
+  if (normalized.includes('스위스') || normalized.includes('바젤')) return { lat: 46.8182, lng: 8.2275 };
+  if (normalized.includes('스페인')) return { lat: 40.4168, lng: -3.7038 };
+  if (normalized.includes('미국')) return { lat: 34.0522, lng: -118.2437 };
+  if (normalized.includes('호주') || normalized.includes('시드니')) return { lat: -33.8688, lng: 151.2093 };
 
   // 기본값 (서울 중심)
   return { lat: 37.5385, lng: 127.0823 };

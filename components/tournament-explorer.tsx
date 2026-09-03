@@ -1277,7 +1277,11 @@ function TournamentCard({
               <p className="flex items-start gap-2">
                 <MapPin className="mt-0.5 size-4 shrink-0 text-emerald-600" />
                 <span className="line-clamp-1">
-                  {t.venue} {t.distanceKm !== undefined && `(${userLocationLabel} 기준 ${t.distanceKm}km)`}
+                  {t.venue}{' '}
+                  {t.distanceKm !== undefined &&
+                    (isInternationalVenue(t.venue) || t.category === '국제대회'
+                      ? `(약 ${t.distanceKm.toLocaleString()}km)`
+                      : `(${userLocationLabel} 기준 ${t.distanceKm}km)`)}
                 </span>
               </p>
             </div>
