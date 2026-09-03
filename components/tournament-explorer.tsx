@@ -55,9 +55,9 @@ interface UserLocation {
   isGps: boolean;
 }
 
-const regions = ['전체', '수도권', '충청', '전라', '경상', '강원', '기타'] as const;
-const categories: readonly (TournamentCategory | '전체')[] = ['전체', '전국오픈', '지역구대회', '브랜드대회', '학생선수권', '국제대회'];
-const statuses: readonly StatusFilter[] = ['전체', '종료 제외', '접수중', '마감임박', '접수예정', '접수마감', '대회종료'];
+const allRegions = ['수도권', '충청', '전라', '경상', '강원', '기타'] as const;
+const allCategories: readonly TournamentCategory[] = ['전국오픈', '지역구대회', '브랜드대회', '학생선수권', '국제대회'];
+const allStatuses: readonly string[] = ['종료 제외', '접수중', '마감임박', '접수예정', '접수마감', '대회종료'];
 const distanceOptions = ['전체', '5km', '10km', '20km', '30km', '50km', '100km', '200km', '300km'] as const;
 export type DistanceFilter = (typeof distanceOptions)[number];
 
@@ -204,25 +204,38 @@ function getTournamentPosterFallback(name: string, category: string, venue: stri
 function FilterRow({
   label,
   items,
-  value,
+  values,
   onChange,
 }: {
   label: string;
   items: readonly string[];
-  value: string;
+  values: Set<string>;
   onChange: (value: string) => void;
 }) {
+  const allSelected = values.size === 0;
   return (
     <div className="flex items-start gap-2 pt-0.5">
       <span className="w-12 shrink-0 pt-1 text-xs font-semibold text-muted-foreground">{label}</span>
       <div className="flex flex-wrap gap-1.5">
-        {items.map((item) => (
+        <button
+          key="전체"
+          type="button"
+          onClick={() => onChange('전체')}
+          className={`rounded-full border px-3 py-1 text-xs font-medium transition ${
+            allSelected
+              ? 'border-emerald-700 bg-emerald-700 font-bold text-white shadow-sm'
+              : 'border-slate-200 bg-white text-slate-600 hover:border-slate-300 hover:bg-slate-50'
+          }`}
+        >
+          전체
+        </button>
+        {items.filter(i => i !== '전체').map((item) => (
           <button
             key={item}
             type="button"
             onClick={() => onChange(item)}
             className={`rounded-full border px-3 py-1 text-xs font-medium transition ${
-              value === item
+              values.has(item)
                 ? 'border-emerald-700 bg-emerald-700 font-bold text-white shadow-sm'
                 : 'border-slate-200 bg-white text-slate-600 hover:border-slate-300 hover:bg-slate-50'
             }`}
@@ -262,10 +275,10 @@ function getLocationServerSnapshot(): string {
 export function TournamentExplorer({ tournaments }: { tournaments: Tournament[] }) {
   const [activeTab, setActiveTab] = useState<MainTab>('tournaments');
   const [query, setQuery] = useState('');
-  const [region, setRegion] = useState('전체');
-  const [category, setCategory] = useState('전체');
-  const [status, setStatus] = useState<StatusFilter>('전체');
-  const [source, setSource] = useState('전체');
+  const [regions, setRegions] = useState<Set<string>>(new Set());
+  const [categories, setCategories] = useState<Set<string>>(new Set());
+  const [statuses, setStatuses] = useState<Set<string>>(new Set());
+  const [sources, setSources] = useState<Set<string>>(new Set());
   const [distanceFilter, setDistanceFilter] = useState<DistanceFilter>('전체');
   const [sortOption, setSortOption] = useState<SortOption>('eventStart');
   const [view, setView] = useState<View>('list');
@@ -286,6 +299,20 @@ export function TournamentExplorer({ tournaments }: { tournaments: Tournament[] 
   });
 
   const [onlyFavorites, setOnlyFavorites] = useState(false);
+
+  // 멀티 필터 토글 헬퍼
+  const toggleFilter = (setter: React.Dispatch<React.SetStateAction<Set<string>>>, value: string) => {
+    if (value === '전체') {
+      setter(new Set());
+      return;
+    }
+    setter((prev) => {
+      const next = new Set(prev);
+      if (next.has(value)) next.delete(value);
+      else next.add(value);
+      return next;
+    });
+  };
 
   const toggleFavorite = (id: string, e?: React.SyntheticEvent) => {
     if (e) e.stopPropagation();
@@ -463,17 +490,20 @@ export function TournamentExplorer({ tournaments }: { tournaments: Tournament[] 
       .filter((t) => {
         const allSources = t.sources && t.sources.length > 0 ? t.sources.join(' ') : t.source;
         const text = `${t.name} ${t.venue} ${allSources} ${t.category}`.toLowerCase();
+
         const matchesSource =
-          source === '전체' ||
-          (t.sources ? t.sources.includes(source as TournamentSource) : t.source === source);
+          sources.size === 0 ||
+          (t.sources
+            ? t.sources.some((s) => sources.has(s))
+            : sources.has(t.source));
 
         const currentStatus = getStatus(t, today);
         const matchesStatus =
-          status === '전체'
+          statuses.size === 0
             ? true
-            : status === '종료 제외'
+            : statuses.has('종료 제외')
             ? currentStatus !== '대회종료'
-            : currentStatus === status;
+            : statuses.has(currentStatus);
 
         const matchesDistance = (() => {
           if (distanceFilter === '전체') return true;
@@ -485,8 +515,8 @@ export function TournamentExplorer({ tournaments }: { tournaments: Tournament[] 
 
         return (
           (!query || text.includes(query.toLowerCase())) &&
-          (region === '전체' || regionOf(t.venue) === region) &&
-          (category === '전체' || t.category === category) &&
+          (regions.size === 0 || regions.has(regionOf(t.venue))) &&
+          (categories.size === 0 || categories.has(t.category)) &&
           matchesStatus &&
           matchesSource &&
           matchesDistance &&
@@ -503,7 +533,7 @@ export function TournamentExplorer({ tournaments }: { tournaments: Tournament[] 
         if (sortOption === 'registrationEnd') return a.registrationEnd.localeCompare(b.registrationEnd);
         return a.name.localeCompare(b.name);
       });
-  }, [tournaments, query, region, category, status, source, distanceFilter, sortOption, today, userLocation, favorites, onlyFavorites]);
+  }, [tournaments, query, regions, categories, statuses, sources, distanceFilter, sortOption, today, userLocation, favorites, onlyFavorites]);
 
   // 구글 시트 및 엑셀용 CSV 내보내기 핸들러 (한글 깨짐 방지 UTF-8 BOM 적용)
   const handleExportCsv = () => {
@@ -831,14 +861,14 @@ export function TournamentExplorer({ tournaments }: { tournaments: Tournament[] 
                 <div className="flex items-center gap-2 text-sm font-bold text-slate-800">
                   <SlidersHorizontal className="size-4 text-emerald-700" /> 맞춤 필터
                 </div>
-                {(region !== '전체' || category !== '전체' || status !== '전체' || source !== '전체' || distanceFilter !== '전체' || query) && (
+                {(regions.size > 0 || categories.size > 0 || statuses.size > 0 || sources.size > 0 || distanceFilter !== '전체' || query) && (
                   <button
                     type="button"
                     onClick={() => {
-                      setRegion('전체');
-                      setCategory('전체');
-                      setStatus('전체');
-                      setSource('전체');
+                      setRegions(new Set());
+                      setCategories(new Set());
+                      setStatuses(new Set());
+                      setSources(new Set());
                       setDistanceFilter('전체');
                       setQuery('');
                     }}
@@ -876,20 +906,31 @@ export function TournamentExplorer({ tournaments }: { tournaments: Tournament[] 
                 </div>
               </div>
 
-              <FilterRow label="상태" items={statuses} value={status} onChange={(val) => setStatus(val as StatusFilter)} />
-              <FilterRow label="지역" items={regions} value={region} onChange={setRegion} />
-              <FilterRow label="구분" items={categories} value={category} onChange={setCategory} />
+              <FilterRow label="상태" items={allStatuses} values={statuses} onChange={(val) => toggleFilter(setStatuses, val)} />
+              <FilterRow label="지역" items={allRegions as readonly string[]} values={regions} onChange={(val) => toggleFilter(setRegions, val)} />
+              <FilterRow label="구분" items={allCategories as readonly string[]} values={categories} onChange={(val) => toggleFilter(setCategories, val)} />
               {/* 10대 플랫폼 출처 필터 (모든 사용자에게 상시 노출) */}
               <div className="flex items-start gap-2 border-t border-slate-100 pt-2">
                 <span className="w-12 shrink-0 pt-1 text-xs font-semibold text-muted-foreground">출처</span>
                 <div className="flex flex-wrap gap-1.5">
-                  {dynamicSources.map((item) => (
+                  <button
+                    type="button"
+                    onClick={() => setSources(new Set())}
+                    className={`rounded-full border px-3 py-1 text-xs font-medium transition ${
+                      sources.size === 0
+                        ? 'border-emerald-700 bg-emerald-700 font-bold text-white shadow-sm'
+                        : 'border-slate-200 bg-white text-slate-600 hover:border-slate-300 hover:bg-slate-50'
+                    }`}
+                  >
+                    전체
+                  </button>
+                  {dynamicSources.filter(item => item.value !== '전체').map((item) => (
                     <button
                       key={item.value}
                       type="button"
-                      onClick={() => setSource(item.value)}
+                      onClick={() => toggleFilter(setSources, item.value)}
                       className={`rounded-full border px-3 py-1 text-xs font-medium transition ${
-                        source === item.value
+                        sources.has(item.value)
                           ? 'border-emerald-700 bg-emerald-700 font-bold text-white shadow-sm'
                           : 'border-slate-200 bg-white text-slate-600 hover:border-slate-300 hover:bg-slate-50'
                       }`}
