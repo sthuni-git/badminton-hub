@@ -51,6 +51,9 @@ function generateStaticHtml() {
   <meta property="og:description" content="전국 배드민턴 대회 일정을 한눈에" />
   <meta property="og:image" content="/og.png" />
   <meta name="twitter:card" content="summary_large_image" />
+  <script>
+    window.process = window.process || { env: { NODE_ENV: 'production' } };
+  </script>
   ${cssLinks.join("\n  ")}
 </head>
 <body class="antialiased">

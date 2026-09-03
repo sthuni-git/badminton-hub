@@ -340,7 +340,8 @@ export function TournamentExplorer({ tournaments }: { tournaments: Tournament[] 
         const allSources = t.sources && t.sources.length > 0 ? t.sources.join(' ') : t.source;
         const text = `${t.name} ${t.venue} ${allSources} ${t.category}`.toLowerCase();
         const matchesSource =
-          !isAdmin || source === '전체' || (t.sources ? t.sources.includes(source as TournamentSource) : t.source === source);
+          source === '전체' ||
+          (t.sources ? t.sources.includes(source as TournamentSource) : t.source === source);
 
         const currentStatus = getStatus(t, today);
         const matchesStatus =
