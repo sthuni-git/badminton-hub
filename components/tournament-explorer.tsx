@@ -1328,54 +1328,62 @@ function TournamentCard({
           : 'border-slate-200/90 bg-white shadow-[0_4px_20px_rgb(20_83_45/5%)] hover:border-emerald-300 hover:shadow-[0_10px_32px_rgb(20_83_45/10%)]'
       }`}
     >
-      <button type="button" onClick={onSelect} className="w-full text-left">
-        <div className="mb-3 flex items-center justify-between gap-2">
-          <div className="flex flex-wrap items-center gap-1.5">
-            {/* ❤️ 즐겨찾기 고정 뱃지 */}
-            {isFavorite && (
-              <span className="inline-flex items-center gap-1 rounded-full border border-rose-300 bg-rose-50 px-2 py-0.5 text-[11px] font-extrabold text-rose-700 shadow-xs">
-                <Heart className="size-3 fill-rose-500 text-rose-500" />
-                찜한 대회
-              </span>
-            )}
-            <Badge variant="outline" className={statusStyle(status)}>
-              {status}
-            </Badge>
-            <Badge variant="secondary">{t.category}</Badge>
-            {/* 거리 표시 뱃지 */}
-            {t.distanceKm !== undefined && (
-              isInternationalVenue(t.venue) || t.category === '국제대회' ? (
-                <span className="inline-flex items-center gap-0.5 rounded-full border border-sky-300 bg-sky-50 px-2 py-0.5 text-[11px] font-extrabold text-sky-800">
-                  ✈️ 해외 ({t.venue.split(' ')[0]} · 약 {t.distanceKm.toLocaleString()}km)
-                </span>
-              ) : (
-                <span className="inline-flex items-center gap-0.5 rounded-full border border-amber-200 bg-amber-50/90 px-2 py-0.5 text-[11px] font-extrabold text-amber-800">
-                  📍 {t.distanceKm}km
-                </span>
-              )
-            )}
-          </div>
-          <div className="flex items-center gap-1.5">
-            <span className={`rounded-lg px-2 py-1 text-xs font-extrabold ${status === '대회종료' ? 'bg-slate-100 text-slate-500' : 'bg-amber-50 text-amber-700'}`}>
-              {status === '대회종료' ? (eventD < 0 ? `종료 (${Math.abs(eventD)}일 전)` : '대회 종료') : eventD > 0 ? `대회 D-${eventD}` : '오늘 대회'}
+      {/* 카드 상단 상태 뱃지 & 하트 찜하기 버튼 */}
+      <div className="mb-3 flex items-center justify-between gap-2">
+        <div className="flex flex-wrap items-center gap-1.5">
+          {/* ❤️ 즐겨찾기 고정 뱃지 */}
+          {isFavorite && (
+            <span className="inline-flex items-center gap-1 rounded-full border border-rose-300 bg-rose-50 px-2 py-0.5 text-[11px] font-extrabold text-rose-700 shadow-xs">
+              <Heart className="size-3 fill-rose-500 text-rose-500" />
+              찜한 대회
             </span>
-            {/* 하트 찜하기 버튼 */}
-            <button
-              type="button"
-              onClick={onToggleFavorite}
-              className={`flex size-7.5 items-center justify-center rounded-full border transition hover:scale-110 ${
-                isFavorite
-                  ? 'border-rose-300 bg-rose-50 text-rose-600 shadow-xs'
-                  : 'border-slate-200 bg-white text-slate-400 hover:border-rose-200 hover:text-rose-500'
-              }`}
-              title={isFavorite ? '즐겨찾기 해제' : '즐겨찾기(하트) 등록 - 항상 최상단 고정'}
-              aria-label={`${t.name} 즐겨찾기 토글`}
-            >
-              <Heart className={`size-4 ${isFavorite ? 'fill-rose-500 text-rose-500' : ''}`} />
-            </button>
-          </div>
+          )}
+          <Badge variant="outline" className={statusStyle(status)}>
+            {status}
+          </Badge>
+          <Badge variant="secondary">{t.category}</Badge>
+          {/* 거리 표시 뱃지 */}
+          {t.distanceKm !== undefined && (
+            isInternationalVenue(t.venue) || t.category === '국제대회' ? (
+              <span className="inline-flex items-center gap-0.5 rounded-full border border-sky-300 bg-sky-50 px-2 py-0.5 text-[11px] font-extrabold text-sky-800">
+                ✈️ 해외 ({t.venue.split(' ')[0]} · 약 {t.distanceKm.toLocaleString()}km)
+              </span>
+            ) : (
+              <span className="inline-flex items-center gap-0.5 rounded-full border border-amber-200 bg-amber-50/90 px-2 py-0.5 text-[11px] font-extrabold text-amber-800">
+                📍 {t.distanceKm}km
+              </span>
+            )
+          )}
         </div>
+        <div className="flex items-center gap-1.5">
+          <span className={`rounded-lg px-2 py-1 text-xs font-extrabold ${status === '대회종료' ? 'bg-slate-100 text-slate-500' : 'bg-amber-50 text-amber-700'}`}>
+            {status === '대회종료' ? (eventD < 0 ? `종료 (${Math.abs(eventD)}일 전)` : '대회 종료') : eventD > 0 ? `대회 D-${eventD}` : '오늘 대회'}
+          </span>
+          {/* 하트 찜하기 버튼 */}
+          <button
+            type="button"
+            onClick={onToggleFavorite}
+            className={`flex size-8 items-center justify-center rounded-full border transition hover:scale-115 active:scale-95 ${
+              isFavorite
+                ? 'border-rose-400 bg-rose-50 text-rose-600 shadow-sm'
+                : 'border-slate-200 bg-white text-slate-400 hover:border-rose-200 hover:text-rose-500'
+            }`}
+            title={isFavorite ? '즐겨찾기 해제' : '즐겨찾기(하트) 등록 - 항상 최상단 고정'}
+            aria-label={`${t.name} 즐겨찾기 토글`}
+          >
+            <Heart className={`size-4.5 ${isFavorite ? 'fill-rose-500 text-rose-500' : ''}`} />
+          </button>
+        </div>
+      </div>
 
+      {/* 카드 본문 클릭 영역 */}
+      <div
+        role="button"
+        tabIndex={0}
+        onClick={onSelect}
+        onKeyDown={(e) => e.key === 'Enter' && onSelect()}
+        className="cursor-pointer text-left focus:outline-none"
+      >
         <div className="flex items-start justify-between gap-3">
           <div className="flex-1">
             <h3 className="line-clamp-2 text-[17px] font-extrabold leading-snug tracking-tight text-slate-900 group-hover:text-emerald-800">
@@ -1415,7 +1423,7 @@ function TournamentCard({
             </div>
           )}
         </div>
-      </button>
+      </div>
 
       <div className="mt-4 flex items-center justify-between border-t border-slate-100 pt-3 gap-2 flex-wrap">
         <div className="flex items-center gap-1.5 flex-wrap">
