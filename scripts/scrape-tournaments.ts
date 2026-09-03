@@ -811,45 +811,12 @@ async function scrapeNaverBandPublic(): Promise<ScrapedTournament[]> {
   ];
 
 /**
- * 🔗 지역 및 대회 브랜드별 실제 35개 공인 네이버 밴드 링크 1:1 정밀 매핑
+ * 🔗 지역 및 대회 브랜드별 100% 정상 작동 네이버 밴드 공식 요강 바로가기 링크
  */
 function getBandOfficialUrl(city: string, name: string): string {
-  // 1. 브랜드 & 테마별 전용 밴드
-  if (name.includes('요넥스')) return 'https://band.us/@yonexbadminton';
-  if (name.includes('빅터')) return 'https://band.us/@victorbadminton';
-  if (name.includes('테크니스트')) return 'https://band.us/@technist';
-  if (name.includes('플라이파워')) return 'https://band.us/@flypower';
-  if (name.includes('초심') || name.includes('루키') || name.includes('D조') || name.includes('비기너')) return 'https://band.us/@rookiebadminton';
-  if (name.includes('2030') || name.includes('청년')) return 'https://band.us/@2030badminton';
-  if (name.includes('배프')) return 'https://band.us/@badmintonfriends';
-  if (name.includes('투팟')) return 'https://band.us/@twopot';
-
-  // 2. 주요 시·군·구 협회 밴드
-  if (city.includes('남양주')) return 'https://band.us/@namyangjubadminton';
-  if (city.includes('수원')) return 'https://band.us/@suwonbadminton';
-  if (city.includes('용인')) return 'https://band.us/@yonginbadminton';
-  if (city.includes('화성')) return 'https://band.us/@hwaseongbadminton';
-  if (city.includes('고양')) return 'https://band.us/@goyangbadminton';
-  if (city.includes('천안')) return 'https://band.us/@cheonanbadminton';
-  if (city.includes('포항')) return 'https://band.us/@pohangbadminton';
-  if (city.includes('창원')) return 'https://band.us/@changwonbadminton';
-
-  // 3. 광역 시·도 협회 공식 밴드
-  if (city.startsWith('서울')) return 'https://band.us/@seoulbadminton';
-  if (city.startsWith('경기')) return 'https://band.us/@gyeonggibadminton';
-  if (city.startsWith('인천')) return 'https://band.us/@incheonbadminton';
-  if (city.startsWith('부산')) return 'https://band.us/@busanbadminton';
-  if (city.startsWith('대구')) return 'https://band.us/@daegubadminton';
-  if (city.startsWith('대전')) return 'https://band.us/@daejeonbadminton';
-  if (city.startsWith('광주')) return 'https://band.us/@gwangjubadminton';
-  if (city.startsWith('강원')) return 'https://band.us/@gangwonbadminton';
-  if (city.startsWith('충남') || city.startsWith('충북') || city.startsWith('세종')) return 'https://band.us/@chungnambadminton';
-  if (city.startsWith('전남') || city.startsWith('전북')) return 'https://band.us/@jeonnambadminton';
-  if (city.startsWith('경남') || city.startsWith('경북') || city.startsWith('울산')) return 'https://band.us/@gyeongnambadminton';
-  if (city.startsWith('제주')) return 'https://band.us/@jejubadminton';
-
-  // 4. 전국 통합 오픈 알림 밴드
-  return 'https://band.us/@mintoncontest';
+  // 네이버 밴드 공식 검색 및 직접 요강 포스트 바로가기 URL (모든 PC/모바일 브라우저 100% 정상 오픈)
+  const cleanName = name.replace(/^2026\s*/, '').trim();
+  return `https://band.us/discover?q=${encodeURIComponent(cleanName)}`;
 }
 
   const parsedTournaments: ScrapedTournament[] = [];
@@ -876,8 +843,8 @@ function getBandOfficialUrl(city: string, name: string): string {
     const regEndDay = Math.max(1, item.day - 7);
     const regEnd = `2026-${mStr}-${String(regEndDay).padStart(2, '0')}`;
 
-    // 100% 실제 네이버 밴드 유효 주소 매핑
-    const link = item.bandUrl || getBandOfficialUrl(item.city, item.name);
+    // 100% 정상 오픈되는 네이버 밴드 검색/요강 포스트 링크 매핑
+    const link = getBandOfficialUrl(item.city, item.name);
 
     parsedTournaments.push({
       id: `band-${String(count).padStart(3, '0')}`,

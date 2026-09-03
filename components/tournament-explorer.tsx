@@ -1035,6 +1035,28 @@ export function TournamentExplorer({ tournaments }: { tournaments: Tournament[] 
                   {getStatus(selected, today) === '대회종료' ? '대회 결과 및 요강 보기' : '접수 및 세부 요강 바로가기'} {isAdmin ? `(${selected.source})` : ''} <ExternalLink className="size-4" />
                 </a>
               )}
+
+              {/* 보조 링크: 네이버 포털 검색 & 네이버 지도 길찾기 */}
+              <div className="grid grid-cols-2 gap-2 pt-1">
+                <a
+                  href={`https://search.naver.com/search.naver?where=article&query=${encodeURIComponent(selected.name + ' 배드민턴대회 요강')}`}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex h-10 items-center justify-center gap-1.5 rounded-xl border border-emerald-200 bg-emerald-50/60 text-xs font-bold text-emerald-800 transition hover:bg-emerald-100"
+                >
+                  <Search className="size-3.5 text-emerald-600" />
+                  네이버 요강 검색
+                </a>
+                <a
+                  href={`https://map.naver.com/p/search/${encodeURIComponent(selected.venue)}`}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex h-10 items-center justify-center gap-1.5 rounded-xl border border-slate-200 bg-white text-xs font-bold text-slate-700 transition hover:bg-slate-50"
+                >
+                  <MapPin className="size-3.5 text-slate-500" />
+                  체육관 지도·길찾기
+                </a>
+              </div>
             </div>
           </SheetContent>
         )}
