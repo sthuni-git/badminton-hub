@@ -55,6 +55,27 @@ function generateStaticHtml() {
 </head>
 <body class="antialiased">
   <div id="root">${renderedAppHtml}</div>
+  <script>
+    // 관리자 모드 즉각 반응 이중 안전장치 (Dual Fallback)
+    document.addEventListener('click', function(e) {
+      var target = e.target && e.target.closest ? e.target.closest('#admin-header-btn, button') : null;
+      if (target && target.textContent && target.textContent.includes('관리자') && !target.textContent.includes('ON')) {
+        if (typeof window.__openAdminModal === 'function') {
+          window.__openAdminModal();
+        } else {
+          var pw = prompt('🏸 배드민턴 허브 관리자 비밀번호를 입력하세요:');
+          if (pw === '4545') {
+            try {
+              localStorage.setItem('minton_is_admin', 'true');
+              window.location.reload();
+            } catch (err) {}
+          } else if (pw !== null) {
+            alert('관리자 비밀번호가 올바르지 않습니다.');
+          }
+        }
+      }
+    }, true);
+  </script>
   <script src="/app-bundle.js"></script>
   <script>
     if (typeof window !== "undefined" && typeof window.__mountApp === "function") {

@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useMemo, useState, useSyncExternalStore } from 'react';
+import React, { useEffect, useMemo, useState, useSyncExternalStore } from 'react';
 import {
   ArrowUpDown,
   Calendar,
@@ -306,6 +306,19 @@ export function TournamentExplorer({ tournaments }: { tournaments: Tournament[] 
     setActiveTab('tournaments');
   };
 
+  // 전역 window 트리거 등록 (HTML 레벨 클릭 즉각 반응)
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const win = window as unknown as Record<string, unknown>;
+      win.__openAdminModal = () => {
+        setAdminModalOpen(true);
+        setAdminErrorMessage('');
+        setAdminInputPassword('');
+      };
+      win.__logoutAdmin = handleLogoutAdmin;
+    }
+  }, []);
+
   // 프리셋 기준 지역 선택 핸들러
   const handleSelectPresetLocation = (presetId: string) => {
     const preset = PRESET_LOCATIONS.find((p) => p.id === presetId);
@@ -508,13 +521,26 @@ export function TournamentExplorer({ tournaments }: { tournaments: Tournament[] 
               </div>
             )}
 
-            {/* 관리자 모드 활성 뱃지 및 로그아웃 버튼 */}
-            {isAdmin && (
+            {/* 상단 관리자 모드 로그인 / 로그아웃 버튼 */}
+            {!isAdmin ? (
+              <button
+                type="button"
+                onClick={() => {
+                  setAdminModalOpen(true);
+                  setAdminErrorMessage('');
+                  setAdminInputPassword('');
+                }}
+                id="admin-header-btn"
+                className="inline-flex h-8 items-center gap-1.5 rounded-xl border border-emerald-300 bg-white px-3 text-xs font-bold text-emerald-900 shadow-xs transition hover:border-emerald-600 hover:bg-emerald-50 active:scale-95"
+              >
+                <Lock className="size-3.5 text-emerald-700" /> 관리자
+              </button>
+            ) : (
               <button
                 type="button"
                 onClick={handleLogoutAdmin}
                 title="관리자 권한 해제 (로그아웃)"
-                className="inline-flex h-8 items-center gap-1.5 rounded-lg border border-amber-300 bg-amber-50 px-2.5 text-xs font-bold text-amber-900 transition hover:bg-amber-100"
+                className="inline-flex h-8 items-center gap-1.5 rounded-xl border border-amber-300 bg-amber-50 px-2.5 text-xs font-bold text-amber-900 shadow-xs transition hover:bg-amber-100 active:scale-95"
               >
                 <ShieldCheck className="size-3.5 text-amber-700" /> 관리자 ON
                 <LogOut className="size-3 text-amber-700" />
