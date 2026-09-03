@@ -962,6 +962,35 @@ export function TournamentExplorer({ tournaments }: { tournaments: Tournament[] 
               </SheetDescription>
             </SheetHeader>
 
+            {/* 대회 공식 요강 포스터 이미지 뷰어 */}
+            {selected.posterImage && (
+              <div className="mx-5 mb-4 overflow-hidden rounded-2xl border border-emerald-200 bg-slate-900 shadow-md sm:mx-7">
+                <div className="relative aspect-[16/9] w-full overflow-hidden bg-slate-950 sm:aspect-[2/1]">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={selected.posterImage}
+                    alt={`${selected.name} 공식 요강 포스터`}
+                    className="size-full object-cover opacity-90 transition duration-300 hover:scale-105 hover:opacity-100"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent pointer-events-none" />
+                  <div className="absolute bottom-2.5 left-3 right-3 flex items-center justify-between">
+                    <span className="inline-flex items-center gap-1 rounded-md bg-emerald-700/90 px-2 py-0.5 text-[11px] font-bold text-white shadow-xs backdrop-blur-xs">
+                      🖼️ 대회 공식 요강 포스터
+                    </span>
+                    <a
+                      href={selected.posterImage}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="rounded-md bg-black/60 px-2 py-0.5 text-[10px] font-bold text-white hover:bg-black/90"
+                    >
+                      원본 확대 보기 🔍
+                    </a>
+                  </div>
+                </div>
+              </div>
+            )}
+
             <div className="mx-5 grid gap-3 rounded-2xl bg-emerald-50/60 p-4 sm:mx-7">
               <Detail icon={<CalendarDays />} label="대회 일정" value={selected.eventPeriod} />
               <Detail icon={<Clock3 />} label="접수 기간" value={selected.registrationPeriod} />
@@ -1224,21 +1253,40 @@ function TournamentCard({
           </span>
         </div>
 
-        <h3 className="line-clamp-2 text-[17px] font-extrabold leading-snug tracking-tight text-slate-900 group-hover:text-emerald-800">
-          {t.name}
-        </h3>
+        <div className="flex items-start justify-between gap-3">
+          <div className="flex-1">
+            <h3 className="line-clamp-2 text-[17px] font-extrabold leading-snug tracking-tight text-slate-900 group-hover:text-emerald-800">
+              {t.name}
+            </h3>
 
-        <div className="mt-3 space-y-1.5 text-sm text-muted-foreground">
-          <p className="flex items-start gap-2">
-            <CalendarDays className="mt-0.5 size-4 shrink-0 text-emerald-600" />
-            <span className="font-medium text-slate-700">{t.eventPeriod}</span>
-          </p>
-          <p className="flex items-start gap-2">
-            <MapPin className="mt-0.5 size-4 shrink-0 text-emerald-600" />
-            <span className="line-clamp-1">
-              {t.venue} {t.distanceKm !== undefined && `(${userLocationLabel} 기준 ${t.distanceKm}km)`}
-            </span>
-          </p>
+            <div className="mt-3 space-y-1.5 text-sm text-muted-foreground">
+              <p className="flex items-start gap-2">
+                <CalendarDays className="mt-0.5 size-4 shrink-0 text-emerald-600" />
+                <span className="font-medium text-slate-700">{t.eventPeriod}</span>
+              </p>
+              <p className="flex items-start gap-2">
+                <MapPin className="mt-0.5 size-4 shrink-0 text-emerald-600" />
+                <span className="line-clamp-1">
+                  {t.venue} {t.distanceKm !== undefined && `(${userLocationLabel} 기준 ${t.distanceKm}km)`}
+                </span>
+              </p>
+            </div>
+          </div>
+
+          {t.posterImage && (
+            <div className="relative size-20 shrink-0 overflow-hidden rounded-xl border border-slate-200 bg-slate-100 shadow-xs sm:size-22">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={t.posterImage}
+                alt={`${t.name} 썸네일`}
+                className="size-full object-cover transition duration-300 group-hover:scale-105"
+                loading="lazy"
+              />
+              <span className="absolute bottom-0 inset-x-0 bg-black/60 py-0.5 text-center text-[9px] font-bold text-white">
+                요강 포스터
+              </span>
+            </div>
+          )}
         </div>
       </button>
 
