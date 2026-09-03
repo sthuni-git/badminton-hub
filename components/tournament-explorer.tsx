@@ -120,15 +120,17 @@ function googleCalendarUrl(t: Tournament) {
 function getSecurePosterUrl(url?: string): string {
   if (!url) return '';
   if (url.startsWith('data:') || url.startsWith('blob:')) return url;
-  if (url.startsWith('/api/poster')) return url;
-  if (url.startsWith('https://images.weserv.nl')) {
-    const target = url.replace('https://images.weserv.nl/?url=', '');
-    return `/api/poster?url=${target}`;
+
+  let raw = url;
+  while (raw.includes('images.weserv.nl/?url=')) {
+    raw = decodeURIComponent(raw.split('images.weserv.nl/?url=')[1]);
   }
-  if (url.startsWith('http://') || url.startsWith('https://')) {
-    return `/api/poster?url=${encodeURIComponent(url)}`;
+  while (raw.includes('/api/poster?url=')) {
+    raw = decodeURIComponent(raw.split('/api/poster?url=')[1]);
   }
-  return url;
+
+  const cleanTarget = raw.replace(/^https?:\/\//, '');
+  return `https://images.weserv.nl/?url=${encodeURIComponent(cleanTarget)}`;
 }
 
 function getTournamentPosterFallback(name: string, category: string, venue: string, source: string, eventPeriod: string, fee: string = '요강 참조') {

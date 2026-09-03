@@ -298,7 +298,7 @@ async function fetchBadmintonTimesRealPoster(detailUrl: string): Promise<string>
     if (match) {
       const p = match[0].replace(/['"]$/, '');
       const rawUrl = p.startsWith('http') ? p : `http://www.badmintontimes.com${p.startsWith('/') ? '' : '/'}${p}`;
-      return `https://images.weserv.nl/?url=${encodeURIComponent(rawUrl)}`;
+      return rawUrl;
     }
   } catch {
     // ignore
