@@ -2,7 +2,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 
 type TournamentCategory = '전국오픈' | '지역구대회' | '학생선수권' | '브랜드대회' | '국제대회';
-type TournamentSource = '배드민톡' | '배드민턴타임즈' | '페이스콕';
+type TournamentSource = '배드민톡' | '배드민턴타임즈' | '페이스콕' | '배드민턴게임' | '코트엑스';
 
 interface ScrapedTournament {
   id: string;
@@ -70,6 +70,27 @@ async function fetchHtml(url: string): Promise<string> {
   const charset = response.headers.get('content-type')?.match(/charset=([^;]+)/i)?.[1]?.trim().toLowerCase();
   const decoder = new TextDecoder(charset === 'euc-kr' || charset === 'ks_c_5601-1987' ? 'euc-kr' : 'utf-8');
   return decoder.decode(bytes);
+}
+
+async function fetchJson<T>(url: string, body: unknown): Promise<T> {
+  const response = await fetch(url, {
+    method: 'POST',
+    headers: {
+      Accept: 'application/json, text/javascript, */*; q=0.01',
+      'Content-Type': 'application/json; charset=UTF-8',
+      Origin: new URL(url).origin,
+      Referer: `${new URL(url).origin}/Tournament/List`,
+      'User-Agent': USER_AGENT,
+      'X-Requested-With': 'XMLHttpRequest',
+    },
+    body: JSON.stringify(body),
+    signal: AbortSignal.timeout(REQUEST_TIMEOUT_MS),
+  });
+
+  if (!response.ok) throw new Error(`${response.status} ${response.statusText}`);
+  const text = await response.text();
+  if (/Just a moment|cf-chl|challenge-platform/i.test(text)) throw new Error('Cloudflare challenge response');
+  return JSON.parse(text) as T;
 }
 
 function toAbsoluteUrl(base: string, value: string): string {
@@ -324,6 +345,131 @@ async function scrapeBadmintonTimes(): Promise<ScrapedTournament[]> {
   return [...tournaments.values()];
 }
 
+async function scrapeBadmintonGame(): Promise<ScrapedTournament[]> {
+  const origin = 'http://www.badmintongame.co.kr';
+  const listUrl = `${origin}/game/game.html`;
+  const html = await fetchHtml(listUrl);
+  const candidates = new Map<string, { id: string; name: string; venue: string; detailUrl: string }>();
+  const eventRegex = /title:\s*'([^']+)'[\s\S]*?start:\s*'(20\d{2}-\d{2}-\d{2})'[\s\S]*?url:\s*'game_view\.html\?ga_id=(\d+)'/gi;
+  let match: RegExpExecArray | null;
+
+  while ((match = eventRegex.exec(html)) !== null) {
+    const rawTitle = cleanText(match[1].replaceAll("\\'", "'"));
+    const region = rawTitle.match(/^\[([^\]]+)]\s*/)?.[1]?.replaceAll('-', ' ') ?? '';
+    const name = rawTitle.replace(/^\[[^\]]+]\s*/, '').trim();
+    if (!name) continue;
+    candidates.set(match[3], {
+      id: match[3],
+      name,
+      venue: region || '장소는 공식 상세 페이지 참조',
+      detailUrl: `${origin}/game/game_view.html?ga_id=${match[3]}`,
+    });
+  }
+
+  const tournaments = await Promise.all(
+    [...candidates.values()].map(async (candidate): Promise<ScrapedTournament | null> => {
+      try {
+        const detailHtml = await fetchHtml(candidate.detailUrl);
+        const eventRange = parseKoreanDateRange(extractTableValue(detailHtml, '대회일시'));
+        if (!eventRange || !eventRange.start.startsWith('2026-')) return null;
+        const registration = parseKoreanDateRange(extractTableValue(detailHtml, '접수기간'));
+        const detailVenue = extractTableValue(detailHtml, '대회장소');
+        const venue = detailVenue || candidate.venue;
+
+        return {
+          id: `bg-${candidate.id}`,
+          category: categorizeTournament(candidate.name, venue),
+          name: candidate.name,
+          registrationPeriod: registration ? displayPeriod(registration.start, registration.end) : '공식 상세 페이지 확인',
+          registrationStart: registration?.start ?? '',
+          registrationEnd: registration?.end ?? '',
+          eventPeriod: displayPeriod(eventRange.start, eventRange.end),
+          eventStart: eventRange.start,
+          eventEnd: eventRange.end,
+          venue,
+          source: '배드민턴게임',
+          officialLink: candidate.detailUrl,
+          fee: '요강 참조',
+        };
+      } catch (error) {
+        console.warn(`   ⚠️ 배드민턴게임 상세 페이지를 읽지 못했습니다: ${candidate.detailUrl}`, error);
+        return null;
+      }
+    })
+  );
+
+  const verified = tournaments.filter((item): item is ScrapedTournament => item !== null);
+  console.log(`   ✅ 배드민턴게임 상세 페이지 검증: ${verified.length}건`);
+  return verified;
+}
+
+interface CourtXTournament {
+  TOURNAMENT_UID?: number | string;
+  TITLE?: string;
+  START_DATE?: string;
+  END_DATE?: string;
+  DISPLAY_REGION?: string;
+  LOCATION?: string;
+  VENUE_SIDO?: string;
+  VENUE_SIGUNGU?: string;
+  POSTER_URL?: string;
+  APPLICATION_START_DT?: string;
+  APPLICATION_END_DT?: string;
+}
+
+async function scrapeCourtX(): Promise<ScrapedTournament[]> {
+  const origin = 'https://www.courtx.co.kr';
+  const response = await fetchJson<{
+    ResultCode?: string;
+    ResultData?: { Table?: CourtXTournament[] };
+  }>(`${origin}/api/Tournament/GetTournamentList`, {
+    pageIndex: 1,
+    pageSize: 10000,
+    searchKeyword: '',
+    region: '',
+  });
+
+  if (response.ResultCode !== '00') throw new Error(`CourtX API ResultCode=${response.ResultCode ?? 'unknown'}`);
+  const rows = response.ResultData?.Table ?? [];
+  const tournaments: ScrapedTournament[] = [];
+
+  for (const row of rows) {
+    const id = String(row.TOURNAMENT_UID ?? '').trim();
+    const name = cleanText(row.TITLE ?? '');
+    const eventStart = row.START_DATE?.slice(0, 10) ?? '';
+    const eventEnd = row.END_DATE?.slice(0, 10) || eventStart;
+    if (!id || !name || !/^2026-\d{2}-\d{2}$/.test(eventStart) || !/^2026-\d{2}-\d{2}$/.test(eventEnd)) continue;
+
+    const registrationStart = row.APPLICATION_START_DT?.slice(0, 10) ?? '';
+    const registrationEnd = row.APPLICATION_END_DT?.slice(0, 10) ?? '';
+    const hasRegistration = /^20\d{2}-\d{2}-\d{2}$/.test(registrationStart) && /^20\d{2}-\d{2}-\d{2}$/.test(registrationEnd);
+    const venue = cleanText(
+      row.DISPLAY_REGION || row.LOCATION || [row.VENUE_SIDO, row.VENUE_SIGUNGU].filter(Boolean).join(' ') || '장소는 공식 상세 페이지 참조'
+    );
+    const posterImage = row.POSTER_URL ? toAbsoluteUrl('https://imgs.courtx.co.kr', row.POSTER_URL) : undefined;
+
+    tournaments.push({
+      id: `cx-${id}`,
+      category: categorizeTournament(name, venue),
+      name,
+      registrationPeriod: hasRegistration ? displayPeriod(registrationStart, registrationEnd) : '공식 상세 페이지 확인',
+      registrationStart: hasRegistration ? registrationStart : '',
+      registrationEnd: hasRegistration ? registrationEnd : '',
+      eventPeriod: displayPeriod(eventStart, eventEnd),
+      eventStart,
+      eventEnd,
+      venue,
+      source: '코트엑스',
+      officialLink: `${origin}/Tournament/Details/${encodeURIComponent(id)}`,
+      posterImage,
+      fee: '요강 참조',
+    });
+  }
+
+  console.log(`   ✅ 코트엑스 공개 API 및 상세 링크 검증: ${tournaments.length}건`);
+  return tournaments;
+}
+
 function normalizeName(name: string): string {
   return name
     .toLowerCase()
@@ -379,20 +525,24 @@ async function main(): Promise<void> {
   console.log('🏸 검증 가능한 원문 기반 대회 수집을 시작합니다.');
   console.log('   합성 대회, 임의 날짜/참가비, 목록 주소만 있는 레코드는 생성하지 않습니다.');
 
-  const [facecock, badmintok, badmintonTimes] = await Promise.all([
+  const [facecock, badmintok, badmintonTimes, badmintonGame, courtX] = await Promise.all([
     safelyCollect('페이스콕', scrapeFacecock),
     safelyCollect('배드민톡', scrapeBadmintok),
     safelyCollect('배드민턴타임즈', scrapeBadmintonTimes),
+    safelyCollect('배드민턴게임', scrapeBadmintonGame),
+    safelyCollect('코트엑스', scrapeCourtX),
   ]);
 
-  const tournaments = mergeAndDeduplicate([...facecock, ...badmintok, ...badmintonTimes]);
+  const tournaments = mergeAndDeduplicate([...facecock, ...badmintok, ...badmintonTimes, ...badmintonGame, ...courtX]);
   if (tournaments.length === 0) throw new Error('검증 가능한 대회를 한 건도 수집하지 못해 기존 파일을 보존합니다.');
 
   const outputPath = path.resolve(process.cwd(), 'lib/tournaments-scraped.json');
   fs.writeFileSync(outputPath, `${JSON.stringify(tournaments, null, 2)}\n`, 'utf-8');
 
   console.log(`✅ ${tournaments.length}건 저장 완료: ${outputPath}`);
-  console.log(`   페이스콕 ${facecock.length} / 배드민톡 ${badmintok.length} / 배드민턴타임즈 ${badmintonTimes.length}`);
+  console.log(
+    `   페이스콕 ${facecock.length} / 배드민톡 ${badmintok.length} / 배드민턴타임즈 ${badmintonTimes.length} / 배드민턴게임 ${badmintonGame.length} / 코트엑스 ${courtX.length}`
+  );
 }
 
 main().catch((error) => {

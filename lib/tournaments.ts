@@ -34,6 +34,6 @@ export interface Tournament {
   fee: string;
 }
 
-// 실존 공식 플랫폼에서 검증 수집된 100% 실존 전국 대회 빅데이터
+// 개별 상세 원문 링크와 실제 개최일을 확인할 수 있는 레코드만 노출합니다.
 export const mockTournaments: Tournament[] = (scrapedTournaments as unknown as Tournament[]) || [];
 export const defaultMockTournaments: Tournament[] = mockTournaments;

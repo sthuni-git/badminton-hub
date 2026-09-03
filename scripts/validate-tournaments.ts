@@ -18,11 +18,13 @@ const dataPath = path.resolve(process.cwd(), 'lib/tournaments-scraped.json');
 const records = JSON.parse(fs.readFileSync(dataPath, 'utf-8')) as TournamentRecord[];
 const errors: string[] = [];
 const ids = new Set<string>();
-const allowedSources = new Set(['페이스콕', '배드민톡', '배드민턴타임즈']);
+const allowedSources = new Set(['페이스콕', '배드민톡', '배드민턴타임즈', '배드민턴게임', '코트엑스']);
 const genericListLinks = new Set([
   'https://facecock.co.kr/page/?pid=game',
   'https://badmintok.com/badminton-tournament/',
   'http://www.badmintontimes.com/calendar/m3_calendarList.jsp?menunum=204',
+  'http://www.badmintongame.co.kr/game/game.html',
+  'https://www.courtx.co.kr/Tournament/List',
 ]);
 const isoDate = /^20\d{2}-\d{2}-\d{2}$/;
 
