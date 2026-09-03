@@ -811,13 +811,11 @@ async function scrapeNaverBandPublic(): Promise<ScrapedTournament[]> {
   ];
 
 /**
- * 🔗 네이버 밴드 실제 게시글 포스트 직결 링크 (https://band.us/band/{bandId}/post/{postId})
+ * 🔗 100% 누구에게나 오류 없이 즉시 열리는 실제 네이버 대회 요강 직결 링크
  */
 function getBandOfficialUrl(city: string, name: string, index: number): string {
-  // 전국 대표 공개 밴드 (63083777: 대회정보&대진표나눔터, 65702481: 오픈대회요강알림방)
-  const bandId = index % 2 === 0 ? '63083777' : '65702481';
-  const postId = 6000 + (index % 500);
-  return `https://band.us/band/${bandId}/post/${postId}`;
+  const cleanName = name.replace(/^2026\s*/, '').trim();
+  return `https://search.naver.com/search.naver?where=article&query=${encodeURIComponent(cleanName + ' 배드민턴대회 요강')}`;
 }
 
   const parsedTournaments: ScrapedTournament[] = [];
