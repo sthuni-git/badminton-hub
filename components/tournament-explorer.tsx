@@ -171,26 +171,6 @@ function getLocationServerSnapshot(): string {
   return JSON.stringify(DEFAULT_LOCATION);
 }
 
-function subscribeAdmin(callback: () => void) {
-  window.addEventListener('storage', callback);
-  window.addEventListener('minton_admin_change', callback);
-  return () => {
-    window.removeEventListener('storage', callback);
-    window.removeEventListener('minton_admin_change', callback);
-  };
-}
-
-function getAdminSnapshot(): boolean {
-  if (typeof window === 'undefined') return false;
-  const urlParams = new URLSearchParams(window.location.search);
-  if (urlParams.get('admin') === 'true') return true;
-  return localStorage.getItem('minton_is_admin') === 'true';
-}
-
-function getAdminServerSnapshot(): boolean {
-  return false;
-}
-
 export function TournamentExplorer({ tournaments }: { tournaments: Tournament[] }) {
   const [activeTab, setActiveTab] = useState<MainTab>('tournaments');
   const [query, setQuery] = useState('');
@@ -204,10 +184,15 @@ export function TournamentExplorer({ tournaments }: { tournaments: Tournament[] 
   const [sourceCategoryFilter, setSourceCategoryFilter] = useState<string>('전체');
   const [isLocating, setIsLocating] = useState(false);
 
-  // 관리자 권한 상태 관리
-  const [adminRuntimeState, setAdminRuntimeState] = useState<boolean | null>(null);
-  const syncedIsAdmin = useSyncExternalStore(subscribeAdmin, getAdminSnapshot, getAdminServerSnapshot);
-  const isAdmin = adminRuntimeState !== null ? adminRuntimeState : syncedIsAdmin;
+  // 관리자 권한 상태 관리 (useState 기반 실시간 반응)
+  const [isAdmin, setIsAdmin] = useState<boolean>(() => {
+    if (typeof window === 'undefined') return false;
+    try {
+      return localStorage.getItem('minton_is_admin') === 'true';
+    } catch {
+      return false;
+    }
+  });
 
   // 관리자 인증 모달 상태
   const [adminModalOpen, setAdminModalOpen] = useState(false);
@@ -276,16 +261,15 @@ export function TournamentExplorer({ tournaments }: { tournaments: Tournament[] 
   };
 
   // 관리자 인증 핸들러
-  const handleLoginAdmin = (e: React.SyntheticEvent) => {
-    e.preventDefault();
+  const handleLoginAdmin = (e?: React.SyntheticEvent) => {
+    if (e) e.preventDefault();
     if (adminInputPassword === '4545') {
       try {
         localStorage.setItem('minton_is_admin', 'true');
-        window.dispatchEvent(new Event('minton_admin_change'));
       } catch {
         // ignore
       }
-      setAdminRuntimeState(true);
+      setIsAdmin(true);
       setAdminModalOpen(false);
       setAdminInputPassword('');
       setAdminErrorMessage('');
@@ -298,11 +282,10 @@ export function TournamentExplorer({ tournaments }: { tournaments: Tournament[] 
   const handleLogoutAdmin = () => {
     try {
       localStorage.removeItem('minton_is_admin');
-      window.dispatchEvent(new Event('minton_admin_change'));
     } catch {
       // ignore
     }
-    setAdminRuntimeState(false);
+    setIsAdmin(false);
     setActiveTab('tournaments');
   };
 
@@ -314,6 +297,16 @@ export function TournamentExplorer({ tournaments }: { tournaments: Tournament[] 
         setAdminModalOpen(true);
         setAdminErrorMessage('');
         setAdminInputPassword('');
+      };
+      win.__loginAdminDirect = (pw: string) => {
+        if (pw === '4545') {
+          try {
+            localStorage.setItem('minton_is_admin', 'true');
+          } catch {}
+          setIsAdmin(true);
+          return true;
+        }
+        return false;
       };
       win.__logoutAdmin = handleLogoutAdmin;
     }

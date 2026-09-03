@@ -3,7 +3,7 @@ import path from "node:path";
 import React from "react";
 
 // React JSX 전역 객체 주입
-(globalThis as any).React = React;
+(globalThis as unknown as Record<string, unknown>).React = React;
 
 import { renderToString } from "react-dom/server";
 import { TournamentExplorer } from "../components/tournament-explorer";
@@ -65,10 +65,14 @@ function generateStaticHtml() {
         } else {
           var pw = prompt('🏸 배드민턴 허브 관리자 비밀번호를 입력하세요:');
           if (pw === '4545') {
-            try {
-              localStorage.setItem('minton_is_admin', 'true');
-              window.location.reload();
-            } catch (err) {}
+            if (typeof window.__loginAdminDirect === 'function') {
+              window.__loginAdminDirect('4545');
+            } else {
+              try {
+                localStorage.setItem('minton_is_admin', 'true');
+                window.location.reload();
+              } catch (err) {}
+            }
           } else if (pw !== null) {
             alert('관리자 비밀번호가 올바르지 않습니다.');
           }
