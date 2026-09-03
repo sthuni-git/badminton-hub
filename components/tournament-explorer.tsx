@@ -1025,15 +1025,29 @@ export function TournamentExplorer({ tournaments }: { tournaments: Tournament[] 
                   </div>
                 </div>
               ) : (
-                <a
-                  href={selected.officialLink}
-                  target="_blank"
-                  rel="noreferrer"
-                  aria-label={`${selected.name} 공식 요강 및 참가 접수 사이트로 이동`}
-                  className="inline-flex h-12 w-full items-center justify-center gap-2 rounded-xl bg-emerald-700 text-sm font-bold text-white shadow transition hover:bg-emerald-800"
-                >
-                  {getStatus(selected, today) === '대회종료' ? '대회 결과 및 요강 보기' : '접수 및 세부 요강 바로가기'} {isAdmin ? `(${selected.source})` : ''} <ExternalLink className="size-4" />
-                </a>
+                <div className="space-y-2">
+                  <a
+                    href={selected.officialLink}
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label={`${selected.name} 공식 요강 및 참가 접수 사이트로 이동`}
+                    className="inline-flex h-12 w-full items-center justify-center gap-2 rounded-xl bg-emerald-700 text-sm font-bold text-white shadow transition hover:bg-emerald-800"
+                  >
+                    {getStatus(selected, today) === '대회종료' ? '대회 결과 및 요강 보기' : '접수 및 세부 요강 바로가기'} {isAdmin ? `(${selected.source})` : ''} <ExternalLink className="size-4" />
+                  </a>
+
+                  {selected.source === '네이버밴드' && selected.bandUrl && (
+                    <a
+                      href={selected.bandUrl}
+                      target="_blank"
+                      rel="noreferrer"
+                      aria-label={`${selected.bandName || '네이버 밴드'} 공식 밴드 홈 이동`}
+                      className="inline-flex h-11 w-full items-center justify-center gap-2 rounded-xl border-2 border-emerald-600 bg-emerald-50/70 text-xs font-extrabold text-emerald-900 transition hover:bg-emerald-100"
+                    >
+                      📱 출처 밴드: {selected.bandName || '네이버 밴드 채널 홈 바로가기'} <ExternalLink className="size-3.5" />
+                    </a>
+                  )}
+                </div>
               )}
 
               {/* 보조 링크: 네이버 포털 검색 & 네이버 지도 길찾기 */}
@@ -1228,9 +1242,19 @@ function TournamentCard({
         </div>
       </button>
 
-      <div className="mt-4 flex items-center justify-between border-t border-slate-100 pt-3">
+      <div className="mt-4 flex items-center justify-between border-t border-slate-100 pt-3 gap-2 flex-wrap">
         <div className="flex items-center gap-1.5 flex-wrap">
-          {isAdmin && (
+          {t.source === '네이버밴드' && t.bandName ? (
+            <a
+              href={t.bandUrl || 'https://band.us/band/63083777'}
+              target="_blank"
+              rel="noreferrer"
+              aria-label={`${t.bandName} 밴드 홈 새창 열기`}
+              className="inline-flex items-center gap-1 rounded-md bg-emerald-50 border border-emerald-300 px-2 py-0.5 text-[11px] font-bold text-emerald-800 transition hover:bg-emerald-100"
+            >
+              📱 {t.bandName.length > 12 ? `${t.bandName.slice(0, 12)}...` : t.bandName}
+            </a>
+          ) : isAdmin && (
             t.sources && t.sources.length > 1 ? (
               <span className="rounded bg-emerald-50 border border-emerald-300 px-1.5 py-0.5 text-[11px] font-extrabold text-emerald-900">
                 🏷️ {t.sources.join(' + ')} ({t.sources.length}개 출처)
@@ -1244,15 +1268,28 @@ function TournamentCard({
           </span>
         </div>
 
-        <a
-          href={t.officialLink}
-          target="_blank"
-          rel="noreferrer"
-          aria-label={`${t.name} 공식 요강 페이지 보기`}
-          className="inline-flex items-center gap-1 rounded-lg bg-emerald-700 px-3 py-1.5 text-xs font-bold text-white transition hover:bg-emerald-800"
-        >
-          {status === '대회종료' ? '결과·요강' : '요강 보기'} <ChevronRight className="size-3.5" />
-        </a>
+        <div className="flex items-center gap-1.5">
+          {t.source === '네이버밴드' && t.bandUrl && (
+            <a
+              href={t.bandUrl}
+              target="_blank"
+              rel="noreferrer"
+              aria-label={`${t.name} 네이버 밴드 채널 홈 열기`}
+              className="inline-flex items-center gap-1 rounded-lg border border-slate-200 bg-white px-2.5 py-1.5 text-xs font-bold text-slate-700 shadow-xs transition hover:bg-slate-50 hover:text-emerald-700"
+            >
+              밴드 홈
+            </a>
+          )}
+          <a
+            href={t.officialLink}
+            target="_blank"
+            rel="noreferrer"
+            aria-label={`${t.name} 공식 요강 페이지 보기`}
+            className="inline-flex items-center gap-1 rounded-lg bg-emerald-700 px-3 py-1.5 text-xs font-bold text-white transition hover:bg-emerald-800"
+          >
+            {status === '대회종료' ? '결과·요강' : '요강 보기'} <ChevronRight className="size-3.5" />
+          </a>
+        </div>
       </div>
     </article>
   );

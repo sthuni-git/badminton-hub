@@ -34,6 +34,8 @@ export interface Tournament {
   sources?: TournamentSource[];
   sourceLinks?: Array<{ source: TournamentSource; link: string }>;
   officialLink: string;
+  bandName?: string;
+  bandUrl?: string;
   posterImage?: string;
   fee: string;
 }
