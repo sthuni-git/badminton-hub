@@ -76,7 +76,7 @@
   },
   {
     "id": "fc-p-004",
-    "category": "국제대회",
+    "category": "브랜드대회",
     "name": "2026 플리트 마스터즈 전국 배드민턴대회 부산",
     "registrationPeriod": "2026.09.01 ~ 2026.09.24",
     "registrationStart": "2026-09-01",
@@ -351,7 +351,7 @@
   },
   {
     "id": "fc-p-015",
-    "category": "국제대회",
+    "category": "브랜드대회",
     "name": "2026 빅터 마스터즈 챔피언십 제주대회",
     "registrationPeriod": "2026.10.05 ~ 2026.10.30",
     "registrationStart": "2026-10-05",
@@ -576,7 +576,7 @@
   },
   {
     "id": "fc-p-024",
-    "category": "국제대회",
+    "category": "브랜드대회",
     "name": "2026 리닝 코리아 마스터즈 컵 김천",
     "registrationPeriod": "2026.08.01 ~ 2026.08.22",
     "registrationStart": "2026-08-01",
@@ -588,7 +588,7 @@
     "source": "페이스콕",
     "officialLink": "https://facecock.co.kr/page/?pid=game",
     "fee": "팀당 65,000원",
-    "posterImage": "https://images.unsplash.com/photo-1626224583764-f87db24ac4ea?auto=format&fit=crop&w=800&q=80",
+    "posterImage": "https://images.unsplash.com/photo-1521537634581-0dced2fed2a8?auto=format&fit=crop&w=800&q=80",
     "sources": [
       "페이스콕"
     ],
@@ -976,7 +976,7 @@
   },
   {
     "id": "fc-p-040",
-    "category": "국제대회",
+    "category": "브랜드대회",
     "name": "2026 테크니스트 연말 결선 그랜드마스터즈 인천",
     "registrationPeriod": "2026.10.15 ~ 2026.11.08",
     "registrationStart": "2026-10-15",
@@ -1576,7 +1576,7 @@
   },
   {
     "id": "cx-p-004",
-    "category": "국제대회",
+    "category": "전국오픈",
     "name": "2026 코트엑스 믹스더블(혼복) 마스터즈 서울",
     "registrationPeriod": "2026.09.02 ~ 2026.09.24",
     "registrationStart": "2026-09-02",
@@ -1751,7 +1751,7 @@
   },
   {
     "id": "cx-p-011",
-    "category": "국제대회",
+    "category": "전국오픈",
     "name": "2026 코트엑스 3040 마스터즈 오픈 하남",
     "registrationPeriod": "2026.07.20 ~ 2026.08.10",
     "registrationStart": "2026-07-20",
@@ -2151,7 +2151,7 @@
   },
   {
     "id": "cx-p-027",
-    "category": "국제대회",
+    "category": "전국오픈",
     "name": "2026 코트엑스 상반기 결선 마스터즈 서울",
     "registrationPeriod": "2026.05.05 ~ 2026.05.28",
     "registrationStart": "2026-05-05",
@@ -2801,7 +2801,7 @@
   },
   {
     "id": "sp-full-013",
-    "category": "전국오픈",
+    "category": "지역구대회",
     "name": "2026 김포 금쌀배 전국배드민턴대회",
     "registrationPeriod": "2026.09.15 ~ 2026.10.10",
     "registrationStart": "2026-09-15",
@@ -3401,7 +3401,7 @@
   },
   {
     "id": "bmg-002",
-    "category": "전국오픈",
+    "category": "지역구대회",
     "name": "2026 전국 시도협회장기 배드민턴대회 (배드민턴게임)",
     "registrationPeriod": "2026.09.01 ~ 09.22",
     "registrationStart": "2026-09-01",
@@ -3876,7 +3876,7 @@
   },
   {
     "id": "bmg-021",
-    "category": "전국오픈",
+    "category": "지역구대회",
     "name": "2026 배드민턴게임 11월 늦가을 챌린지 김포",
     "registrationPeriod": "2026.09.25 ~ 10.18",
     "registrationStart": "2026-09-25",
@@ -4151,7 +4151,7 @@
   },
   {
     "id": "bk-007",
-    "category": "학생선수권",
+    "category": "전국오픈",
     "name": "2026 원천배 초등학교 배드민턴선수권대회",
     "registrationPeriod": "2026.07.15 ~ 2026.08.05",
     "registrationStart": "2026-07-15",
@@ -4326,7 +4326,7 @@
   },
   {
     "id": "comm-004",
-    "category": "국제대회",
+    "category": "전국오픈",
     "name": "2026 오마이플레이 마스터즈 오픈 일산",
     "registrationPeriod": "2026.09.10 ~ 2026.10.02",
     "registrationStart": "2026-09-10",
@@ -4526,7 +4526,7 @@
   },
   {
     "id": "comm-012",
-    "category": "국제대회",
+    "category": "전국오픈",
     "name": "2026 오마이플레이 상반기 결선 마스터즈 부천",
     "registrationPeriod": "2026.05.10 ~ 2026.06.01",
     "registrationStart": "2026-05-10",
@@ -4976,7 +4976,7 @@
   },
   {
     "id": "comm-030",
-    "category": "국제대회",
+    "category": "지역구대회",
     "name": "2026 오마이플레이 에이스 마스터즈 김포",
     "registrationPeriod": "2026.10.05 ~ 2026.10.28",
     "registrationStart": "2026-10-05",
@@ -5151,7 +5151,7 @@
   },
   {
     "id": "comm-037",
-    "category": "국제대회",
+    "category": "브랜드대회",
     "name": "2026 플리트 마스터즈 4월 챔피언십 고양 (배프)",
     "registrationPeriod": "2026.03.05 ~ 2026.03.25",
     "registrationStart": "2026-03-05",
@@ -5351,7 +5351,7 @@
   },
   {
     "id": "comm-045",
-    "category": "국제대회",
+    "category": "브랜드대회",
     "name": "2026 플리트 가을 그랜드마스터즈 대구 (배프)",
     "registrationPeriod": "2026.08.15 ~ 2026.09.08",
     "registrationStart": "2026-08-15",
@@ -5363,7 +5363,7 @@
     "source": "배프",
     "officialLink": "https://www.badmintonfriends.co.kr/acff4b5f-3746-4049-a013-1f5911ecdae1",
     "fee": "팀당 65,000원",
-    "posterImage": "https://images.unsplash.com/photo-1626224583764-f87db24ac4ea?auto=format&fit=crop&w=800&q=80",
+    "posterImage": "https://images.unsplash.com/photo-1521537634581-0dced2fed2a8?auto=format&fit=crop&w=800&q=80",
     "sources": [
       "배프"
     ],
@@ -5476,7 +5476,7 @@
   },
   {
     "id": "comm-050",
-    "category": "국제대회",
+    "category": "전국오픈",
     "name": "2026 배프 윈터 마스터즈 컵 시흥",
     "registrationPeriod": "2026.10.05 ~ 2026.10.28",
     "registrationStart": "2026-10-05",
@@ -5801,7 +5801,7 @@
   },
   {
     "id": "comm-063",
-    "category": "국제대회",
+    "category": "전국오픈",
     "name": "2026 위꾹 5월 혼합복식 마스터즈 부천",
     "registrationPeriod": "2026.04.01 ~ 2026.04.22",
     "registrationStart": "2026-04-01",
@@ -6576,7 +6576,7 @@
   },
   {
     "id": "comm-094",
-    "category": "전국오픈",
+    "category": "지역구대회",
     "name": "2026 딱플 윈터 챌린지 김포",
     "registrationPeriod": "2026.10.05 ~ 2026.10.28",
     "registrationStart": "2026-10-05",
@@ -6676,7 +6676,7 @@
   },
   {
     "id": "comm-098",
-    "category": "전국오픈",
+    "category": "지역구대회",
     "name": "2026 리부트 주니어 & 성인 클리닉 매치 김포",
     "registrationPeriod": "2026.10.01 ~ 2026.10.24",
     "registrationStart": "2026-10-01",
@@ -6726,7 +6726,7 @@
   },
   {
     "id": "comm-100",
-    "category": "국제대회",
+    "category": "전국오픈",
     "name": "2026 리부트 5월 마스터즈 오픈 일산",
     "registrationPeriod": "2026.04.10 ~ 2026.05.02",
     "registrationStart": "2026-04-10",
@@ -7092,7 +7092,7 @@
   },
   {
     "id": "band-009",
-    "category": "지역구대회",
+    "category": "전국오픈",
     "name": "제15회 성남시협회장배 배드민턴대회",
     "registrationPeriod": "2026.04.20 ~ 2026.05.02",
     "registrationStart": "2026-04-20",
@@ -7443,7 +7443,7 @@
   },
   {
     "id": "band-022",
-    "category": "전국오픈",
+    "category": "지역구대회",
     "name": "2026 달구벌 대구광역시장기 전국 배드민턴대회",
     "registrationPeriod": "2026.09.20 ~ 2026.10.03",
     "registrationStart": "2026-09-20",
@@ -7578,7 +7578,7 @@
   },
   {
     "id": "band-027",
-    "category": "전국오픈",
+    "category": "지역구대회",
     "name": "제15회 영일만 포항시장기 전국 배드민턴대회",
     "registrationPeriod": "2026.11.01 ~ 2026.11.21",
     "registrationStart": "2026-11-01",
@@ -7605,7 +7605,7 @@
   },
   {
     "id": "band-028",
-    "category": "전국오픈",
+    "category": "지역구대회",
     "name": "2026 제주특별자치도지사기 전국 배드민턴대회",
     "registrationPeriod": "2026.12.01 ~ 2026.12.12",
     "registrationStart": "2026-12-01",
@@ -7821,7 +7821,7 @@
   },
   {
     "id": "band-036",
-    "category": "전국오픈",
+    "category": "브랜드대회",
     "name": "2026 투팟스포츠 전국 오픈 배드민턴 마스터즈",
     "registrationPeriod": "2026.10.01 ~ 2026.10.17",
     "registrationStart": "2026-10-01",
@@ -11736,7 +11736,7 @@
   },
   {
     "id": "band-181",
-    "category": "전국오픈",
+    "category": "지역구대회",
     "name": "2026 제3회 김포 금빛배 전국 배드민턴 페스티벌",
     "registrationPeriod": "2026.02.15 ~ 2026.03.04",
     "registrationStart": "2026-02-15",
@@ -11763,7 +11763,7 @@
   },
   {
     "id": "band-182",
-    "category": "전국오픈",
+    "category": "지역구대회",
     "name": "2026 제4회 김포 금빛배 전국 배드민턴 페스티벌",
     "registrationPeriod": "2026.03.15 ~ 2026.04.09",
     "registrationStart": "2026-03-15",
@@ -11790,7 +11790,7 @@
   },
   {
     "id": "band-183",
-    "category": "전국오픈",
+    "category": "지역구대회",
     "name": "2026 제5회 김포 금빛배 전국 배드민턴 페스티벌",
     "registrationPeriod": "2026.04.15 ~ 2026.05.14",
     "registrationStart": "2026-04-15",
@@ -11817,7 +11817,7 @@
   },
   {
     "id": "band-184",
-    "category": "전국오픈",
+    "category": "지역구대회",
     "name": "2026 제6회 김포 금빛배 전국 배드민턴 페스티벌",
     "registrationPeriod": "2026.05.15 ~ 2026.06.01",
     "registrationStart": "2026-05-15",
@@ -19273,7 +19273,7 @@
   },
   {
     "id": "bm-002",
-    "category": "브랜드대회",
+    "category": "전국오픈",
     "name": "제21회 부여굿뜨래배 전국 배드민턴대회",
     "registrationPeriod": "2026.06.06 ~ 2026.06.27",
     "registrationStart": "2026-06-06",
@@ -19603,7 +19603,7 @@
   },
   {
     "id": "bm-014",
-    "category": "전국오픈",
+    "category": "지역구대회",
     "name": "2026년 강원특별자치도 도지사기대회",
     "registrationPeriod": "2026.06.13 ~ 2026.07.04",
     "registrationStart": "2026-06-13",
@@ -19653,7 +19653,7 @@
   },
   {
     "id": "bm-016",
-    "category": "학생선수권",
+    "category": "지역구대회",
     "name": "제10회 성신배 학생 & 가족 전국 배드민턴대회",
     "registrationPeriod": "2026.06.13 ~ 2026.07.04",
     "registrationStart": "2026-06-13",
@@ -19993,7 +19993,7 @@
   },
   {
     "id": "bm-029",
-    "category": "브랜드대회",
+    "category": "지역구대회",
     "name": "제17회 향수 옥천 전국 배드민턴대회",
     "registrationPeriod": "2026.06.20 ~ 2026.07.11",
     "registrationStart": "2026-06-20",
@@ -20233,7 +20233,7 @@
   },
   {
     "id": "bm-038",
-    "category": "브랜드대회",
+    "category": "전국오픈",
     "name": "제18회 보령머드배 전국 배드민턴대회",
     "registrationPeriod": "2026.06.27 ~ 2026.07.18",
     "registrationStart": "2026-06-27",
@@ -20293,7 +20293,7 @@
   },
   {
     "id": "bm-040",
-    "category": "전국오픈",
+    "category": "지역구대회",
     "name": "2026 예산군체육회장기 배드민턴대회",
     "registrationPeriod": "2026.06.27 ~ 2026.07.18",
     "registrationStart": "2026-06-27",
@@ -20648,7 +20648,7 @@
   },
   {
     "id": "bm-054",
-    "category": "브랜드대회",
+    "category": "전국오픈",
     "name": "제27회 코민사×배프 전국 배드민턴대회",
     "registrationPeriod": "2026.07.11 ~ 2026.08.01",
     "registrationStart": "2026-07-11",
@@ -20858,7 +20858,7 @@
   },
   {
     "id": "bm-062",
-    "category": "전국오픈",
+    "category": "브랜드대회",
     "name": "제2회 대구 투팟타이탄 전국 오픈 배드민턴 대회",
     "registrationPeriod": "2026.07.18 ~ 2026.08.08",
     "registrationStart": "2026-07-18",
@@ -20933,7 +20933,7 @@
   },
   {
     "id": "bm-065",
-    "category": "브랜드대회",
+    "category": "전국오픈",
     "name": "제20회 횡성한우배 오픈 배드민턴 대회",
     "registrationPeriod": "2026.07.25 ~ 2026.08.15",
     "registrationStart": "2026-07-25",
@@ -21058,7 +21058,7 @@
   },
   {
     "id": "bm-070",
-    "category": "전국오픈",
+    "category": "학생선수권",
     "name": "정관장과 함께하는 2026 제21회 김만덕배 전국배드민턴대회",
     "registrationPeriod": "2026.07.25 ~ 2026.08.15",
     "registrationStart": "2026-07-25",
@@ -21238,7 +21238,7 @@
   },
   {
     "id": "bm-077",
-    "category": "전국오픈",
+    "category": "지역구대회",
     "name": "2026 부여군수기 배드민턴대회",
     "registrationPeriod": "2026.07.26 ~ 2026.08.16",
     "registrationStart": "2026-07-26",
@@ -21263,7 +21263,7 @@
   },
   {
     "id": "bm-078",
-    "category": "전국오픈",
+    "category": "지역구대회",
     "name": "2026년도 부여군수기 읍·면 대항전배드민턴대회",
     "registrationPeriod": "2026.07.26 ~ 2026.08.16",
     "registrationStart": "2026-07-26",
@@ -21338,7 +21338,7 @@
   },
   {
     "id": "bm-081",
-    "category": "전국오픈",
+    "category": "지역구대회",
     "name": "‘정관장과 함께하는’ 제6회 전라남도체육회장기 전국배드민턴대회[준자강,S급 전국오픈]",
     "registrationPeriod": "2026.08.01 ~ 2026.08.22",
     "registrationStart": "2026-08-01",
@@ -21618,7 +21618,7 @@
   },
   {
     "id": "bm-092",
-    "category": "브랜드대회",
+    "category": "전국오픈",
     "name": "제17회 남원춘향배 전국배드민턴대회",
     "registrationPeriod": "2026.08.08 ~ 2026.08.29",
     "registrationStart": "2026-08-08",
@@ -21693,7 +21693,7 @@
   },
   {
     "id": "bm-095",
-    "category": "전국오픈",
+    "category": "지역구대회",
     "name": "제17회 스타영천open배드민턴대회",
     "registrationPeriod": "2026.08.08 ~ 2026.08.29",
     "registrationStart": "2026-08-08",
@@ -21748,7 +21748,7 @@
   },
   {
     "id": "bm-097",
-    "category": "전국오픈",
+    "category": "지역구대회",
     "name": "제3회 HAPPY 700 평창 전국 오픈 배드민턴대회",
     "registrationPeriod": "2026.08.08 ~ 2026.08.29",
     "registrationStart": "2026-08-08",
@@ -21923,7 +21923,7 @@
   },
   {
     "id": "bm-104",
-    "category": "전국오픈",
+    "category": "지역구대회",
     "name": "제17회 스타영천배 오픈 배드민턴대회",
     "registrationPeriod": "2026.08.08 ~ 2026.08.29",
     "registrationStart": "2026-08-08",
@@ -22683,7 +22683,7 @@
   },
   {
     "id": "bm-134",
-    "category": "브랜드대회",
+    "category": "전국오픈",
     "name": "제19회 BNK부산은행 배 부산MBC 배드민턴대회",
     "registrationPeriod": "2026.08.22 ~ 2026.09.12",
     "registrationStart": "2026-08-22",
@@ -22708,7 +22708,7 @@
   },
   {
     "id": "bm-135",
-    "category": "전국오픈",
+    "category": "지역구대회",
     "name": "2026 제5회 김포우리병원배 배드민턴 대회",
     "registrationPeriod": "2026.08.22 ~ 2026.09.12",
     "registrationStart": "2026-08-22",
@@ -23648,7 +23648,7 @@
   },
   {
     "id": "bm-172",
-    "category": "전국오픈",
+    "category": "지역구대회",
     "name": "2026년 제28회 정선군수기 배드민턴대회",
     "registrationPeriod": "2026.09.27 ~ 2026.10.18",
     "registrationStart": "2026-09-27",
@@ -23798,7 +23798,7 @@
   },
   {
     "id": "bm-178",
-    "category": "전국오픈",
+    "category": "브랜드대회",
     "name": "제1회 투팟 & 제천시 의림지배 전국배드민턴대회",
     "registrationPeriod": "2026.10.10 ~ 2026.10.31",
     "registrationStart": "2026-10-10",
@@ -24223,7 +24223,7 @@
   },
   {
     "id": "bt-02-011",
-    "category": "학생선수권",
+    "category": "국제대회",
     "name": "2026 아시아 남녀단체배드민턴선수권대회",
     "registrationPeriod": "2026.01.04 ~ 2026.01.24",
     "registrationStart": "2026-01-04",
@@ -24235,7 +24235,7 @@
     "source": "배드민턴타임즈",
     "officialLink": "http://www.badmintontimes.com/calendar/m3_calendarRead.jsp?menunum=204&no=2524&dday=20260203",
     "fee": "팀당 50,000원",
-    "posterImage": "https://images.unsplash.com/photo-1521537634581-0dced2fed2a8?auto=format&fit=crop&w=800&q=80",
+    "posterImage": "https://images.unsplash.com/photo-1626224583764-f87db24ac4ea?auto=format&fit=crop&w=800&q=80",
     "sources": [
       "배드민턴타임즈"
     ],
@@ -24623,7 +24623,7 @@
   },
   {
     "id": "bt-02-027",
-    "category": "학생선수권",
+    "category": "전국오픈",
     "name": "2026 네덜란드주니어오픈 배드민턴선수권대회",
     "registrationPeriod": "2026.01.26 ~ 2026.02.15",
     "registrationStart": "2026-01-26",
@@ -24823,7 +24823,7 @@
   },
   {
     "id": "bt-03-035",
-    "category": "학생선수권",
+    "category": "국제대회",
     "name": "2026 독일주니어오픈 배드민턴선수권대회",
     "registrationPeriod": "2026.02.02 ~ 2026.02.22",
     "registrationStart": "2026-02-02",
@@ -24835,7 +24835,7 @@
     "source": "배드민턴타임즈",
     "officialLink": "http://www.badmintontimes.com/calendar/m3_calendarRead.jsp?menunum=204&no=2565&dday=20260304",
     "fee": "팀당 50,000원",
-    "posterImage": "https://images.unsplash.com/photo-1521537634581-0dced2fed2a8?auto=format&fit=crop&w=800&q=80",
+    "posterImage": "https://images.unsplash.com/photo-1626224583764-f87db24ac4ea?auto=format&fit=crop&w=800&q=80",
     "sources": [
       "배드민턴타임즈"
     ],
@@ -24923,7 +24923,7 @@
   },
   {
     "id": "bt-03-039",
-    "category": "전국오픈",
+    "category": "지역구대회",
     "name": "제21회 전라남도지사기 배드민턴대회",
     "registrationPeriod": "2026.02.05 ~ 2026.02.25",
     "registrationStart": "2026-02-05",
@@ -25248,7 +25248,7 @@
   },
   {
     "id": "bt-03-052",
-    "category": "전국오픈",
+    "category": "지역구대회",
     "name": "제34회 전북특별자치도지사기 배드민턴대회",
     "registrationPeriod": "2026.02.19 ~ 2026.03.11",
     "registrationStart": "2026-02-19",
@@ -25623,7 +25623,7 @@
   },
   {
     "id": "bt-04-067",
-    "category": "학생선수권",
+    "category": "국제대회",
     "name": "2026 아시아 개인배드민턴선수권대회",
     "registrationPeriod": "2026.03.08 ~ 2026.03.28",
     "registrationStart": "2026-03-08",
@@ -25635,7 +25635,7 @@
     "source": "배드민턴타임즈",
     "officialLink": "http://www.badmintontimes.com/calendar/m3_calendarRead.jsp?menunum=204&no=2547&dday=20260407",
     "fee": "팀당 50,000원",
-    "posterImage": "https://images.unsplash.com/photo-1521537634581-0dced2fed2a8?auto=format&fit=crop&w=800&q=80",
+    "posterImage": "https://images.unsplash.com/photo-1626224583764-f87db24ac4ea?auto=format&fit=crop&w=800&q=80",
     "sources": [
       "배드민턴타임즈"
     ],
@@ -25748,7 +25748,7 @@
   },
   {
     "id": "bt-04-072",
-    "category": "학생선수권",
+    "category": "전국오픈",
     "name": "2026 연맹회장기 전국실업대학배드민턴선수권대회",
     "registrationPeriod": "2026.03.14 ~ 2026.04.03",
     "registrationStart": "2026-03-14",
@@ -25898,7 +25898,7 @@
   },
   {
     "id": "bt-04-078",
-    "category": "학생선수권",
+    "category": "국제대회",
     "name": "2026 세계남녀단체배드민턴선수권대회 (토마스컵&우버컵)",
     "registrationPeriod": "2026.03.25 ~ 2026.04.14",
     "registrationStart": "2026-03-25",
@@ -25910,7 +25910,7 @@
     "source": "배드민턴타임즈",
     "officialLink": "http://www.badmintontimes.com/calendar/m3_calendarRead.jsp?menunum=204&no=2558&dday=20260424",
     "fee": "팀당 50,000원",
-    "posterImage": "https://images.unsplash.com/photo-1521537634581-0dced2fed2a8?auto=format&fit=crop&w=800&q=80",
+    "posterImage": "https://images.unsplash.com/photo-1626224583764-f87db24ac4ea?auto=format&fit=crop&w=800&q=80",
     "sources": [
       "배드민턴타임즈"
     ],
@@ -25973,7 +25973,7 @@
   },
   {
     "id": "bt-04-082",
-    "category": "전국오픈",
+    "category": "지역구대회",
     "name": "제20회 강릉 경포배 오픈 배드민턴대회",
     "registrationPeriod": "2026.03.26 ~ 2026.04.15",
     "registrationStart": "2026-03-26",
@@ -26723,7 +26723,7 @@
   },
   {
     "id": "bt-06-113",
-    "category": "국제대회",
+    "category": "전국오픈",
     "name": "2026 홍삼볼 박주봉배 국제 배드민턴대회",
     "registrationPeriod": "2026.05.13 ~ 2026.06.02",
     "registrationStart": "2026-05-13",
@@ -26735,7 +26735,7 @@
     "source": "배드민턴타임즈",
     "officialLink": "http://www.badmintontimes.com/calendar/m3_calendarRead.jsp?menunum=204&no=2654&dday=20260612",
     "fee": "팀당 50,000원",
-    "posterImage": "https://images.unsplash.com/photo-1626224583764-f87db24ac4ea?auto=format&fit=crop&w=800&q=80",
+    "posterImage": "https://images.unsplash.com/photo-1521537634581-0dced2fed2a8?auto=format&fit=crop&w=800&q=80",
     "sources": [
       "배드민턴타임즈"
     ],
@@ -26948,7 +26948,7 @@
   },
   {
     "id": "bt-06-122",
-    "category": "전국오픈",
+    "category": "지역구대회",
     "name": "제35회 충청남도지사기 배드민턴대회",
     "registrationPeriod": "2026.05.21 ~ 2026.06.10",
     "registrationStart": "2026-05-21",
@@ -27048,7 +27048,7 @@
   },
   {
     "id": "bt-06-126",
-    "category": "학생선수권",
+    "category": "전국오픈",
     "name": "2026 전국실업대항 및 학교대항배드민턴선수권대회",
     "registrationPeriod": "2026.05.24 ~ 2026.06.13",
     "registrationStart": "2026-05-24",
@@ -27073,7 +27073,7 @@
   },
   {
     "id": "bt-06-127",
-    "category": "학생선수권",
+    "category": "국제대회",
     "name": "2026 아시아주니어배드민턴선수권대회 (U-19)",
     "registrationPeriod": "2026.05.27 ~ 2026.06.16",
     "registrationStart": "2026-05-27",
@@ -27085,7 +27085,7 @@
     "source": "배드민턴타임즈",
     "officialLink": "http://www.badmintontimes.com/calendar/m3_calendarRead.jsp?menunum=204&no=2629&dday=20260626",
     "fee": "팀당 50,000원",
-    "posterImage": "https://images.unsplash.com/photo-1521537634581-0dced2fed2a8?auto=format&fit=crop&w=800&q=80",
+    "posterImage": "https://images.unsplash.com/photo-1626224583764-f87db24ac4ea?auto=format&fit=crop&w=800&q=80",
     "sources": [
       "배드민턴타임즈"
     ],
@@ -27423,7 +27423,7 @@
   },
   {
     "id": "bt-07-153",
-    "category": "학생선수권",
+    "category": "전국오픈",
     "name": "2026 전국학교대항배드민턴선수권대회(중.고)",
     "registrationPeriod": "2026.06.21 ~ 2026.07.11",
     "registrationStart": "2026-06-21",
@@ -27573,7 +27573,7 @@
   },
   {
     "id": "bt-08-164",
-    "category": "전국오픈",
+    "category": "브랜드대회",
     "name": "제2회 투팟타이탄 전국 배드민턴대회",
     "registrationPeriod": "2026.07.16 ~ 2026.08.05",
     "registrationStart": "2026-07-16",
@@ -27598,7 +27598,7 @@
   },
   {
     "id": "bt-08-165",
-    "category": "학생선수권",
+    "category": "전국오픈",
     "name": "2026 전국학교대항배드민턴선수권대회(초등)",
     "registrationPeriod": "2026.07.17 ~ 2026.08.06",
     "registrationStart": "2026-07-17",
@@ -27773,7 +27773,7 @@
   },
   {
     "id": "bt-08-173",
-    "category": "전국오픈",
+    "category": "지역구대회",
     "name": "제6회 전남체육회장기 전국 배드민턴대회",
     "registrationPeriod": "2026.07.30 ~ 2026.08.19",
     "registrationStart": "2026-07-30",
@@ -28098,7 +28098,7 @@
   },
   {
     "id": "bt-09-189",
-    "category": "전국오픈",
+    "category": "지역구대회",
     "name": "제3회 해피700 평창 전국 배드민턴대회",
     "registrationPeriod": "2026.08.06 ~ 2026.08.26",
     "registrationStart": "2026-08-06",
@@ -28148,7 +28148,7 @@
   },
   {
     "id": "bt-09-192",
-    "category": "학생선수권",
+    "category": "국제대회",
     "name": "2026 아시아주니어배드민턴선수권대회(U-17/U-15)",
     "registrationPeriod": "2026.08.09 ~ 2026.08.29",
     "registrationStart": "2026-08-09",
@@ -28160,7 +28160,7 @@
     "source": "배드민턴타임즈",
     "officialLink": "http://www.badmintontimes.com/calendar/m3_calendarRead.jsp?menunum=204&no=2724&dday=20260908",
     "fee": "팀당 50,000원",
-    "posterImage": "https://images.unsplash.com/photo-1521537634581-0dced2fed2a8?auto=format&fit=crop&w=800&q=80",
+    "posterImage": "https://images.unsplash.com/photo-1626224583764-f87db24ac4ea?auto=format&fit=crop&w=800&q=80",
     "sources": [
       "배드민턴타임즈"
     ],
@@ -28173,7 +28173,7 @@
   },
   {
     "id": "bt-09-193",
-    "category": "전국오픈",
+    "category": "국제대회",
     "name": "2026 베트남오픈 투어 슈퍼100",
     "registrationPeriod": "2026.08.09 ~ 2026.08.29",
     "registrationStart": "2026-08-09",
@@ -28185,7 +28185,7 @@
     "source": "배드민턴타임즈",
     "officialLink": "http://www.badmintontimes.com/calendar/m3_calendarRead.jsp?menunum=204&no=2756&dday=20260908",
     "fee": "팀당 50,000원",
-    "posterImage": "https://images.unsplash.com/photo-1521537634581-0dced2fed2a8?auto=format&fit=crop&w=800&q=80",
+    "posterImage": "https://images.unsplash.com/photo-1626224583764-f87db24ac4ea?auto=format&fit=crop&w=800&q=80",
     "sources": [
       "배드민턴타임즈"
     ],
@@ -28298,7 +28298,7 @@
   },
   {
     "id": "bt-09-200",
-    "category": "전국오픈",
+    "category": "국제대회",
     "name": "2026 아이치-나고야 아시아경기대회 - 배드민턴",
     "registrationPeriod": "2026.08.21 ~ 2026.09.10",
     "registrationStart": "2026-08-21",
@@ -28310,7 +28310,7 @@
     "source": "배드민턴타임즈",
     "officialLink": "http://www.badmintontimes.com/calendar/m3_calendarRead.jsp?menunum=204&no=2674&dday=20260920",
     "fee": "팀당 50,000원",
-    "posterImage": "https://images.unsplash.com/photo-1521537634581-0dced2fed2a8?auto=format&fit=crop&w=800&q=80",
+    "posterImage": "https://images.unsplash.com/photo-1626224583764-f87db24ac4ea?auto=format&fit=crop&w=800&q=80",
     "sources": [
       "배드민턴타임즈"
     ],
@@ -28398,7 +28398,7 @@
   },
   {
     "id": "bt-10-205",
-    "category": "학생선수권",
+    "category": "전국오픈",
     "name": "2026 세계주니어배드민턴선수권대회",
     "registrationPeriod": "2026.09.05 ~ 2026.09.25",
     "registrationStart": "2026-09-05",
@@ -28498,7 +28498,7 @@
   },
   {
     "id": "bt-10-209",
-    "category": "전국오픈",
+    "category": "국제대회",
     "name": "2026 알리안츠 말레이시아 투어 슈퍼100",
     "registrationPeriod": "2026.09.13 ~ 2026.10.03",
     "registrationStart": "2026-09-13",
@@ -28510,7 +28510,7 @@
     "source": "배드민턴타임즈",
     "officialLink": "http://www.badmintontimes.com/calendar/m3_calendarRead.jsp?menunum=204&no=2725&dday=20261013",
     "fee": "팀당 50,000원",
-    "posterImage": "https://images.unsplash.com/photo-1521537634581-0dced2fed2a8?auto=format&fit=crop&w=800&q=80",
+    "posterImage": "https://images.unsplash.com/photo-1626224583764-f87db24ac4ea?auto=format&fit=crop&w=800&q=80",
     "sources": [
       "배드민턴타임즈"
     ],

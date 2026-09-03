@@ -43,19 +43,34 @@ export interface ScrapedTournament {
 
 const USER_AGENT = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36';
 
-function categorizeTournament(name: string, organizer = ''): '전국오픈' | '지역구대회' | '학생선수권' | '브랜드대회' | '국제대회' {
-  if (name.includes('월드투어') || name.includes('BWF') || name.includes('국제') || name.includes('마스터즈') || name.includes('오픈선수권')) {
+function categorizeTournament(name: string, venue = '', organizer = ''): '전국오픈' | '지역구대회' | '학생선수권' | '브랜드대회' | '국제대회' {
+  const text = `${name} ${venue} ${organizer}`;
+
+  // 1. 해외 및 BWF 국제 대회 (해외 국가/도시명, BWF, 월드투어, 공인 국제챌린지)
+  const isForeign =
+    /인도|뉴델리|베트남|하노이|말레이시아|쿠알라룸푸르|싱가폴|싱가포르|호주|시드니|태국|방콕|빠툼타니|인도네시아|자카르타|쿠두스|욕야카르타|일본|도쿄|구마모토|중국|항저우|홍콩|대만|타이베이|영국|버밍엄|스코틀랜드|글래스고|아일랜드|더블린|프랑스|파리|독일|뮐하임|덴마크|스위스|바젤|스페인|미국|캐나다/.test(
+      venue
+    ) || /BWF|월드투어|국제챌린지|인터내셔널챌린지|슈퍼[0-9]+|오픈선수권/.test(name);
+
+  if (isForeign) {
     return '국제대회';
   }
-  if (name.includes('구청장') || name.includes('시장기') || name.includes('협회장기') || name.includes('구협회') || name.includes('생활체육') || name.includes('시대회') || name.includes('군협회') || name.includes('구대회')) {
+
+  // 2. 지자체 및 시·군·구 협회 대회
+  if (/구청장|시장기|협회장기|구협회|생활체육|시대회|군협회|구대회|도지사기|체육회장기|군수기/.test(text)) {
     return '지역구대회';
   }
-  if (name.includes('요넥스') || name.includes('빅터') || name.includes('플리트') || name.includes('테크니스트') || name.includes('리닝') || name.includes('머니컵') || name.includes('익스트림') || name.includes('미즈노') || name.includes('아펙스') || organizer.includes('YONEX')) {
-    return '브랜드대회';
-  }
-  if (name.includes('학생') || name.includes('종별') || name.includes('선수권') || name.includes('학교스포츠클럽') || name.includes('교육감배') || name.includes('대학선수권')) {
+
+  // 3. 학생 및 엘리트 선수권
+  if (/학생|종별|학교스포츠클럽|교육감배|대학선수권|소년체전|전국체전/.test(text) && !/주니어 & 일반|빅터 주니어 & 동호인/.test(name)) {
     return '학생선수권';
   }
+
+  // 4. 브랜드 후원 대회
+  if (/요넥스|빅터|플리트|테크니스트|리닝|머니컵|익스트림|미즈노|아펙스|플라이파워|투팟/.test(text) || organizer.includes('YONEX')) {
+    return '브랜드대회';
+  }
+
   return '전국오픈';
 }
 
@@ -121,7 +136,7 @@ async function scrapeBadmintok(): Promise<ScrapedTournament[]> {
 
         return {
           id: `bm-${String(idx + 1).padStart(3, '0')}`,
-          category: categorizeTournament(item.name, item.organizer?.name),
+          category: categorizeTournament(item.name, venue, item.organizer?.name),
           name: item.name,
           registrationPeriod: `${regStartStr.replaceAll('-', '.')} ~ ${regEndStr.replaceAll('-', '.')}`,
           registrationStart: regStartStr,
@@ -180,7 +195,7 @@ async function scrapeBadmintonTimes(): Promise<ScrapedTournament[]> {
 
           tournaments.push({
             id: `bt-${monthStr}-${String(tournaments.length + 1).padStart(3, '0')}`,
-            category: categorizeTournament(name),
+            category: categorizeTournament(name, venue),
             name,
             registrationPeriod: `${regStartStr.replaceAll('-', '.')} ~ ${regEndStr.replaceAll('-', '.')}`,
             registrationStart: regStartStr,
@@ -1210,6 +1225,8 @@ function mergeAndDeduplicate(allTournaments: ScrapedTournament[]): ScrapedTourna
       .trim();
 
     const dedupKey = `${cleanName}_${t.eventStart.slice(0, 7)}`;
+
+    t.category = categorizeTournament(t.name, t.venue);
 
     if (!t.posterImage) {
       t.posterImage = getPosterImageUrl(t.name, t.category, t.venue);
