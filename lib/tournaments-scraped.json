@@ -120,6 +120,30 @@
     ]
   },
   {
+    "id": "bka-1ir7v3w",
+    "category": "전국오픈",
+    "name": "2026 말레이시아오픈배드민턴선수권대회 (Super 1000)",
+    "registrationPeriod": "대한배드민턴협회 공식 요강 참조",
+    "registrationStart": "",
+    "registrationEnd": "",
+    "eventPeriod": "2026.01.06 ~ 01.11",
+    "eventStart": "2026-01-06",
+    "eventEnd": "2026-01-11",
+    "venue": "말레이시아 쿠알라룸푸르",
+    "source": "대한배드민턴협회",
+    "officialLink": "http://koreabadminton.org/Competition/info/Member/summary.asp?idx=910F75E18E1C4AAB204991B2D3A6DFC3&type=82F8FA121292201288B41CCCC9DDD5E5&fnd_Year=2026&fnd_EnterType=",
+    "fee": "공식 요강 참조",
+    "sources": [
+      "대한배드민턴협회"
+    ],
+    "sourceLinks": [
+      {
+        "source": "대한배드민턴협회",
+        "link": "http://koreabadminton.org/Competition/info/Member/summary.asp?idx=910F75E18E1C4AAB204991B2D3A6DFC3&type=82F8FA121292201288B41CCCC9DDD5E5&fnd_Year=2026&fnd_EnterType="
+      }
+    ]
+  },
+  {
     "id": "bt-2538",
     "category": "전국오픈",
     "name": "제1회 프리미크 유소년 전국 배드민턴대회",
@@ -193,6 +217,30 @@
     ]
   },
   {
+    "id": "bka-1183wit",
+    "category": "전국오픈",
+    "name": "2026 인도오픈배드민턴선수권대회 (Super 750)",
+    "registrationPeriod": "대한배드민턴협회 공식 요강 참조",
+    "registrationStart": "",
+    "registrationEnd": "",
+    "eventPeriod": "2026.01.13 ~ 01.18",
+    "eventStart": "2026-01-13",
+    "eventEnd": "2026-01-18",
+    "venue": "인디아 뉴델리",
+    "source": "대한배드민턴협회",
+    "officialLink": "http://koreabadminton.org/Competition/info/Member/summary.asp?idx=F2A5A79261F8EC619634A623C0433042&type=82F8FA121292201288B41CCCC9DDD5E5&fnd_Year=2026&fnd_EnterType=",
+    "fee": "공식 요강 참조",
+    "sources": [
+      "대한배드민턴협회"
+    ],
+    "sourceLinks": [
+      {
+        "source": "대한배드민턴협회",
+        "link": "http://koreabadminton.org/Competition/info/Member/summary.asp?idx=F2A5A79261F8EC619634A623C0433042&type=82F8FA121292201288B41CCCC9DDD5E5&fnd_Year=2026&fnd_EnterType="
+      }
+    ]
+  },
+  {
     "id": "omp-2095",
     "category": "전국오픈",
     "name": "2025 청소년스포츠한마당 배드민턴대회",
@@ -207,12 +255,17 @@
     "officialLink": "https://m.ohmyplay.com/tournament/2095",
     "fee": "요강 참조",
     "sources": [
-      "오마이플레이"
+      "오마이플레이",
+      "대한배드민턴협회"
     ],
     "sourceLinks": [
       {
         "source": "오마이플레이",
         "link": "https://m.ohmyplay.com/tournament/2095"
+      },
+      {
+        "source": "대한배드민턴협회",
+        "link": "http://koreabadminton.org/Competition/info/Member/summary.asp?idx=28B053912086A860A50308F24B47DB57&type=5AA24B17261C2D805061DCB53A0ADBC2&fnd_Year=2026&fnd_EnterType="
       }
     ]
   },
@@ -376,7 +429,8 @@
     "fee": "요강 참조",
     "sources": [
       "배드민턴타임즈",
-      "오마이플레이"
+      "오마이플레이",
+      "대한배드민턴협회"
     ],
     "sourceLinks": [
       {
@@ -386,6 +440,10 @@
       {
         "source": "오마이플레이",
         "link": "https://m.ohmyplay.com/tournament/2099"
+      },
+      {
+        "source": "대한배드민턴협회",
+        "link": "http://koreabadminton.org/Competition/info/Member/summary.asp?idx=3C652572ED149A6276364E7A08EF7D21&type=5AA24B17261C2D805061DCB53A0ADBC2&fnd_Year=2026&fnd_EnterType="
       }
     ]
   },
@@ -404,12 +462,17 @@
     "officialLink": "http://www.badmintontimes.com/calendar/m3_calendarRead.jsp?menunum=204&no=2524&dday=20260203",
     "fee": "요강 참조",
     "sources": [
-      "배드민턴타임즈"
+      "배드민턴타임즈",
+      "대한배드민턴협회"
     ],
     "sourceLinks": [
       {
         "source": "배드민턴타임즈",
         "link": "http://www.badmintontimes.com/calendar/m3_calendarRead.jsp?menunum=204&no=2524&dday=20260203"
+      },
+      {
+        "source": "대한배드민턴협회",
+        "link": "http://koreabadminton.org/Competition/info/Member/summary.asp?idx=33E19E9231E67E49D06FE74772A8EBD6&type=82F8FA121292201288B41CCCC9DDD5E5&fnd_Year=2026&fnd_EnterType="
       }
     ]
   },
@@ -574,7 +637,8 @@
     "fee": "요강 참조",
     "sources": [
       "배드민턴타임즈",
-      "오마이플레이"
+      "오마이플레이",
+      "대한배드민턴협회"
     ],
     "sourceLinks": [
       {
@@ -584,6 +648,10 @@
       {
         "source": "오마이플레이",
         "link": "https://m.ohmyplay.com/tournament/2101"
+      },
+      {
+        "source": "대한배드민턴협회",
+        "link": "http://koreabadminton.org/Competition/info/Member/summary.asp?idx=8A5A30BF9E894A4F5563717CB86A8225&type=5AA24B17261C2D805061DCB53A0ADBC2&fnd_Year=2026&fnd_EnterType="
       }
     ]
   },
@@ -915,12 +983,17 @@
     "officialLink": "http://www.badmintontimes.com/calendar/m3_calendarRead.jsp?menunum=204&no=2564&dday=20260225",
     "fee": "요강 참조",
     "sources": [
-      "배드민턴타임즈"
+      "배드민턴타임즈",
+      "대한배드민턴협회"
     ],
     "sourceLinks": [
       {
         "source": "배드민턴타임즈",
         "link": "http://www.badmintontimes.com/calendar/m3_calendarRead.jsp?menunum=204&no=2564&dday=20260225"
+      },
+      {
+        "source": "대한배드민턴협회",
+        "link": "http://koreabadminton.org/Competition/info/Member/summary.asp?idx=00C9794B2D5D304675BF1DFEDFBC686D&type=82F8FA121292201288B41CCCC9DDD5E5&fnd_Year=2026&fnd_EnterType="
       }
     ]
   },
@@ -1168,6 +1241,30 @@
     ]
   },
   {
+    "id": "bka-1q5m7lx",
+    "category": "전국오픈",
+    "name": "2026 전영오픈배드민턴선수권대회 (Super 1000)",
+    "registrationPeriod": "대한배드민턴협회 공식 요강 참조",
+    "registrationStart": "",
+    "registrationEnd": "",
+    "eventPeriod": "2026.03.03 ~ 03.08",
+    "eventStart": "2026-03-03",
+    "eventEnd": "2026-03-08",
+    "venue": "잉글랜드 버밍엄",
+    "source": "대한배드민턴협회",
+    "officialLink": "http://koreabadminton.org/Competition/info/Member/summary.asp?idx=ED3F67271E5EBDD919FE2E3A5196F0A8&type=82F8FA121292201288B41CCCC9DDD5E5&fnd_Year=2026&fnd_EnterType=",
+    "fee": "공식 요강 참조",
+    "sources": [
+      "대한배드민턴협회"
+    ],
+    "sourceLinks": [
+      {
+        "source": "대한배드민턴협회",
+        "link": "http://koreabadminton.org/Competition/info/Member/summary.asp?idx=ED3F67271E5EBDD919FE2E3A5196F0A8&type=82F8FA121292201288B41CCCC9DDD5E5&fnd_Year=2026&fnd_EnterType="
+      }
+    ]
+  },
+  {
     "id": "bt-2565",
     "category": "국제대회",
     "name": "2026 독일주니어오픈 배드민턴선수권대회",
@@ -1182,12 +1279,17 @@
     "officialLink": "http://www.badmintontimes.com/calendar/m3_calendarRead.jsp?menunum=204&no=2565&dday=20260304",
     "fee": "요강 참조",
     "sources": [
-      "배드민턴타임즈"
+      "배드민턴타임즈",
+      "대한배드민턴협회"
     ],
     "sourceLinks": [
       {
         "source": "배드민턴타임즈",
         "link": "http://www.badmintontimes.com/calendar/m3_calendarRead.jsp?menunum=204&no=2565&dday=20260304"
+      },
+      {
+        "source": "대한배드민턴협회",
+        "link": "http://koreabadminton.org/Competition/info/Member/summary.asp?idx=EF9F718460B57108D69FBB05B3863F18&type=82F8FA121292201288B41CCCC9DDD5E5&fnd_Year=2026&fnd_EnterType="
       }
     ]
   },
@@ -1495,12 +1597,17 @@
     "officialLink": "http://www.badmintontimes.com/calendar/m3_calendarRead.jsp?menunum=204&no=2555&dday=20260311",
     "fee": "요강 참조",
     "sources": [
-      "배드민턴타임즈"
+      "배드민턴타임즈",
+      "대한배드민턴협회"
     ],
     "sourceLinks": [
       {
         "source": "배드민턴타임즈",
         "link": "http://www.badmintontimes.com/calendar/m3_calendarRead.jsp?menunum=204&no=2555&dday=20260311"
+      },
+      {
+        "source": "대한배드민턴협회",
+        "link": "http://koreabadminton.org/Competition/info/Member/summary.asp?idx=48DD64B20EAC9F58D04DEF54D4D5E3A8&type=5AA24B17261C2D805061DCB53A0ADBC2&fnd_Year=2026&fnd_EnterType="
       }
     ]
   },
@@ -1520,7 +1627,8 @@
     "fee": "요강 참조",
     "sources": [
       "배드민턴타임즈",
-      "오마이플레이"
+      "오마이플레이",
+      "대한배드민턴협회"
     ],
     "sourceLinks": [
       {
@@ -1530,6 +1638,10 @@
       {
         "source": "오마이플레이",
         "link": "https://m.ohmyplay.com/tournament/2118"
+      },
+      {
+        "source": "대한배드민턴협회",
+        "link": "http://koreabadminton.org/Competition/info/Member/summary.asp?idx=ECB84D9A8D0F2D4F98BE47053396C144&type=5AA24B17261C2D805061DCB53A0ADBC2&fnd_Year=2026&fnd_EnterType="
       }
     ]
   },
@@ -1596,12 +1708,17 @@
     "officialLink": "http://www.badmintontimes.com/calendar/m3_calendarRead.jsp?menunum=204&no=2590&dday=20260314",
     "fee": "요강 참조",
     "sources": [
-      "배드민턴타임즈"
+      "배드민턴타임즈",
+      "대한배드민턴협회"
     ],
     "sourceLinks": [
       {
         "source": "배드민턴타임즈",
         "link": "http://www.badmintontimes.com/calendar/m3_calendarRead.jsp?menunum=204&no=2590&dday=20260314"
+      },
+      {
+        "source": "대한배드민턴협회",
+        "link": "http://koreabadminton.org/Competition/info/Member/summary.asp?idx=9A524FCCBFC279C8A559A005ABDD4E84&type=5AA24B17261C2D805061DCB53A0ADBC2&fnd_Year=2026&fnd_EnterType="
       }
     ]
   },
@@ -2249,12 +2366,17 @@
     "officialLink": "https://m.ohmyplay.com/tournament/2132",
     "fee": "요강 참조",
     "sources": [
-      "오마이플레이"
+      "오마이플레이",
+      "대한배드민턴협회"
     ],
     "sourceLinks": [
       {
         "source": "오마이플레이",
         "link": "https://m.ohmyplay.com/tournament/2132"
+      },
+      {
+        "source": "대한배드민턴협회",
+        "link": "http://koreabadminton.org/Competition/info/Member/summary.asp?idx=CD1BAD8380E46D31ADF06D66048B1D20&type=5AA24B17261C2D805061DCB53A0ADBC2&fnd_Year=2026&fnd_EnterType="
       }
     ]
   },
@@ -2370,7 +2492,8 @@
     "fee": "요강 참조",
     "sources": [
       "배드민턴타임즈",
-      "오마이플레이"
+      "오마이플레이",
+      "대한배드민턴협회"
     ],
     "sourceLinks": [
       {
@@ -2380,6 +2503,10 @@
       {
         "source": "오마이플레이",
         "link": "https://m.ohmyplay.com/tournament/2133"
+      },
+      {
+        "source": "대한배드민턴협회",
+        "link": "http://koreabadminton.org/Competition/info/Member/summary.asp?idx=CC6BEF239CDEA284F99924135F01F43E&type=5AA24B17261C2D805061DCB53A0ADBC2&fnd_Year=2026&fnd_EnterType="
       }
     ]
   },
@@ -2422,12 +2549,17 @@
     "officialLink": "http://www.badmintontimes.com/calendar/m3_calendarRead.jsp?menunum=204&no=2547&dday=20260407",
     "fee": "요강 참조",
     "sources": [
-      "배드민턴타임즈"
+      "배드민턴타임즈",
+      "대한배드민턴협회"
     ],
     "sourceLinks": [
       {
         "source": "배드민턴타임즈",
         "link": "http://www.badmintontimes.com/calendar/m3_calendarRead.jsp?menunum=204&no=2547&dday=20260407"
+      },
+      {
+        "source": "대한배드민턴협회",
+        "link": "http://koreabadminton.org/Competition/info/Member/summary.asp?idx=B0780048A1BE3F162C9ABAD4F913D2FA&type=82F8FA121292201288B41CCCC9DDD5E5&fnd_Year=2026&fnd_EnterType="
       }
     ]
   },
@@ -2542,12 +2674,17 @@
     "officialLink": "http://www.badmintontimes.com/calendar/m3_calendarRead.jsp?menunum=204&no=2567&dday=20260413",
     "fee": "요강 참조",
     "sources": [
-      "배드민턴타임즈"
+      "배드민턴타임즈",
+      "대한배드민턴협회"
     ],
     "sourceLinks": [
       {
         "source": "배드민턴타임즈",
         "link": "http://www.badmintontimes.com/calendar/m3_calendarRead.jsp?menunum=204&no=2567&dday=20260413"
+      },
+      {
+        "source": "대한배드민턴협회",
+        "link": "http://koreabadminton.org/Competition/info/Member/summary.asp?idx=085136E57B47650AAE6857BAE4CFC3D1&type=5AA24B17261C2D805061DCB53A0ADBC2&fnd_Year=2026&fnd_EnterType="
       }
     ]
   },
@@ -2591,7 +2728,8 @@
     "fee": "요강 참조",
     "sources": [
       "배드민턴타임즈",
-      "오마이플레이"
+      "오마이플레이",
+      "대한배드민턴협회"
     ],
     "sourceLinks": [
       {
@@ -2601,6 +2739,10 @@
       {
         "source": "오마이플레이",
         "link": "https://m.ohmyplay.com/tournament/2134"
+      },
+      {
+        "source": "대한배드민턴협회",
+        "link": "http://koreabadminton.org/Competition/info/Member/summary.asp?idx=63253A037213A86D34424F029A4AD19E&type=5AA24B17261C2D805061DCB53A0ADBC2&fnd_Year=2026&fnd_EnterType="
       }
     ]
   },
@@ -2701,6 +2843,30 @@
     ]
   },
   {
+    "id": "bka-1m3gu6p",
+    "category": "지역구대회",
+    "name": "2026 전국생활체육대축전",
+    "registrationPeriod": "대한배드민턴협회 공식 요강 참조",
+    "registrationStart": "",
+    "registrationEnd": "",
+    "eventPeriod": "2026.04.23 ~ 04.26",
+    "eventStart": "2026-04-23",
+    "eventEnd": "2026-04-26",
+    "venue": "경남 밀양",
+    "source": "대한배드민턴협회",
+    "officialLink": "http://koreabadminton.org/Competition/info/Member/summary.asp?idx=C5D354860547DBB6EDB751F2B6899A8C&type=5AA24B17261C2D805061DCB53A0ADBC2&fnd_Year=2026&fnd_EnterType=",
+    "fee": "공식 요강 참조",
+    "sources": [
+      "대한배드민턴협회"
+    ],
+    "sourceLinks": [
+      {
+        "source": "대한배드민턴협회",
+        "link": "http://koreabadminton.org/Competition/info/Member/summary.asp?idx=C5D354860547DBB6EDB751F2B6899A8C&type=5AA24B17261C2D805061DCB53A0ADBC2&fnd_Year=2026&fnd_EnterType="
+      }
+    ]
+  },
+  {
     "id": "sp-cp69e6",
     "category": "전국오픈",
     "name": "2026 제6회 공주시 체육회장기 배드민턴대회",
@@ -2745,6 +2911,30 @@
       {
         "source": "배드민턴타임즈",
         "link": "http://www.badmintontimes.com/calendar/m3_calendarRead.jsp?menunum=204&no=2558&dday=20260424"
+      }
+    ]
+  },
+  {
+    "id": "bka-rg599b",
+    "category": "전국오픈",
+    "name": "제34회 세계남자 및 제31회 세계여자단체배드민턴선수권대회",
+    "registrationPeriod": "대한배드민턴협회 공식 요강 참조",
+    "registrationStart": "",
+    "registrationEnd": "",
+    "eventPeriod": "2026.04.24 ~ 05.03",
+    "eventStart": "2026-04-24",
+    "eventEnd": "2026-05-03",
+    "venue": "덴마크 호센스",
+    "source": "대한배드민턴협회",
+    "officialLink": "http://koreabadminton.org/Competition/info/Member/summary.asp?idx=5E617822D81E2F7781D47E601834EA67&type=82F8FA121292201288B41CCCC9DDD5E5&fnd_Year=2026&fnd_EnterType=",
+    "fee": "공식 요강 참조",
+    "sources": [
+      "대한배드민턴협회"
+    ],
+    "sourceLinks": [
+      {
+        "source": "대한배드민턴협회",
+        "link": "http://koreabadminton.org/Competition/info/Member/summary.asp?idx=5E617822D81E2F7781D47E601834EA67&type=82F8FA121292201288B41CCCC9DDD5E5&fnd_Year=2026&fnd_EnterType="
       }
     ]
   },
@@ -2938,7 +3128,8 @@
     "fee": "요강 참조",
     "sources": [
       "배드민턴타임즈",
-      "오마이플레이"
+      "오마이플레이",
+      "대한배드민턴협회"
     ],
     "sourceLinks": [
       {
@@ -2948,6 +3139,10 @@
       {
         "source": "오마이플레이",
         "link": "https://m.ohmyplay.com/tournament/2135"
+      },
+      {
+        "source": "대한배드민턴협회",
+        "link": "http://koreabadminton.org/Competition/info/Member/summary.asp?idx=5E7B6E50D11BF3BE87BDFBFAE0611837&type=5AA24B17261C2D805061DCB53A0ADBC2&fnd_Year=2026&fnd_EnterType="
       }
     ]
   },
@@ -3259,7 +3454,8 @@
     "fee": "요강 참조",
     "sources": [
       "배드민턴타임즈",
-      "오마이플레이"
+      "오마이플레이",
+      "대한배드민턴협회"
     ],
     "sourceLinks": [
       {
@@ -3269,6 +3465,10 @@
       {
         "source": "오마이플레이",
         "link": "https://m.ohmyplay.com/tournament/2136"
+      },
+      {
+        "source": "대한배드민턴협회",
+        "link": "http://koreabadminton.org/Competition/info/Member/summary.asp?idx=77508594E8D1E2B53D4A1EEE13B10699&type=5AA24B17261C2D805061DCB53A0ADBC2&fnd_Year=2026&fnd_EnterType="
       }
     ]
   },
@@ -3627,7 +3827,8 @@
     "fee": "요강 참조",
     "sources": [
       "배드민턴타임즈",
-      "오마이플레이"
+      "오마이플레이",
+      "대한배드민턴협회"
     ],
     "sourceLinks": [
       {
@@ -3637,6 +3838,10 @@
       {
         "source": "오마이플레이",
         "link": "https://m.ohmyplay.com/tournament/2137"
+      },
+      {
+        "source": "대한배드민턴협회",
+        "link": "http://koreabadminton.org/Competition/info/Member/summary.asp?idx=E476846699EA1BD927F57B2D235730EA&type=5AA24B17261C2D805061DCB53A0ADBC2&fnd_Year=2026&fnd_EnterType="
       }
     ]
   },
@@ -3665,6 +3870,30 @@
     ]
   },
   {
+    "id": "bka-pi63zq",
+    "category": "전국오픈",
+    "name": "2026 싱가폴오픈배드민턴선수권대회 (Super 750)",
+    "registrationPeriod": "대한배드민턴협회 공식 요강 참조",
+    "registrationStart": "",
+    "registrationEnd": "",
+    "eventPeriod": "2026.05.26 ~ 05.31",
+    "eventStart": "2026-05-26",
+    "eventEnd": "2026-05-31",
+    "venue": "싱가폴 싱가포르",
+    "source": "대한배드민턴협회",
+    "officialLink": "http://koreabadminton.org/Competition/info/Member/summary.asp?idx=8A9B3B44BCBA21247AF6A5F67BF37886&type=82F8FA121292201288B41CCCC9DDD5E5&fnd_Year=2026&fnd_EnterType=",
+    "fee": "공식 요강 참조",
+    "sources": [
+      "대한배드민턴협회"
+    ],
+    "sourceLinks": [
+      {
+        "source": "대한배드민턴협회",
+        "link": "http://koreabadminton.org/Competition/info/Member/summary.asp?idx=8A9B3B44BCBA21247AF6A5F67BF37886&type=82F8FA121292201288B41CCCC9DDD5E5&fnd_Year=2026&fnd_EnterType="
+      }
+    ]
+  },
+  {
     "id": "bt-2613",
     "category": "국제대회",
     "name": "2026 인도네시아오픈 월드투어 슈퍼1000",
@@ -3685,6 +3914,30 @@
       {
         "source": "배드민턴타임즈",
         "link": "http://www.badmintontimes.com/calendar/m3_calendarRead.jsp?menunum=204&no=2613&dday=20260602"
+      }
+    ]
+  },
+  {
+    "id": "bka-1scyqqg",
+    "category": "전국오픈",
+    "name": "2026 인도네시아오픈배드민턴선수권대회 (Super 1000)",
+    "registrationPeriod": "대한배드민턴협회 공식 요강 참조",
+    "registrationStart": "",
+    "registrationEnd": "",
+    "eventPeriod": "2026.06.02 ~ 06.07",
+    "eventStart": "2026-06-02",
+    "eventEnd": "2026-06-07",
+    "venue": "인도네시아 자카르타",
+    "source": "대한배드민턴협회",
+    "officialLink": "http://koreabadminton.org/Competition/info/Member/summary.asp?idx=F16BDDF41C32844B9B608EE457143A0D&type=82F8FA121292201288B41CCCC9DDD5E5&fnd_Year=2026&fnd_EnterType=",
+    "fee": "공식 요강 참조",
+    "sources": [
+      "대한배드민턴협회"
+    ],
+    "sourceLinks": [
+      {
+        "source": "대한배드민턴협회",
+        "link": "http://koreabadminton.org/Competition/info/Member/summary.asp?idx=F16BDDF41C32844B9B608EE457143A0D&type=82F8FA121292201288B41CCCC9DDD5E5&fnd_Year=2026&fnd_EnterType="
       }
     ]
   },
@@ -3849,7 +4102,8 @@
     "fee": "요강 참조",
     "sources": [
       "배드민턴타임즈",
-      "오마이플레이"
+      "오마이플레이",
+      "대한배드민턴협회"
     ],
     "sourceLinks": [
       {
@@ -3859,6 +4113,10 @@
       {
         "source": "오마이플레이",
         "link": "https://m.ohmyplay.com/tournament/2182"
+      },
+      {
+        "source": "대한배드민턴협회",
+        "link": "http://koreabadminton.org/Competition/info/Member/summary.asp?idx=5EE3D214D509B649BF4EBD5A8A665DAA&type=5AA24B17261C2D805061DCB53A0ADBC2&fnd_Year=2026&fnd_EnterType="
       }
     ]
   },
@@ -3984,6 +4242,30 @@
     ]
   },
   {
+    "id": "bka-d4czxv",
+    "category": "전국오픈",
+    "name": "2026 AUSF 아시아대학배드민턴선수권대회",
+    "registrationPeriod": "대한배드민턴협회 공식 요강 참조",
+    "registrationStart": "",
+    "registrationEnd": "",
+    "eventPeriod": "2026.06.10 ~ 06.15",
+    "eventStart": "2026-06-10",
+    "eventEnd": "2026-06-15",
+    "venue": "대만 타이페이",
+    "source": "대한배드민턴협회",
+    "officialLink": "http://koreabadminton.org/Competition/info/Member/summary.asp?idx=2857D5283857ED476475FA10AFB50201&type=82F8FA121292201288B41CCCC9DDD5E5&fnd_Year=2026&fnd_EnterType=",
+    "fee": "공식 요강 참조",
+    "sources": [
+      "대한배드민턴협회"
+    ],
+    "sourceLinks": [
+      {
+        "source": "대한배드민턴협회",
+        "link": "http://koreabadminton.org/Competition/info/Member/summary.asp?idx=2857D5283857ED476475FA10AFB50201&type=82F8FA121292201288B41CCCC9DDD5E5&fnd_Year=2026&fnd_EnterType="
+      }
+    ]
+  },
+  {
     "id": "sp-6af502",
     "category": "지역구대회",
     "name": "2026 제7회 한국 건강관리 협회장배 배드민턴 대회",
@@ -4028,6 +4310,30 @@
       {
         "source": "배드민턴타임즈",
         "link": "http://www.badmintontimes.com/calendar/m3_calendarRead.jsp?menunum=204&no=2654&dday=20260612"
+      }
+    ]
+  },
+  {
+    "id": "bka-qb853u",
+    "category": "지역구대회",
+    "name": "2026 빅터 유니티컵 전국시도대항 생활체육혼합단체전",
+    "registrationPeriod": "대한배드민턴협회 공식 요강 참조",
+    "registrationStart": "",
+    "registrationEnd": "",
+    "eventPeriod": "2026.06.13 ~ 06.14",
+    "eventStart": "2026-06-13",
+    "eventEnd": "2026-06-14",
+    "venue": "경기 평택",
+    "source": "대한배드민턴협회",
+    "officialLink": "http://koreabadminton.org/Competition/info/Member/summary.asp?idx=2E318945BA0D3CB730BD6564E8F91EB2&type=5AA24B17261C2D805061DCB53A0ADBC2&fnd_Year=2026&fnd_EnterType=",
+    "fee": "공식 요강 참조",
+    "sources": [
+      "대한배드민턴협회"
+    ],
+    "sourceLinks": [
+      {
+        "source": "대한배드민턴협회",
+        "link": "http://koreabadminton.org/Competition/info/Member/summary.asp?idx=2E318945BA0D3CB730BD6564E8F91EB2&type=5AA24B17261C2D805061DCB53A0ADBC2&fnd_Year=2026&fnd_EnterType="
       }
     ]
   },
@@ -4130,6 +4436,30 @@
       {
         "source": "오마이플레이",
         "link": "https://m.ohmyplay.com/tournament/2139"
+      }
+    ]
+  },
+  {
+    "id": "bka-1p58e76",
+    "category": "학생선수권",
+    "name": "2026 대통령기 전국종별배드민턴선수권대회(중고) 겸 제34회 한중일주니어종합경기대회 선수 선발전",
+    "registrationPeriod": "대한배드민턴협회 공식 요강 참조",
+    "registrationStart": "",
+    "registrationEnd": "",
+    "eventPeriod": "2026.06.15 ~ 06.24",
+    "eventStart": "2026-06-15",
+    "eventEnd": "2026-06-24",
+    "venue": "경북 김천",
+    "source": "대한배드민턴협회",
+    "officialLink": "http://koreabadminton.org/Competition/info/Member/summary.asp?idx=12F37D023061697A313CF604B3BE4B05&type=5AA24B17261C2D805061DCB53A0ADBC2&fnd_Year=2026&fnd_EnterType=",
+    "fee": "공식 요강 참조",
+    "sources": [
+      "대한배드민턴협회"
+    ],
+    "sourceLinks": [
+      {
+        "source": "대한배드민턴협회",
+        "link": "http://koreabadminton.org/Competition/info/Member/summary.asp?idx=12F37D023061697A313CF604B3BE4B05&type=5AA24B17261C2D805061DCB53A0ADBC2&fnd_Year=2026&fnd_EnterType="
       }
     ]
   },
@@ -4250,6 +4580,30 @@
       {
         "source": "배드민턴타임즈",
         "link": "http://www.badmintontimes.com/calendar/m3_calendarRead.jsp?menunum=204&no=2620&dday=20260616"
+      }
+    ]
+  },
+  {
+    "id": "bka-vjdr8g",
+    "category": "전국오픈",
+    "name": "2026 마카오오픈배드민턴선수권대회 (Super 300)",
+    "registrationPeriod": "대한배드민턴협회 공식 요강 참조",
+    "registrationStart": "",
+    "registrationEnd": "",
+    "eventPeriod": "2026.06.16 ~ 06.21",
+    "eventStart": "2026-06-16",
+    "eventEnd": "2026-06-21",
+    "venue": "마카오 마카오",
+    "source": "대한배드민턴협회",
+    "officialLink": "http://koreabadminton.org/Competition/info/Member/summary.asp?idx=ADB008DB8DBE040F745D98D28E1C65A8&type=82F8FA121292201288B41CCCC9DDD5E5&fnd_Year=2026&fnd_EnterType=",
+    "fee": "공식 요강 참조",
+    "sources": [
+      "대한배드민턴협회"
+    ],
+    "sourceLinks": [
+      {
+        "source": "대한배드민턴협회",
+        "link": "http://koreabadminton.org/Competition/info/Member/summary.asp?idx=ADB008DB8DBE040F745D98D28E1C65A8&type=82F8FA121292201288B41CCCC9DDD5E5&fnd_Year=2026&fnd_EnterType="
       }
     ]
   },
@@ -4544,6 +4898,30 @@
     ]
   },
   {
+    "id": "bka-l92gq7",
+    "category": "학생선수권",
+    "name": "2026 전국실업대항 및 학교대항(대학)배드민턴선수권대회",
+    "registrationPeriod": "대한배드민턴협회 공식 요강 참조",
+    "registrationStart": "",
+    "registrationEnd": "",
+    "eventPeriod": "2026.06.23 ~ 07.04",
+    "eventStart": "2026-06-23",
+    "eventEnd": "2026-07-04",
+    "venue": "강원 양구",
+    "source": "대한배드민턴협회",
+    "officialLink": "http://koreabadminton.org/Competition/info/Member/summary.asp?idx=443312FEC03A1AA1DDDCE9C4BB856588&type=5AA24B17261C2D805061DCB53A0ADBC2&fnd_Year=2026&fnd_EnterType=",
+    "fee": "공식 요강 참조",
+    "sources": [
+      "대한배드민턴협회"
+    ],
+    "sourceLinks": [
+      {
+        "source": "대한배드민턴협회",
+        "link": "http://koreabadminton.org/Competition/info/Member/summary.asp?idx=443312FEC03A1AA1DDDCE9C4BB856588&type=5AA24B17261C2D805061DCB53A0ADBC2&fnd_Year=2026&fnd_EnterType="
+      }
+    ]
+  },
+  {
     "id": "bt-2633",
     "category": "학생선수권",
     "name": "2026 전국실업대항 및 학교대항배드민턴선수권대회",
@@ -4582,12 +4960,17 @@
     "officialLink": "http://www.badmintontimes.com/calendar/m3_calendarRead.jsp?menunum=204&no=2629&dday=20260626",
     "fee": "요강 참조",
     "sources": [
-      "배드민턴타임즈"
+      "배드민턴타임즈",
+      "대한배드민턴협회"
     ],
     "sourceLinks": [
       {
         "source": "배드민턴타임즈",
         "link": "http://www.badmintontimes.com/calendar/m3_calendarRead.jsp?menunum=204&no=2629&dday=20260626"
+      },
+      {
+        "source": "대한배드민턴협회",
+        "link": "http://koreabadminton.org/Competition/info/Member/summary.asp?idx=861A9E83E757673BD47CCAADCC7512DE&type=82F8FA121292201288B41CCCC9DDD5E5&fnd_Year=2026&fnd_EnterType="
       }
     ]
   },
@@ -5442,6 +5825,30 @@
     ]
   },
   {
+    "id": "bka-gin501",
+    "category": "국제대회",
+    "name": "2026 북마리아나국제챌린지배드민턴선수권대회",
+    "registrationPeriod": "대한배드민턴협회 공식 요강 참조",
+    "registrationStart": "",
+    "registrationEnd": "",
+    "eventPeriod": "2026.07.14 ~ 07.19",
+    "eventStart": "2026-07-14",
+    "eventEnd": "2026-07-19",
+    "venue": "미국",
+    "source": "대한배드민턴협회",
+    "officialLink": "http://koreabadminton.org/Competition/info/Member/summary.asp?idx=56160F06E3BAD8BDEA6EE59E4DE85DBC&type=82F8FA121292201288B41CCCC9DDD5E5&fnd_Year=2026&fnd_EnterType=",
+    "fee": "공식 요강 참조",
+    "sources": [
+      "대한배드민턴협회"
+    ],
+    "sourceLinks": [
+      {
+        "source": "대한배드민턴협회",
+        "link": "http://koreabadminton.org/Competition/info/Member/summary.asp?idx=56160F06E3BAD8BDEA6EE59E4DE85DBC&type=82F8FA121292201288B41CCCC9DDD5E5&fnd_Year=2026&fnd_EnterType="
+      }
+    ]
+  },
+  {
     "id": "bt-2644",
     "category": "국제대회",
     "name": "2026 북마리아나오픈 인터내셔널 챌린지",
@@ -5490,6 +5897,30 @@
     ]
   },
   {
+    "id": "bka-1fcmded",
+    "category": "전국오픈",
+    "name": "2026 일본오픈배드민턴선수권대회 (Super 750)",
+    "registrationPeriod": "대한배드민턴협회 공식 요강 참조",
+    "registrationStart": "",
+    "registrationEnd": "",
+    "eventPeriod": "2026.07.14 ~ 07.19",
+    "eventStart": "2026-07-14",
+    "eventEnd": "2026-07-19",
+    "venue": "일본 도쿄",
+    "source": "대한배드민턴협회",
+    "officialLink": "http://koreabadminton.org/Competition/info/Member/summary.asp?idx=8AAA50BCF01ABD51DFC1294E5A829BAE&type=82F8FA121292201288B41CCCC9DDD5E5&fnd_Year=2026&fnd_EnterType=",
+    "fee": "공식 요강 참조",
+    "sources": [
+      "대한배드민턴협회"
+    ],
+    "sourceLinks": [
+      {
+        "source": "대한배드민턴협회",
+        "link": "http://koreabadminton.org/Competition/info/Member/summary.asp?idx=8AAA50BCF01ABD51DFC1294E5A829BAE&type=82F8FA121292201288B41CCCC9DDD5E5&fnd_Year=2026&fnd_EnterType="
+      }
+    ]
+  },
+  {
     "id": "omp-2204",
     "category": "전국오픈",
     "name": "2026 한국동그라미파트너스 장애인배드민턴 리그전 2라운드",
@@ -5528,12 +5959,17 @@
     "officialLink": "http://www.badmintontimes.com/calendar/m3_calendarRead.jsp?menunum=204&no=2647&dday=20260717",
     "fee": "요강 참조",
     "sources": [
-      "배드민턴타임즈"
+      "배드민턴타임즈",
+      "대한배드민턴협회"
     ],
     "sourceLinks": [
       {
         "source": "배드민턴타임즈",
         "link": "http://www.badmintontimes.com/calendar/m3_calendarRead.jsp?menunum=204&no=2647&dday=20260717"
+      },
+      {
+        "source": "대한배드민턴협회",
+        "link": "http://koreabadminton.org/Competition/info/Member/summary.asp?idx=DBC9D29B702CADCD5532E454C93EC37E&type=5AA24B17261C2D805061DCB53A0ADBC2&fnd_Year=2026&fnd_EnterType="
       }
     ]
   },
@@ -5625,7 +6061,8 @@
     "fee": "요강 참조",
     "sources": [
       "배드민턴타임즈",
-      "오마이플레이"
+      "오마이플레이",
+      "대한배드민턴협회"
     ],
     "sourceLinks": [
       {
@@ -5635,6 +6072,10 @@
       {
         "source": "오마이플레이",
         "link": "https://m.ohmyplay.com/tournament/2141"
+      },
+      {
+        "source": "대한배드민턴협회",
+        "link": "http://koreabadminton.org/Competition/info/Member/summary.asp?idx=F1CF6099B3EE074BBBC8569A0A741F1F&type=5AA24B17261C2D805061DCB53A0ADBC2&fnd_Year=2026&fnd_EnterType="
       }
     ]
   },
@@ -5924,6 +6365,30 @@
     ]
   },
   {
+    "id": "bka-19h8ss2",
+    "category": "국제대회",
+    "name": "2026 사이판국제챌린지배드민턴선수권대회",
+    "registrationPeriod": "대한배드민턴협회 공식 요강 참조",
+    "registrationStart": "",
+    "registrationEnd": "",
+    "eventPeriod": "2026.07.21 ~ 07.25",
+    "eventStart": "2026-07-21",
+    "eventEnd": "2026-07-25",
+    "venue": "미국 싸이판",
+    "source": "대한배드민턴협회",
+    "officialLink": "http://koreabadminton.org/Competition/info/Member/summary.asp?idx=A855709D580EF45951623E6A8457E845&type=82F8FA121292201288B41CCCC9DDD5E5&fnd_Year=2026&fnd_EnterType=",
+    "fee": "공식 요강 참조",
+    "sources": [
+      "대한배드민턴협회"
+    ],
+    "sourceLinks": [
+      {
+        "source": "대한배드민턴협회",
+        "link": "http://koreabadminton.org/Competition/info/Member/summary.asp?idx=A855709D580EF45951623E6A8457E845&type=82F8FA121292201288B41CCCC9DDD5E5&fnd_Year=2026&fnd_EnterType="
+      }
+    ]
+  },
+  {
     "id": "bt-2649",
     "category": "학생선수권",
     "name": "2026 전국학교대항배드민턴선수권대회(중.고)",
@@ -5939,7 +6404,8 @@
     "fee": "요강 참조",
     "sources": [
       "배드민턴타임즈",
-      "오마이플레이"
+      "오마이플레이",
+      "대한배드민턴협회"
     ],
     "sourceLinks": [
       {
@@ -5949,6 +6415,34 @@
       {
         "source": "오마이플레이",
         "link": "https://m.ohmyplay.com/tournament/2213"
+      },
+      {
+        "source": "대한배드민턴협회",
+        "link": "http://koreabadminton.org/Competition/info/Member/summary.asp?idx=868275394624BA39FD3B9B5C5A3A8F61&type=5AA24B17261C2D805061DCB53A0ADBC2&fnd_Year=2026&fnd_EnterType="
+      }
+    ]
+  },
+  {
+    "id": "bka-176t62k",
+    "category": "전국오픈",
+    "name": "2026 중국오픈배드민턴선수권대회 (Super 1000)",
+    "registrationPeriod": "대한배드민턴협회 공식 요강 참조",
+    "registrationStart": "",
+    "registrationEnd": "",
+    "eventPeriod": "2026.07.21 ~ 07.26",
+    "eventStart": "2026-07-21",
+    "eventEnd": "2026-07-26",
+    "venue": "중국 창저우",
+    "source": "대한배드민턴협회",
+    "officialLink": "http://koreabadminton.org/Competition/info/Member/summary.asp?idx=7A1E0C420B126CB38E20AED46337F564&type=82F8FA121292201288B41CCCC9DDD5E5&fnd_Year=2026&fnd_EnterType=",
+    "fee": "공식 요강 참조",
+    "sources": [
+      "대한배드민턴협회"
+    ],
+    "sourceLinks": [
+      {
+        "source": "대한배드민턴협회",
+        "link": "http://koreabadminton.org/Competition/info/Member/summary.asp?idx=7A1E0C420B126CB38E20AED46337F564&type=82F8FA121292201288B41CCCC9DDD5E5&fnd_Year=2026&fnd_EnterType="
       }
     ]
   },
@@ -6021,6 +6515,30 @@
       {
         "source": "배드민톡",
         "link": "https://badmintok.com/badminton-tournament/2026-예산군체육회장기-배드민턴대회/"
+      }
+    ]
+  },
+  {
+    "id": "bka-r8izek",
+    "category": "전국오픈",
+    "name": "2026 U16 쇼나이 국제배드민턴선수권대회",
+    "registrationPeriod": "대한배드민턴협회 공식 요강 참조",
+    "registrationStart": "",
+    "registrationEnd": "",
+    "eventPeriod": "2026.07.25 ~ 07.26",
+    "eventStart": "2026-07-25",
+    "eventEnd": "2026-07-26",
+    "venue": "일본 야마가타현, 쇼나이",
+    "source": "대한배드민턴협회",
+    "officialLink": "http://koreabadminton.org/Competition/info/Member/summary.asp?idx=470587BEB8A1A1C3FBCA2746CED983D4&type=82F8FA121292201288B41CCCC9DDD5E5&fnd_Year=2026&fnd_EnterType=",
+    "fee": "공식 요강 참조",
+    "sources": [
+      "대한배드민턴협회"
+    ],
+    "sourceLinks": [
+      {
+        "source": "대한배드민턴협회",
+        "link": "http://koreabadminton.org/Competition/info/Member/summary.asp?idx=470587BEB8A1A1C3FBCA2746CED983D4&type=82F8FA121292201288B41CCCC9DDD5E5&fnd_Year=2026&fnd_EnterType="
       }
     ]
   },
@@ -6227,6 +6745,30 @@
     ]
   },
   {
+    "id": "bka-nl18fr",
+    "category": "전국오픈",
+    "name": "2026 대만오픈배드민턴선수권대회",
+    "registrationPeriod": "대한배드민턴협회 공식 요강 참조",
+    "registrationStart": "",
+    "registrationEnd": "",
+    "eventPeriod": "2026.07.28 ~ 08.03",
+    "eventStart": "2026-07-28",
+    "eventEnd": "2026-08-03",
+    "venue": "대만 타이베이",
+    "source": "대한배드민턴협회",
+    "officialLink": "http://koreabadminton.org/Competition/info/Member/summary.asp?idx=D19F5E569579FAE3BBEDF9C7DF9CC783&type=82F8FA121292201288B41CCCC9DDD5E5&fnd_Year=2026&fnd_EnterType=",
+    "fee": "공식 요강 참조",
+    "sources": [
+      "대한배드민턴협회"
+    ],
+    "sourceLinks": [
+      {
+        "source": "대한배드민턴협회",
+        "link": "http://koreabadminton.org/Competition/info/Member/summary.asp?idx=D19F5E569579FAE3BBEDF9C7DF9CC783&type=82F8FA121292201288B41CCCC9DDD5E5&fnd_Year=2026&fnd_EnterType="
+      }
+    ]
+  },
+  {
     "id": "bt-2650",
     "category": "국제대회",
     "name": "2026 요넥스 대만오픈 월드투어 슈퍼300",
@@ -6314,7 +6856,8 @@
     "fee": "요강 참조",
     "sources": [
       "배드민톡",
-      "배드민턴타임즈"
+      "배드민턴타임즈",
+      "대한배드민턴협회"
     ],
     "sourceLinks": [
       {
@@ -6324,6 +6867,10 @@
       {
         "source": "배드민턴타임즈",
         "link": "http://www.badmintontimes.com/calendar/m3_calendarRead.jsp?menunum=204&no=2705&dday=20260801"
+      },
+      {
+        "source": "대한배드민턴협회",
+        "link": "http://koreabadminton.org/Competition/info/Member/summary.asp?idx=3416DA536F460C456A5E842718EFB1FC&type=5AA24B17261C2D805061DCB53A0ADBC2&fnd_Year=2026&fnd_EnterType="
       }
     ]
   },
@@ -6541,6 +7088,30 @@
       {
         "source": "배드민턴타임즈",
         "link": "http://www.badmintontimes.com/calendar/m3_calendarRead.jsp?menunum=204&no=2661&dday=20260804"
+      }
+    ]
+  },
+  {
+    "id": "bka-gmidr4",
+    "category": "브랜드대회",
+    "name": "2026 빅터 코리아마스터즈배드민턴선수권대회",
+    "registrationPeriod": "대한배드민턴협회 공식 요강 참조",
+    "registrationStart": "",
+    "registrationEnd": "",
+    "eventPeriod": "2026.08.04 ~ 08.09",
+    "eventStart": "2026-08-04",
+    "eventEnd": "2026-08-09",
+    "venue": "한국 아산",
+    "source": "대한배드민턴협회",
+    "officialLink": "http://koreabadminton.org/Competition/info/Member/summary.asp?idx=AC432E3B41A9C0FC3299AB6466E6A54F&type=82F8FA121292201288B41CCCC9DDD5E5&fnd_Year=2026&fnd_EnterType=",
+    "fee": "공식 요강 참조",
+    "sources": [
+      "대한배드민턴협회"
+    ],
+    "sourceLinks": [
+      {
+        "source": "대한배드민턴협회",
+        "link": "http://koreabadminton.org/Competition/info/Member/summary.asp?idx=AC432E3B41A9C0FC3299AB6466E6A54F&type=82F8FA121292201288B41CCCC9DDD5E5&fnd_Year=2026&fnd_EnterType="
       }
     ]
   },
@@ -6829,12 +7400,17 @@
     "officialLink": "https://m.ohmyplay.com/tournament/2143",
     "fee": "요강 참조",
     "sources": [
-      "오마이플레이"
+      "오마이플레이",
+      "대한배드민턴협회"
     ],
     "sourceLinks": [
       {
         "source": "오마이플레이",
         "link": "https://m.ohmyplay.com/tournament/2143"
+      },
+      {
+        "source": "대한배드민턴협회",
+        "link": "http://koreabadminton.org/Competition/info/Member/summary.asp?idx=760DB4921E8E92C91E1C9FE4DD942FBC&type=5AA24B17261C2D805061DCB53A0ADBC2&fnd_Year=2026&fnd_EnterType="
       }
     ]
   },
@@ -7032,6 +7608,30 @@
       {
         "source": "배드민톡",
         "link": "https://badmintok.com/badminton-tournament/벨리디-X-테크니스트-배드민턴-대회/"
+      }
+    ]
+  },
+  {
+    "id": "bka-1rb5vrj",
+    "category": "전국오픈",
+    "name": "2026 세계개인배드민턴선수권대회",
+    "registrationPeriod": "대한배드민턴협회 공식 요강 참조",
+    "registrationStart": "",
+    "registrationEnd": "",
+    "eventPeriod": "2026.08.17 ~ 08.23",
+    "eventStart": "2026-08-17",
+    "eventEnd": "2026-08-23",
+    "venue": "인디아 뉴델리",
+    "source": "대한배드민턴협회",
+    "officialLink": "http://koreabadminton.org/Competition/info/Member/summary.asp?idx=FAFC135A6C332F80DADBD6D08A51BFD4&type=82F8FA121292201288B41CCCC9DDD5E5&fnd_Year=2026&fnd_EnterType=",
+    "fee": "공식 요강 참조",
+    "sources": [
+      "대한배드민턴협회"
+    ],
+    "sourceLinks": [
+      {
+        "source": "대한배드민턴협회",
+        "link": "http://koreabadminton.org/Competition/info/Member/summary.asp?idx=FAFC135A6C332F80DADBD6D08A51BFD4&type=82F8FA121292201288B41CCCC9DDD5E5&fnd_Year=2026&fnd_EnterType="
       }
     ]
   },
@@ -7532,6 +8132,30 @@
     ]
   },
   {
+    "id": "bka-12vxs9s",
+    "category": "학생선수권",
+    "name": "제34회 한중일주니어종합경기대회",
+    "registrationPeriod": "대한배드민턴협회 공식 요강 참조",
+    "registrationStart": "",
+    "registrationEnd": "",
+    "eventPeriod": "2026.08.23 ~ 08.29",
+    "eventStart": "2026-08-23",
+    "eventEnd": "2026-08-29",
+    "venue": "일본",
+    "source": "대한배드민턴협회",
+    "officialLink": "http://koreabadminton.org/Competition/info/Member/summary.asp?idx=66D987B491C1C690C547B69F6249D463&type=82F8FA121292201288B41CCCC9DDD5E5&fnd_Year=2026&fnd_EnterType=",
+    "fee": "공식 요강 참조",
+    "sources": [
+      "대한배드민턴협회"
+    ],
+    "sourceLinks": [
+      {
+        "source": "대한배드민턴협회",
+        "link": "http://koreabadminton.org/Competition/info/Member/summary.asp?idx=66D987B491C1C690C547B69F6249D463&type=82F8FA121292201288B41CCCC9DDD5E5&fnd_Year=2026&fnd_EnterType="
+      }
+    ]
+  },
+  {
     "id": "sp-1and4y",
     "category": "지역구대회",
     "name": "2026 빅터 아시아 시니어 선수권 대회 홍보 전국 생활체육 대회",
@@ -7570,12 +8194,17 @@
     "officialLink": "https://m.ohmyplay.com/tournament/2144",
     "fee": "요강 참조",
     "sources": [
-      "오마이플레이"
+      "오마이플레이",
+      "대한배드민턴협회"
     ],
     "sourceLinks": [
       {
         "source": "오마이플레이",
         "link": "https://m.ohmyplay.com/tournament/2144"
+      },
+      {
+        "source": "대한배드민턴협회",
+        "link": "http://koreabadminton.org/Competition/info/Member/summary.asp?idx=0C9A518752E5AF857BB80100D7E7DE16&type=5AA24B17261C2D805061DCB53A0ADBC2&fnd_Year=2026&fnd_EnterType="
       }
     ]
   },
@@ -8103,12 +8732,17 @@
     "officialLink": "http://www.badmintontimes.com/calendar/m3_calendarRead.jsp?menunum=204&no=2677&dday=20260831",
     "fee": "요강 참조",
     "sources": [
-      "배드민턴타임즈"
+      "배드민턴타임즈",
+      "대한배드민턴협회"
     ],
     "sourceLinks": [
       {
         "source": "배드민턴타임즈",
         "link": "http://www.badmintontimes.com/calendar/m3_calendarRead.jsp?menunum=204&no=2677&dday=20260831"
+      },
+      {
+        "source": "대한배드민턴협회",
+        "link": "http://koreabadminton.org/Competition/info/Member/summary.asp?idx=6118891594DA0A371F6EF0A847666045&type=5AA24B17261C2D805061DCB53A0ADBC2&fnd_Year=2026&fnd_EnterType="
       }
     ]
   },
@@ -8157,6 +8791,30 @@
       {
         "source": "배드민턴타임즈",
         "link": "http://www.badmintontimes.com/calendar/m3_calendarRead.jsp?menunum=204&no=2755&dday=20260901"
+      }
+    ]
+  },
+  {
+    "id": "bka-1rfxcgv",
+    "category": "전국오픈",
+    "name": "2026 중국마스터즈배드민턴선수권대회 (Super 750)",
+    "registrationPeriod": "대한배드민턴협회 공식 요강 참조",
+    "registrationStart": "",
+    "registrationEnd": "",
+    "eventPeriod": "2026.09.01 ~ 09.06",
+    "eventStart": "2026-09-01",
+    "eventEnd": "2026-09-06",
+    "venue": "중국 창저우",
+    "source": "대한배드민턴협회",
+    "officialLink": "http://koreabadminton.org/Competition/info/Member/summary.asp?idx=4F66B2F2993D8351553A6D30740745F7&type=82F8FA121292201288B41CCCC9DDD5E5&fnd_Year=2026&fnd_EnterType=",
+    "fee": "공식 요강 참조",
+    "sources": [
+      "대한배드민턴협회"
+    ],
+    "sourceLinks": [
+      {
+        "source": "대한배드민턴협회",
+        "link": "http://koreabadminton.org/Competition/info/Member/summary.asp?idx=4F66B2F2993D8351553A6D30740745F7&type=82F8FA121292201288B41CCCC9DDD5E5&fnd_Year=2026&fnd_EnterType="
       }
     ]
   },
@@ -9416,12 +10074,17 @@
     "officialLink": "http://www.badmintontimes.com/calendar/m3_calendarRead.jsp?menunum=204&no=2724&dday=20260908",
     "fee": "요강 참조",
     "sources": [
-      "배드민턴타임즈"
+      "배드민턴타임즈",
+      "대한배드민턴협회"
     ],
     "sourceLinks": [
       {
         "source": "배드민턴타임즈",
         "link": "http://www.badmintontimes.com/calendar/m3_calendarRead.jsp?menunum=204&no=2724&dday=20260908"
+      },
+      {
+        "source": "대한배드민턴협회",
+        "link": "http://koreabadminton.org/Competition/info/Member/summary.asp?idx=7521E49D2763580CE2AA0485F3AF43B3&type=82F8FA121292201288B41CCCC9DDD5E5&fnd_Year=2026&fnd_EnterType="
       }
     ]
   },
@@ -10003,7 +10666,8 @@
     "fee": "요강 참조",
     "sources": [
       "배드민턴타임즈",
-      "오마이플레이"
+      "오마이플레이",
+      "대한배드민턴협회"
     ],
     "sourceLinks": [
       {
@@ -10013,6 +10677,10 @@
       {
         "source": "오마이플레이",
         "link": "https://m.ohmyplay.com/tournament/2145"
+      },
+      {
+        "source": "대한배드민턴협회",
+        "link": "http://koreabadminton.org/Competition/info/Member/summary.asp?idx=5BEDB2B3B1C7768BF6611DC0C931D041&type=5AA24B17261C2D805061DCB53A0ADBC2&fnd_Year=2026&fnd_EnterType="
       }
     ]
   },
@@ -10741,12 +11409,17 @@
     "officialLink": "http://www.badmintontimes.com/calendar/m3_calendarRead.jsp?menunum=204&no=2674&dday=20260920",
     "fee": "요강 참조",
     "sources": [
-      "배드민턴타임즈"
+      "배드민턴타임즈",
+      "대한배드민턴협회"
     ],
     "sourceLinks": [
       {
         "source": "배드민턴타임즈",
         "link": "http://www.badmintontimes.com/calendar/m3_calendarRead.jsp?menunum=204&no=2674&dday=20260920"
+      },
+      {
+        "source": "대한배드민턴협회",
+        "link": "http://koreabadminton.org/Competition/info/Member/summary.asp?idx=20A0E1866F692ADCF4FAA416EB28B88F&type=82F8FA121292201288B41CCCC9DDD5E5&fnd_Year=2026&fnd_EnterType="
       }
     ]
   },
@@ -10926,6 +11599,30 @@
       {
         "source": "오마이플레이",
         "link": "https://m.ohmyplay.com/tournament/2238"
+      }
+    ]
+  },
+  {
+    "id": "bka-1q749g3",
+    "category": "전국오픈",
+    "name": "제107회 전국체육대회",
+    "registrationPeriod": "대한배드민턴협회 공식 요강 참조",
+    "registrationStart": "",
+    "registrationEnd": "",
+    "eventPeriod": "2026.10.01 ~ 10.06",
+    "eventStart": "2026-10-01",
+    "eventEnd": "2026-10-06",
+    "venue": "제주",
+    "source": "대한배드민턴협회",
+    "officialLink": "http://koreabadminton.org/Competition/info/Member/summary.asp?idx=97C7F6E6798DD0F68A91906561BD1223&type=5AA24B17261C2D805061DCB53A0ADBC2&fnd_Year=2026&fnd_EnterType=",
+    "fee": "공식 요강 참조",
+    "sources": [
+      "대한배드민턴협회"
+    ],
+    "sourceLinks": [
+      {
+        "source": "대한배드민턴협회",
+        "link": "http://koreabadminton.org/Competition/info/Member/summary.asp?idx=97C7F6E6798DD0F68A91906561BD1223&type=5AA24B17261C2D805061DCB53A0ADBC2&fnd_Year=2026&fnd_EnterType="
       }
     ]
   },
@@ -11496,12 +12193,17 @@
     "officialLink": "http://www.badmintontimes.com/calendar/m3_calendarRead.jsp?menunum=204&no=2710&dday=20261005",
     "fee": "요강 참조",
     "sources": [
-      "배드민턴타임즈"
+      "배드민턴타임즈",
+      "대한배드민턴협회"
     ],
     "sourceLinks": [
       {
         "source": "배드민턴타임즈",
         "link": "http://www.badmintontimes.com/calendar/m3_calendarRead.jsp?menunum=204&no=2710&dday=20261005"
+      },
+      {
+        "source": "대한배드민턴협회",
+        "link": "http://koreabadminton.org/Competition/info/Member/summary.asp?idx=C53A48C82D88A0D79123E52E05E0AD52&type=82F8FA121292201288B41CCCC9DDD5E5&fnd_Year=2026&fnd_EnterType="
       }
     ]
   },
@@ -11976,6 +12678,54 @@
     ]
   },
   {
+    "id": "bka-14rn4oz",
+    "category": "전국오픈",
+    "name": "2026 덴마크오픈배드민턴선수권대회 (Super 750)",
+    "registrationPeriod": "대한배드민턴협회 공식 요강 참조",
+    "registrationStart": "",
+    "registrationEnd": "",
+    "eventPeriod": "2026.10.13 ~ 10.18",
+    "eventStart": "2026-10-13",
+    "eventEnd": "2026-10-18",
+    "venue": "덴마크 오덴세",
+    "source": "대한배드민턴협회",
+    "officialLink": "http://koreabadminton.org/Competition/info/Member/summary.asp?idx=64F5F76A89BBBA6CC0542534B2B54B37&type=82F8FA121292201288B41CCCC9DDD5E5&fnd_Year=2026&fnd_EnterType=",
+    "fee": "공식 요강 참조",
+    "sources": [
+      "대한배드민턴협회"
+    ],
+    "sourceLinks": [
+      {
+        "source": "대한배드민턴협회",
+        "link": "http://koreabadminton.org/Competition/info/Member/summary.asp?idx=64F5F76A89BBBA6CC0542534B2B54B37&type=82F8FA121292201288B41CCCC9DDD5E5&fnd_Year=2026&fnd_EnterType="
+      }
+    ]
+  },
+  {
+    "id": "bka-5shyby",
+    "category": "전국오픈",
+    "name": "2026 말레이시아 슈퍼 100",
+    "registrationPeriod": "대한배드민턴협회 공식 요강 참조",
+    "registrationStart": "",
+    "registrationEnd": "",
+    "eventPeriod": "2026.10.13 ~ 10.18",
+    "eventStart": "2026-10-13",
+    "eventEnd": "2026-10-18",
+    "venue": "말레이시아 쿠알라룸푸르",
+    "source": "대한배드민턴협회",
+    "officialLink": "http://koreabadminton.org/Competition/info/Member/summary.asp?idx=91F5E9DEDEA164B191DFF6F02C178885&type=82F8FA121292201288B41CCCC9DDD5E5&fnd_Year=2026&fnd_EnterType=",
+    "fee": "공식 요강 참조",
+    "sources": [
+      "대한배드민턴협회"
+    ],
+    "sourceLinks": [
+      {
+        "source": "대한배드민턴협회",
+        "link": "http://koreabadminton.org/Competition/info/Member/summary.asp?idx=91F5E9DEDEA164B191DFF6F02C178885&type=82F8FA121292201288B41CCCC9DDD5E5&fnd_Year=2026&fnd_EnterType="
+      }
+    ]
+  },
+  {
     "id": "bt-2711",
     "category": "국제대회",
     "name": "2026 빅터 덴마크오픈 월드투어 슈퍼750",
@@ -12424,6 +13174,30 @@
     ]
   },
   {
+    "id": "bka-ox9c9b",
+    "category": "전국오픈",
+    "name": "2026 인도네시아 슈퍼 100(II)",
+    "registrationPeriod": "대한배드민턴협회 공식 요강 참조",
+    "registrationStart": "",
+    "registrationEnd": "",
+    "eventPeriod": "2026.10.20 ~ 10.25",
+    "eventStart": "2026-10-20",
+    "eventEnd": "2026-10-25",
+    "venue": "인도네시아",
+    "source": "대한배드민턴협회",
+    "officialLink": "http://koreabadminton.org/Competition/info/Member/summary.asp?idx=AB4C8BC37E21684EAE95C302852335BC&type=82F8FA121292201288B41CCCC9DDD5E5&fnd_Year=2026&fnd_EnterType=",
+    "fee": "공식 요강 참조",
+    "sources": [
+      "대한배드민턴협회"
+    ],
+    "sourceLinks": [
+      {
+        "source": "대한배드민턴협회",
+        "link": "http://koreabadminton.org/Competition/info/Member/summary.asp?idx=AB4C8BC37E21684EAE95C302852335BC&type=82F8FA121292201288B41CCCC9DDD5E5&fnd_Year=2026&fnd_EnterType="
+      }
+    ]
+  },
+  {
     "id": "bt-2726",
     "category": "국제대회",
     "name": "2026 인도네시아마스터즈 투어 슈퍼100",
@@ -12448,6 +13222,30 @@
     ]
   },
   {
+    "id": "bka-1n2cpg",
+    "category": "전국오픈",
+    "name": "2026 프랑스오픈배드민턴선수권대회 (Super 750)",
+    "registrationPeriod": "대한배드민턴협회 공식 요강 참조",
+    "registrationStart": "",
+    "registrationEnd": "",
+    "eventPeriod": "2026.10.20 ~ 10.25",
+    "eventStart": "2026-10-20",
+    "eventEnd": "2026-10-25",
+    "venue": "프랑스 파리",
+    "source": "대한배드민턴협회",
+    "officialLink": "http://koreabadminton.org/Competition/info/Member/summary.asp?idx=FFEA669B415B104901F8294C3EE899CF&type=82F8FA121292201288B41CCCC9DDD5E5&fnd_Year=2026&fnd_EnterType=",
+    "fee": "공식 요강 참조",
+    "sources": [
+      "대한배드민턴협회"
+    ],
+    "sourceLinks": [
+      {
+        "source": "대한배드민턴협회",
+        "link": "http://koreabadminton.org/Competition/info/Member/summary.asp?idx=FFEA669B415B104901F8294C3EE899CF&type=82F8FA121292201288B41CCCC9DDD5E5&fnd_Year=2026&fnd_EnterType="
+      }
+    ]
+  },
+  {
     "id": "bt-2727",
     "category": "지역구대회",
     "name": "제64회 대한배드민턴협회장기 전국종별배드민턴대회(대일)",
@@ -12462,12 +13260,17 @@
     "officialLink": "http://www.badmintontimes.com/calendar/m3_calendarRead.jsp?menunum=204&no=2727&dday=20261021",
     "fee": "요강 참조",
     "sources": [
-      "배드민턴타임즈"
+      "배드민턴타임즈",
+      "대한배드민턴협회"
     ],
     "sourceLinks": [
       {
         "source": "배드민턴타임즈",
         "link": "http://www.badmintontimes.com/calendar/m3_calendarRead.jsp?menunum=204&no=2727&dday=20261021"
+      },
+      {
+        "source": "대한배드민턴협회",
+        "link": "http://koreabadminton.org/Competition/info/Member/summary.asp?idx=66E906F335C3745F39F58129D1CBB4E6&type=5AA24B17261C2D805061DCB53A0ADBC2&fnd_Year=2026&fnd_EnterType="
       }
     ]
   },
@@ -12487,7 +13290,8 @@
     "fee": "요강 참조",
     "sources": [
       "배드민턴타임즈",
-      "오마이플레이"
+      "오마이플레이",
+      "대한배드민턴협회"
     ],
     "sourceLinks": [
       {
@@ -12497,6 +13301,10 @@
       {
         "source": "오마이플레이",
         "link": "https://m.ohmyplay.com/tournament/2146"
+      },
+      {
+        "source": "대한배드민턴협회",
+        "link": "http://koreabadminton.org/Competition/info/Member/summary.asp?idx=A99551AEE66A7F403027492175CB09B3&type=5AA24B17261C2D805061DCB53A0ADBC2&fnd_Year=2026&fnd_EnterType="
       }
     ]
   },
@@ -12921,6 +13729,30 @@
     ]
   },
   {
+    "id": "bka-fm1r3g",
+    "category": "국제대회",
+    "name": "2026 다카르하계청소년올림픽경기대회",
+    "registrationPeriod": "대한배드민턴협회 공식 요강 참조",
+    "registrationStart": "",
+    "registrationEnd": "",
+    "eventPeriod": "2026.10.31 ~ 11.13",
+    "eventStart": "2026-10-31",
+    "eventEnd": "2026-11-13",
+    "venue": "세네갈 다카르",
+    "source": "대한배드민턴협회",
+    "officialLink": "http://koreabadminton.org/Competition/info/Member/summary.asp?idx=B905CA57110E063AAB13676B18043387&type=82F8FA121292201288B41CCCC9DDD5E5&fnd_Year=2026&fnd_EnterType=",
+    "fee": "공식 요강 참조",
+    "sources": [
+      "대한배드민턴협회"
+    ],
+    "sourceLinks": [
+      {
+        "source": "대한배드민턴협회",
+        "link": "http://koreabadminton.org/Competition/info/Member/summary.asp?idx=B905CA57110E063AAB13676B18043387&type=82F8FA121292201288B41CCCC9DDD5E5&fnd_Year=2026&fnd_EnterType="
+      }
+    ]
+  },
+  {
     "id": "cx-30399",
     "category": "전국오픈",
     "name": "의정부시체육회장배 배드민턴 페스티벌",
@@ -13115,6 +13947,30 @@
       {
         "source": "배드민턴타임즈",
         "link": "http://www.badmintontimes.com/calendar/m3_calendarRead.jsp?menunum=204&no=2734&dday=20261103"
+      }
+    ]
+  },
+  {
+    "id": "bka-1evngcg",
+    "category": "브랜드대회",
+    "name": "2026 빅터 코리아오픈배드민턴선수권대회",
+    "registrationPeriod": "대한배드민턴협회 공식 요강 참조",
+    "registrationStart": "",
+    "registrationEnd": "",
+    "eventPeriod": "2026.11.03 ~ 11.08",
+    "eventStart": "2026-11-03",
+    "eventEnd": "2026-11-08",
+    "venue": "한국",
+    "source": "대한배드민턴협회",
+    "officialLink": "http://koreabadminton.org/Competition/info/Member/summary.asp?idx=EC65AFABF7C92A4B1BCE427B8654D3FD&type=82F8FA121292201288B41CCCC9DDD5E5&fnd_Year=2026&fnd_EnterType=",
+    "fee": "공식 요강 참조",
+    "sources": [
+      "대한배드민턴협회"
+    ],
+    "sourceLinks": [
+      {
+        "source": "대한배드민턴협회",
+        "link": "http://koreabadminton.org/Competition/info/Member/summary.asp?idx=EC65AFABF7C92A4B1BCE427B8654D3FD&type=82F8FA121292201288B41CCCC9DDD5E5&fnd_Year=2026&fnd_EnterType="
       }
     ]
   },
@@ -13326,6 +14182,30 @@
     ]
   },
   {
+    "id": "bka-anrqyo",
+    "category": "국제대회",
+    "name": "2026 아일랜드국제챌린지배드민턴선수권대회",
+    "registrationPeriod": "대한배드민턴협회 공식 요강 참조",
+    "registrationStart": "",
+    "registrationEnd": "",
+    "eventPeriod": "2026.11.11 ~ 11.14",
+    "eventStart": "2026-11-11",
+    "eventEnd": "2026-11-14",
+    "venue": "아일랜드 더블린",
+    "source": "대한배드민턴협회",
+    "officialLink": "http://koreabadminton.org/Competition/info/Member/summary.asp?idx=68D3AE25DDD922188C5B9372F2B81BDB&type=82F8FA121292201288B41CCCC9DDD5E5&fnd_Year=2026&fnd_EnterType=",
+    "fee": "공식 요강 참조",
+    "sources": [
+      "대한배드민턴협회"
+    ],
+    "sourceLinks": [
+      {
+        "source": "대한배드민턴협회",
+        "link": "http://koreabadminton.org/Competition/info/Member/summary.asp?idx=68D3AE25DDD922188C5B9372F2B81BDB&type=82F8FA121292201288B41CCCC9DDD5E5&fnd_Year=2026&fnd_EnterType="
+      }
+    ]
+  },
+  {
     "id": "bm-1lgffqr",
     "category": "전국오픈",
     "name": "제13회 삼척해양동굴배 전국 오픈 배드민턴대회",
@@ -13504,6 +14384,30 @@
     ]
   },
   {
+    "id": "bka-h8r1ai",
+    "category": "국제대회",
+    "name": "2026 BAT YONEX Pathumthani 태국주니어국제챌린지배드민턴선수권대회",
+    "registrationPeriod": "대한배드민턴협회 공식 요강 참조",
+    "registrationStart": "",
+    "registrationEnd": "",
+    "eventPeriod": "2026.11.16 ~ 11.22",
+    "eventStart": "2026-11-16",
+    "eventEnd": "2026-11-22",
+    "venue": "태국 방콕",
+    "source": "대한배드민턴협회",
+    "officialLink": "http://koreabadminton.org/Competition/info/Member/summary.asp?idx=9826D1EF60BCDE186B687DBC34CB76AB&type=82F8FA121292201288B41CCCC9DDD5E5&fnd_Year=2026&fnd_EnterType=",
+    "fee": "공식 요강 참조",
+    "sources": [
+      "대한배드민턴협회"
+    ],
+    "sourceLinks": [
+      {
+        "source": "대한배드민턴협회",
+        "link": "http://koreabadminton.org/Competition/info/Member/summary.asp?idx=9826D1EF60BCDE186B687DBC34CB76AB&type=82F8FA121292201288B41CCCC9DDD5E5&fnd_Year=2026&fnd_EnterType="
+      }
+    ]
+  },
+  {
     "id": "bt-2736",
     "category": "국제대회",
     "name": "2026 리닝 홍콩오픈 월드투어 슈퍼500",
@@ -13552,6 +14456,30 @@
     ]
   },
   {
+    "id": "bka-62xx1b",
+    "category": "국제대회",
+    "name": "2026 인도네시아국제챌린지배드민턴선수권대회(II)",
+    "registrationPeriod": "대한배드민턴협회 공식 요강 참조",
+    "registrationStart": "",
+    "registrationEnd": "",
+    "eventPeriod": "2026.11.17 ~ 11.22",
+    "eventStart": "2026-11-17",
+    "eventEnd": "2026-11-22",
+    "venue": "인도네시아",
+    "source": "대한배드민턴협회",
+    "officialLink": "http://koreabadminton.org/Competition/info/Member/summary.asp?idx=0D157B09ABB5351CE922BFCB75058A68&type=82F8FA121292201288B41CCCC9DDD5E5&fnd_Year=2026&fnd_EnterType=",
+    "fee": "공식 요강 참조",
+    "sources": [
+      "대한배드민턴협회"
+    ],
+    "sourceLinks": [
+      {
+        "source": "대한배드민턴협회",
+        "link": "http://koreabadminton.org/Competition/info/Member/summary.asp?idx=0D157B09ABB5351CE922BFCB75058A68&type=82F8FA121292201288B41CCCC9DDD5E5&fnd_Year=2026&fnd_EnterType="
+      }
+    ]
+  },
+  {
     "id": "bt-2751",
     "category": "국제대회",
     "name": "2026 스코틀랜드오픈 국제챌린지대회",
@@ -13572,6 +14500,54 @@
       {
         "source": "배드민턴타임즈",
         "link": "http://www.badmintontimes.com/calendar/m3_calendarRead.jsp?menunum=204&no=2751&dday=20261119"
+      }
+    ]
+  },
+  {
+    "id": "bka-1tr5qfu",
+    "category": "국제대회",
+    "name": "2026 스코틀랜드국제챌린지배드민턴선수권대회",
+    "registrationPeriod": "대한배드민턴협회 공식 요강 참조",
+    "registrationStart": "",
+    "registrationEnd": "",
+    "eventPeriod": "2026.11.20 ~ 11.22",
+    "eventStart": "2026-11-20",
+    "eventEnd": "2026-11-22",
+    "venue": "스코틀랜드 글래스고",
+    "source": "대한배드민턴협회",
+    "officialLink": "http://koreabadminton.org/Competition/info/Member/summary.asp?idx=6E83DE8294249B6D4FAFE351549048D3&type=82F8FA121292201288B41CCCC9DDD5E5&fnd_Year=2026&fnd_EnterType=",
+    "fee": "공식 요강 참조",
+    "sources": [
+      "대한배드민턴협회"
+    ],
+    "sourceLinks": [
+      {
+        "source": "대한배드민턴협회",
+        "link": "http://koreabadminton.org/Competition/info/Member/summary.asp?idx=6E83DE8294249B6D4FAFE351549048D3&type=82F8FA121292201288B41CCCC9DDD5E5&fnd_Year=2026&fnd_EnterType="
+      }
+    ]
+  },
+  {
+    "id": "bka-xjcva",
+    "category": "전국오픈",
+    "name": "2026 대통령기 전국배드민턴선수권대회(동호인부)",
+    "registrationPeriod": "대한배드민턴협회 공식 요강 참조",
+    "registrationStart": "",
+    "registrationEnd": "",
+    "eventPeriod": "2026.11.21 ~ 11.22",
+    "eventStart": "2026-11-21",
+    "eventEnd": "2026-11-22",
+    "venue": "강원 인제",
+    "source": "대한배드민턴협회",
+    "officialLink": "http://koreabadminton.org/Competition/info/Member/summary.asp?idx=B27B97B07EE37745DB409D65375853D6&type=5AA24B17261C2D805061DCB53A0ADBC2&fnd_Year=2026&fnd_EnterType=",
+    "fee": "공식 요강 참조",
+    "sources": [
+      "대한배드민턴협회"
+    ],
+    "sourceLinks": [
+      {
+        "source": "대한배드민턴협회",
+        "link": "http://koreabadminton.org/Competition/info/Member/summary.asp?idx=B27B97B07EE37745DB409D65375853D6&type=5AA24B17261C2D805061DCB53A0ADBC2&fnd_Year=2026&fnd_EnterType="
       }
     ]
   },
@@ -13620,17 +14596,46 @@
     "eventPeriod": "2026.11.24 ~ 11.29",
     "eventStart": "2026-11-24",
     "eventEnd": "2026-11-29",
-    "venue": "태국 방콕",
+    "venue": "태국 치앙마이",
     "source": "배드민턴타임즈",
     "officialLink": "http://www.badmintontimes.com/calendar/m3_calendarRead.jsp?menunum=204&no=2753&dday=20261124",
     "fee": "요강 참조",
     "sources": [
-      "배드민턴타임즈"
+      "배드민턴타임즈",
+      "대한배드민턴협회"
     ],
     "sourceLinks": [
       {
         "source": "배드민턴타임즈",
         "link": "http://www.badmintontimes.com/calendar/m3_calendarRead.jsp?menunum=204&no=2753&dday=20261124"
+      },
+      {
+        "source": "대한배드민턴협회",
+        "link": "http://koreabadminton.org/Competition/info/Member/summary.asp?idx=643D58A3F1BE64C75308F617C49F9AC0&type=82F8FA121292201288B41CCCC9DDD5E5&fnd_Year=2026&fnd_EnterType="
+      }
+    ]
+  },
+  {
+    "id": "bka-15aog6h",
+    "category": "전국오픈",
+    "name": "2026 청소년스포츠한마당 배드민턴대회",
+    "registrationPeriod": "대한배드민턴협회 공식 요강 참조",
+    "registrationStart": "",
+    "registrationEnd": "",
+    "eventPeriod": "2026.11.28",
+    "eventStart": "2026-11-28",
+    "eventEnd": "2026-11-28",
+    "venue": "전북 전주시",
+    "source": "대한배드민턴협회",
+    "officialLink": "http://koreabadminton.org/Competition/info/Member/summary.asp?idx=5636B7B9E8D406AE31CEB7DC2631D36C&type=5AA24B17261C2D805061DCB53A0ADBC2&fnd_Year=2026&fnd_EnterType=",
+    "fee": "공식 요강 참조",
+    "sources": [
+      "대한배드민턴협회"
+    ],
+    "sourceLinks": [
+      {
+        "source": "대한배드민턴협회",
+        "link": "http://koreabadminton.org/Competition/info/Member/summary.asp?idx=5636B7B9E8D406AE31CEB7DC2631D36C&type=5AA24B17261C2D805061DCB53A0ADBC2&fnd_Year=2026&fnd_EnterType="
       }
     ]
   },
@@ -13679,12 +14684,17 @@
     "officialLink": "https://m.ohmyplay.com/tournament/2147",
     "fee": "요강 참조",
     "sources": [
-      "오마이플레이"
+      "오마이플레이",
+      "대한배드민턴협회"
     ],
     "sourceLinks": [
       {
         "source": "오마이플레이",
         "link": "https://m.ohmyplay.com/tournament/2147"
+      },
+      {
+        "source": "대한배드민턴협회",
+        "link": "http://koreabadminton.org/Competition/info/Member/summary.asp?idx=7666DF339FAF14DD9A9746A9A8B6DAAC&type=82F8FA121292201288B41CCCC9DDD5E5&fnd_Year=2026&fnd_EnterType="
       }
     ]
   },
@@ -13796,6 +14806,30 @@
     ]
   },
   {
+    "id": "bka-unsilc",
+    "category": "국제대회",
+    "name": "2026 BWF 배드민턴월드투어파이널",
+    "registrationPeriod": "대한배드민턴협회 공식 요강 참조",
+    "registrationStart": "",
+    "registrationEnd": "",
+    "eventPeriod": "2026.12.09 ~ 12.13",
+    "eventStart": "2026-12-09",
+    "eventEnd": "2026-12-13",
+    "venue": "중국 항저우",
+    "source": "대한배드민턴협회",
+    "officialLink": "http://koreabadminton.org/Competition/info/Member/summary.asp?idx=B228F84761379DD7DB24F0717D711FA7&type=82F8FA121292201288B41CCCC9DDD5E5&fnd_Year=2026&fnd_EnterType=",
+    "fee": "공식 요강 참조",
+    "sources": [
+      "대한배드민턴협회"
+    ],
+    "sourceLinks": [
+      {
+        "source": "대한배드민턴협회",
+        "link": "http://koreabadminton.org/Competition/info/Member/summary.asp?idx=B228F84761379DD7DB24F0717D711FA7&type=82F8FA121292201288B41CCCC9DDD5E5&fnd_Year=2026&fnd_EnterType="
+      }
+    ]
+  },
+  {
     "id": "bt-2737",
     "category": "국제대회",
     "name": "2026 HSBC BWF 월드투어 파이날",
@@ -13816,6 +14850,30 @@
       {
         "source": "배드민턴타임즈",
         "link": "http://www.badmintontimes.com/calendar/m3_calendarRead.jsp?menunum=204&no=2737&dday=20261209"
+      }
+    ]
+  },
+  {
+    "id": "bka-b5873u",
+    "category": "전국오픈",
+    "name": "2026 배드민턴 승강제리그 왕중왕전",
+    "registrationPeriod": "대한배드민턴협회 공식 요강 참조",
+    "registrationStart": "",
+    "registrationEnd": "",
+    "eventPeriod": "2026.12.12 ~ 12.13",
+    "eventStart": "2026-12-12",
+    "eventEnd": "2026-12-13",
+    "venue": "미정",
+    "source": "대한배드민턴협회",
+    "officialLink": "http://koreabadminton.org/Competition/info/Member/summary.asp?idx=084D52700538994418DDB78AEB125590&type=5AA24B17261C2D805061DCB53A0ADBC2&fnd_Year=2026&fnd_EnterType=",
+    "fee": "공식 요강 참조",
+    "sources": [
+      "대한배드민턴협회"
+    ],
+    "sourceLinks": [
+      {
+        "source": "대한배드민턴협회",
+        "link": "http://koreabadminton.org/Competition/info/Member/summary.asp?idx=084D52700538994418DDB78AEB125590&type=5AA24B17261C2D805061DCB53A0ADBC2&fnd_Year=2026&fnd_EnterType="
       }
     ]
   },
@@ -13851,6 +14909,30 @@
       {
         "source": "배드민턴게임",
         "link": "http://www.badmintongame.co.kr/game/game_view.html?ga_id=4279"
+      }
+    ]
+  },
+  {
+    "id": "bka-12apdz7",
+    "category": "전국오픈",
+    "name": "2027 국가대표선발전",
+    "registrationPeriod": "대한배드민턴협회 공식 요강 참조",
+    "registrationStart": "",
+    "registrationEnd": "",
+    "eventPeriod": "2026.12.20 ~ 12.28",
+    "eventStart": "2026-12-20",
+    "eventEnd": "2026-12-28",
+    "venue": "공식 요강 참조",
+    "source": "대한배드민턴협회",
+    "officialLink": "http://koreabadminton.org/Competition/info/Member/summary.asp?idx=75F01F993F38684114C038F6C205EACC&type=5AA24B17261C2D805061DCB53A0ADBC2&fnd_Year=2026&fnd_EnterType=",
+    "fee": "공식 요강 참조",
+    "sources": [
+      "대한배드민턴협회"
+    ],
+    "sourceLinks": [
+      {
+        "source": "대한배드민턴협회",
+        "link": "http://koreabadminton.org/Competition/info/Member/summary.asp?idx=75F01F993F38684114C038F6C205EACC&type=5AA24B17261C2D805061DCB53A0ADBC2&fnd_Year=2026&fnd_EnterType="
       }
     ]
   }

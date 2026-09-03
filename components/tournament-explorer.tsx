@@ -1380,6 +1380,7 @@ export function TournamentExplorer({ tournaments }: { tournaments: Tournament[] 
                     {selected.source === '스포넷' && '📄 스포넷 공식 요강 PDF 원본 보기'}
                     {selected.source === '위꾹' && '📄 위꾹 공식 상세 안내 및 대진표 보기'}
                     {selected.source === 'BKPLAY' && '📄 대한배드민턴협회 (BKPLAY) 공고 보기'}
+                    {selected.source === '대한배드민턴협회' && '🏛️ 대한배드민턴협회(BKA) 공식 요강·대진표 보기'}
                     {selected.source === '배드민톡' && '📄 배드민톡 세부 요강 바로가기'}
                     {selected.source === '배드민턴타임즈' && '📄 배드민턴타임즈 공식 요강 보기'}
                     {selected.source === '배드민턴게임' && '📄 배드민턴게임 공식 일정 보기'}

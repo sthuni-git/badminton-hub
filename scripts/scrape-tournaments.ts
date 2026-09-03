@@ -2,7 +2,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 
 type TournamentCategory = '전국오픈' | '지역구대회' | '학생선수권' | '브랜드대회' | '국제대회';
-type TournamentSource = '배드민톡' | '배드민턴타임즈' | '페이스콕' | '배드민턴게임' | '코트엑스' | '오마이플레이' | '스포넷' | '위꾹';
+type TournamentSource = '배드민톡' | '배드민턴타임즈' | '페이스콕' | '배드민턴게임' | '코트엑스' | '오마이플레이' | '스포넷' | '위꾹' | '대한배드민턴협회';
 
 interface ScrapedTournament {
   id: string;
@@ -727,6 +727,86 @@ async function scrapeWekkuk(): Promise<ScrapedTournament[]> {
   return tournaments;
 }
 
+async function scrapeBKA(): Promise<ScrapedTournament[]> {
+  const url = 'http://koreabadminton.org/ajax/Competition/GameMatch_Schedule.asp';
+  const body = new URLSearchParams({
+    fnd_EnterType: '',
+    fnd_Year: '2026',
+    fnd_CIDX: '',
+  });
+
+  const response = await fetch(url, {
+    method: 'POST',
+    headers: {
+      'User-Agent': USER_AGENT,
+      'Content-Type': 'application/x-www-form-urlencoded',
+      'X-Requested-With': 'XMLHttpRequest',
+    },
+    body: body.toString(),
+    signal: AbortSignal.timeout(REQUEST_TIMEOUT_MS),
+  });
+
+  if (!response.ok) throw new Error(`${response.status} ${response.statusText}`);
+
+  const html = await response.text();
+  const tournaments: ScrapedTournament[] = [];
+  const seen = new Set<string>();
+
+  const liChunks = html.split('<li id=\'liobj');
+  for (let i = 1; i < liChunks.length; i++) {
+    const chunk = liChunks[i];
+
+    // 날짜 매칭: <span>01.06</span> - <span>01.11</span>
+    const dateMatches = chunk.match(/<span>(\d{2}\.\d{2})<\/span>\s*-\s*<span>(\d{2}\.\d{2})<\/span>/);
+    let eventStart = '';
+    let eventEnd = '';
+    if (dateMatches) {
+      const s = dateMatches[1].replace('.', '-');
+      const e = dateMatches[2].replace('.', '-');
+      eventStart = `2026-${s}`;
+      eventEnd = `2026-${e}`;
+    }
+
+    // 대회명 및 요강 링크
+    const nameMatch = chunk.match(/<a href=['"](summary\.asp\?idx=[^'"]+)['"][^>]*>([^<]+)<\/a>/);
+    const name = cleanText(nameMatch ? nameMatch[2] : '');
+    const summaryHref = nameMatch ? nameMatch[1] : '';
+
+    // 장소
+    const venueMatch = chunk.match(/<\/td>\s*<td><span>([^<]+)<\/span><\/td>/);
+    const venue = cleanText(venueMatch ? venueMatch[1].replace(/\s+/g, ' ') : '공식 요강 참조');
+
+    if (!name || !eventStart) continue;
+
+    const key = `${name}|${eventStart}`;
+    if (seen.has(key)) continue;
+    seen.add(key);
+
+    const officialLink = summaryHref
+      ? `http://koreabadminton.org/Competition/info/Member/${summaryHref}`
+      : 'http://koreabadminton.org/Competition/info/Member/schedule.asp';
+
+    tournaments.push({
+      id: `bka-${stableHash(name)}`,
+      category: categorizeTournament(name, venue),
+      name,
+      registrationPeriod: '대한배드민턴협회 공식 요강 참조',
+      registrationStart: '',
+      registrationEnd: '',
+      eventPeriod: displayPeriod(eventStart, eventEnd || eventStart),
+      eventStart,
+      eventEnd: eventEnd || eventStart,
+      venue,
+      source: '대한배드민턴협회',
+      officialLink,
+      fee: '공식 요강 참조',
+    });
+  }
+
+  console.log(`   ✅ 대한배드민턴협회(BKA) 공식 일정 검증: ${tournaments.length}건`);
+  return tournaments;
+}
+
 function normalizeName(name: string): string {
   return name
     .toLowerCase()
@@ -782,7 +862,7 @@ async function main(): Promise<void> {
   console.log('🏸 검증 가능한 원문 기반 대회 수집을 시작합니다.');
   console.log('   합성 대회, 임의 날짜/참가비, 목록 주소만 있는 레코드는 생성하지 않습니다.');
 
-  const [facecock, badmintok, badmintonTimes, badmintonGame, courtX, ohMyPlay, sponet, wekkuk] = await Promise.all([
+  const [facecock, badmintok, badmintonTimes, badmintonGame, courtX, ohMyPlay, sponet, wekkuk, bka] = await Promise.all([
     safelyCollect('페이스콕', scrapeFacecock),
     safelyCollect('배드민톡', scrapeBadmintok),
     safelyCollect('배드민턴타임즈', scrapeBadmintonTimes),
@@ -791,6 +871,7 @@ async function main(): Promise<void> {
     safelyCollect('오마이플레이', scrapeOhMyPlay),
     safelyCollect('스포넷', scrapeSponet),
     safelyCollect('위꾹', scrapeWekkuk),
+    safelyCollect('대한배드민턴협회', scrapeBKA),
   ]);
 
   const tournaments = mergeAndDeduplicate([
@@ -802,6 +883,7 @@ async function main(): Promise<void> {
     ...ohMyPlay,
     ...sponet,
     ...wekkuk,
+    ...bka,
   ]);
   if (tournaments.length === 0) throw new Error('검증 가능한 대회를 한 건도 수집하지 못해 기존 파일을 보존합니다.');
 
@@ -810,7 +892,7 @@ async function main(): Promise<void> {
 
   console.log(`✅ ${tournaments.length}건 저장 완료: ${outputPath}`);
   console.log(
-    `   페이스콕 ${facecock.length} / 배드민톡 ${badmintok.length} / 배드민턴타임즈 ${badmintonTimes.length} / 배드민턴게임 ${badmintonGame.length} / 코트엑스 ${courtX.length} / 오마이플레이 ${ohMyPlay.length} / 스포넷 ${sponet.length} / 위꾹 ${wekkuk.length}`
+    `   페이스콕 ${facecock.length} / 배드민톡 ${badmintok.length} / 배드민턴타임즈 ${badmintonTimes.length} / 배드민턴게임 ${badmintonGame.length} / 코트엑스 ${courtX.length} / 오마이플레이 ${ohMyPlay.length} / 스포넷 ${sponet.length} / 위꾹 ${wekkuk.length} / 대한배드민턴협회 ${bka.length}`
   );
 }
 
