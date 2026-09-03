@@ -1,3 +1,9 @@
+if (typeof window !== 'undefined') {
+  const w = window as unknown as Record<string, unknown>;
+  w.process = w.process || { env: { NODE_ENV: 'production' } };
+  w.global = w.global || window;
+}
+
 import React from 'react';
 import { createRoot } from 'react-dom/client';
 import { TournamentExplorer } from '@/components/tournament-explorer';
