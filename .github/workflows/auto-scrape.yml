@@ -1,9 +1,10 @@
-name: Daily Badminton Tournament Scraper
+name: 24/7 Automated Badminton Tournament Scraper
 
 on:
-  # 1. 정기 자동 실행 (매일 한국 시간 오전 6시 = UTC 21:00)
+  # 1. 정기 자동 실행 (매일 한국 시간 새벽 04시, 오후 16시 = UTC 19:00, 07:00)
   schedule:
-    - cron: '0 21 * * *'
+    - cron: '0 19 * * *'
+    - cron: '0 7 * * *'
   
   # 2. GitHub 웹 화면에서 'Run workflow' 버튼으로 언제든 수동 즉시 실행 가능
   workflow_dispatch:
@@ -29,21 +30,24 @@ jobs:
       - name: 3. 의존성 패키지 설치
         run: npm ci
 
-      - name: 4. 전국 대회 전수 스크랩 실행
+      - name: 4. 8대 플랫폼 전국 대회 전수 스크랩 & 데이터 무결성 검증
         run: npm run scrape
 
-      - name: 5. 갱신된 데이터 자동 커밋 & 푸시
+      - name: 5. 정적 빌드 및 SSG 생성 사전 검증
+        run: npm run build
+
+      - name: 6. 갱신된 데이터 자동 커밋 & 푸시 (Vercel 자동 배포 연동)
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           
-          git add lib/tournaments-scraped.json
+          git add lib/tournaments-scraped.json dist/
           
-          # 변경사항이 있을 때만 커밋
+          # 변경사항이 있을 때만 커밋 & 푸시
           if git diff --staged --quiet; then
             echo "대회 데이터 변경사항이 없습니다."
           else
-            git commit -m "chore(data): 자동 스크랩 최신 대회 데이터 갱신 [skip ci]"
+            git commit -m "chore(data): 8대 플랫폼 실시간 전국 배드민턴 대회 자동 갱신"
             git push
-            echo "새로운 대회 데이터가 성공적으로 커밋되었습니다!"
+            echo "새로운 대회가 성공적으로 커밋되었으며 Vercel 자동 배포가 시작됩니다!"
           fi

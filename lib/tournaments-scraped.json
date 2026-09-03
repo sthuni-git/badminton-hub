@@ -11279,6 +11279,36 @@
     ]
   },
   {
+    "id": "fc-4377",
+    "category": "전국오픈",
+    "name": "2026년 제20회 양양송이배 전국오픈 배드민턴대회",
+    "registrationPeriod": "공식 상세 페이지 확인",
+    "registrationStart": "",
+    "registrationEnd": "",
+    "eventPeriod": "2026.10.03 ~ 10.04",
+    "eventStart": "2026-10-03",
+    "eventEnd": "2026-10-04",
+    "venue": "강원 양양군",
+    "source": "페이스콕",
+    "officialLink": "https://facecock.co.kr/page/index.php?pid=game_view&ga_id=4377",
+    "posterImage": "https://facecock.co.kr/data/game/poster_m.jpg",
+    "fee": "요강 참조",
+    "sources": [
+      "페이스콕",
+      "배드민턴게임"
+    ],
+    "sourceLinks": [
+      {
+        "source": "페이스콕",
+        "link": "https://facecock.co.kr/page/index.php?pid=game_view&ga_id=4377"
+      },
+      {
+        "source": "배드민턴게임",
+        "link": "http://www.badmintongame.co.kr/game/game_view.html?ga_id=4377"
+      }
+    ]
+  },
+  {
     "id": "bt-2743",
     "category": "전국오픈",
     "name": "제1회 국방수도 계룡 전국 배드민턴대회",
@@ -11364,6 +11394,30 @@
       {
         "source": "배드민턴게임",
         "link": "http://www.badmintongame.co.kr/game/game_view.html?ga_id=4366"
+      }
+    ]
+  },
+  {
+    "id": "bt-2765",
+    "category": "전국오픈",
+    "name": "2026 포티스 초중고 전국 배드민턴대회",
+    "registrationPeriod": "공식 상세 페이지 확인",
+    "registrationStart": "",
+    "registrationEnd": "",
+    "eventPeriod": "2026.10.04",
+    "eventStart": "2026-10-04",
+    "eventEnd": "2026-10-04",
+    "venue": "충북 진천군 진천종합스포츠타운 다...",
+    "source": "배드민턴타임즈",
+    "officialLink": "http://www.badmintontimes.com/calendar/m3_calendarRead.jsp?menunum=204&no=2765&dday=20261004",
+    "fee": "요강 참조",
+    "sources": [
+      "배드민턴타임즈"
+    ],
+    "sourceLinks": [
+      {
+        "source": "배드민턴타임즈",
+        "link": "http://www.badmintontimes.com/calendar/m3_calendarRead.jsp?menunum=204&no=2765&dday=20261004"
       }
     ]
   },
@@ -11554,7 +11608,7 @@
     "venue": "전북 임실군",
     "source": "페이스콕",
     "officialLink": "https://facecock.co.kr/page/index.php?pid=game_view&ga_id=4333",
-    "posterImage": "https://facecock.co.kr/data/game/poster_m.jpg",
+    "posterImage": "https://facecock.co.kr/data/game/poster_6a992afbf40e2_m.jpg",
     "fee": "요강 참조",
     "sources": [
       "페이스콕",
@@ -11659,17 +11713,22 @@
     "eventPeriod": "2026.10.10 ~ 10.11",
     "eventStart": "2026-10-10",
     "eventEnd": "2026-10-11",
-    "venue": "전북 전북-임실군",
+    "venue": "전북 임실군 다목적체육관 배드민턴...",
     "source": "배드민톡",
     "officialLink": "https://badmintok.com/badminton-tournament/임실N치즈배-배드민턴대회/",
     "fee": "요강 참조",
     "sources": [
-      "배드민톡"
+      "배드민톡",
+      "배드민턴타임즈"
     ],
     "sourceLinks": [
       {
         "source": "배드민톡",
         "link": "https://badmintok.com/badminton-tournament/임실N치즈배-배드민턴대회/"
+      },
+      {
+        "source": "배드민턴타임즈",
+        "link": "http://www.badmintontimes.com/calendar/m3_calendarRead.jsp?menunum=204&no=2766&dday=20261010"
       }
     ]
   },
@@ -11726,7 +11785,6 @@
     "sources": [
       "페이스콕",
       "배드민톡",
-      "배드민턴타임즈",
       "배드민턴게임",
       "코트엑스"
     ],
@@ -11738,10 +11796,6 @@
       {
         "source": "배드민톡",
         "link": "https://badmintok.com/badminton-tournament/영동-난계-국악-배드민턴대회/"
-      },
-      {
-        "source": "배드민턴타임즈",
-        "link": "http://www.badmintontimes.com/calendar/m3_calendarRead.jsp?menunum=204&no=2757&dday=20261010"
       },
       {
         "source": "배드민턴게임",
@@ -12176,9 +12230,9 @@
     "id": "fc-4159",
     "category": "전국오픈",
     "name": "제18회 전주한옥마을배 전국배드민턴대회",
-    "registrationPeriod": "공식 상세 페이지 확인",
-    "registrationStart": "",
-    "registrationEnd": "",
+    "registrationPeriod": "2026.09.07 ~ 10.04",
+    "registrationStart": "2026-09-07",
+    "registrationEnd": "2026-10-04",
     "eventPeriod": "2026.10.17 ~ 10.18",
     "eventStart": "2026-10-17",
     "eventEnd": "2026-10-18",
@@ -12950,7 +13004,7 @@
     "eventPeriod": "2026.10.31 ~ 11.01",
     "eventStart": "2026-10-31",
     "eventEnd": "2026-11-01",
-    "venue": "강원 강원-홍천군",
+    "venue": "강원 홍천군 홍천종합체육관 외",
     "source": "페이스콕",
     "officialLink": "https://facecock.co.kr/page/index.php?pid=game_view&ga_id=4184",
     "posterImage": "https://facecock.co.kr/data/game/poster_69e703d319f3a_m.jpg",
@@ -12958,6 +13012,7 @@
     "sources": [
       "페이스콕",
       "배드민톡",
+      "배드민턴타임즈",
       "배드민턴게임"
     ],
     "sourceLinks": [
@@ -12968,6 +13023,10 @@
       {
         "source": "배드민톡",
         "link": "https://badmintok.com/badminton-tournament/홍천무궁화배-배드민턴대회/"
+      },
+      {
+        "source": "배드민턴타임즈",
+        "link": "http://www.badmintontimes.com/calendar/m3_calendarRead.jsp?menunum=204&no=2767&dday=20261031"
       },
       {
         "source": "배드민턴게임",
@@ -13158,19 +13217,24 @@
     "eventPeriod": "2026.11.07 ~ 11.08",
     "eventStart": "2026-11-07",
     "eventEnd": "2026-11-08",
-    "venue": "충북 제천시",
+    "venue": "충북 제천시 세명대학교 체육관 외",
     "source": "페이스콕",
     "officialLink": "https://facecock.co.kr/page/index.php?pid=game_view&ga_id=4372",
     "posterImage": "https://facecock.co.kr/data/game/poster_6a912748a4356_m.jpg",
     "fee": "요강 참조",
     "sources": [
       "페이스콕",
+      "배드민턴타임즈",
       "배드민턴게임"
     ],
     "sourceLinks": [
       {
         "source": "페이스콕",
         "link": "https://facecock.co.kr/page/index.php?pid=game_view&ga_id=4372"
+      },
+      {
+        "source": "배드민턴타임즈",
+        "link": "http://www.badmintontimes.com/calendar/m3_calendarRead.jsp?menunum=204&no=2768&dday=20261107"
       },
       {
         "source": "배드민턴게임",
