@@ -283,7 +283,7 @@ async function scrapeBadmintok(): Promise<ScrapedTournament[]> {
   }
 }
 
-// 배드민턴타임즈 상세 페이지 내 실제 요강 포스터 원본 이미지 실시간 추출 헬퍼
+// 배드민턴타임즈 상세 페이지 내 실제 요강 포스터 원본 이미지 실시간 추출 헬퍼 (HTTPS 안전 CDN 프록시 적용)
 async function fetchBadmintonTimesRealPoster(detailUrl: string): Promise<string> {
   try {
     const res = await fetch(detailUrl, {
@@ -294,7 +294,8 @@ async function fetchBadmintonTimesRealPoster(detailUrl: string): Promise<string>
     const match = html.match(/\/pds\/calendar\/204\/[^\s"'<>]+\.(?:jpg|png|jpeg|gif|webp)/i);
     if (match) {
       const p = match[0].replace(/['"]$/, '');
-      return p.startsWith('http') ? p : `http://www.badmintontimes.com${p.startsWith('/') ? '' : '/'}${p}`;
+      const rawUrl = p.startsWith('http') ? p : `http://www.badmintontimes.com${p.startsWith('/') ? '' : '/'}${p}`;
+      return `https://images.weserv.nl/?url=${encodeURIComponent(rawUrl)}`;
     }
   } catch {
     // ignore
