@@ -260,6 +260,8 @@ async function scrapeBadmintok(): Promise<ScrapedTournament[]> {
         const regStartStr = regStartObj.toISOString().slice(0, 10);
         const regEndStr = regEndObj.toISOString().slice(0, 10);
 
+        const posterImg = item.image ? (typeof item.image === 'string' ? item.image : item.image.url) : undefined;
+
         return {
           id: `bm-${String(idx + 1).padStart(3, '0')}`,
           category: categorizeTournament(item.name, venue, item.organizer?.name),
@@ -274,6 +276,7 @@ async function scrapeBadmintok(): Promise<ScrapedTournament[]> {
           source: '배드민톡' as const,
           officialLink,
           fee: '팀당 50,000원',
+          posterImage: posterImg || undefined,
         };
       })
       .filter((t: ScrapedTournament | null): t is ScrapedTournament => t !== null);

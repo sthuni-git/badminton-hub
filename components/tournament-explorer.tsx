@@ -120,8 +120,13 @@ function googleCalendarUrl(t: Tournament) {
 function getSecurePosterUrl(url?: string): string {
   if (!url) return '';
   if (url.startsWith('data:') || url.startsWith('blob:')) return url;
+  if (url.startsWith('/api/poster')) return url;
+  if (url.startsWith('https://images.weserv.nl')) {
+    const target = url.replace('https://images.weserv.nl/?url=', '');
+    return `/api/poster?url=${target}`;
+  }
   if (url.startsWith('http://') || url.startsWith('https://')) {
-    return `https://images.weserv.nl/?url=${encodeURIComponent(url)}`;
+    return `/api/poster?url=${encodeURIComponent(url)}`;
   }
   return url;
 }
@@ -1121,7 +1126,13 @@ export function TournamentExplorer({ tournaments }: { tournaments: Tournament[] 
                     className="size-full object-cover opacity-90 transition duration-300 hover:scale-105 hover:opacity-100"
                     loading="lazy"
                     onError={(e) => {
-                      (e.currentTarget as HTMLImageElement).src = getTournamentPosterFallback(
+                      const imgEl = e.currentTarget as HTMLImageElement;
+                      if (selected.posterImage && !imgEl.src.includes('weserv.nl') && (selected.posterImage.startsWith('http://') || selected.posterImage.startsWith('https://'))) {
+                        const raw = selected.posterImage.replace('/api/poster?url=', '');
+                        imgEl.src = `https://images.weserv.nl/?url=${encodeURIComponent(decodeURIComponent(raw))}`;
+                        return;
+                      }
+                      imgEl.src = getTournamentPosterFallback(
                         selected.name,
                         selected.category,
                         selected.venue,
@@ -1504,7 +1515,13 @@ function TournamentCard({
                 className="size-full object-cover transition duration-300 group-hover:scale-105"
                 loading="lazy"
                 onError={(e) => {
-                  (e.currentTarget as HTMLImageElement).src = getTournamentPosterFallback(
+                  const imgEl = e.currentTarget as HTMLImageElement;
+                  if (t.posterImage && !imgEl.src.includes('weserv.nl') && (t.posterImage.startsWith('http://') || t.posterImage.startsWith('https://'))) {
+                    const raw = t.posterImage.replace('/api/poster?url=', '');
+                    imgEl.src = `https://images.weserv.nl/?url=${encodeURIComponent(decodeURIComponent(raw))}`;
+                    return;
+                  }
+                  imgEl.src = getTournamentPosterFallback(
                     t.name,
                     t.category,
                     t.venue,
