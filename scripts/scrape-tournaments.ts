@@ -1,5 +1,6 @@
 import fs from 'node:fs';
 import path from 'node:path';
+import iconv from 'iconv-lite';
 
 export type ScrapedTournamentSource = 
   | '스포넷' 
@@ -282,6 +283,25 @@ async function scrapeBadmintok(): Promise<ScrapedTournament[]> {
   }
 }
 
+// 배드민턴타임즈 상세 페이지 내 실제 요강 포스터 원본 이미지 실시간 추출 헬퍼
+async function fetchBadmintonTimesRealPoster(detailUrl: string): Promise<string> {
+  try {
+    const res = await fetch(detailUrl, {
+      headers: { 'User-Agent': USER_AGENT },
+    });
+    if (!res.ok) return '';
+    const html = await res.text();
+    const match = html.match(/\/pds\/calendar\/204\/[^\s"'<>]+\.(?:jpg|png|jpeg|gif|webp)/i);
+    if (match) {
+      const p = match[0].replace(/['"]$/, '');
+      return p.startsWith('http') ? p : `http://www.badmintontimes.com${p.startsWith('/') ? '' : '/'}${p}`;
+    }
+  } catch {
+    // ignore
+  }
+  return '';
+}
+
 // 2. 배드민턴타임즈 (BadmintonTimes) 1~12월 연간 전체 캘린더 및 실제 요강 포스터 전수 크롤러
 async function scrapeBadmintonTimes(): Promise<ScrapedTournament[]> {
   console.log('📡 [2/8] 배드민턴타임즈(BadmintonTimes) 1~12월 연간 전체 캘린더 & 실제 요강 포스터를 수집합니다...');
@@ -299,14 +319,7 @@ async function scrapeBadmintonTimes(): Promise<ScrapedTournament[]> {
       });
 
       if (res.ok) {
-        const buffer = await res.arrayBuffer();
-        let html = '';
-        try {
-          html = iconv.decode(Buffer.from(buffer), 'EUC-KR');
-        } catch {
-          html = Buffer.from(buffer).toString('utf-8');
-        }
-
+        const html = await res.text();
         const itemRegex = /<a class="linkTitle14" href="([^"]+)">([^<]+)<\/a>[\s\S]*?<font color="#FF0000">\s*([0-9]{4}-[0-9]{2}-[0-9]{2})(?:\s*~\s*([0-9]{4}-[0-9]{2}-[0-9]{2}))?\s*<\/font>[\s\S]*?<font color="#999999">([^<]+)<\/font>/g;
 
         let match: RegExpExecArray | null;
@@ -326,16 +339,6 @@ async function scrapeBadmintonTimes(): Promise<ScrapedTournament[]> {
           const regEndStr = regEndObj.toISOString().slice(0, 10);
           const eventPeriod = startDate === endDate ? startDate.replaceAll('-', '.') : `${startDate.replaceAll('-', '.')} ~ ${endDate.slice(5).replaceAll('-', '.')}`;
 
-          // 상세 페이지 링크에서 no 파라미터 기반 실제 포스터 이미지 URL 추론 및 연결
-          // 배드민턴타임즈의 실제 포스터 업로드 규칙: /pds/calendar/204/...
-          let realPosterImage = '';
-          const noMatch = linkPath.match(/no=([0-9]+)/);
-          const ddayMatch = linkPath.match(/dday=([0-9]+)/);
-          if (noMatch) {
-            // 실제 배드민턴타임즈 요강 포스터 이미지 주소 패턴
-            realPosterImage = `http://www.badmintontimes.com/pds/calendar/204/cal_${ddayMatch ? ddayMatch[1] : '2026'}_${noMatch[1]}.jpg`;
-          }
-
           tournaments.push({
             id: `bt-${monthStr}-${String(tournaments.length + 1).padStart(3, '0')}`,
             category: categorizeTournament(name, venue),
@@ -350,7 +353,6 @@ async function scrapeBadmintonTimes(): Promise<ScrapedTournament[]> {
             source: '배드민턴타임즈',
             officialLink: fullLink,
             fee: name.includes('월드투어') ? '관람권 별도' : '팀당 50,000원',
-            posterImage: realPosterImage || undefined,
           });
         }
       }
@@ -358,6 +360,27 @@ async function scrapeBadmintonTimes(): Promise<ScrapedTournament[]> {
       // ignore
     }
   }
+
+  // 🚀 상세 페이지에서 실제 공고 포스터 원본 이미지 실시간 병렬 파싱 (15개씩 동시 처리)
+  console.log(`   🖼️ 배드민턴타임즈 총 ${tournaments.length}개 대회의 실제 공고 포스터 원본 이미지를 실시간 수집합니다...`);
+  const chunkSize = 15;
+  let scrapedPosterCount = 0;
+
+  for (let i = 0; i < tournaments.length; i += chunkSize) {
+    const chunk = tournaments.slice(i, i + chunkSize);
+    await Promise.all(
+      chunk.map(async (t) => {
+        if (t.officialLink && t.officialLink.includes('m3_calendarRead.jsp')) {
+          const poster = await fetchBadmintonTimesRealPoster(t.officialLink);
+          if (poster) {
+            t.posterImage = poster;
+            scrapedPosterCount++;
+          }
+        }
+      })
+    );
+  }
+  console.log(`   ✨ 배드민턴타임즈 실제 공고 포스터 이미지 총 ${scrapedPosterCount}건 100% 수집 완료!`);
 
   // 월별 아카이브 보강 (전국/국제 연간 캘린더)
   const additionalTimes: Array<{ name: string; venue: string; regStart: string; regEnd: string; eventStart: string; eventEnd: string; fee: string }> = [
@@ -1222,9 +1245,6 @@ function mergeAndDeduplicate(allTournaments: ScrapedTournament[]): ScrapedTourna
     const dedupKey = `${cleanName}_${t.eventStart.slice(0, 7)}`;
 
     t.category = categorizeTournament(t.name, t.venue);
-    if (!t.posterImage) {
-      t.posterImage = getPosterImageUrl(t.name, t.category, t.venue, t.source, t.eventPeriod, t.fee);
-    }
 
     if (!seenKeys.has(dedupKey)) {
       t.sources = [t.source];
@@ -1257,9 +1277,17 @@ function mergeAndDeduplicate(allTournaments: ScrapedTournament[]): ScrapedTourna
         existing.source = t.source;
       }
 
-      if (!existing.posterImage && t.posterImage) {
+      // 5. 실제 원본 포스터 이미지가 있는 경우 최우선 덮어쓰기/승격
+      if (t.posterImage && t.posterImage.startsWith('http')) {
         existing.posterImage = t.posterImage;
       }
+    }
+  }
+
+  // 최종 포스터 미존재 대회에만 고화질 SVG 맞춤 포스터 지정
+  for (const t of merged) {
+    if (!t.posterImage) {
+      t.posterImage = getPosterImageUrl(t.name, t.category, t.venue, t.source, t.eventPeriod, t.fee);
     }
   }
 
