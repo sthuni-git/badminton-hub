@@ -56,6 +56,8 @@ interface UserLocation {
 const regions = ['전체', '수도권', '충청', '전라', '경상', '강원', '기타'] as const;
 const categories: readonly (TournamentCategory | '전체')[] = ['전체', '전국오픈', '지역구대회', '브랜드대회', '학생선수권', '국제대회'];
 const statuses: readonly StatusFilter[] = ['전체', '종료 제외', '접수중', '마감임박', '접수예정', '접수마감', '대회종료'];
+const distanceOptions = ['전체', '5km', '10km', '20km', '30km', '50km', '100km', '200km', '300km'] as const;
+export type DistanceFilter = (typeof distanceOptions)[number];
 
 function atMidnight(date: string) {
   return new Date(`${date}T00:00:00+09:00`);
@@ -178,6 +180,7 @@ export function TournamentExplorer({ tournaments }: { tournaments: Tournament[] 
   const [category, setCategory] = useState('전체');
   const [status, setStatus] = useState<StatusFilter>('전체');
   const [source, setSource] = useState('전체');
+  const [distanceFilter, setDistanceFilter] = useState<DistanceFilter>('전체');
   const [sortOption, setSortOption] = useState<SortOption>('distance');
   const [view, setView] = useState<View>('list');
   const [selected, setSelected] = useState<Tournament | null>(null);
@@ -336,6 +339,11 @@ export function TournamentExplorer({ tournaments }: { tournaments: Tournament[] 
   // 대회 목록 필터 및 정렬 (거리 계산 및 다중 출처 매칭 포함)
   const filtered = useMemo(() => {
     return tournaments
+      .map((t) => {
+        const venueCoords = getVenueCoordinates(t.venue);
+        const distanceKm = calculateDistanceKm(userLocation.coords, venueCoords);
+        return { ...t, distanceKm };
+      })
       .filter((t) => {
         const allSources = t.sources && t.sources.length > 0 ? t.sources.join(' ') : t.source;
         const text = `${t.name} ${t.venue} ${allSources} ${t.category}`.toLowerCase();
@@ -351,18 +359,20 @@ export function TournamentExplorer({ tournaments }: { tournaments: Tournament[] 
             ? currentStatus !== '대회종료'
             : currentStatus === status;
 
+        const matchesDistance = (() => {
+          if (distanceFilter === '전체') return true;
+          const maxKm = parseInt(distanceFilter.replace('km', ''), 10);
+          return t.distanceKm <= maxKm;
+        })();
+
         return (
           (!query || text.includes(query.toLowerCase())) &&
           (region === '전체' || regionOf(t.venue) === region) &&
           (category === '전체' || t.category === category) &&
           matchesStatus &&
-          matchesSource
+          matchesSource &&
+          matchesDistance
         );
-      })
-      .map((t) => {
-        const venueCoords = getVenueCoordinates(t.venue);
-        const distanceKm = calculateDistanceKm(userLocation.coords, venueCoords);
-        return { ...t, distanceKm };
       })
       .sort((a, b) => {
         if (sortOption === 'distance') {
@@ -372,7 +382,7 @@ export function TournamentExplorer({ tournaments }: { tournaments: Tournament[] 
         if (sortOption === 'registrationEnd') return a.registrationEnd.localeCompare(b.registrationEnd);
         return a.name.localeCompare(b.name);
       });
-  }, [tournaments, query, region, category, status, source, sortOption, today, userLocation, isAdmin]);
+  }, [tournaments, query, region, category, status, source, distanceFilter, sortOption, today, userLocation]);
 
   // 구글 시트 및 엑셀용 CSV 내보내기 핸들러 (한글 깨짐 방지 UTF-8 BOM 적용)
   const handleExportCsv = () => {
@@ -700,7 +710,7 @@ export function TournamentExplorer({ tournaments }: { tournaments: Tournament[] 
                 <div className="flex items-center gap-2 text-sm font-bold text-slate-800">
                   <SlidersHorizontal className="size-4 text-emerald-700" /> 맞춤 필터
                 </div>
-                {(region !== '전체' || category !== '전체' || status !== '전체' || source !== '전체' || query) && (
+                {(region !== '전체' || category !== '전체' || status !== '전체' || source !== '전체' || distanceFilter !== '전체' || query) && (
                   <button
                     type="button"
                     onClick={() => {
@@ -708,6 +718,7 @@ export function TournamentExplorer({ tournaments }: { tournaments: Tournament[] 
                       setCategory('전체');
                       setStatus('전체');
                       setSource('전체');
+                      setDistanceFilter('전체');
                       setQuery('');
                     }}
                     className="text-xs font-semibold text-emerald-700 hover:underline"
@@ -715,6 +726,33 @@ export function TournamentExplorer({ tournaments }: { tournaments: Tournament[] 
                     필터 초기화
                   </button>
                 )}
+              </div>
+
+              {/* 내 위치 기준 거리 필터 (5km ~ 300km) */}
+              <div className="flex items-start gap-2 border-b border-slate-100 pb-2">
+                <div className="flex w-12 shrink-0 items-center gap-1 pt-1 text-xs font-semibold text-emerald-800">
+                  <MapPin className="size-3 text-emerald-600" />
+                  <span>거리</span>
+                </div>
+                <div className="flex flex-wrap items-center gap-1.5">
+                  {distanceOptions.map((opt) => (
+                    <button
+                      key={opt}
+                      type="button"
+                      onClick={() => setDistanceFilter(opt)}
+                      className={`rounded-full border px-3 py-1 text-xs font-medium transition ${
+                        distanceFilter === opt
+                          ? 'border-emerald-700 bg-emerald-700 font-bold text-white shadow-sm'
+                          : 'border-slate-200 bg-white text-slate-600 hover:border-slate-300 hover:bg-slate-50'
+                      }`}
+                    >
+                      {opt === '전체' ? '전체 거리' : `${opt} 이내`}
+                    </button>
+                  ))}
+                  <span className="ml-1 text-[11px] text-muted-foreground">
+                    (📍 기준: {userLocation.label})
+                  </span>
+                </div>
               </div>
 
               <FilterRow label="상태" items={statuses} value={status} onChange={(val) => setStatus(val as StatusFilter)} />
