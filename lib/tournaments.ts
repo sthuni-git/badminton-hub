@@ -9,6 +9,7 @@ export type TournamentSource =
   | '코트엑스' 
   | '스포넷' 
   | '배드민턴게임'
+  | '오마이플레이'
   | 'BKPLAY' 
   | '네이버밴드'
   | 'BWF';

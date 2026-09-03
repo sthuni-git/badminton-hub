@@ -1376,6 +1376,7 @@ export function TournamentExplorer({ tournaments }: { tournaments: Tournament[] 
                   >
                     {selected.source === '페이스콕' && '📄 페이스콕 공식 접수처 바로가기'}
                     {selected.source === '코트엑스' && '📄 코트엑스 공식 접수처 바로가기'}
+                    {selected.source === '오마이플레이' && '📄 오마이플레이 공식 대진표·요강 바로가기'}
                     {selected.source === '스포넷' && '📄 스포넷 공식 접수처 바로가기'}
                     {selected.source === 'BKPLAY' && '📄 대한배드민턴협회 (BKPLAY) 공고 보기'}
                     {selected.source === '배드민톡' && '📄 배드민톡 세부 요강 바로가기'}

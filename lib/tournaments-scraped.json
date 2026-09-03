@@ -72,6 +72,31 @@
     ]
   },
   {
+    "id": "omp-2090",
+    "category": "전국오픈",
+    "name": "2026 제2회 한라배 전문체육선수권 전국배드민턴대회",
+    "registrationPeriod": "2026.01.10 ~ 01.12",
+    "registrationStart": "2026-01-10",
+    "registrationEnd": "2026-01-12",
+    "eventPeriod": "2026.01.12 ~ 01.23",
+    "eventStart": "2026-01-12",
+    "eventEnd": "2026-01-23",
+    "venue": "제주복합체육관2층 배드민턴경기장",
+    "source": "오마이플레이",
+    "officialLink": "https://m.ohmyplay.com/tournament/detail/2090",
+    "posterImage": "https://myohmyplay.s3.ap-northeast-2.amazonaws.com/2026/01/10/84716df6-5e98-4db5-8b4b-d429beb77cad_KakaoTalk_20260109_093000780.jpg",
+    "fee": "요강 참조",
+    "sources": [
+      "오마이플레이"
+    ],
+    "sourceLinks": [
+      {
+        "source": "오마이플레이",
+        "link": "https://m.ohmyplay.com/tournament/detail/2090"
+      }
+    ]
+  },
+  {
     "id": "bt-2516",
     "category": "국제대회",
     "name": "2026 인도오픈 월드투어 슈퍼750",
@@ -92,6 +117,30 @@
       {
         "source": "배드민턴타임즈",
         "link": "http://www.badmintontimes.com/calendar/m3_calendarRead.jsp?menunum=204&no=2516&dday=20260113"
+      }
+    ]
+  },
+  {
+    "id": "omp-2095",
+    "category": "전국오픈",
+    "name": "2025 청소년스포츠한마당 배드민턴대회",
+    "registrationPeriod": "2026.01.16",
+    "registrationStart": "2026-01-16",
+    "registrationEnd": "2026-01-16",
+    "eventPeriod": "2026.01.17",
+    "eventStart": "2026-01-17",
+    "eventEnd": "2026-01-17",
+    "venue": "하남종합운동장 제2체육관",
+    "source": "오마이플레이",
+    "officialLink": "https://m.ohmyplay.com/tournament/detail/2095",
+    "fee": "요강 참조",
+    "sources": [
+      "오마이플레이"
+    ],
+    "sourceLinks": [
+      {
+        "source": "오마이플레이",
+        "link": "https://m.ohmyplay.com/tournament/detail/2095"
       }
     ]
   },
@@ -219,9 +268,9 @@
     "id": "bt-2545",
     "category": "학생선수권",
     "name": "2026 한국중고배드민턴연맹 전국학생우수선수권대회",
-    "registrationPeriod": "공식 상세 페이지 확인",
-    "registrationStart": "",
-    "registrationEnd": "",
+    "registrationPeriod": "2026.01.28",
+    "registrationStart": "2026-01-28",
+    "registrationEnd": "2026-01-28",
     "eventPeriod": "2026.02.02 ~ 02.09",
     "eventStart": "2026-02-02",
     "eventEnd": "2026-02-09",
@@ -230,12 +279,17 @@
     "officialLink": "http://www.badmintontimes.com/calendar/m3_calendarRead.jsp?menunum=204&no=2545&dday=20260202",
     "fee": "요강 참조",
     "sources": [
-      "배드민턴타임즈"
+      "배드민턴타임즈",
+      "오마이플레이"
     ],
     "sourceLinks": [
       {
         "source": "배드민턴타임즈",
         "link": "http://www.badmintontimes.com/calendar/m3_calendarRead.jsp?menunum=204&no=2545&dday=20260202"
+      },
+      {
+        "source": "오마이플레이",
+        "link": "https://m.ohmyplay.com/tournament/detail/2099"
       }
     ]
   },
@@ -336,6 +390,31 @@
     ]
   },
   {
+    "id": "omp-2091",
+    "category": "지역구대회",
+    "name": "2026 제2회 한라배 생활체육 동호인 전국배드민턴대회",
+    "registrationPeriod": "2026.01.10 ~ 01.23",
+    "registrationStart": "2026-01-10",
+    "registrationEnd": "2026-01-23",
+    "eventPeriod": "2026.02.07 ~ 02.08",
+    "eventStart": "2026-02-07",
+    "eventEnd": "2026-02-08",
+    "venue": "제주복합체육관 2층 배드민턴경기장",
+    "source": "오마이플레이",
+    "officialLink": "https://m.ohmyplay.com/tournament/detail/2091",
+    "posterImage": "https://myohmyplay.s3.ap-northeast-2.amazonaws.com/2026/01/10/bbba5c29-260e-40da-ac8e-268420b39c14_2026%20%EC%A0%9C2%ED%9A%8C%20%ED%95%9C%EB%9D%BC%EB%B0%B0%20%EB%8F%99%ED%98%B8%EC%9D%B8%EB%B6%80%20%ED%8F%AC%EC%8A%A4%ED%84%B0.jpg",
+    "fee": "요강 참조",
+    "sources": [
+      "오마이플레이"
+    ],
+    "sourceLinks": [
+      {
+        "source": "오마이플레이",
+        "link": "https://m.ohmyplay.com/tournament/detail/2091"
+      }
+    ]
+  },
+  {
     "id": "bt-2554",
     "category": "전국오픈",
     "name": "2026 제주 한라배 전국 배드민턴대회",
@@ -387,23 +466,53 @@
     "id": "bt-2546",
     "category": "학생선수권",
     "name": "제3회 이용대배 꿈나무 배드민턴 최강전",
-    "registrationPeriod": "공식 상세 페이지 확인",
-    "registrationStart": "",
-    "registrationEnd": "",
+    "registrationPeriod": "2026.02.01 ~ 02.03",
+    "registrationStart": "2026-02-01",
+    "registrationEnd": "2026-02-03",
     "eventPeriod": "2026.02.07 ~ 02.13",
     "eventStart": "2026-02-07",
     "eventEnd": "2026-02-13",
-    "venue": "경남 합천군",
+    "venue": "합천다목적체육관",
     "source": "배드민턴타임즈",
     "officialLink": "http://www.badmintontimes.com/calendar/m3_calendarRead.jsp?menunum=204&no=2546&dday=20260207",
     "fee": "요강 참조",
     "sources": [
-      "배드민턴타임즈"
+      "배드민턴타임즈",
+      "오마이플레이"
     ],
     "sourceLinks": [
       {
         "source": "배드민턴타임즈",
         "link": "http://www.badmintontimes.com/calendar/m3_calendarRead.jsp?menunum=204&no=2546&dday=20260207"
+      },
+      {
+        "source": "오마이플레이",
+        "link": "https://m.ohmyplay.com/tournament/detail/2101"
+      }
+    ]
+  },
+  {
+    "id": "omp-2088",
+    "category": "전국오픈",
+    "name": "제6회 전국 OPEN 대구광역시 청년부 배드민턴 대회",
+    "registrationPeriod": "2025.12.08 ~ 01.20",
+    "registrationStart": "2025-12-08",
+    "registrationEnd": "2026-01-20",
+    "eventPeriod": "2026.02.07 ~ 02.08",
+    "eventStart": "2026-02-07",
+    "eventEnd": "2026-02-08",
+    "venue": "대구육상진흥센터",
+    "source": "오마이플레이",
+    "officialLink": "https://m.ohmyplay.com/tournament/detail/2088",
+    "posterImage": "https://myohmyplay.s3.ap-northeast-2.amazonaws.com/2025/12/12/0b3415a3-7457-43cd-a59e-52c65834f9d8_%5B%ED%81%AC%EA%B8%B0%EB%B3%80%ED%99%98%5D%ED%8F%AC%EC%8A%A4%ED%8A%B8%EC%88%98%EC%A0%95.jpg",
+    "fee": "요강 참조",
+    "sources": [
+      "오마이플레이"
+    ],
+    "sourceLinks": [
+      {
+        "source": "오마이플레이",
+        "link": "https://m.ohmyplay.com/tournament/detail/2088"
       }
     ]
   },
@@ -720,6 +829,56 @@
     ]
   },
   {
+    "id": "omp-2094",
+    "category": "전국오픈",
+    "name": "제1회 제이콕 국제 배드민턴 오픈 대회",
+    "registrationPeriod": "2026.01.16 ~ 02.19",
+    "registrationStart": "2026-01-16",
+    "registrationEnd": "2026-02-19",
+    "eventPeriod": "2026.02.28 ~ 03.01",
+    "eventStart": "2026-02-28",
+    "eventEnd": "2026-03-01",
+    "venue": "제이콕배드민턴센터2호점",
+    "source": "오마이플레이",
+    "officialLink": "https://m.ohmyplay.com/tournament/detail/2094",
+    "posterImage": "https://myohmyplay.s3.ap-northeast-2.amazonaws.com/2026/02/21/c99f8a6d-1220-4691-8393-f2ef95527a5c_12.jpg",
+    "fee": "요강 참조",
+    "sources": [
+      "오마이플레이"
+    ],
+    "sourceLinks": [
+      {
+        "source": "오마이플레이",
+        "link": "https://m.ohmyplay.com/tournament/detail/2094"
+      }
+    ]
+  },
+  {
+    "id": "omp-2102",
+    "category": "전국오픈",
+    "name": "제2회 광주여대유니버시아드체육관장배 배드민턴 대회",
+    "registrationPeriod": "2026.02.06 ~ 02.22",
+    "registrationStart": "2026-02-06",
+    "registrationEnd": "2026-02-22",
+    "eventPeriod": "2026.02.28 ~ 03.01",
+    "eventStart": "2026-02-28",
+    "eventEnd": "2026-03-01",
+    "venue": "광주여대",
+    "source": "오마이플레이",
+    "officialLink": "https://m.ohmyplay.com/tournament/detail/2102",
+    "posterImage": "https://myohmyplay.s3.ap-northeast-2.amazonaws.com/2026/02/06/8f8a99fe-8e59-411f-b398-083a46807211_111.jpg",
+    "fee": "요강 참조",
+    "sources": [
+      "오마이플레이"
+    ],
+    "sourceLinks": [
+      {
+        "source": "오마이플레이",
+        "link": "https://m.ohmyplay.com/tournament/detail/2102"
+      }
+    ]
+  },
+  {
     "id": "bt-2569",
     "category": "학생선수권",
     "name": "제7회 프리미크×르피랩 전국 배드민턴대회",
@@ -764,6 +923,31 @@
       {
         "source": "배드민턴타임즈",
         "link": "http://www.badmintontimes.com/calendar/m3_calendarRead.jsp?menunum=204&no=2544&dday=20260228"
+      }
+    ]
+  },
+  {
+    "id": "omp-2115",
+    "category": "전국오픈",
+    "name": "제16회 제주시배드민턴협회 전도초보자배드민턴대회",
+    "registrationPeriod": "2026.02.26",
+    "registrationStart": "2026-02-26",
+    "registrationEnd": "2026-02-26",
+    "eventPeriod": "2026.03.01",
+    "eventStart": "2026-03-01",
+    "eventEnd": "2026-03-01",
+    "venue": "사라봉다목적체육관",
+    "source": "오마이플레이",
+    "officialLink": "https://m.ohmyplay.com/tournament/detail/2115",
+    "posterImage": "https://myohmyplay.s3.ap-northeast-2.amazonaws.com/2026/02/26/3d46ecea-318e-4a51-ba1c-2f50906a12df_%EA%B3%B5%EC%A7%80%EC%82%AC%ED%95%AD_%EB%8C%80%EC%A7%80%201.jpg",
+    "fee": "요강 참조",
+    "sources": [
+      "오마이플레이"
+    ],
+    "sourceLinks": [
+      {
+        "source": "오마이플레이",
+        "link": "https://m.ohmyplay.com/tournament/detail/2115"
       }
     ]
   },
@@ -936,6 +1120,31 @@
     ]
   },
   {
+    "id": "omp-2119",
+    "category": "학생선수권",
+    "name": "제13회 제주특별자치도배드민턴협회장배 전문체육 학생부 최강전 대회",
+    "registrationPeriod": "2026.03.03 ~ 03.04",
+    "registrationStart": "2026-03-03",
+    "registrationEnd": "2026-03-04",
+    "eventPeriod": "2026.03.07",
+    "eventStart": "2026-03-07",
+    "eventEnd": "2026-03-07",
+    "venue": "제주복합체육관 2층 배드민턴경기장",
+    "source": "오마이플레이",
+    "officialLink": "https://m.ohmyplay.com/tournament/detail/2119",
+    "posterImage": "https://myohmyplay.s3.ap-northeast-2.amazonaws.com/2026/03/03/31597898-eb85-4fc7-895a-f6dbafebf613_%EB%8C%80%ED%9A%8C%ED%8F%AC%EC%8A%A4%ED%84%B0.png",
+    "fee": "요강 참조",
+    "sources": [
+      "오마이플레이"
+    ],
+    "sourceLinks": [
+      {
+        "source": "오마이플레이",
+        "link": "https://m.ohmyplay.com/tournament/detail/2119"
+      }
+    ]
+  },
+  {
     "id": "bt-2586",
     "category": "전국오픈",
     "name": "제21회 전라남도지사기 배드민턴대회",
@@ -1035,9 +1244,9 @@
     "id": "bt-2556",
     "category": "학생선수권",
     "name": "2026 한국중고배드민턴연맹 회장기 전국학생선수권대회",
-    "registrationPeriod": "공식 상세 페이지 확인",
-    "registrationStart": "",
-    "registrationEnd": "",
+    "registrationPeriod": "2026.03.03 ~ 03.09",
+    "registrationStart": "2026-03-03",
+    "registrationEnd": "2026-03-09",
     "eventPeriod": "2026.03.13 ~ 03.22",
     "eventStart": "2026-03-13",
     "eventEnd": "2026-03-22",
@@ -1046,12 +1255,17 @@
     "officialLink": "http://www.badmintontimes.com/calendar/m3_calendarRead.jsp?menunum=204&no=2556&dday=20260313",
     "fee": "요강 참조",
     "sources": [
-      "배드민턴타임즈"
+      "배드민턴타임즈",
+      "오마이플레이"
     ],
     "sourceLinks": [
       {
         "source": "배드민턴타임즈",
         "link": "http://www.badmintontimes.com/calendar/m3_calendarRead.jsp?menunum=204&no=2556&dday=20260313"
+      },
+      {
+        "source": "오마이플레이",
+        "link": "https://m.ohmyplay.com/tournament/detail/2118"
       }
     ]
   },
@@ -1200,6 +1414,31 @@
     ]
   },
   {
+    "id": "omp-2116",
+    "category": "지역구대회",
+    "name": "2026년 시흥시협회장기 배드민턴대회",
+    "registrationPeriod": "2026.02.26 ~ 03.06",
+    "registrationStart": "2026-02-26",
+    "registrationEnd": "2026-03-06",
+    "eventPeriod": "2026.03.21 ~ 03.22",
+    "eventStart": "2026-03-21",
+    "eventEnd": "2026-03-22",
+    "venue": "정왕배드민턴전용구장",
+    "source": "오마이플레이",
+    "officialLink": "https://m.ohmyplay.com/tournament/detail/2116",
+    "posterImage": "https://myohmyplay.s3.ap-northeast-2.amazonaws.com/2026/02/26/42bebbc6-f7f2-457a-abc2-99a9087ff0d0_26%EC%8B%9C%ED%9D%A5%ED%98%91%ED%9A%8C%EC%9E%A5%EA%B8%B0%ED%8F%AC%EC%8A%A4%ED%84%B02.jpg",
+    "fee": "요강 참조",
+    "sources": [
+      "오마이플레이"
+    ],
+    "sourceLinks": [
+      {
+        "source": "오마이플레이",
+        "link": "https://m.ohmyplay.com/tournament/detail/2116"
+      }
+    ]
+  },
+  {
     "id": "bt-2607",
     "category": "전국오픈",
     "name": "제14회 무안 황토골양파배 배드민턴대회",
@@ -1268,6 +1507,31 @@
       {
         "source": "배드민턴타임즈",
         "link": "http://www.badmintontimes.com/calendar/m3_calendarRead.jsp?menunum=204&no=2594&dday=20260321"
+      }
+    ]
+  },
+  {
+    "id": "omp-2120",
+    "category": "전국오픈",
+    "name": "제9회 무등산 사랑배 배드민턴 대회",
+    "registrationPeriod": "2026.03.17",
+    "registrationStart": "2026-03-17",
+    "registrationEnd": "2026-03-17",
+    "eventPeriod": "2026.03.21 ~ 03.22",
+    "eventStart": "2026-03-21",
+    "eventEnd": "2026-03-22",
+    "venue": "북구종합체육관",
+    "source": "오마이플레이",
+    "officialLink": "https://m.ohmyplay.com/tournament/detail/2120",
+    "posterImage": "https://myohmyplay.s3.ap-northeast-2.amazonaws.com/2026/03/05/23698ac3-9c6c-47cf-b53b-adc320f30204_%ED%8F%AC%EC%8A%A4%ED%84%B0.jpg",
+    "fee": "요강 참조",
+    "sources": [
+      "오마이플레이"
+    ],
+    "sourceLinks": [
+      {
+        "source": "오마이플레이",
+        "link": "https://m.ohmyplay.com/tournament/detail/2120"
       }
     ]
   },
@@ -1488,6 +1752,80 @@
     ]
   },
   {
+    "id": "omp-2117",
+    "category": "전국오픈",
+    "name": "제18회 첨단미르치과병원배 배드민턴 대회",
+    "registrationPeriod": "2026.03.02 ~ 03.22",
+    "registrationStart": "2026-03-02",
+    "registrationEnd": "2026-03-22",
+    "eventPeriod": "2026.03.28 ~ 03.29",
+    "eventStart": "2026-03-28",
+    "eventEnd": "2026-03-29",
+    "venue": "광주여대 A구역",
+    "source": "오마이플레이",
+    "officialLink": "https://m.ohmyplay.com/tournament/detail/2117",
+    "posterImage": "https://myohmyplay.s3.ap-northeast-2.amazonaws.com/2026/03/13/820de19d-3898-423f-9c8b-0f13ffec7cd5_%ED%8F%AC%EC%8A%A4%ED%84%B0.png",
+    "fee": "요강 참조",
+    "sources": [
+      "오마이플레이"
+    ],
+    "sourceLinks": [
+      {
+        "source": "오마이플레이",
+        "link": "https://m.ohmyplay.com/tournament/detail/2117"
+      }
+    ]
+  },
+  {
+    "id": "omp-2122",
+    "category": "전국오픈",
+    "name": "제52회제주특별자치도지사기(배)통합배드민턴대회-개인전",
+    "registrationPeriod": "2026.03.06 ~ 03.09",
+    "registrationStart": "2026-03-06",
+    "registrationEnd": "2026-03-09",
+    "eventPeriod": "2026.03.28",
+    "eventStart": "2026-03-28",
+    "eventEnd": "2026-03-28",
+    "venue": "서귀포시 공천포전지훈련센터 다목적체육관",
+    "source": "오마이플레이",
+    "officialLink": "https://m.ohmyplay.com/tournament/detail/2122",
+    "posterImage": "https://myohmyplay.s3.ap-northeast-2.amazonaws.com/2026/03/06/a244494c-bba1-4de3-9590-d30ffbd8c984_%EB%8C%80%ED%9A%8C%ED%8F%AC%EC%8A%A4%ED%84%B0.jpg",
+    "fee": "요강 참조",
+    "sources": [
+      "오마이플레이"
+    ],
+    "sourceLinks": [
+      {
+        "source": "오마이플레이",
+        "link": "https://m.ohmyplay.com/tournament/detail/2122"
+      }
+    ]
+  },
+  {
+    "id": "omp-2130",
+    "category": "전국오픈",
+    "name": "제5회 세종시장배 전국 SPECIAL 장애인배드민턴대회",
+    "registrationPeriod": "2026.03.24",
+    "registrationStart": "2026-03-24",
+    "registrationEnd": "2026-03-24",
+    "eventPeriod": "2026.03.28 ~ 03.29",
+    "eventStart": "2026-03-28",
+    "eventEnd": "2026-03-29",
+    "venue": "세종시민체육관",
+    "source": "오마이플레이",
+    "officialLink": "https://m.ohmyplay.com/tournament/detail/2130",
+    "fee": "요강 참조",
+    "sources": [
+      "오마이플레이"
+    ],
+    "sourceLinks": [
+      {
+        "source": "오마이플레이",
+        "link": "https://m.ohmyplay.com/tournament/detail/2130"
+      }
+    ]
+  },
+  {
     "id": "bt-2597",
     "category": "전국오픈",
     "name": "2026 노바스톤 전국 배드민턴대회",
@@ -1508,6 +1846,55 @@
       {
         "source": "배드민턴타임즈",
         "link": "http://www.badmintontimes.com/calendar/m3_calendarRead.jsp?menunum=204&no=2597&dday=20260329"
+      }
+    ]
+  },
+  {
+    "id": "omp-2123",
+    "category": "전국오픈",
+    "name": "제52회제주특별자치도지사기(배)통합배드민턴대회-단체전",
+    "registrationPeriod": "2026.03.06 ~ 03.09",
+    "registrationStart": "2026-03-06",
+    "registrationEnd": "2026-03-09",
+    "eventPeriod": "2026.03.29",
+    "eventStart": "2026-03-29",
+    "eventEnd": "2026-03-29",
+    "venue": "서귀포시 공천포전지훈련센터 다목적체육관",
+    "source": "오마이플레이",
+    "officialLink": "https://m.ohmyplay.com/tournament/detail/2123",
+    "posterImage": "https://myohmyplay.s3.ap-northeast-2.amazonaws.com/2026/03/06/f9249259-3ee5-4933-b899-9f6dbd201d06_%EB%8C%80%ED%9A%8C%ED%8F%AC%EC%8A%A4%ED%84%B0.jpg",
+    "fee": "요강 참조",
+    "sources": [
+      "오마이플레이"
+    ],
+    "sourceLinks": [
+      {
+        "source": "오마이플레이",
+        "link": "https://m.ohmyplay.com/tournament/detail/2123"
+      }
+    ]
+  },
+  {
+    "id": "omp-2132",
+    "category": "전국오픈",
+    "name": "2026 예비국가대표 선수선발전",
+    "registrationPeriod": "2026.03.25 ~ 03.30",
+    "registrationStart": "2026-03-25",
+    "registrationEnd": "2026-03-30",
+    "eventPeriod": "2026.03.30 ~ 04.03",
+    "eventStart": "2026-03-30",
+    "eventEnd": "2026-04-03",
+    "venue": "밀양시배드민턴경기장",
+    "source": "오마이플레이",
+    "officialLink": "https://m.ohmyplay.com/tournament/detail/2132",
+    "fee": "요강 참조",
+    "sources": [
+      "오마이플레이"
+    ],
+    "sourceLinks": [
+      {
+        "source": "오마이플레이",
+        "link": "https://m.ohmyplay.com/tournament/detail/2132"
       }
     ]
   },
@@ -1539,9 +1926,9 @@
     "id": "bt-2566",
     "category": "지역구대회",
     "name": "제64회 대한배드민턴협회장기 전국종별배드민턴대회(중고)",
-    "registrationPeriod": "공식 상세 페이지 확인",
-    "registrationStart": "",
-    "registrationEnd": "",
+    "registrationPeriod": "2026.03.25 ~ 03.31",
+    "registrationStart": "2026-03-25",
+    "registrationEnd": "2026-03-31",
     "eventPeriod": "2026.04.04 ~ 04.13",
     "eventStart": "2026-04-04",
     "eventEnd": "2026-04-13",
@@ -1550,12 +1937,17 @@
     "officialLink": "http://www.badmintontimes.com/calendar/m3_calendarRead.jsp?menunum=204&no=2566&dday=20260404",
     "fee": "요강 참조",
     "sources": [
-      "배드민턴타임즈"
+      "배드민턴타임즈",
+      "오마이플레이"
     ],
     "sourceLinks": [
       {
         "source": "배드민턴타임즈",
         "link": "http://www.badmintontimes.com/calendar/m3_calendarRead.jsp?menunum=204&no=2566&dday=20260404"
+      },
+      {
+        "source": "오마이플레이",
+        "link": "https://m.ohmyplay.com/tournament/detail/2133"
       }
     ]
   },
@@ -1731,9 +2123,9 @@
     "id": "bt-2568",
     "category": "학생선수권",
     "name": "제64회 대한배드민턴협회장기 전국종별배드민턴대회(초등)",
-    "registrationPeriod": "공식 상세 페이지 확인",
-    "registrationStart": "",
-    "registrationEnd": "",
+    "registrationPeriod": "2026.03.25 ~ 04.07",
+    "registrationStart": "2026-03-25",
+    "registrationEnd": "2026-04-07",
     "eventPeriod": "2026.04.15 ~ 04.21",
     "eventStart": "2026-04-15",
     "eventEnd": "2026-04-21",
@@ -1742,12 +2134,17 @@
     "officialLink": "http://www.badmintontimes.com/calendar/m3_calendarRead.jsp?menunum=204&no=2568&dday=20260415",
     "fee": "요강 참조",
     "sources": [
-      "배드민턴타임즈"
+      "배드민턴타임즈",
+      "오마이플레이"
     ],
     "sourceLinks": [
       {
         "source": "배드민턴타임즈",
         "link": "http://www.badmintontimes.com/calendar/m3_calendarRead.jsp?menunum=204&no=2568&dday=20260415"
+      },
+      {
+        "source": "오마이플레이",
+        "link": "https://m.ohmyplay.com/tournament/detail/2134"
       }
     ]
   },
@@ -1947,9 +2344,9 @@
     "id": "bt-2634",
     "category": "지역구대회",
     "name": "제9회 광주광역시협회장기 배드민턴대회",
-    "registrationPeriod": "공식 상세 페이지 확인",
-    "registrationStart": "",
-    "registrationEnd": "",
+    "registrationPeriod": "2026.04.19 ~ 04.21",
+    "registrationStart": "2026-04-19",
+    "registrationEnd": "2026-04-21",
     "eventPeriod": "2026.04.25 ~ 04.26",
     "eventStart": "2026-04-25",
     "eventEnd": "2026-04-26",
@@ -1958,14 +2355,20 @@
     "officialLink": "http://www.badmintontimes.com/calendar/m3_calendarRead.jsp?menunum=204&no=2634&dday=20260425",
     "fee": "요강 참조",
     "sources": [
-      "배드민턴타임즈"
+      "배드민턴타임즈",
+      "오마이플레이"
     ],
     "sourceLinks": [
       {
         "source": "배드민턴타임즈",
         "link": "http://www.badmintontimes.com/calendar/m3_calendarRead.jsp?menunum=204&no=2634&dday=20260425"
+      },
+      {
+        "source": "오마이플레이",
+        "link": "https://m.ohmyplay.com/tournament/detail/2160"
       }
-    ]
+    ],
+    "posterImage": "https://myohmyplay.s3.ap-northeast-2.amazonaws.com/2026/04/21/ed70c1b6-c617-49f1-b52d-0df2a6262ce2_%EA%B4%91%EC%A3%BC%EC%8B%9C%ED%98%91%ED%9A%8C%20%EB%A1%9C%EA%B3%A0.png"
   },
   {
     "id": "bt-2638",
@@ -2016,12 +2419,36 @@
     ]
   },
   {
+    "id": "omp-2128",
+    "category": "전국오픈",
+    "name": "제16회 경기도장애인체육대회",
+    "registrationPeriod": "2026.03.21 ~ 03.31",
+    "registrationStart": "2026-03-21",
+    "registrationEnd": "2026-03-31",
+    "eventPeriod": "2026.04.26 ~ 04.28",
+    "eventStart": "2026-04-26",
+    "eventEnd": "2026-04-28",
+    "venue": "광주시민체육관 배드민턴전용구장",
+    "source": "오마이플레이",
+    "officialLink": "https://m.ohmyplay.com/tournament/detail/2128",
+    "fee": "요강 참조",
+    "sources": [
+      "오마이플레이"
+    ],
+    "sourceLinks": [
+      {
+        "source": "오마이플레이",
+        "link": "https://m.ohmyplay.com/tournament/detail/2128"
+      }
+    ]
+  },
+  {
     "id": "bt-2582",
     "category": "전국오픈",
     "name": "2026 김학석배 전국종별배드민턴선수권대회(중고)",
-    "registrationPeriod": "공식 상세 페이지 확인",
-    "registrationStart": "",
-    "registrationEnd": "",
+    "registrationPeriod": "2026.03.25 ~ 04.30",
+    "registrationStart": "2026-03-25",
+    "registrationEnd": "2026-04-30",
     "eventPeriod": "2026.04.28 ~ 05.07",
     "eventStart": "2026-04-28",
     "eventEnd": "2026-05-07",
@@ -2030,12 +2457,17 @@
     "officialLink": "http://www.badmintontimes.com/calendar/m3_calendarRead.jsp?menunum=204&no=2582&dday=20260428",
     "fee": "요강 참조",
     "sources": [
-      "배드민턴타임즈"
+      "배드민턴타임즈",
+      "오마이플레이"
     ],
     "sourceLinks": [
       {
         "source": "배드민턴타임즈",
         "link": "http://www.badmintontimes.com/calendar/m3_calendarRead.jsp?menunum=204&no=2582&dday=20260428"
+      },
+      {
+        "source": "오마이플레이",
+        "link": "https://m.ohmyplay.com/tournament/detail/2135"
       }
     ]
   },
@@ -2160,6 +2592,31 @@
     ]
   },
   {
+    "id": "omp-2172",
+    "category": "지역구대회",
+    "name": "2026 제8회 목송그룹배 서구협회장기대회",
+    "registrationPeriod": "2026.05.05 ~ 05.06",
+    "registrationStart": "2026-05-05",
+    "registrationEnd": "2026-05-06",
+    "eventPeriod": "2026.05.09 ~ 05.10",
+    "eventStart": "2026-05-09",
+    "eventEnd": "2026-05-10",
+    "venue": "북구종합체육관",
+    "source": "오마이플레이",
+    "officialLink": "https://m.ohmyplay.com/tournament/detail/2172",
+    "posterImage": "https://myohmyplay.s3.ap-northeast-2.amazonaws.com/2026/05/05/e1144253-273f-4cf2-aaa2-706c97ee786f_%EC%98%A4%EB%A7%88%EC%9D%B4%ED%94%8C%EB%A0%88%EC%9D%B4.jpg",
+    "fee": "요강 참조",
+    "sources": [
+      "오마이플레이"
+    ],
+    "sourceLinks": [
+      {
+        "source": "오마이플레이",
+        "link": "https://m.ohmyplay.com/tournament/detail/2172"
+      }
+    ]
+  },
+  {
     "id": "bt-2642",
     "category": "전국오픈",
     "name": "제10회 부안붉은노을 전국 배드민턴대회",
@@ -2208,6 +2665,81 @@
     ]
   },
   {
+    "id": "omp-2164",
+    "category": "학생선수권",
+    "name": "제60회 제주특별자치도민체육대회 스포츠클럽부 단체전(남, 여)",
+    "registrationPeriod": "2026.04.23",
+    "registrationStart": "2026-04-23",
+    "registrationEnd": "2026-04-23",
+    "eventPeriod": "2026.05.09",
+    "eventStart": "2026-05-09",
+    "eventEnd": "2026-05-09",
+    "venue": "천지학생체육관(서귀포시)",
+    "source": "오마이플레이",
+    "officialLink": "https://m.ohmyplay.com/tournament/detail/2164",
+    "posterImage": "https://myohmyplay.s3.ap-northeast-2.amazonaws.com/2026/04/23/55fda5df-aa2f-4036-bc4d-74a4758b66d7_60%ED%9A%8C%20%EB%8F%84%EB%AF%BC%EC%B2%B4%EC%A0%84%20%ED%95%99%EA%B5%90%EC%8A%A4%ED%8F%AC%EC%B8%A0%ED%81%B4%EB%9F%BD%20%ED%8F%AC%EC%8A%A4%ED%84%B0.jpg",
+    "fee": "요강 참조",
+    "sources": [
+      "오마이플레이"
+    ],
+    "sourceLinks": [
+      {
+        "source": "오마이플레이",
+        "link": "https://m.ohmyplay.com/tournament/detail/2164"
+      }
+    ]
+  },
+  {
+    "id": "omp-2165",
+    "category": "학생선수권",
+    "name": "제60회 제주특별자치도민체육대회 읍,면,동대항 개인전(남복, 여복, 혼복)",
+    "registrationPeriod": "2026.04.23",
+    "registrationStart": "2026-04-23",
+    "registrationEnd": "2026-04-23",
+    "eventPeriod": "2026.05.09",
+    "eventStart": "2026-05-09",
+    "eventEnd": "2026-05-09",
+    "venue": "천지학생체육관(서귀포시)",
+    "source": "오마이플레이",
+    "officialLink": "https://m.ohmyplay.com/tournament/detail/2165",
+    "posterImage": "https://myohmyplay.s3.ap-northeast-2.amazonaws.com/2026/04/23/75d49603-e016-4d46-965f-ab6e32303afa_60%ED%9A%8C%20%EB%8F%84%EB%AF%BC%EC%B2%B4%EC%A0%84%20%EC%9D%8D%EB%A9%B4%EB%8F%99%20%EA%B0%9C%EC%9D%B8%EC%A0%84%20%ED%8F%AC%EC%8A%A4%ED%84%B0.jpg",
+    "fee": "요강 참조",
+    "sources": [
+      "오마이플레이"
+    ],
+    "sourceLinks": [
+      {
+        "source": "오마이플레이",
+        "link": "https://m.ohmyplay.com/tournament/detail/2165"
+      }
+    ]
+  },
+  {
+    "id": "omp-2157",
+    "category": "학생선수권",
+    "name": "제60회 제주특별자치도민체육대회 전문체육 학생부 배드민턴(단식,복식)",
+    "registrationPeriod": "2026.04.13 ~ 04.19",
+    "registrationStart": "2026-04-13",
+    "registrationEnd": "2026-04-19",
+    "eventPeriod": "2026.05.09",
+    "eventStart": "2026-05-09",
+    "eventEnd": "2026-05-09",
+    "venue": "천지학생체육관(서귀포시)",
+    "source": "오마이플레이",
+    "officialLink": "https://m.ohmyplay.com/tournament/detail/2157",
+    "posterImage": "https://myohmyplay.s3.ap-northeast-2.amazonaws.com/2026/04/13/451e296f-4841-421c-9e7a-3d269abf2784_60%ED%9A%8C%20%EB%8F%84%EB%AF%BC%EC%B2%B4%EC%A0%84%20%EC%A0%84%EB%AC%B8%EC%B2%B4%EC%9C%A1%ED%95%99%EC%83%9D%EB%B6%80%20%ED%8F%AC%EC%8A%A4%ED%84%B0.jpg",
+    "fee": "요강 참조",
+    "sources": [
+      "오마이플레이"
+    ],
+    "sourceLinks": [
+      {
+        "source": "오마이플레이",
+        "link": "https://m.ohmyplay.com/tournament/detail/2157"
+      }
+    ]
+  },
+  {
     "id": "bt-2628",
     "category": "전국오픈",
     "name": "제6회 중랑구장미축제 전국 배드민턴대회",
@@ -2235,9 +2767,9 @@
     "id": "bt-2583",
     "category": "전국오픈",
     "name": "2026 대통령기 전국종별배드민턴선수권대회(대일)",
-    "registrationPeriod": "공식 상세 페이지 확인",
-    "registrationStart": "",
-    "registrationEnd": "",
+    "registrationPeriod": "2026.03.25 ~ 05.01",
+    "registrationStart": "2026-03-25",
+    "registrationEnd": "2026-05-01",
     "eventPeriod": "2026.05.10 ~ 05.19",
     "eventStart": "2026-05-10",
     "eventEnd": "2026-05-19",
@@ -2246,12 +2778,42 @@
     "officialLink": "http://www.badmintontimes.com/calendar/m3_calendarRead.jsp?menunum=204&no=2583&dday=20260510",
     "fee": "요강 참조",
     "sources": [
-      "배드민턴타임즈"
+      "배드민턴타임즈",
+      "오마이플레이"
     ],
     "sourceLinks": [
       {
         "source": "배드민턴타임즈",
         "link": "http://www.badmintontimes.com/calendar/m3_calendarRead.jsp?menunum=204&no=2583&dday=20260510"
+      },
+      {
+        "source": "오마이플레이",
+        "link": "https://m.ohmyplay.com/tournament/detail/2136"
+      }
+    ]
+  },
+  {
+    "id": "omp-2154",
+    "category": "학생선수권",
+    "name": "제60회 제주특별자치도민체육대회 읍,면,동대항 단체전(남, 여)",
+    "registrationPeriod": "2026.04.13 ~ 04.19",
+    "registrationStart": "2026-04-13",
+    "registrationEnd": "2026-04-19",
+    "eventPeriod": "2026.05.10",
+    "eventStart": "2026-05-10",
+    "eventEnd": "2026-05-10",
+    "venue": "천지학생체육관(서귀포시)",
+    "source": "오마이플레이",
+    "officialLink": "https://m.ohmyplay.com/tournament/detail/2154",
+    "posterImage": "https://myohmyplay.s3.ap-northeast-2.amazonaws.com/2026/04/13/0327a5c1-d41b-4aa6-906a-6146da750fae_60%ED%9A%8C%20%EB%8F%84%EB%AF%BC%EC%B2%B4%EC%A0%84%20%EC%9D%8D%EB%A9%B4%EB%8F%99%20%EB%8B%A8%EC%B2%B4%EC%A0%84%20%ED%8F%AC%EC%8A%A4%ED%84%B0.jpg",
+    "fee": "요강 참조",
+    "sources": [
+      "오마이플레이"
+    ],
+    "sourceLinks": [
+      {
+        "source": "오마이플레이",
+        "link": "https://m.ohmyplay.com/tournament/detail/2154"
       }
     ]
   },
@@ -2280,6 +2842,30 @@
     ]
   },
   {
+    "id": "omp-2173",
+    "category": "학생선수권",
+    "name": "제20회 전국장애학생체육대회",
+    "registrationPeriod": "2026.05.06",
+    "registrationStart": "2026-05-06",
+    "registrationEnd": "2026-05-06",
+    "eventPeriod": "2026.05.13 ~ 05.15",
+    "eventStart": "2026-05-13",
+    "eventEnd": "2026-05-15",
+    "venue": "강서체육관",
+    "source": "오마이플레이",
+    "officialLink": "https://m.ohmyplay.com/tournament/detail/2173",
+    "fee": "요강 참조",
+    "sources": [
+      "오마이플레이"
+    ],
+    "sourceLinks": [
+      {
+        "source": "오마이플레이",
+        "link": "https://m.ohmyplay.com/tournament/detail/2173"
+      }
+    ]
+  },
+  {
     "id": "bt-2610",
     "category": "전국오픈",
     "name": "2026 스파이더 배드민턴 슈퍼시리즈_전주",
@@ -2300,6 +2886,31 @@
       {
         "source": "배드민턴타임즈",
         "link": "http://www.badmintontimes.com/calendar/m3_calendarRead.jsp?menunum=204&no=2610&dday=20260516"
+      }
+    ]
+  },
+  {
+    "id": "omp-2158",
+    "category": "전국오픈",
+    "name": "2026년 시흥시 체육회장배 배드민턴대회",
+    "registrationPeriod": "2026.04.14 ~ 04.30",
+    "registrationStart": "2026-04-14",
+    "registrationEnd": "2026-04-30",
+    "eventPeriod": "2026.05.16 ~ 05.17",
+    "eventStart": "2026-05-16",
+    "eventEnd": "2026-05-17",
+    "venue": "정왕배드민턴전용구장",
+    "source": "오마이플레이",
+    "officialLink": "https://m.ohmyplay.com/tournament/detail/2158",
+    "posterImage": "https://myohmyplay.s3.ap-northeast-2.amazonaws.com/2026/04/21/b1297119-5da4-4912-8033-c624710c6a8e_26%EC%B2%B4%EC%9C%A1%ED%9A%8C%EC%9E%A5%EB%B0%B0%ED%8F%AC%EC%8A%A4%ED%84%B02.jpg",
+    "fee": "요강 참조",
+    "sources": [
+      "오마이플레이"
+    ],
+    "sourceLinks": [
+      {
+        "source": "오마이플레이",
+        "link": "https://m.ohmyplay.com/tournament/detail/2158"
       }
     ]
   },
@@ -2372,6 +2983,55 @@
       {
         "source": "배드민턴타임즈",
         "link": "http://www.badmintontimes.com/calendar/m3_calendarRead.jsp?menunum=204&no=2580&dday=20260519"
+      }
+    ]
+  },
+  {
+    "id": "omp-2174",
+    "category": "전국오픈",
+    "name": "2026 한국동그라미파트너스 장애인배드민턴 리그전 1라운드",
+    "registrationPeriod": "2026.05.08",
+    "registrationStart": "2026-05-08",
+    "registrationEnd": "2026-05-08",
+    "eventPeriod": "2026.05.21 ~ 05.24",
+    "eventStart": "2026-05-21",
+    "eventEnd": "2026-05-24",
+    "venue": "태안종합실내체육관",
+    "source": "오마이플레이",
+    "officialLink": "https://m.ohmyplay.com/tournament/detail/2174",
+    "fee": "요강 참조",
+    "sources": [
+      "오마이플레이"
+    ],
+    "sourceLinks": [
+      {
+        "source": "오마이플레이",
+        "link": "https://m.ohmyplay.com/tournament/detail/2174"
+      }
+    ]
+  },
+  {
+    "id": "omp-2180",
+    "category": "지역구대회",
+    "name": "2026 제8회 광주남구협회장기대회",
+    "registrationPeriod": "2026.05.19",
+    "registrationStart": "2026-05-19",
+    "registrationEnd": "2026-05-19",
+    "eventPeriod": "2026.05.23 ~ 05.24",
+    "eventStart": "2026-05-23",
+    "eventEnd": "2026-05-24",
+    "venue": "화순 하니움체육관",
+    "source": "오마이플레이",
+    "officialLink": "https://m.ohmyplay.com/tournament/detail/2180",
+    "posterImage": "https://myohmyplay.s3.ap-northeast-2.amazonaws.com/2026/05/19/4d76c8b3-11e1-4434-aa2b-11bd6d879b0a_%EB%82%A8%EA%B5%AC%ED%8F%AC%EC%8A%A4%ED%84%B0.png",
+    "fee": "요강 참조",
+    "sources": [
+      "오마이플레이"
+    ],
+    "sourceLinks": [
+      {
+        "source": "오마이플레이",
+        "link": "https://m.ohmyplay.com/tournament/detail/2180"
       }
     ]
   },
@@ -2451,9 +3111,9 @@
     "id": "bt-2584",
     "category": "전국오픈",
     "name": "제55회 전국소년체육대회-배드민턴",
-    "registrationPeriod": "공식 상세 페이지 확인",
-    "registrationStart": "",
-    "registrationEnd": "",
+    "registrationPeriod": "2026.03.25 ~ 05.13",
+    "registrationStart": "2026-03-25",
+    "registrationEnd": "2026-05-13",
     "eventPeriod": "2026.05.23 ~ 05.26",
     "eventStart": "2026-05-23",
     "eventEnd": "2026-05-26",
@@ -2462,12 +3122,17 @@
     "officialLink": "http://www.badmintontimes.com/calendar/m3_calendarRead.jsp?menunum=204&no=2584&dday=20260523",
     "fee": "요강 참조",
     "sources": [
-      "배드민턴타임즈"
+      "배드민턴타임즈",
+      "오마이플레이"
     ],
     "sourceLinks": [
       {
         "source": "배드민턴타임즈",
         "link": "http://www.badmintontimes.com/calendar/m3_calendarRead.jsp?menunum=204&no=2584&dday=20260523"
+      },
+      {
+        "source": "오마이플레이",
+        "link": "https://m.ohmyplay.com/tournament/detail/2137"
       }
     ]
   },
@@ -2568,6 +3233,31 @@
     ]
   },
   {
+    "id": "omp-2183",
+    "category": "지역구대회",
+    "name": "제27회 제주시협회장기 배드민턴대회",
+    "registrationPeriod": "2026.05.26 ~ 05.31",
+    "registrationStart": "2026-05-26",
+    "registrationEnd": "2026-05-31",
+    "eventPeriod": "2026.06.06 ~ 06.07",
+    "eventStart": "2026-06-06",
+    "eventEnd": "2026-06-07",
+    "venue": "한라체육관",
+    "source": "오마이플레이",
+    "officialLink": "https://m.ohmyplay.com/tournament/detail/2183",
+    "posterImage": "https://myohmyplay.s3.ap-northeast-2.amazonaws.com/2026/05/26/5574d1db-4d01-4613-ad7c-e2cb8be23c13_%EC%A0%9C27%ED%9A%8C%20%EC%A0%9C%EC%A3%BC%EC%8B%9C%ED%98%91%ED%9A%8C%EB%B0%A9%EA%B8%B0%20%EB%B0%B0%EB%93%9C%EB%AF%BC%ED%84%B4%EB%8C%80%ED%9A%8C.jpg",
+    "fee": "요강 참조",
+    "sources": [
+      "오마이플레이"
+    ],
+    "sourceLinks": [
+      {
+        "source": "오마이플레이",
+        "link": "https://m.ohmyplay.com/tournament/detail/2183"
+      }
+    ]
+  },
+  {
     "id": "bt-2653",
     "category": "전국오픈",
     "name": "제6회 예산 윤봉길배 전국 배드민턴대회",
@@ -2595,9 +3285,9 @@
     "id": "bt-2621",
     "category": "학생선수권",
     "name": "2026 김학석배 전국종별배드민턴선수권대회(초등)",
-    "registrationPeriod": "공식 상세 페이지 확인",
-    "registrationStart": "",
-    "registrationEnd": "",
+    "registrationPeriod": "2026.05.23 ~ 05.24",
+    "registrationStart": "2026-05-23",
+    "registrationEnd": "2026-05-24",
     "eventPeriod": "2026.06.07 ~ 06.13",
     "eventStart": "2026-06-07",
     "eventEnd": "2026-06-13",
@@ -2606,12 +3296,17 @@
     "officialLink": "http://www.badmintontimes.com/calendar/m3_calendarRead.jsp?menunum=204&no=2621&dday=20260607",
     "fee": "요강 참조",
     "sources": [
-      "배드민턴타임즈"
+      "배드민턴타임즈",
+      "오마이플레이"
     ],
     "sourceLinks": [
       {
         "source": "배드민턴타임즈",
         "link": "http://www.badmintontimes.com/calendar/m3_calendarRead.jsp?menunum=204&no=2621&dday=20260607"
+      },
+      {
+        "source": "오마이플레이",
+        "link": "https://m.ohmyplay.com/tournament/detail/2182"
       }
     ]
   },
@@ -2660,6 +3355,31 @@
       {
         "source": "배드민턴타임즈",
         "link": "http://www.badmintontimes.com/calendar/m3_calendarRead.jsp?menunum=204&no=2664&dday=20260607"
+      }
+    ]
+  },
+  {
+    "id": "omp-2187",
+    "category": "지역구대회",
+    "name": "제25회 광산구협회장기 배드민턴 대회",
+    "registrationPeriod": "2026.06.01",
+    "registrationStart": "2026-06-01",
+    "registrationEnd": "2026-06-01",
+    "eventPeriod": "2026.06.07",
+    "eventStart": "2026-06-07",
+    "eventEnd": "2026-06-07",
+    "venue": "광주여대",
+    "source": "오마이플레이",
+    "officialLink": "https://m.ohmyplay.com/tournament/detail/2187",
+    "posterImage": "https://myohmyplay.s3.ap-northeast-2.amazonaws.com/2026/06/01/3f8ea9e8-56bc-4075-bc81-ad643cc21ad1_%ED%8F%AC%EC%8A%A4%ED%84%B0.png",
+    "fee": "요강 참조",
+    "sources": [
+      "오마이플레이"
+    ],
+    "sourceLinks": [
+      {
+        "source": "오마이플레이",
+        "link": "https://m.ohmyplay.com/tournament/detail/2187"
       }
     ]
   },
@@ -2760,12 +3480,37 @@
     ]
   },
   {
+    "id": "omp-2191",
+    "category": "학생선수권",
+    "name": "제4회 제주특별자치도교육감배 전도유소년배드민턴대회",
+    "registrationPeriod": "2026.06.10 ~ 06.13",
+    "registrationStart": "2026-06-10",
+    "registrationEnd": "2026-06-13",
+    "eventPeriod": "2026.06.14",
+    "eventStart": "2026-06-14",
+    "eventEnd": "2026-06-14",
+    "venue": "한라중학교체육관",
+    "source": "오마이플레이",
+    "officialLink": "https://m.ohmyplay.com/tournament/detail/2191",
+    "posterImage": "https://myohmyplay.s3.ap-northeast-2.amazonaws.com/2026/06/10/61f2b70e-2937-48e0-9724-427364c4adc6_%ED%8F%AC%EC%8A%A4%ED%84%B0.jpg",
+    "fee": "요강 참조",
+    "sources": [
+      "오마이플레이"
+    ],
+    "sourceLinks": [
+      {
+        "source": "오마이플레이",
+        "link": "https://m.ohmyplay.com/tournament/detail/2191"
+      }
+    ]
+  },
+  {
     "id": "bt-2632",
     "category": "전국오픈",
     "name": "2026 대통령기 전국종별배드민턴선수권대회(중고)",
-    "registrationPeriod": "공식 상세 페이지 확인",
-    "registrationStart": "",
-    "registrationEnd": "",
+    "registrationPeriod": "2026.03.25 ~ 06.03",
+    "registrationStart": "2026-03-25",
+    "registrationEnd": "2026-06-03",
     "eventPeriod": "2026.06.15 ~ 06.24",
     "eventStart": "2026-06-15",
     "eventEnd": "2026-06-24",
@@ -2774,12 +3519,17 @@
     "officialLink": "http://www.badmintontimes.com/calendar/m3_calendarRead.jsp?menunum=204&no=2632&dday=20260615",
     "fee": "요강 참조",
     "sources": [
-      "배드민턴타임즈"
+      "배드민턴타임즈",
+      "오마이플레이"
     ],
     "sourceLinks": [
       {
         "source": "배드민턴타임즈",
         "link": "http://www.badmintontimes.com/calendar/m3_calendarRead.jsp?menunum=204&no=2632&dday=20260615"
+      },
+      {
+        "source": "오마이플레이",
+        "link": "https://m.ohmyplay.com/tournament/detail/2139"
       }
     ]
   },
@@ -2828,6 +3578,31 @@
       {
         "source": "배드민턴타임즈",
         "link": "http://www.badmintontimes.com/calendar/m3_calendarRead.jsp?menunum=204&no=2690&dday=20260620"
+      }
+    ]
+  },
+  {
+    "id": "omp-2195",
+    "category": "국제대회",
+    "name": "2026 안세영올림픽제패기념 드림투데이배 전국배드민턴대회",
+    "registrationPeriod": "2026.06.16",
+    "registrationStart": "2026-06-16",
+    "registrationEnd": "2026-06-16",
+    "eventPeriod": "2026.06.20 ~ 06.21",
+    "eventStart": "2026-06-20",
+    "eventEnd": "2026-06-21",
+    "venue": "광주여대",
+    "source": "오마이플레이",
+    "officialLink": "https://m.ohmyplay.com/tournament/detail/2195",
+    "posterImage": "https://myohmyplay.s3.ap-northeast-2.amazonaws.com/2026/06/16/386b8602-da63-4f71-a8c4-af065567c58c_%ED%8F%AC%EC%8A%A4%ED%84%B0.png",
+    "fee": "요강 참조",
+    "sources": [
+      "오마이플레이"
+    ],
+    "sourceLinks": [
+      {
+        "source": "오마이플레이",
+        "link": "https://m.ohmyplay.com/tournament/detail/2195"
       }
     ]
   },
@@ -2904,6 +3679,31 @@
     ]
   },
   {
+    "id": "omp-2177",
+    "category": "전국오픈",
+    "name": "제27회 KCTV배 제주도 배드민턴대회 (직장, 클럽대항)",
+    "registrationPeriod": "2026.05.13 ~ 05.23",
+    "registrationStart": "2026-05-13",
+    "registrationEnd": "2026-05-23",
+    "eventPeriod": "2026.06.20 ~ 06.27",
+    "eventStart": "2026-06-20",
+    "eventEnd": "2026-06-27",
+    "venue": "제주복합체육관2층 배드민턴경기장",
+    "source": "오마이플레이",
+    "officialLink": "https://m.ohmyplay.com/tournament/detail/2177",
+    "posterImage": "https://myohmyplay.s3.ap-northeast-2.amazonaws.com/2026/05/13/3b0d922a-60cd-4e4b-8954-0860dbd79242_%EB%8C%80%ED%9A%8C%ED%8F%AC%EC%8A%A4%ED%84%B0.jpg",
+    "fee": "요강 참조",
+    "sources": [
+      "오마이플레이"
+    ],
+    "sourceLinks": [
+      {
+        "source": "오마이플레이",
+        "link": "https://m.ohmyplay.com/tournament/detail/2177"
+      }
+    ]
+  },
+  {
     "id": "bt-2686",
     "category": "전국오픈",
     "name": "제35회 충청남도지사기 배드민턴대회",
@@ -2924,6 +3724,30 @@
       {
         "source": "배드민턴타임즈",
         "link": "http://www.badmintontimes.com/calendar/m3_calendarRead.jsp?menunum=204&no=2686&dday=20260620"
+      }
+    ]
+  },
+  {
+    "id": "omp-2181",
+    "category": "지역구대회",
+    "name": "제5회 전국어울림생활체육대축전",
+    "registrationPeriod": "2026.05.23 ~ 05.24",
+    "registrationStart": "2026-05-23",
+    "registrationEnd": "2026-05-24",
+    "eventPeriod": "2026.06.20 ~ 06.21",
+    "eventStart": "2026-06-20",
+    "eventEnd": "2026-06-21",
+    "venue": "김해 율하체육관",
+    "source": "오마이플레이",
+    "officialLink": "https://m.ohmyplay.com/tournament/detail/2181",
+    "fee": "요강 참조",
+    "sources": [
+      "오마이플레이"
+    ],
+    "sourceLinks": [
+      {
+        "source": "오마이플레이",
+        "link": "https://m.ohmyplay.com/tournament/detail/2181"
       }
     ]
   },
@@ -3068,6 +3892,31 @@
       {
         "source": "배드민턴타임즈",
         "link": "http://www.badmintontimes.com/calendar/m3_calendarRead.jsp?menunum=204&no=2672&dday=20260627"
+      }
+    ]
+  },
+  {
+    "id": "omp-2193",
+    "category": "전국오픈",
+    "name": "제27회 KCTV배 제주도 배드민턴대회(전문체육)",
+    "registrationPeriod": "2026.06.10 ~ 06.11",
+    "registrationStart": "2026-06-10",
+    "registrationEnd": "2026-06-11",
+    "eventPeriod": "2026.06.27",
+    "eventStart": "2026-06-27",
+    "eventEnd": "2026-06-27",
+    "venue": "제주복합체육관2층 배드민턴경기장",
+    "source": "오마이플레이",
+    "officialLink": "https://m.ohmyplay.com/tournament/detail/2193",
+    "posterImage": "https://myohmyplay.s3.ap-northeast-2.amazonaws.com/2026/06/10/2651890e-09cc-46bf-9da2-03907a8136fd_%EB%8C%80%ED%9A%8C%ED%8F%AC%EC%8A%A4%ED%84%B0%20%EC%A0%84%EB%AC%B8%EC%B2%B4%EC%9C%A1.jpg",
+    "fee": "요강 참조",
+    "sources": [
+      "오마이플레이"
+    ],
+    "sourceLinks": [
+      {
+        "source": "오마이플레이",
+        "link": "https://m.ohmyplay.com/tournament/detail/2193"
       }
     ]
   },
@@ -3558,6 +4407,31 @@
     ]
   },
   {
+    "id": "omp-2198",
+    "category": "브랜드대회",
+    "name": "2026요넥스컵 제26회 삼다일보기 제주도배드민턴대회",
+    "registrationPeriod": "2026.06.21",
+    "registrationStart": "2026-06-21",
+    "registrationEnd": "2026-06-21",
+    "eventPeriod": "2026.07.11 ~ 07.12",
+    "eventStart": "2026-07-11",
+    "eventEnd": "2026-07-12",
+    "venue": "제주복합체육관",
+    "source": "오마이플레이",
+    "officialLink": "https://m.ohmyplay.com/tournament/detail/2198",
+    "posterImage": "https://myohmyplay.s3.ap-northeast-2.amazonaws.com/2026/06/21/8200f0d2-3fb2-4729-8d06-99c146beaf1e_%EB%8C%80%ED%9A%8C%ED%8F%AC%EC%8A%A4%ED%84%B0-%EC%B5%9C%EC%A2%85.png",
+    "fee": "요강 참조",
+    "sources": [
+      "오마이플레이"
+    ],
+    "sourceLinks": [
+      {
+        "source": "오마이플레이",
+        "link": "https://m.ohmyplay.com/tournament/detail/2198"
+      }
+    ]
+  },
+  {
     "id": "bm-6zh2y8",
     "category": "지역구대회",
     "name": "굳건 병원과 함께하는 제25회 사하구청장기 배드민턴 대회",
@@ -3643,23 +4517,29 @@
     "id": "bm-1hm8t5y",
     "category": "학생선수권",
     "name": "제28회 광산구청장기 배드민턴 대회",
-    "registrationPeriod": "공식 상세 페이지 확인",
-    "registrationStart": "",
-    "registrationEnd": "",
+    "registrationPeriod": "2026.07.07",
+    "registrationStart": "2026-07-07",
+    "registrationEnd": "2026-07-07",
     "eventPeriod": "2026.07.11 ~ 07.12",
     "eventStart": "2026-07-11",
     "eventEnd": "2026-07-12",
     "venue": "광주 광주여자대학교 체육관",
     "source": "배드민톡",
     "officialLink": "https://badmintok.com/badminton-tournament/광산구청장기-배드민턴-대회/",
+    "posterImage": "https://myohmyplay.s3.ap-northeast-2.amazonaws.com/2026/07/07/8cd0b604-40e5-43a8-affa-1686d065aae7_image000.png",
     "fee": "요강 참조",
     "sources": [
-      "배드민톡"
+      "배드민톡",
+      "오마이플레이"
     ],
     "sourceLinks": [
       {
         "source": "배드민톡",
         "link": "https://badmintok.com/badminton-tournament/광산구청장기-배드민턴-대회/"
+      },
+      {
+        "source": "오마이플레이",
+        "link": "https://m.ohmyplay.com/tournament/detail/2209"
       }
     ]
   },
@@ -3842,6 +4722,30 @@
     ]
   },
   {
+    "id": "omp-2204",
+    "category": "전국오픈",
+    "name": "2026 한국동그라미파트너스 장애인배드민턴 리그전 2라운드",
+    "registrationPeriod": "2026.06.27 ~ 06.30",
+    "registrationStart": "2026-06-27",
+    "registrationEnd": "2026-06-30",
+    "eventPeriod": "2026.07.16 ~ 07.19",
+    "eventStart": "2026-07-16",
+    "eventEnd": "2026-07-19",
+    "venue": "금산종합체육관",
+    "source": "오마이플레이",
+    "officialLink": "https://m.ohmyplay.com/tournament/detail/2204",
+    "fee": "요강 참조",
+    "sources": [
+      "오마이플레이"
+    ],
+    "sourceLinks": [
+      {
+        "source": "오마이플레이",
+        "link": "https://m.ohmyplay.com/tournament/detail/2204"
+      }
+    ]
+  },
+  {
     "id": "bt-2647",
     "category": "학생선수권",
     "name": "2026 대통령기 전국종별배드민턴선수권대회(초등)",
@@ -3941,9 +4845,9 @@
     "id": "bt-2648",
     "category": "전국오픈",
     "name": "2026 김학석배 전국종별배드민턴선수권대회(대일)",
-    "registrationPeriod": "공식 상세 페이지 확인",
-    "registrationStart": "",
-    "registrationEnd": "",
+    "registrationPeriod": "2026.03.25 ~ 07.20",
+    "registrationStart": "2026-03-25",
+    "registrationEnd": "2026-07-20",
     "eventPeriod": "2026.07.18 ~ 07.28",
     "eventStart": "2026-07-18",
     "eventEnd": "2026-07-28",
@@ -3952,12 +4856,42 @@
     "officialLink": "http://www.badmintontimes.com/calendar/m3_calendarRead.jsp?menunum=204&no=2648&dday=20260718",
     "fee": "요강 참조",
     "sources": [
-      "배드민턴타임즈"
+      "배드민턴타임즈",
+      "오마이플레이"
     ],
     "sourceLinks": [
       {
         "source": "배드민턴타임즈",
         "link": "http://www.badmintontimes.com/calendar/m3_calendarRead.jsp?menunum=204&no=2648&dday=20260718"
+      },
+      {
+        "source": "오마이플레이",
+        "link": "https://m.ohmyplay.com/tournament/detail/2141"
+      }
+    ]
+  },
+  {
+    "id": "omp-2200",
+    "category": "전국오픈",
+    "name": "2026 시흥시의회의장배 배드민턴 대회",
+    "registrationPeriod": "2026.06.23 ~ 07.03",
+    "registrationStart": "2026-06-23",
+    "registrationEnd": "2026-07-03",
+    "eventPeriod": "2026.07.18 ~ 07.19",
+    "eventStart": "2026-07-18",
+    "eventEnd": "2026-07-19",
+    "venue": "정왕배드민턴전용구장",
+    "source": "오마이플레이",
+    "officialLink": "https://m.ohmyplay.com/tournament/detail/2200",
+    "posterImage": "https://myohmyplay.s3.ap-northeast-2.amazonaws.com/2026/07/01/6bcaaed3-93be-43b2-87cf-63d00a34f857_2026%EC%8B%9C%ED%9D%A5%EC%9D%98%EC%9E%A5%EB%B0%B0%20%ED%8F%AC%EC%8A%A4%ED%84%B02.jpg",
+    "fee": "요강 참조",
+    "sources": [
+      "오마이플레이"
+    ],
+    "sourceLinks": [
+      {
+        "source": "오마이플레이",
+        "link": "https://m.ohmyplay.com/tournament/detail/2200"
       }
     ]
   },
@@ -4225,23 +5159,28 @@
     "id": "bt-2649",
     "category": "학생선수권",
     "name": "2026 전국학교대항배드민턴선수권대회(중.고)",
-    "registrationPeriod": "공식 상세 페이지 확인",
-    "registrationStart": "",
-    "registrationEnd": "",
+    "registrationPeriod": "2026.07.15",
+    "registrationStart": "2026-07-15",
+    "registrationEnd": "2026-07-15",
     "eventPeriod": "2026.07.21 ~ 07.30",
     "eventStart": "2026-07-21",
     "eventEnd": "2026-07-30",
-    "venue": "전북 익산시",
+    "venue": "전북 익산시 김동문배드민턴체육관",
     "source": "배드민턴타임즈",
     "officialLink": "http://www.badmintontimes.com/calendar/m3_calendarRead.jsp?menunum=204&no=2649&dday=20260721",
     "fee": "요강 참조",
     "sources": [
-      "배드민턴타임즈"
+      "배드민턴타임즈",
+      "오마이플레이"
     ],
     "sourceLinks": [
       {
         "source": "배드민턴타임즈",
         "link": "http://www.badmintontimes.com/calendar/m3_calendarRead.jsp?menunum=204&no=2649&dday=20260721"
+      },
+      {
+        "source": "오마이플레이",
+        "link": "https://m.ohmyplay.com/tournament/detail/2213"
       }
     ]
   },
@@ -4573,6 +5512,31 @@
     ]
   },
   {
+    "id": "omp-2221",
+    "category": "지역구대회",
+    "name": "제23회 제주시협회장배 단체전 배드민턴대회",
+    "registrationPeriod": "2026.07.28",
+    "registrationStart": "2026-07-28",
+    "registrationEnd": "2026-07-28",
+    "eventPeriod": "2026.08.01 ~ 08.02",
+    "eventStart": "2026-08-01",
+    "eventEnd": "2026-08-02",
+    "venue": "제주복합체육관",
+    "source": "오마이플레이",
+    "officialLink": "https://m.ohmyplay.com/tournament/detail/2221",
+    "posterImage": "https://myohmyplay.s3.ap-northeast-2.amazonaws.com/2026/07/29/02fd5933-c9a2-4353-9382-158b452b19fe_%EC%A0%9C23%ED%9A%8C%20%EC%A0%9C%EC%A3%BC%EC%8B%9C%ED%98%91%ED%9A%8C%EC%9E%A5%EB%B0%B0%20%EB%8B%A8%EC%B2%B4%EC%A0%84%20%EB%B0%B0%EB%93%9C%EB%AF%BC%ED%84%B4%EB%8C%80%ED%9A%8C_%EB%8C%80%EC%A7%80%201%400.3x.jpg",
+    "fee": "요강 참조",
+    "sources": [
+      "오마이플레이"
+    ],
+    "sourceLinks": [
+      {
+        "source": "오마이플레이",
+        "link": "https://m.ohmyplay.com/tournament/detail/2221"
+      }
+    ]
+  },
+  {
     "id": "bm-1xbjnpo",
     "category": "전국오픈",
     "name": "제5회 딱플오산 전국 배드민턴 대회",
@@ -4737,6 +5701,31 @@
       {
         "source": "배드민턴타임즈",
         "link": "http://www.badmintontimes.com/calendar/m3_calendarRead.jsp?menunum=204&no=2661&dday=20260804"
+      }
+    ]
+  },
+  {
+    "id": "omp-2203",
+    "category": "학생선수권",
+    "name": "제1회 남부대학교 총장배 교사 배드민턴 한마당",
+    "registrationPeriod": "2026.06.29 ~ 07.24",
+    "registrationStart": "2026-06-29",
+    "registrationEnd": "2026-07-24",
+    "eventPeriod": "2026.08.07",
+    "eventStart": "2026-08-07",
+    "eventEnd": "2026-08-07",
+    "venue": "장성 홍길동체육관",
+    "source": "오마이플레이",
+    "officialLink": "https://m.ohmyplay.com/tournament/detail/2203",
+    "posterImage": "https://myohmyplay.s3.ap-northeast-2.amazonaws.com/2026/06/24/d2deff7c-64ac-47af-9885-fe8520f20205_Sc.jpg",
+    "fee": "요강 참조",
+    "sources": [
+      "오마이플레이"
+    ],
+    "sourceLinks": [
+      {
+        "source": "오마이플레이",
+        "link": "https://m.ohmyplay.com/tournament/detail/2203"
       }
     ]
   },
@@ -4962,6 +5951,30 @@
     ]
   },
   {
+    "id": "omp-2143",
+    "category": "학생선수권",
+    "name": "2026 전국학교대항배드민턴선수권대회(초등)",
+    "registrationPeriod": "2026.03.25 ~ 08.14",
+    "registrationStart": "2026-03-25",
+    "registrationEnd": "2026-08-14",
+    "eventPeriod": "2026.08.15 ~ 08.21",
+    "eventStart": "2026-08-15",
+    "eventEnd": "2026-08-21",
+    "venue": "강진제1실내체육관",
+    "source": "오마이플레이",
+    "officialLink": "https://m.ohmyplay.com/tournament/detail/2143",
+    "fee": "요강 참조",
+    "sources": [
+      "오마이플레이"
+    ],
+    "sourceLinks": [
+      {
+        "source": "오마이플레이",
+        "link": "https://m.ohmyplay.com/tournament/detail/2143"
+      }
+    ]
+  },
+  {
     "id": "bm-37fp9d",
     "category": "학생선수권",
     "name": "제10회 완주로컬푸드배 전국 배드민턴대회",
@@ -4987,6 +6000,30 @@
       {
         "source": "배드민턴타임즈",
         "link": "http://www.badmintontimes.com/calendar/m3_calendarRead.jsp?menunum=204&no=2692&dday=20260815"
+      }
+    ]
+  },
+  {
+    "id": "omp-2223",
+    "category": "지역구대회",
+    "name": "제11회 대전광역시 서구청장배 겸 제25회 요넥스배 전국장애인배드민턴대회",
+    "registrationPeriod": "2026.08.03 ~ 08.06",
+    "registrationStart": "2026-08-03",
+    "registrationEnd": "2026-08-06",
+    "eventPeriod": "2026.08.15 ~ 08.16",
+    "eventStart": "2026-08-15",
+    "eventEnd": "2026-08-16",
+    "venue": "도솔다목적체육관",
+    "source": "오마이플레이",
+    "officialLink": "https://m.ohmyplay.com/tournament/detail/2223",
+    "fee": "요강 참조",
+    "sources": [
+      "오마이플레이"
+    ],
+    "sourceLinks": [
+      {
+        "source": "오마이플레이",
+        "link": "https://m.ohmyplay.com/tournament/detail/2223"
       }
     ]
   },
@@ -5330,23 +6367,29 @@
     "id": "bm-1rmj0zu",
     "category": "학생선수권",
     "name": "정관장과 함께하는 2026 제21회 김만덕배 전국배드민턴대회",
-    "registrationPeriod": "공식 상세 페이지 확인",
-    "registrationStart": "",
-    "registrationEnd": "",
+    "registrationPeriod": "2026.07.20 ~ 07.24",
+    "registrationStart": "2026-07-20",
+    "registrationEnd": "2026-07-24",
     "eventPeriod": "2026.08.22 ~ 08.23",
     "eventStart": "2026-08-22",
     "eventEnd": "2026-08-23",
     "venue": "제주 서귀포시 공천포 전지훈련센터 다목적체육관 / 천지학생체육관",
     "source": "배드민톡",
     "officialLink": "https://badmintok.com/badminton-tournament/2026-정관장과-함께하는-김만덕배-배드민턴대회/",
+    "posterImage": "https://myohmyplay.s3.ap-northeast-2.amazonaws.com/2026/07/20/fe2dcbf1-4629-45c9-b86c-6de7943105da_%EB%8C%80%ED%9A%8C%20%ED%8F%AC%EC%8A%A4%ED%84%B0.jpg",
     "fee": "요강 참조",
     "sources": [
-      "배드민톡"
+      "배드민톡",
+      "오마이플레이"
     ],
     "sourceLinks": [
       {
         "source": "배드민톡",
         "link": "https://badmintok.com/badminton-tournament/2026-정관장과-함께하는-김만덕배-배드민턴대회/"
+      },
+      {
+        "source": "오마이플레이",
+        "link": "https://m.ohmyplay.com/tournament/detail/2216"
       }
     ]
   },
@@ -5577,6 +6620,30 @@
     ]
   },
   {
+    "id": "omp-2144",
+    "category": "전국오픈",
+    "name": "2026 청송황금사과배 전국연맹종별배드민턴선수권대회(중고)",
+    "registrationPeriod": "2026.03.25 ~ 08.26",
+    "registrationStart": "2026-03-25",
+    "registrationEnd": "2026-08-26",
+    "eventPeriod": "2026.08.27 ~ 09.07",
+    "eventStart": "2026-08-27",
+    "eventEnd": "2026-09-07",
+    "venue": "청송실내체육관",
+    "source": "오마이플레이",
+    "officialLink": "https://m.ohmyplay.com/tournament/detail/2144",
+    "fee": "요강 참조",
+    "sources": [
+      "오마이플레이"
+    ],
+    "sourceLinks": [
+      {
+        "source": "오마이플레이",
+        "link": "https://m.ohmyplay.com/tournament/detail/2144"
+      }
+    ]
+  },
+  {
     "id": "bt-2676",
     "category": "전국오픈",
     "name": "2026 전국연맹종별배드민턴선수권대회(중고)",
@@ -5597,6 +6664,54 @@
       {
         "source": "배드민턴타임즈",
         "link": "http://www.badmintontimes.com/calendar/m3_calendarRead.jsp?menunum=204&no=2676&dday=20260828"
+      }
+    ]
+  },
+  {
+    "id": "omp-2222",
+    "category": "전국오픈",
+    "name": "제11회 돌하르방배 추계 전국장애인배드민턴선수권대회",
+    "registrationPeriod": "2026.07.31 ~ 08.01",
+    "registrationStart": "2026-07-31",
+    "registrationEnd": "2026-08-01",
+    "eventPeriod": "2026.08.28 ~ 08.30",
+    "eventStart": "2026-08-28",
+    "eventEnd": "2026-08-30",
+    "venue": "제주복합체육관",
+    "source": "오마이플레이",
+    "officialLink": "https://m.ohmyplay.com/tournament/detail/2222",
+    "fee": "요강 참조",
+    "sources": [
+      "오마이플레이"
+    ],
+    "sourceLinks": [
+      {
+        "source": "오마이플레이",
+        "link": "https://m.ohmyplay.com/tournament/detail/2222"
+      }
+    ]
+  },
+  {
+    "id": "omp-2235",
+    "category": "지역구대회",
+    "name": "제20회 경기도장애인생활체육대회 2026가평(배드민턴)",
+    "registrationPeriod": "2026.08.28",
+    "registrationStart": "2026-08-28",
+    "registrationEnd": "2026-08-28",
+    "eventPeriod": "2026.08.28 ~ 08.29",
+    "eventStart": "2026-08-28",
+    "eventEnd": "2026-08-29",
+    "venue": "한석봉체육관",
+    "source": "오마이플레이",
+    "officialLink": "https://m.ohmyplay.com/tournament/detail/2235",
+    "fee": "요강 참조",
+    "sources": [
+      "오마이플레이"
+    ],
+    "sourceLinks": [
+      {
+        "source": "오마이플레이",
+        "link": "https://m.ohmyplay.com/tournament/detail/2235"
       }
     ]
   },
@@ -6110,6 +7225,30 @@
     ]
   },
   {
+    "id": "omp-2237",
+    "category": "학생선수권",
+    "name": "2026 충남도민체육대회(배드민턴)",
+    "registrationPeriod": "2026.09.01 ~ 09.02",
+    "registrationStart": "2026-09-01",
+    "registrationEnd": "2026-09-02",
+    "eventPeriod": "2026.09.04 ~ 09.06",
+    "eventStart": "2026-09-04",
+    "eventEnd": "2026-09-06",
+    "venue": "당진초등학교 도담누리관",
+    "source": "오마이플레이",
+    "officialLink": "https://m.ohmyplay.com/tournament/detail/2237",
+    "fee": "요강 참조",
+    "sources": [
+      "오마이플레이"
+    ],
+    "sourceLinks": [
+      {
+        "source": "오마이플레이",
+        "link": "https://m.ohmyplay.com/tournament/detail/2237"
+      }
+    ]
+  },
+  {
     "id": "bm-fb0wj1",
     "category": "학생선수권",
     "name": "2026 경기언론인협회장기 전국 동호인·학생 배드민턴대회",
@@ -6243,6 +7382,31 @@
     ]
   },
   {
+    "id": "cx-30402",
+    "category": "지역구대회",
+    "name": "2026 전남광주통합특별시장배 전국여성생활체육 배드민턴대회",
+    "registrationPeriod": "공식 상세 페이지 확인",
+    "registrationStart": "",
+    "registrationEnd": "",
+    "eventPeriod": "2026.09.05",
+    "eventStart": "2026-09-05",
+    "eventEnd": "2026-09-05",
+    "venue": "전남광주 광산구",
+    "source": "코트엑스",
+    "officialLink": "https://www.courtx.co.kr/Tournament/Details/30402",
+    "posterImage": "https://imgs.courtx.co.kr/Upload/Tournament/2026/202609/20260903/20260903100449139-4778f9a8-poster_1.jpg",
+    "fee": "요강 참조",
+    "sources": [
+      "코트엑스"
+    ],
+    "sourceLinks": [
+      {
+        "source": "코트엑스",
+        "link": "https://www.courtx.co.kr/Tournament/Details/30402"
+      }
+    ]
+  },
+  {
     "id": "bm-or3xiy",
     "category": "전국오픈",
     "name": "2026 진영토건배 배드민턴대회",
@@ -6334,6 +7498,56 @@
       {
         "source": "코트엑스",
         "link": "https://www.courtx.co.kr/Tournament/Details/30321"
+      }
+    ]
+  },
+  {
+    "id": "omp-2176",
+    "category": "전국오픈",
+    "name": "2026 Anyang Yonex International Badminton Event",
+    "registrationPeriod": "2026.05.11 ~ 08.07",
+    "registrationStart": "2026-05-11",
+    "registrationEnd": "2026-08-07",
+    "eventPeriod": "2026.09.05 ~ 09.06",
+    "eventStart": "2026-09-05",
+    "eventEnd": "2026-09-06",
+    "venue": "Hogye Gymnasium (2F)",
+    "source": "오마이플레이",
+    "officialLink": "https://m.ohmyplay.com/tournament/detail/2176",
+    "posterImage": "https://myohmyplay.s3.ap-northeast-2.amazonaws.com/2026/06/30/50a613ee-279b-4b21-878f-158199c24a6e_yonex.png",
+    "fee": "요강 참조",
+    "sources": [
+      "오마이플레이"
+    ],
+    "sourceLinks": [
+      {
+        "source": "오마이플레이",
+        "link": "https://m.ohmyplay.com/tournament/detail/2176"
+      }
+    ]
+  },
+  {
+    "id": "omp-2232",
+    "category": "전국오픈",
+    "name": "2026년 시흥시 센트럴병원배 배드민턴대회",
+    "registrationPeriod": "2026.08.14 ~ 08.20",
+    "registrationStart": "2026-08-14",
+    "registrationEnd": "2026-08-20",
+    "eventPeriod": "2026.09.05 ~ 09.06",
+    "eventStart": "2026-09-05",
+    "eventEnd": "2026-09-06",
+    "venue": "정왕배드민턴전용구장",
+    "source": "오마이플레이",
+    "officialLink": "https://m.ohmyplay.com/tournament/detail/2232",
+    "posterImage": "https://myohmyplay.s3.ap-northeast-2.amazonaws.com/2026/08/20/23b6b6cf-f822-461a-a0f8-ffce630da39f_IMG_3561.jpeg",
+    "fee": "요강 참조",
+    "sources": [
+      "오마이플레이"
+    ],
+    "sourceLinks": [
+      {
+        "source": "오마이플레이",
+        "link": "https://m.ohmyplay.com/tournament/detail/2232"
       }
     ]
   },
@@ -7569,9 +8783,9 @@
     "id": "bt-2678",
     "category": "학생선수권",
     "name": "2026 전국연맹종별배드민턴선수권대회(초등)",
-    "registrationPeriod": "공식 상세 페이지 확인",
-    "registrationStart": "",
-    "registrationEnd": "",
+    "registrationPeriod": "2026.03.25 ~ 09.14",
+    "registrationStart": "2026-03-25",
+    "registrationEnd": "2026-09-14",
     "eventPeriod": "2026.09.16 ~ 09.22",
     "eventStart": "2026-09-16",
     "eventEnd": "2026-09-22",
@@ -7580,12 +8794,17 @@
     "officialLink": "http://www.badmintontimes.com/calendar/m3_calendarRead.jsp?menunum=204&no=2678&dday=20260916",
     "fee": "요강 참조",
     "sources": [
-      "배드민턴타임즈"
+      "배드민턴타임즈",
+      "오마이플레이"
     ],
     "sourceLinks": [
       {
         "source": "배드민턴타임즈",
         "link": "http://www.badmintontimes.com/calendar/m3_calendarRead.jsp?menunum=204&no=2678&dday=20260916"
+      },
+      {
+        "source": "오마이플레이",
+        "link": "https://m.ohmyplay.com/tournament/detail/2145"
       }
     ]
   },
@@ -8265,6 +9484,31 @@
     ]
   },
   {
+    "id": "omp-2228",
+    "category": "학생선수권",
+    "name": "제20회 제주특별자치도교육감배 전도학교스포츠클럽축전 배드민턴대회",
+    "registrationPeriod": "2026.08.08 ~ 08.09",
+    "registrationStart": "2026-08-08",
+    "registrationEnd": "2026-08-09",
+    "eventPeriod": "2026.09.20",
+    "eventStart": "2026-09-20",
+    "eventEnd": "2026-09-20",
+    "venue": "제주복합체육관2층 배드민턴경기장",
+    "source": "오마이플레이",
+    "officialLink": "https://m.ohmyplay.com/tournament/detail/2228",
+    "posterImage": "https://myohmyplay.s3.ap-northeast-2.amazonaws.com/2026/08/08/e7e1205b-af95-41ae-8968-f3ba33db320e_%EA%B5%90%EC%9C%A1%EA%B0%90%EB%B0%B0%20%EB%8C%80%ED%9A%8C%ED%8F%AC%EC%8A%A4%ED%84%B0.jpg",
+    "fee": "요강 참조",
+    "sources": [
+      "오마이플레이"
+    ],
+    "sourceLinks": [
+      {
+        "source": "오마이플레이",
+        "link": "https://m.ohmyplay.com/tournament/detail/2228"
+      }
+    ]
+  },
+  {
     "id": "bm-1uzr3hw",
     "category": "전국오픈",
     "name": "제2회 2026 메스타리 S·A조/통합 혼복 배드민턴 클래식",
@@ -8321,6 +9565,30 @@
       {
         "source": "코트엑스",
         "link": "https://www.courtx.co.kr/Tournament/Details/30376"
+      }
+    ]
+  },
+  {
+    "id": "omp-2238",
+    "category": "학생선수권",
+    "name": "­제14회 충청남도장애학생체육대회­(배드민턴)",
+    "registrationPeriod": "2026.09.01 ~ 09.05",
+    "registrationStart": "2026-09-01",
+    "registrationEnd": "2026-09-05",
+    "eventPeriod": "2026.09.22",
+    "eventStart": "2026-09-22",
+    "eventEnd": "2026-09-22",
+    "venue": "서산어울림체육관",
+    "source": "오마이플레이",
+    "officialLink": "https://m.ohmyplay.com/tournament/detail/2238",
+    "fee": "요강 참조",
+    "sources": [
+      "오마이플레이"
+    ],
+    "sourceLinks": [
+      {
+        "source": "오마이플레이",
+        "link": "https://m.ohmyplay.com/tournament/detail/2238"
       }
     ]
   },
@@ -9595,23 +10863,28 @@
     "id": "bt-2728",
     "category": "학생선수권",
     "name": "2026 한국초등배드민턴연맹 회장기 전국학생선수권대회",
-    "registrationPeriod": "공식 상세 페이지 확인",
-    "registrationStart": "",
-    "registrationEnd": "",
+    "registrationPeriod": "2026.03.25 ~ 10.08",
+    "registrationStart": "2026-03-25",
+    "registrationEnd": "2026-10-08",
     "eventPeriod": "2026.10.23 ~ 10.29",
     "eventStart": "2026-10-23",
     "eventEnd": "2026-10-29",
-    "venue": "경남 밀양시",
+    "venue": "밀양시배드민턴경기장",
     "source": "배드민턴타임즈",
     "officialLink": "http://www.badmintontimes.com/calendar/m3_calendarRead.jsp?menunum=204&no=2728&dday=20261023",
     "fee": "요강 참조",
     "sources": [
-      "배드민턴타임즈"
+      "배드민턴타임즈",
+      "오마이플레이"
     ],
     "sourceLinks": [
       {
         "source": "배드민턴타임즈",
         "link": "http://www.badmintontimes.com/calendar/m3_calendarRead.jsp?menunum=204&no=2728&dday=20261023"
+      },
+      {
+        "source": "오마이플레이",
+        "link": "https://m.ohmyplay.com/tournament/detail/2146"
       }
     ]
   },
@@ -10653,6 +11926,30 @@
       {
         "source": "배드민턴게임",
         "link": "http://www.badmintongame.co.kr/game/game_view.html?ga_id=4189"
+      }
+    ]
+  },
+  {
+    "id": "omp-2147",
+    "category": "국제대회",
+    "name": "2026 원천 요넥스 밀양 코리아주니어국제챌린지배드민턴선수권대회",
+    "registrationPeriod": "2026.03.25 ~ 11.18",
+    "registrationStart": "2026-03-25",
+    "registrationEnd": "2026-11-18",
+    "eventPeriod": "2026.11.30 ~ 12.13",
+    "eventStart": "2026-11-30",
+    "eventEnd": "2026-12-13",
+    "venue": "밀양시배드민턴경기장",
+    "source": "오마이플레이",
+    "officialLink": "https://m.ohmyplay.com/tournament/detail/2147",
+    "fee": "요강 참조",
+    "sources": [
+      "오마이플레이"
+    ],
+    "sourceLinks": [
+      {
+        "source": "오마이플레이",
+        "link": "https://m.ohmyplay.com/tournament/detail/2147"
       }
     ]
   },

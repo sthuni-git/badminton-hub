@@ -2,7 +2,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 
 type TournamentCategory = '전국오픈' | '지역구대회' | '학생선수권' | '브랜드대회' | '국제대회';
-type TournamentSource = '배드민톡' | '배드민턴타임즈' | '페이스콕' | '배드민턴게임' | '코트엑스';
+type TournamentSource = '배드민톡' | '배드민턴타임즈' | '페이스콕' | '배드민턴게임' | '코트엑스' | '오마이플레이';
 
 interface ScrapedTournament {
   id: string;
@@ -470,6 +470,88 @@ async function scrapeCourtX(): Promise<ScrapedTournament[]> {
   return tournaments;
 }
 
+interface OhMyPlayItem {
+  tnmtId: number;
+  tnmtName: string;
+  startDate: string;
+  endDate?: string;
+  enrollStartDate?: string;
+  enrolEndDate?: string;
+  posterImgPath?: string;
+  sportsType?: string;
+  sportsName?: string;
+  gymList?: Array<{ gymName: string }>;
+}
+
+async function scrapeOhMyPlay(): Promise<ScrapedTournament[]> {
+  const url = 'https://m2.ohmyplay.com/rest/tournament/list';
+  const response = await fetch(url, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'User-Agent': USER_AGENT,
+      Referer: 'https://m.ohmyplay.com/',
+    },
+    body: JSON.stringify({
+      searchType: 100,
+      searchState: 100,
+      searchFrom: '2026-01-01',
+      searchTo: '2026-12-31',
+      sportsTypes: ['BT'],
+      pageNum: 1,
+      recordsPerPage: 300,
+    }),
+    signal: AbortSignal.timeout(REQUEST_TIMEOUT_MS),
+  });
+
+  if (!response.ok) throw new Error(`${response.status} ${response.statusText}`);
+
+  const data = (await response.json()) as { tournamentList?: OhMyPlayItem[] };
+  const rawList = data.tournamentList ?? [];
+  const tournaments: ScrapedTournament[] = [];
+
+  for (const item of rawList) {
+    if (!item.tnmtId || !item.tnmtName || !item.startDate) continue;
+
+    const eventStart = item.startDate.slice(0, 10);
+    const eventEnd = item.endDate ? item.endDate.slice(0, 10) : eventStart;
+    if (!/^20\d{2}-\d{2}-\d{2}$/.test(eventStart) || !/^20\d{2}-\d{2}-\d{2}$/.test(eventEnd)) continue;
+
+    const registrationStart = item.enrollStartDate ? item.enrollStartDate.slice(0, 10) : '';
+    const registrationEnd = item.enrolEndDate ? item.enrolEndDate.slice(0, 10) : '';
+    const hasRegistration = /^20\d{2}-\d{2}-\d{2}$/.test(registrationStart) && /^20\d{2}-\d{2}-\d{2}$/.test(registrationEnd);
+
+    const venue = item.gymList?.[0]?.gymName?.trim() || '장소는 공식 상세 페이지 확인';
+    const name = cleanText(item.tnmtName);
+
+    // 오마이플레이 기본 로고 이미지(324f2c8c)는 더미이므로 제외하고 실제 포스터만 적용
+    let posterImage: string | undefined;
+    if (item.posterImgPath && !item.posterImgPath.includes('324f2c8c') && item.posterImgPath.startsWith('http')) {
+      posterImage = item.posterImgPath;
+    }
+
+    tournaments.push({
+      id: `omp-${item.tnmtId}`,
+      category: categorizeTournament(name, venue),
+      name,
+      registrationPeriod: hasRegistration ? displayPeriod(registrationStart, registrationEnd) : '공식 상세 페이지 확인',
+      registrationStart: hasRegistration ? registrationStart : '',
+      registrationEnd: hasRegistration ? registrationEnd : '',
+      eventPeriod: displayPeriod(eventStart, eventEnd),
+      eventStart,
+      eventEnd,
+      venue,
+      source: '오마이플레이',
+      officialLink: `https://m.ohmyplay.com/tournament/detail/${item.tnmtId}`,
+      posterImage,
+      fee: '요강 참조',
+    });
+  }
+
+  console.log(`   ✅ 오마이플레이 공식 REST API 검증: ${tournaments.length}건`);
+  return tournaments;
+}
+
 function normalizeName(name: string): string {
   return name
     .toLowerCase()
@@ -525,15 +607,16 @@ async function main(): Promise<void> {
   console.log('🏸 검증 가능한 원문 기반 대회 수집을 시작합니다.');
   console.log('   합성 대회, 임의 날짜/참가비, 목록 주소만 있는 레코드는 생성하지 않습니다.');
 
-  const [facecock, badmintok, badmintonTimes, badmintonGame, courtX] = await Promise.all([
+  const [facecock, badmintok, badmintonTimes, badmintonGame, courtX, ohMyPlay] = await Promise.all([
     safelyCollect('페이스콕', scrapeFacecock),
     safelyCollect('배드민톡', scrapeBadmintok),
     safelyCollect('배드민턴타임즈', scrapeBadmintonTimes),
     safelyCollect('배드민턴게임', scrapeBadmintonGame),
     safelyCollect('코트엑스', scrapeCourtX),
+    safelyCollect('오마이플레이', scrapeOhMyPlay),
   ]);
 
-  const tournaments = mergeAndDeduplicate([...facecock, ...badmintok, ...badmintonTimes, ...badmintonGame, ...courtX]);
+  const tournaments = mergeAndDeduplicate([...facecock, ...badmintok, ...badmintonTimes, ...badmintonGame, ...courtX, ...ohMyPlay]);
   if (tournaments.length === 0) throw new Error('검증 가능한 대회를 한 건도 수집하지 못해 기존 파일을 보존합니다.');
 
   const outputPath = path.resolve(process.cwd(), 'lib/tournaments-scraped.json');
@@ -541,7 +624,7 @@ async function main(): Promise<void> {
 
   console.log(`✅ ${tournaments.length}건 저장 완료: ${outputPath}`);
   console.log(
-    `   페이스콕 ${facecock.length} / 배드민톡 ${badmintok.length} / 배드민턴타임즈 ${badmintonTimes.length} / 배드민턴게임 ${badmintonGame.length} / 코트엑스 ${courtX.length}`
+    `   페이스콕 ${facecock.length} / 배드민톡 ${badmintok.length} / 배드민턴타임즈 ${badmintonTimes.length} / 배드민턴게임 ${badmintonGame.length} / 코트엑스 ${courtX.length} / 오마이플레이 ${ohMyPlay.length}`
   );
 }
 
