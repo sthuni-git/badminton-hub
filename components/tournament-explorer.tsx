@@ -29,7 +29,6 @@ import {
   Search,
   ShieldCheck,
   SlidersHorizontal,
-  Star,
   Table as TableIcon,
   Trophy,
   Unlock,
@@ -41,9 +40,9 @@ import { Input } from '@/components/ui/input';
 import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle } from '@/components/ui/sheet';
 import { CRAWLER_SOURCES, CRAWLER_TIPS, type SourceCategory } from '@/lib/crawler-sources';
 import { calculateDistanceKm, getVenueCoordinates, isInternationalVenue, PRESET_LOCATIONS, reverseGeocodeCoords, type Coordinates } from '@/lib/geo-utils';
-import type { Tournament, TournamentCategory, TournamentSource } from '@/lib/tournaments';
+import type { Tournament, TournamentCategory } from '@/lib/tournaments';
 
-export type Status = '접수중' | '접수예정' | '마감임박' | '접수마감' | '대회종료';
+export type Status = '접수중' | '접수예정' | '마감임박' | '접수마감' | '접수정보확인' | '대회종료';
 export type StatusFilter = '전체' | '종료 제외' | Status;
 type MainTab = 'tournaments' | 'sources';
 type View = 'list' | 'table' | 'calendar';
@@ -57,7 +56,7 @@ interface UserLocation {
 
 const allRegions = ['수도권', '충청', '전라', '경상', '강원', '기타'] as const;
 const allCategories: readonly TournamentCategory[] = ['전국오픈', '지역구대회', '브랜드대회', '학생선수권', '국제대회'];
-const allStatuses: readonly string[] = ['종료 제외', '접수중', '마감임박', '접수예정', '접수마감', '대회종료'];
+const allStatuses: readonly string[] = ['종료 제외', '접수중', '마감임박', '접수예정', '접수마감', '접수정보확인', '대회종료'];
 const distanceOptions = ['전체', '5km', '10km', '20km', '30km', '50km', '100km', '200km', '300km'] as const;
 export type DistanceFilter = (typeof distanceOptions)[number];
 
@@ -72,6 +71,10 @@ function daysFromToday(date: string, baseDate: Date) {
 export function getStatus(t: Tournament, baseDate: Date): Status {
   const eventEndDays = daysFromToday(t.eventEnd, baseDate);
   if (eventEndDays < 0) return '대회종료';
+
+  if (!/^20\d{2}-\d{2}-\d{2}$/.test(t.registrationStart) || !/^20\d{2}-\d{2}-\d{2}$/.test(t.registrationEnd)) {
+    return '접수정보확인';
+  }
 
   const regStartDays = daysFromToday(t.registrationStart, baseDate);
   const regEndDays = daysFromToday(t.registrationEnd, baseDate);
@@ -101,6 +104,8 @@ function statusStyle(status: Status) {
       return 'bg-sky-50 text-sky-700 border-sky-200 font-bold';
     case '접수마감':
       return 'bg-amber-50 text-amber-700 border-amber-200';
+    case '접수정보확인':
+      return 'bg-violet-50 text-violet-700 border-violet-200 font-bold';
     case '대회종료':
       return 'bg-slate-100 text-slate-500 border-slate-200';
     default:
@@ -172,7 +177,7 @@ function getTournamentPosterFallback(name: string, category: string, venue: stri
     <text x="220" y="19" fill="#ffffff" font-size="12" font-weight="700" text-anchor="middle" font-family="Pretendard, sans-serif">🏷️ 출처: ${safeSource}</text>
   </g>
   <g transform="translate(45, 120)">
-    <text x="0" y="25" fill="#34d399" font-size="14" font-weight="800" letter-spacing="2" font-family="Pretendard, sans-serif">2026 전국 배드민턴 대회 공식 요강</text>
+    <text x="0" y="25" fill="#34d399" font-size="14" font-weight="800" letter-spacing="2" font-family="Pretendard, sans-serif">배드민턴 대회 정보 카드</text>
     <text x="0" y="65" fill="#ffffff" font-size="${line2 ? '28' : '32'}" font-weight="900" font-family="Pretendard, sans-serif" filter="url(#shadow)">${line1}</text>
     ${line2 ? `<text x="0" y="105" fill="#ffffff" font-size="28" font-weight="900" font-family="Pretendard, sans-serif" filter="url(#shadow)">${line2}</text>` : ''}
   </g>
@@ -192,8 +197,8 @@ function getTournamentPosterFallback(name: string, category: string, venue: stri
       <text x="100" y="0" fill="#fef08a" font-size="14" font-weight="800" font-family="Pretendard, sans-serif">${safeFee}</text>
     </g>
     <g transform="translate(370, 95)">
-      <text x="22" y="0" fill="#94a3b8" font-size="12" font-weight="700" font-family="Pretendard, sans-serif">요강 인증</text>
-      <text x="100" y="0" fill="#bae6fd" font-size="13" font-weight="700" font-family="Pretendard, sans-serif">대한민국 배드민턴 허브 실시간 검증 완료</text>
+      <text x="22" y="0" fill="#94a3b8" font-size="12" font-weight="700" font-family="Pretendard, sans-serif">확인 안내</text>
+      <text x="100" y="0" fill="#bae6fd" font-size="13" font-weight="700" font-family="Pretendard, sans-serif">세부 요강은 원문 링크에서 확인</text>
     </g>
   </g>
 </svg>`;
@@ -1196,7 +1201,7 @@ export function TournamentExplorer({ tournaments }: { tournaments: Tournament[] 
                 </div>
                 <div className="flex items-center justify-between bg-slate-900/80 px-4 py-2">
                   <span className="inline-flex items-center gap-1 text-[11px] font-bold text-emerald-300">
-                    🖼️ 대회 공식 요강 포스터
+                    🖼️ 출처 사이트 제공 이미지
                   </span>
                   <button
                     type="button"
@@ -1607,7 +1612,7 @@ function TournamentCard({
                 }}
               />
               <span className="absolute bottom-0 inset-x-0 bg-black/60 py-0.5 text-center text-[9px] font-bold text-white">
-                요강 포스터
+                출처 이미지
               </span>
             </div>
           )}
@@ -1636,7 +1641,7 @@ function TournamentCard({
             )
           )}
           <span className="inline-flex items-center rounded-md bg-emerald-50 px-2 py-0.5 text-xs font-bold text-emerald-800 border border-emerald-200">
-            {status === '대회종료' ? '대회 종료' : status === '접수마감' ? '접수 마감' : regD === 0 ? '오늘 마감' : regD > 0 ? `접수 D-${regD}` : '접수 마감'}
+            {status === '대회종료' ? '대회 종료' : status === '접수정보확인' ? '접수 일정 원문 확인' : status === '접수마감' ? '접수 마감' : regD === 0 ? '오늘 마감' : regD > 0 ? `접수 D-${regD}` : '접수 마감'}
           </span>
         </div>
 
@@ -2009,7 +2014,7 @@ function SourcesHubSection({
             전국 배드민턴 대회 공식 출처 및 실시간 수집 현황
           </h2>
           <p className="mt-2 text-sm leading-relaxed text-emerald-100 sm:text-base">
-            배드민턴타임즈, 배드민톡, 스포넷, 페이스콕 등 주요 공식 플랫폼에서 실시간 자동 크롤러를 가동하여 전국 대회를 전수 수집하고 있습니다.
+            페이스콕, 배드민톡, 배드민턴타임즈의 원문 상세 링크가 확인된 대회만 표시합니다. 연동 준비 중인 플랫폼의 데이터는 목록에 포함하지 않습니다.
           </p>
 
           <div className="mt-5 flex flex-wrap items-center gap-3">
@@ -2018,8 +2023,8 @@ function SourcesHubSection({
               <p className="text-xl font-extrabold text-white">{tournaments.length}건 수집 완료</p>
             </div>
             <div className="rounded-xl border border-emerald-600/60 bg-emerald-800/80 px-4 py-2.5 shadow-sm">
-              <p className="text-[11px] font-semibold text-emerald-200">등록 크롤링 채널</p>
-              <p className="text-xl font-extrabold text-white">{CRAWLER_SOURCES.length}개 공식 플랫폼</p>
+              <p className="text-[11px] font-semibold text-emerald-200">현재 검증 연동 채널</p>
+              <p className="text-xl font-extrabold text-white">{sourceCounts.size}개 플랫폼</p>
             </div>
           </div>
         </div>
@@ -2102,7 +2107,7 @@ function SourcesHubSection({
 
                 <div className="mt-4 space-y-2 rounded-xl bg-slate-50 p-3 text-xs text-slate-700">
                   <p>
-                    <strong className="text-slate-900">수집 데이터:</strong> {s.collectedData}
+                    <strong className="text-slate-900">{count > 0 ? '수집 데이터' : '수집 가능 데이터'}:</strong> {s.collectedData}
                   </p>
                   <p>
                     <strong className="text-slate-900">수집 방식:</strong> {s.method}
