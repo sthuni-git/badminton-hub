@@ -41,7 +41,7 @@ import { Input } from '@/components/ui/input';
 import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle } from '@/components/ui/sheet';
 import { ClubExplorer } from '@/components/club-explorer';
 import { CRAWLER_SOURCES, CRAWLER_TIPS, type SourceCategory } from '@/lib/crawler-sources';
-import { calculateDistanceKm, getVenueCoordinates, isInternationalVenue, PRESET_LOCATIONS, reverseGeocodeCoords, type Coordinates } from '@/lib/geo-utils';
+import { calculateDistanceKm, formatDistanceKm, getVenueCoordinates, isInternationalVenue, PRESET_LOCATIONS, reverseGeocodeCoords, type Coordinates } from '@/lib/geo-utils';
 import type { Tournament, TournamentCategory } from '@/lib/tournaments';
 
 export type Status = '접수중' | '접수예정' | '마감임박' | '접수마감' | '접수정보확인' | '대회종료';
@@ -531,7 +531,7 @@ export function TournamentExplorer({ tournaments }: { tournaments: Tournament[] 
     return tournaments
       .map((t) => {
         const venueCoords = getVenueCoordinates(t.venue);
-        const distanceKm = calculateDistanceKm(userLocation.coords, venueCoords);
+        const distanceKm = venueCoords ? calculateDistanceKm(userLocation.coords, venueCoords) : undefined;
         return { ...t, distanceKm };
       })
       .filter((t) => {
@@ -554,6 +554,7 @@ export function TournamentExplorer({ tournaments }: { tournaments: Tournament[] 
 
         const matchesDistance = (() => {
           if (distanceFilter === '전체') return true;
+          if (t.distanceKm === undefined) return false;
           const maxKm = parseInt(distanceFilter.replace('km', ''), 10);
           return t.distanceKm <= maxKm;
         })();
@@ -604,7 +605,7 @@ export function TournamentExplorer({ tournaments }: { tournaments: Tournament[] 
         escapeCsv(t.eventPeriod),
         escapeCsv(t.registrationPeriod),
         escapeCsv(t.venue),
-        escapeCsv(t.distanceKm !== undefined ? `${t.distanceKm}km` : '-'),
+        escapeCsv(t.distanceKm !== undefined ? formatDistanceKm(t.distanceKm) : '-'),
         escapeCsv(t.fee || '요강 참조'),
         escapeCsv(t.officialLink),
       ];
@@ -638,7 +639,7 @@ export function TournamentExplorer({ tournaments }: { tournaments: Tournament[] 
         t.eventPeriod,
         t.registrationPeriod,
         t.venue,
-        t.distanceKm !== undefined ? `${t.distanceKm}km` : '-',
+        t.distanceKm !== undefined ? formatDistanceKm(t.distanceKm) : '-',
         t.fee || '요강 참조',
         t.officialLink,
       ];
@@ -1193,9 +1194,16 @@ export function TournamentExplorer({ tournaments }: { tournaments: Tournament[] 
                   </Badge>
                 )}
                 {/* 거리 정보 뱃지 */}
-                <Badge variant="outline" className="border-amber-300 bg-amber-50 font-bold text-amber-800">
-                  📍 {userLocation.label} 기준 약 {calculateDistanceKm(userLocation.coords, getVenueCoordinates(selected.venue))}km
-                </Badge>
+                {(() => {
+                  const venueCoords = getVenueCoordinates(selected.venue);
+                  if (!venueCoords) return null;
+                  const distanceKm = calculateDistanceKm(userLocation.coords, venueCoords);
+                  return (
+                    <Badge variant="outline" className="border-amber-300 bg-amber-50 font-bold text-amber-800">
+                      📍 {userLocation.label} 기준 {formatDistanceKm(distanceKm)}
+                    </Badge>
+                  );
+                })()}
               </div>
               <div className="flex items-start justify-between gap-3 pr-8">
                 <SheetTitle className="text-xl sm:text-2xl font-extrabold leading-snug text-slate-900">
@@ -1319,11 +1327,17 @@ export function TournamentExplorer({ tournaments }: { tournaments: Tournament[] 
               <Detail
                 icon={<MapPin />}
                 label="장소 및 거리"
-                value={
-                  isInternationalVenue(selected.venue) || selected.category === '국제대회'
-                    ? `✈️ 해외 개최: ${selected.venue} (약 ${calculateDistanceKm(userLocation.coords, getVenueCoordinates(selected.venue)).toLocaleString()}km)`
-                    : `${selected.venue} (${userLocation.label} 기준 약 ${calculateDistanceKm(userLocation.coords, getVenueCoordinates(selected.venue))}km)`
-                }
+                value={(() => {
+                  const venueCoords = getVenueCoordinates(selected.venue);
+                  if (!venueCoords) {
+                    return `${selected.venue} (거리 확인 불가 - 공식 요강 참조)`;
+                  }
+                  const distanceKm = calculateDistanceKm(userLocation.coords, venueCoords);
+                  if (isInternationalVenue(selected.venue) || selected.category === '국제대회') {
+                    return `✈️ 해외 개최: ${selected.venue} (${formatDistanceKm(distanceKm)})`;
+                  }
+                  return `${selected.venue} (${userLocation.label} 기준 ${formatDistanceKm(distanceKm)})`;
+                })()}
               />
               <Detail icon={<Trophy />} label="참가비" value={selected.fee} />
               {selected.sources && selected.sources.length > 1 && (
@@ -1601,11 +1615,11 @@ function TournamentCard({
           {t.distanceKm !== undefined && (
             isInternationalVenue(t.venue) || t.category === '국제대회' ? (
               <span className="inline-flex items-center gap-0.5 rounded-full border border-sky-300 bg-sky-50 px-2 py-0.5 text-[11px] font-extrabold text-sky-800">
-                ✈️ 해외 ({t.venue.split(' ')[0]} · 약 {t.distanceKm.toLocaleString()}km)
+                ✈️ 해외 ({t.venue.split(' ')[0]} · {formatDistanceKm(t.distanceKm)})
               </span>
             ) : (
               <span className="inline-flex items-center gap-0.5 rounded-full border border-amber-200 bg-amber-50/90 px-2 py-0.5 text-[11px] font-extrabold text-amber-800">
-                📍 {t.distanceKm}km
+                📍 {formatDistanceKm(t.distanceKm)}
               </span>
             )
           )}
@@ -1656,8 +1670,8 @@ function TournamentCard({
                   {t.venue}{' '}
                   {t.distanceKm !== undefined &&
                     (isInternationalVenue(t.venue) || t.category === '국제대회'
-                      ? `(약 ${t.distanceKm.toLocaleString()}km)`
-                      : `(${userLocationLabel} 기준 ${t.distanceKm}km)`)}
+                      ? `(${formatDistanceKm(t.distanceKm)})`
+                      : `(${userLocationLabel} 기준 ${formatDistanceKm(t.distanceKm)})`)}
                 </span>
               </p>
             </div>
@@ -1839,7 +1853,7 @@ function TableView({
                       <span className="max-w-[160px] truncate text-slate-700">{t.venue}</span>
                       {t.distanceKm !== undefined && (
                         <span className="rounded-full border border-amber-200 bg-amber-50 px-1.5 py-0.5 text-[10px] font-bold text-amber-800">
-                          📍 {t.distanceKm}km
+                          📍 {formatDistanceKm(t.distanceKm)}
                         </span>
                       )}
                     </div>
