@@ -18,6 +18,8 @@ export interface BadmintonClub {
   contact: string;      // 문의처 (총무/회장 연락처 또는 안내)
   link?: string;        // 카페, 밴드, 또는 웹사이트 링크
   mapUrl: string;       // 카카오맵/네이버지도 길찾기 URL
+  source: string;       // 데이터 출처 (관할 체육회 및 공식 협회)
+  sourceUrl?: string;   // 출처 공식 사이트 URL
 }
 
 export const badmintonClubs: BadmintonClub[] = clubsData as BadmintonClub[];

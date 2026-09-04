@@ -8,15 +8,13 @@ import {
   Clock, 
   Calendar, 
   Users, 
-  PhoneCall, 
   ExternalLink, 
-  CheckCircle2, 
   Sparkles, 
-  Filter,
   X,
-  Info
+  Info,
+  ShieldCheck,
+  Building2
 } from 'lucide-react';
-import { Badge } from '@/components/ui/badge';
 
 export function ClubExplorer() {
   const [query, setQuery] = useState('');
@@ -43,7 +41,8 @@ export function ClubExplorer() {
         club.name.toLowerCase().includes(q) || 
         club.venue.toLowerCase().includes(q) || 
         club.district.toLowerCase().includes(q) ||
-        club.region.toLowerCase().includes(q);
+        club.region.toLowerCase().includes(q) ||
+        club.source.toLowerCase().includes(q);
 
       const matchesRegion = selectedRegion === '전체' || club.region === selectedRegion;
       const matchesTimeSlot = selectedTimeSlot === '전체' || club.timeSlot === selectedTimeSlot;
@@ -61,16 +60,16 @@ export function ClubExplorer() {
         <div className="flex flex-col gap-2 md:flex-row md:items-center md:justify-between">
           <div>
             <div className="inline-flex items-center gap-1.5 rounded-full bg-emerald-700/80 px-3 py-1 text-xs font-semibold text-emerald-100 backdrop-blur-sm">
-              <Sparkles className="size-3.5" /> 전국 생활체육 배드민턴 클럽 탐색
+              <ShieldCheck className="size-3.5 text-emerald-300" /> 지자체 체육회 & 공식 배드민턴협회 인증 데이터
             </div>
             <h2 className="mt-2 text-2xl font-black tracking-tight sm:text-3xl">내 주변 배드민턴 클럽 찾기</h2>
             <p className="mt-1 text-sm text-emerald-100/90">
-              새벽반부터 직장인 저녁반, 초보자 환영 클럽까지! 전국 전용구장 및 공공체육관 클럽을 만나보세요.
+              새벽반부터 직장인 저녁반, 초보자 환영 클럽까지! 전국 전용구장 및 공공체육관 공식 등록 클럽을 만나보세요.
             </p>
           </div>
           <div className="mt-4 flex items-center gap-3 md:mt-0">
             <div className="rounded-xl bg-white/10 p-3 text-center backdrop-blur-sm">
-              <p className="text-xs font-bold text-emerald-200">등록 클럽</p>
+              <p className="text-xs font-bold text-emerald-200">인증 클럽</p>
               <p className="text-xl font-black text-white">{badmintonClubs.length}개소</p>
             </div>
             <div className="rounded-xl bg-white/10 p-3 text-center backdrop-blur-sm">
@@ -91,7 +90,7 @@ export function ClubExplorer() {
               type="text"
               value={query}
               onChange={(e) => setQuery(e.target.value)}
-              placeholder="클럽명, 체육관명, 지역(예: 강서구, 수원, 만석공원) 검색..."
+              placeholder="클럽명, 체육관명, 지역(예: 강서구, 수원, 만석공원), 관할 체육회 검색..."
               className="h-11 w-full rounded-xl border border-zinc-200 bg-zinc-50 pl-10 pr-4 text-sm font-medium outline-none transition focus:border-emerald-600 focus:bg-white focus:ring-2 focus:ring-emerald-100"
             />
             {query && (
@@ -171,12 +170,14 @@ export function ClubExplorer() {
         </div>
       </div>
 
-      {/* 검색 결과 카운트 */}
-      <div className="flex items-center justify-between px-1">
+      {/* 검색 결과 카운트 및 데이터 출처 안내 */}
+      <div className="flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-between px-1">
         <p className="text-sm font-bold text-zinc-700">
           검색된 클럽 <span className="text-emerald-700 font-extrabold">{filteredClubs.length}</span>곳
         </p>
-        <p className="text-xs text-muted-foreground">※ 회비 및 입회 문의는 각 클럽 현장 방문 또는 안내데스크를 통해 확인 가능합니다.</p>
+        <p className="text-xs text-muted-foreground flex items-center gap-1">
+          <Building2 className="size-3.5 text-emerald-600" /> 데이터 출처: 전국 시·도 배드민턴협회 및 지자체 체육회 공식 공고
+        </p>
       </div>
 
       {/* 클럽 카드 그리드 */}
@@ -231,6 +232,12 @@ export function ClubExplorer() {
                   </span>
                 ))}
               </div>
+
+              {/* 공식 데이터 출처 표시 */}
+              <div className="mt-3 rounded-lg bg-emerald-50/70 px-2.5 py-1.5 text-[11px] font-semibold text-emerald-900 flex items-center gap-1.5">
+                <Building2 className="size-3 text-emerald-700 shrink-0" />
+                <span className="truncate">출처: {club.source}</span>
+              </div>
             </div>
 
             {/* 하단 액션 버튼 */}
@@ -248,7 +255,7 @@ export function ClubExplorer() {
                 onClick={() => setSelectedClub(club)}
                 className="inline-flex h-9 items-center justify-center gap-1 rounded-xl bg-emerald-700 text-xs font-bold text-white shadow-xs transition hover:bg-emerald-800"
               >
-                <Info className="size-3.5" /> 상세/회비
+                <Info className="size-3.5" /> 상세/출처
               </button>
             </div>
           </div>
@@ -305,14 +312,36 @@ export function ClubExplorer() {
                 <span className="text-zinc-500">모집 대상</span>
                 <span className="font-bold text-zinc-900">{selectedClub.targetLevel}</span>
               </div>
-              <div className="flex justify-between pt-1">
+              <div className="flex justify-between border-b border-zinc-200 pb-2">
                 <span className="text-zinc-500">가입 및 방문 문의</span>
                 <span className="font-bold text-emerald-700">{selectedClub.contact}</span>
               </div>
+              <div className="flex items-center justify-between pt-1">
+                <span className="text-zinc-500 font-semibold">데이터 공식 출처</span>
+                <span className="font-bold text-emerald-900 text-[11px]">{selectedClub.source}</span>
+              </div>
             </div>
 
+            {/* 공식 출처 바로가기 링크 (있을 경우) */}
+            {selectedClub.sourceUrl && (
+              <div className="mt-3">
+                <a
+                  href={selectedClub.sourceUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="flex items-center justify-between rounded-xl border border-emerald-200 bg-emerald-50 px-3.5 py-2 text-xs font-bold text-emerald-800 transition hover:bg-emerald-100"
+                >
+                  <span className="flex items-center gap-1.5">
+                    <Building2 className="size-3.5 text-emerald-700" />
+                    관할 체육회 / 시설관리공단 홈페이지
+                  </span>
+                  <ExternalLink className="size-3.5 text-emerald-600" />
+                </a>
+              </div>
+            )}
+
             {/* 가입 방문 팁 */}
-            <div className="mt-4 rounded-xl border border-amber-200 bg-amber-50 p-3 text-[11px] text-amber-900">
+            <div className="mt-3 rounded-xl border border-amber-200 bg-amber-50 p-3 text-[11px] text-amber-900">
               💡 <strong>클럽 첫 방문 팁:</strong> 운동 시간대에 라켓과 <strong>실내 전용 배드민턴화</strong>를 지참하시고 체육관에 방문하시면 클럽 임원진에게 가입 상담 및 1일 게스트 게임 참여가 가능합니다!
             </div>
 
