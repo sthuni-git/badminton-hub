@@ -35,93 +35,124 @@ function normalizeRegion(raw) {
   return '기타';
 }
 
-async function fetchPage(page) {
+// 1. 단일 상세 페이지 수집 함수
+async function fetchClubDetail(id, fallback = {}) {
   try {
-    const url = `http://www.badmintontimes.com/club2/m3_clubList.jsp?menunum=301&pg=${page}`;
-    const res = await fetch(url, { headers: { 'User-Agent': 'Mozilla/5.0' } });
-    if (!res.ok) return [];
+    const res = await fetch('http://www.badmintontimes.com/club2/m3_clubRead.jsp', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: `menunum=301&pg=1&no=${id}&sf=&sw=`
+    });
+    if (!res.ok) return fallback;
     const html = await res.text();
 
-    const reg = /readClub\((\d+)\);[^>]*>([^<]+)<\/a><\/td>[\s\S]*?<td[^>]*class=["']contents15["'][^>]*>([^<]*)<\/td>/g;
+    const trRegex = /<tr[^>]*>[\s\S]*?<b>([^<]+)<\/b><\/td>\s*<td[^>]*>([\s\S]*?)<\/td>\s*<\/tr>/g;
     let m;
-    const pageClubs = [];
-    while ((m = reg.exec(html)) !== null) {
-      const id = m[1];
-      const name = m[2].trim();
-      const loc = m[3].trim(); // 예: 서울 마포구 공덕동
-
-      if (!id || !name) continue;
-
-      const parts = loc.split(/\s+/);
-      const region = normalizeRegion(parts[0] || '');
-      const district = parts[1] || '전체';
-      const venue = parts.length > 2 ? `${parts.slice(1).join(' ')} 체육관` : `${district} 배드민턴장`;
-      const address = loc || `${region} ${district}`;
-      const sourceUrl = `http://www.badmintontimes.com/group2/m3_groupMain_301.jsp?group=3&menunum=301`;
-      const mapUrl = `https://map.kakao.com/link/search/${encodeURIComponent(name + ' ' + address)}`;
-
-      pageClubs.push({
-        id: `bt-${id}`,
-        name,
-        region,
-        district,
-        venue,
-        address,
-        days: '월~금, 토·일 (클럽별 일정)',
-        timeSlot: '저녁반',
-        hours: '19:00 ~ 21:30 (클럽별 상이)',
-        courtCount: 4,
-        monthlyFee: '30,000원 ~ 50,000원',
-        entryFee: '50,000원 ~ 100,000원',
-        targetLevel: '초보 환영 · 전급수 회원',
-        features: ['배드민턴타임즈인증', '초보환영', '레슨운영', '정기운동'],
-        contact: '배드민턴타임즈 클럽 게시판 참조',
-        link: sourceUrl,
-        mapUrl,
-        source: '배드민턴타임즈',
-        sourceUrl
-      });
+    const fields = {};
+    while ((m = trRegex.exec(html)) !== null) {
+      const key = m[1].trim();
+      const val = m[2].replace(/<br\s*[\/]?>/gi, ' ').replace(/<[^>]+>/g, '').replace(/&nbsp;/g, ' ').replace(/\s+/g, ' ').trim();
+      fields[key] = val;
     }
-    return pageClubs;
+
+    const loc = fields['클럽위치'] || fallback.loc || '';
+    const parts = loc.split(/\s+/);
+    const region = normalizeRegion(parts[0] || '');
+    const district = parts[1] || '전체';
+
+    let link = fields['관련링크'] || '';
+    if (link === 'http://' || link === 'https://') link = '';
+
+    return {
+      i: `bt-${id}`,
+      n: fields['클럽이름'] || fallback.name || '',
+      r: region,
+      d: district,
+      loc: loc, // 클럽위치 (운동장소)
+      h: fields['운동시간'] || fallback.time || '', // 운동시간
+      vt: fields['구장형태'] || '', // 구장형태
+      c: fields['코트수'] || '', // 코트수
+      m: fields['회원수'] || '', // 회원수
+      f: fields['회비안내'] || '', // 회비안내
+      p: fields['문의전화'] || '', // 문의전화
+      l: link, // 관련링크
+      desc: fields['기타사항'] || '', // 기타사항
+      dt: fields['등록일자'] || fallback.date || '' // 등록일자
+    };
   } catch (e) {
-    console.error(`Page ${page} error:`, e.message);
-    return [];
+    return fallback;
   }
 }
 
+// 2. 전체 페이지 수집
 async function main() {
-  console.log('[BadmintonTimes] Starting full scrape of all pages (1 ~ 245)...');
+  console.log('[BadmintonTimes] Starting full detailed scrape (3,656 clubs)...');
   const t0 = Date.now();
-  const allClubs = [];
-  const seenIds = new Set();
 
   const totalPages = 245;
-  const batchSize = 15; // 15페이지씩 병렬 요청
+  const listItems = [];
 
-  for (let p = 1; p <= totalPages; p += batchSize) {
+  // 목록 수집 (1 ~ 245 페이지)
+  console.log('Step 1: Gathering club IDs from all 245 list pages...');
+  const pageBatchSize = 25;
+  for (let p = 1; p <= totalPages; p += pageBatchSize) {
     const batch = [];
-    for (let i = 0; i < batchSize && (p + i) <= totalPages; i++) {
-      batch.push(fetchPage(p + i));
+    for (let i = 0; i < pageBatchSize && (p + i) <= totalPages; i++) {
+      const pageNum = p + i;
+      batch.push(
+        fetch(`http://www.badmintontimes.com/club2/m3_clubList.jsp?menunum=301&pg=${pageNum}`)
+          .then(r => r.text())
+          .then(html => {
+            const itemRegex = /readClub\((\d+)\);[^>]*>([^<]+)<\/a><\/td>\s*<td colspan="2"[^>]*>([^<]*)<\/td>[\s\S]*?<font color=["']#005883["']>([^<]*)<\/font>[\s\S]*?<font color=["']#999999["']>([^<]*)<\/font>/g;
+            let m;
+            const items = [];
+            while ((m = itemRegex.exec(html)) !== null) {
+              items.push({ id: m[1], name: m[2].trim(), loc: m[3].trim(), time: m[4].trim(), date: m[5].trim() });
+            }
+            return items;
+          })
+          .catch(() => [])
+      );
     }
-
-    const batchResults = await Promise.all(batch);
-    for (const clubs of batchResults) {
-      for (const club of clubs) {
-        if (!seenIds.has(club.id)) {
-          seenIds.add(club.id);
-          allClubs.push(club);
-        }
-      }
+    const results = await Promise.all(batch);
+    for (const res of results) {
+      listItems.push(...res);
     }
-
-    process.stdout.write(`\rProgress: Page ${Math.min(p + batchSize - 1, totalPages)} / ${totalPages} - Collected ${allClubs.length} clubs`);
+    process.stdout.write(`\rList pages fetched: ${Math.min(p + pageBatchSize - 1, totalPages)} / ${totalPages} - Found: ${listItems.length} clubs`);
   }
 
-  console.log(`\n[BadmintonTimes] Scraping complete in ${((Date.now() - t0) / 1000).toFixed(1)}s. Total: ${allClubs.length} clubs.`);
+  console.log(`\nStep 1 Complete! Total items to scrape details: ${listItems.length}`);
+
+  // 중복 ID 제거
+  const uniqueItemsMap = new Map();
+  for (const it of listItems) {
+    if (!uniqueItemsMap.has(it.id)) {
+      uniqueItemsMap.set(it.id, it);
+    }
+  }
+  const uniqueItems = Array.from(uniqueItemsMap.values());
+  console.log(`Unique clubs to scrape: ${uniqueItems.length}`);
+
+  // Step 2: 상세 정보 동시 병렬 수집 (배치 사이즈 30)
+  console.log('Step 2: Scraping detail pages (위치, 구장형태, 코트수, 회원수, 회비, 전화, 링크, 기타, 등록일자)...');
+  const allClubs = [];
+  const detailBatchSize = 30;
+
+  for (let i = 0; i < uniqueItems.length; i += detailBatchSize) {
+    const batch = uniqueItems.slice(i, i + detailBatchSize);
+    const batchPromises = batch.map(item => fetchClubDetail(item.id, item));
+    const batchResults = await Promise.all(batchPromises);
+    allClubs.push(...batchResults);
+
+    process.stdout.write(`\rDetails scraped: ${Math.min(i + detailBatchSize, uniqueItems.length)} / ${uniqueItems.length} (${((Math.min(i + detailBatchSize, uniqueItems.length) / uniqueItems.length) * 100).toFixed(1)}%)`);
+  }
+
+  console.log(`\n\nAll details scraped successfully in ${((Date.now() - t0) / 1000).toFixed(1)}s!`);
 
   const outputPath = path.join(__dirname, '../lib/clubs-data.json');
-  fs.writeFileSync(outputPath, JSON.stringify(allClubs, null, 2), 'utf8');
-  console.log(`Successfully saved to ${outputPath}!`);
+  fs.writeFileSync(outputPath, JSON.stringify(allClubs), 'utf8');
+  const stats = fs.statSync(outputPath);
+  console.log(`Saved ${allClubs.length} clubs to ${outputPath} (${(stats.size / 1024).toFixed(1)} KB)`);
 }
 
 main().catch(console.error);

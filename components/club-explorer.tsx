@@ -13,7 +13,12 @@ import {
   X,
   Info,
   ShieldCheck,
-  Building2
+  Building2,
+  Phone,
+  Coins,
+  Link as LinkIcon,
+  Layers,
+  FileText
 } from 'lucide-react';
 
 export function ClubExplorer() {
@@ -21,7 +26,7 @@ export function ClubExplorer() {
   const [selectedRegion, setSelectedRegion] = useState('전체');
   const [selectedTimeSlot, setSelectedTimeSlot] = useState('전체');
   const [onlyBeginner, setOnlyBeginner] = useState(false);
-  const [onlyLesson, setOnlyLesson] = useState(false);
+  const [onlyHasLink, setOnlyHasLink] = useState(false);
   const [selectedClub, setSelectedClub] = useState<BadmintonClub | null>(null);
 
   // 시·도 목록 추출
@@ -39,19 +44,25 @@ export function ClubExplorer() {
       const matchesQuery = 
         !q || 
         club.name.toLowerCase().includes(q) || 
+        club.location.toLowerCase().includes(q) || 
         club.venue.toLowerCase().includes(q) || 
         club.district.toLowerCase().includes(q) ||
         club.region.toLowerCase().includes(q) ||
-        club.address.toLowerCase().includes(q);
+        club.venueType.toLowerCase().includes(q) ||
+        club.feeInfo.toLowerCase().includes(q);
 
       const matchesRegion = selectedRegion === '전체' || club.region === selectedRegion;
-      const matchesTimeSlot = selectedTimeSlot === '전체' || club.timeSlot === selectedTimeSlot;
-      const matchesBeginner = !onlyBeginner || club.features.includes('초보환영');
-      const matchesLesson = !onlyLesson || club.features.some(f => f.includes('레슨'));
+      const matchesTimeSlot = selectedTimeSlot === '전체' || 
+        (selectedTimeSlot === '새벽반' && /0[56]:/.test(club.hours)) ||
+        (selectedTimeSlot === '오전반' && /0[9-9]:|1[01]:/.test(club.hours)) ||
+        (selectedTimeSlot === '저녁반' && /1[89]:|2[0-3]:/.test(club.hours));
 
-      return matchesQuery && matchesRegion && matchesTimeSlot && matchesBeginner && matchesLesson;
+      const matchesBeginner = !onlyBeginner || club.description?.includes('초보') || club.feeInfo?.includes('초보') || true;
+      const matchesLink = !onlyHasLink || Boolean(club.link);
+
+      return matchesQuery && matchesRegion && matchesTimeSlot && matchesBeginner && matchesLink;
     });
-  }, [query, selectedRegion, selectedTimeSlot, onlyBeginner, onlyLesson]);
+  }, [query, selectedRegion, selectedTimeSlot, onlyBeginner, onlyHasLink]);
 
   return (
     <div className="space-y-6 pb-20">
@@ -62,9 +73,9 @@ export function ClubExplorer() {
             <div className="inline-flex items-center gap-1.5 rounded-full bg-emerald-700/80 px-3 py-1 text-xs font-semibold text-emerald-100 backdrop-blur-sm">
               <ShieldCheck className="size-3.5 text-emerald-300" /> 배드민턴타임즈(BadmintonTimes) 공식 인증 전국 클럽
             </div>
-            <h2 className="mt-2 text-2xl font-black tracking-tight sm:text-3xl">내 주변 배드민턴 클럽 찾기</h2>
+            <h2 className="mt-2 text-2xl font-black tracking-tight sm:text-3xl">전국 배드민턴 클럽 찾기</h2>
             <p className="mt-1 text-sm text-emerald-100/90">
-              배드민턴타임즈에 공식 등록된 전국 3,600+ 배드민턴 클럽! 새벽반, 오전반, 직장인 저녁반, 초보자 환영 클럽을 만나보세요.
+              배드민턴타임즈 공식 등록 클럽위치(운동장소), 구장형태, 코트수, 회원수, 회비안내, 문의전화, 관련링크까지 한 번에 확인하세요!
             </p>
           </div>
           <div className="mt-4 flex items-center gap-3 md:mt-0">
@@ -73,8 +84,8 @@ export function ClubExplorer() {
               <p className="text-xl font-black text-white">{badmintonClubs.length.toLocaleString()}개소</p>
             </div>
             <div className="rounded-xl bg-white/10 p-3 text-center backdrop-blur-sm">
-              <p className="text-xs font-bold text-emerald-200">초보 환영</p>
-              <p className="text-xl font-black text-white">{badmintonClubs.filter(c => c.features.includes('초보환영')).length.toLocaleString()}개소</p>
+              <p className="text-xs font-bold text-emerald-200">링크 보유</p>
+              <p className="text-xl font-black text-white">{badmintonClubs.filter(c => c.link).length.toLocaleString()}개소</p>
             </div>
           </div>
         </div>
@@ -90,7 +101,7 @@ export function ClubExplorer() {
               type="text"
               value={query}
               onChange={(e) => setQuery(e.target.value)}
-              placeholder="클럽명, 체육관명, 지역(예: 강서구, 수원, 만석공원), 관할 체육회 검색..."
+              placeholder="클럽명, 체육관/학교명, 운동장소, 지역(예: 마포구, 아산, 초등학교) 검색..."
               className="h-11 w-full rounded-xl border border-zinc-200 bg-zinc-50 pl-10 pr-4 text-sm font-medium outline-none transition focus:border-emerald-600 focus:bg-white focus:ring-2 focus:ring-emerald-100"
             />
             {query && (
@@ -104,29 +115,18 @@ export function ClubExplorer() {
             )}
           </div>
 
-          {/* 초보 환영 & 레슨 토글 칩 */}
+          {/* 초보 환영 & 카페/블로그 링크 토글 칩 */}
           <div className="flex items-center gap-2">
             <button
               type="button"
-              onClick={() => setOnlyBeginner(!onlyBeginner)}
-              className={`h-11 rounded-xl px-3.5 text-xs font-bold transition ${
-                onlyBeginner
+              onClick={() => setOnlyHasLink(!onlyHasLink)}
+              className={`h-11 rounded-xl px-3.5 text-xs font-bold transition flex items-center gap-1.5 ${
+                onlyHasLink
                   ? 'border-emerald-600 bg-emerald-700 text-white shadow-sm'
                   : 'border border-zinc-200 bg-zinc-50 text-zinc-700 hover:bg-zinc-100'
               }`}
             >
-              🌱 초보 환영만
-            </button>
-            <button
-              type="button"
-              onClick={() => setOnlyLesson(!onlyLesson)}
-              className={`h-11 rounded-xl px-3.5 text-xs font-bold transition ${
-                onlyLesson
-                  ? 'border-emerald-600 bg-emerald-700 text-white shadow-sm'
-                  : 'border border-zinc-200 bg-zinc-50 text-zinc-700 hover:bg-zinc-100'
-              }`}
-            >
-              🏸 레슨 운영 클럽
+              <LinkIcon className="size-3.5" /> 카페/블로그 보유
             </button>
           </div>
         </div>
@@ -146,25 +146,6 @@ export function ClubExplorer() {
               }`}
             >
               {r}
-            </button>
-          ))}
-        </div>
-
-        {/* 시간대 필터 칩 */}
-        <div className="mt-2.5 flex flex-wrap items-center gap-1.5 border-t border-zinc-100 pt-2.5">
-          <span className="mr-1 text-xs font-bold text-zinc-500">시간대:</span>
-          {timeSlots.map(t => (
-            <button
-              key={t}
-              type="button"
-              onClick={() => setSelectedTimeSlot(t)}
-              className={`rounded-lg px-2.5 py-1 text-xs font-semibold transition ${
-                selectedTimeSlot === t
-                  ? 'bg-teal-700 text-white shadow-xs'
-                  : 'bg-zinc-100 text-zinc-600 hover:bg-zinc-200'
-              }`}
-            >
-              {t}
             </button>
           ))}
         </div>
@@ -193,45 +174,80 @@ export function ClubExplorer() {
                 <span className="inline-flex items-center gap-1 rounded-md bg-emerald-50 px-2 py-0.5 text-xs font-bold text-emerald-800">
                   <MapPin className="size-3" /> {club.region} · {club.district}
                 </span>
-                <span className="inline-flex items-center gap-1 rounded-md bg-teal-50 px-2 py-0.5 text-xs font-bold text-teal-800">
-                  <Clock className="size-3" /> {club.timeSlot}
-                </span>
-              </div>
-
-              {/* 클럽명 및 체육관 */}
-              <h3 className="mt-2.5 text-lg font-black tracking-tight text-zinc-900">{club.name}</h3>
-              <p className="text-xs font-semibold text-emerald-700 flex items-center gap-1 mt-0.5">
-                🏟️ {club.venue} ({club.courtCount}코트)
-              </p>
-              <p className="mt-1 text-[11px] text-zinc-500 line-clamp-1">{club.address}</p>
-
-              {/* 활동 요일 및 시간 */}
-              <div className="mt-3 space-y-1 rounded-xl bg-zinc-50 p-2.5 text-xs text-zinc-700">
-                <div className="flex items-center gap-1.5 font-medium">
-                  <Calendar className="size-3.5 text-zinc-400" />
-                  <span>요일: <strong className="text-zinc-900">{club.days}</strong></span>
-                </div>
-                <div className="flex items-center gap-1.5 font-medium">
-                  <Clock className="size-3.5 text-zinc-400" />
-                  <span>시간: <strong className="text-zinc-900">{club.hours}</strong></span>
-                </div>
-                <div className="flex items-center gap-1.5 font-medium">
-                  <Users className="size-3.5 text-zinc-400" />
-                  <span>대상: <strong className="text-zinc-900">{club.targetLevel}</strong></span>
-                </div>
-              </div>
-
-              {/* 특징 태그들 */}
-              <div className="mt-3 flex flex-wrap gap-1">
-                {club.features.map(f => (
-                  <span
-                    key={f}
-                    className="rounded-md border border-zinc-200 bg-white px-1.5 py-0.5 text-[10px] font-medium text-zinc-600"
-                  >
-                    #{f}
+                <div className="flex items-center gap-1.5">
+                  <span className="inline-flex items-center gap-1 rounded-md bg-teal-50 px-2 py-0.5 text-xs font-bold text-teal-800">
+                    <Layers className="size-3" /> {club.venueType || '실내체육관'}
                   </span>
-                ))}
+                  {club.registeredDate && (
+                    <span className="rounded-md bg-zinc-100 px-1.5 py-0.5 text-[10px] font-semibold text-zinc-500">
+                      {club.registeredDate}
+                    </span>
+                  )}
+                </div>
               </div>
+
+              {/* 클럽명 */}
+              <div className="mt-2.5 flex items-start justify-between gap-2">
+                <h3 className="text-lg font-black tracking-tight text-zinc-900">{club.name}</h3>
+                {club.link && (
+                  <a
+                    href={club.link}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="inline-flex items-center gap-1 rounded-md bg-blue-50 px-2 py-0.5 text-[11px] font-bold text-blue-700 hover:bg-blue-100 transition shrink-0"
+                    title="클럽 카페/블로그/밴드 방문"
+                  >
+                    <LinkIcon className="size-3" /> 링크
+                  </a>
+                )}
+              </div>
+
+              {/* 클럽위치 (혹은 운동장소) */}
+              <p className="mt-1 text-xs font-semibold text-emerald-800 flex items-start gap-1">
+                <span className="shrink-0 mt-0.5">🏟️</span>
+                <span className="line-clamp-2">{club.location}</span>
+              </p>
+
+              {/* 상세 정보 요약 블록 */}
+              <div className="mt-3 space-y-1.5 rounded-xl bg-zinc-50 p-2.5 text-xs text-zinc-700">
+                <div className="flex items-center justify-between">
+                  <span className="text-zinc-500 flex items-center gap-1">
+                    <Clock className="size-3.5 text-zinc-400" /> 운동시간
+                  </span>
+                  <strong className="text-zinc-900 font-semibold truncate max-w-[170px]">{club.hours}</strong>
+                </div>
+                <div className="flex items-center justify-between">
+                  <span className="text-zinc-500 flex items-center gap-1">
+                    <Layers className="size-3.5 text-zinc-400" /> 코트 / 회원
+                  </span>
+                  <span className="font-semibold text-zinc-900">
+                    <strong className="text-emerald-700">{club.courtCount}</strong> · {club.memberCount}
+                  </span>
+                </div>
+                {club.feeInfo && club.feeInfo !== '클럽 방문 또는 게시판 문의' && (
+                  <div className="flex items-start justify-between border-t border-zinc-100 pt-1">
+                    <span className="text-zinc-500 flex items-center gap-1 shrink-0">
+                      <Coins className="size-3.5 text-amber-500" /> 회비안내
+                    </span>
+                    <span className="font-semibold text-amber-800 line-clamp-1 text-right">{club.feeInfo}</span>
+                  </div>
+                )}
+                {club.contact && club.contact !== '배드민턴타임즈 게시판 문의' && (
+                  <div className="flex items-center justify-between border-t border-zinc-100 pt-1">
+                    <span className="text-zinc-500 flex items-center gap-1">
+                      <Phone className="size-3.5 text-zinc-400" /> 문의전화
+                    </span>
+                    <strong className="text-emerald-800 font-semibold">{club.contact}</strong>
+                  </div>
+                )}
+              </div>
+
+              {/* 기타사항 미리보기 (있을 경우) */}
+              {club.description && (
+                <p className="mt-2.5 text-[11px] text-zinc-500 line-clamp-2 bg-zinc-50/60 p-2 rounded-lg border border-zinc-100">
+                  📝 {club.description}
+                </p>
+              )}
 
               {/* 공식 데이터 출처 표시 */}
               <div className="mt-3 flex items-center justify-between rounded-lg bg-emerald-50/70 px-2.5 py-1.5 text-[11px] font-semibold text-emerald-900">
@@ -239,17 +255,15 @@ export function ClubExplorer() {
                   <Building2 className="size-3 text-emerald-700 shrink-0" />
                   <span className="truncate">출처: {club.source}</span>
                 </span>
-                {club.sourceUrl && (
-                  <a
-                    href={club.sourceUrl}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="ml-1 inline-flex items-center gap-0.5 text-[10px] font-bold text-emerald-700 hover:text-emerald-900 shrink-0 hover:underline"
-                    title={`${club.source} 원본 보기`}
-                  >
-                    원문 <ExternalLink className="size-2.5" />
-                  </a>
-                )}
+                <a
+                  href={club.sourceUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="ml-1 inline-flex items-center gap-0.5 text-[10px] font-bold text-emerald-700 hover:text-emerald-900 shrink-0 hover:underline"
+                  title="배드민턴타임즈 원문 보기"
+                >
+                  원문 <ExternalLink className="size-2.5" />
+                </a>
               </div>
             </div>
 
@@ -268,17 +282,17 @@ export function ClubExplorer() {
                 onClick={() => setSelectedClub(club)}
                 className="inline-flex h-9 items-center justify-center gap-1 rounded-xl bg-emerald-700 text-xs font-bold text-white shadow-xs transition hover:bg-emerald-800"
               >
-                <Info className="size-3.5" /> 상세/출처
+                <Info className="size-3.5" /> 상세 전체보기
               </button>
             </div>
           </div>
         ))}
       </div>
 
-      {/* 클럽 상세 및 회비 안내 모달 */}
+      {/* 클럽 상세 전체 모달 */}
       {selectedClub && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4 backdrop-blur-xs">
-          <div className="relative w-full max-w-lg rounded-2xl bg-white p-6 shadow-2xl animate-in fade-in zoom-in-95 duration-200">
+          <div className="relative w-full max-w-lg max-h-[90vh] overflow-y-auto rounded-2xl bg-white p-6 shadow-2xl animate-in fade-in zoom-in-95 duration-200">
             <button
               type="button"
               onClick={() => setSelectedClub(null)}
@@ -292,42 +306,54 @@ export function ClubExplorer() {
                 {selectedClub.region} · {selectedClub.district}
               </span>
               <span className="rounded-md bg-teal-100 px-2 py-0.5 text-xs font-bold text-teal-800">
-                {selectedClub.timeSlot}
+                {selectedClub.venueType}
               </span>
+              {selectedClub.registeredDate && (
+                <span className="rounded-md bg-zinc-100 px-2 py-0.5 text-xs font-bold text-zinc-600">
+                  등록일: {selectedClub.registeredDate}
+                </span>
+              )}
             </div>
 
             <h3 className="mt-2 text-2xl font-black text-zinc-900">{selectedClub.name}</h3>
-            <p className="text-sm font-semibold text-emerald-700">🏟️ {selectedClub.venue}</p>
-            <p className="text-xs text-zinc-500">{selectedClub.address}</p>
+            
+            {/* 클럽위치 (혹은 운동장소) */}
+            <div className="mt-3 rounded-xl bg-emerald-50 border border-emerald-100 p-3">
+              <p className="text-xs font-bold text-emerald-800 mb-0.5 flex items-center gap-1">
+                <MapPin className="size-3.5 text-emerald-700" /> 클럽위치 (운동장소)
+              </p>
+              <p className="text-sm font-semibold text-zinc-900">{selectedClub.location}</p>
+            </div>
 
+            {/* 세부 스펙 테이블 */}
             <div className="mt-4 space-y-2 rounded-xl bg-zinc-50 p-4 text-xs">
               <div className="flex justify-between border-b border-zinc-200 pb-2">
-                <span className="text-zinc-500">활동 요일</span>
-                <span className="font-bold text-zinc-900">{selectedClub.days}</span>
-              </div>
-              <div className="flex justify-between border-b border-zinc-200 pb-2">
-                <span className="text-zinc-500">활동 시간</span>
-                <span className="font-bold text-zinc-900">{selectedClub.hours}</span>
+                <span className="text-zinc-500">구장형태</span>
+                <span className="font-bold text-zinc-900">{selectedClub.venueType}</span>
               </div>
               <div className="flex justify-between border-b border-zinc-200 pb-2">
                 <span className="text-zinc-500">코트 수</span>
-                <span className="font-bold text-zinc-900">{selectedClub.courtCount}코트</span>
+                <span className="font-bold text-emerald-700">{selectedClub.courtCount}</span>
               </div>
               <div className="flex justify-between border-b border-zinc-200 pb-2">
-                <span className="text-zinc-500">월 회비</span>
-                <span className="font-extrabold text-emerald-800">{selectedClub.monthlyFee}</span>
+                <span className="text-zinc-500">회원 수</span>
+                <span className="font-bold text-zinc-900">{selectedClub.memberCount}</span>
               </div>
               <div className="flex justify-between border-b border-zinc-200 pb-2">
-                <span className="text-zinc-500">가입비 (입회비)</span>
-                <span className="font-bold text-zinc-900">{selectedClub.entryFee}</span>
+                <span className="text-zinc-500">운동시간</span>
+                <span className="font-bold text-zinc-900">{selectedClub.hours}</span>
               </div>
               <div className="flex justify-between border-b border-zinc-200 pb-2">
-                <span className="text-zinc-500">모집 대상</span>
-                <span className="font-bold text-zinc-900">{selectedClub.targetLevel}</span>
+                <span className="text-zinc-500">회비안내</span>
+                <span className="font-bold text-amber-800 text-right">{selectedClub.feeInfo}</span>
               </div>
               <div className="flex justify-between border-b border-zinc-200 pb-2">
-                <span className="text-zinc-500">가입 및 방문 문의</span>
+                <span className="text-zinc-500">문의전화</span>
                 <span className="font-bold text-emerald-700">{selectedClub.contact}</span>
+              </div>
+              <div className="flex justify-between border-b border-zinc-200 pb-2">
+                <span className="text-zinc-500">등록일자</span>
+                <span className="font-bold text-zinc-700">{selectedClub.registeredDate || '-'}</span>
               </div>
               <div className="flex items-center justify-between pt-1">
                 <span className="text-zinc-500 font-semibold">데이터 공식 출처</span>
@@ -335,23 +361,49 @@ export function ClubExplorer() {
               </div>
             </div>
 
-            {/* 공식 출처 바로가기 링크 (있을 경우) */}
-            {selectedClub.sourceUrl && (
+            {/* 관련링크 (블로그/카페/밴드) */}
+            {selectedClub.link && (
               <div className="mt-3">
                 <a
-                  href={selectedClub.sourceUrl}
+                  href={selectedClub.link}
                   target="_blank"
                   rel="noreferrer"
-                  className="flex items-center justify-between rounded-xl border border-emerald-200 bg-emerald-50 px-3.5 py-2 text-xs font-bold text-emerald-800 transition hover:bg-emerald-100"
+                  className="flex items-center justify-between rounded-xl border border-blue-200 bg-blue-50 px-3.5 py-2.5 text-xs font-bold text-blue-800 transition hover:bg-blue-100"
                 >
                   <span className="flex items-center gap-1.5">
-                    <Building2 className="size-3.5 text-emerald-700" />
-                    배드민턴타임즈 전국클럽 정보 바로가기
+                    <LinkIcon className="size-3.5 text-blue-700" />
+                    클럽 공식 카페 / 블로그 / 밴드 바로가기
                   </span>
-                  <ExternalLink className="size-3.5 text-emerald-600" />
+                  <ExternalLink className="size-3.5 text-blue-600" />
                 </a>
               </div>
             )}
+
+            {/* 기타사항 (소개글 전문) */}
+            {selectedClub.description && (
+              <div className="mt-3 rounded-xl border border-zinc-200 bg-zinc-50/80 p-3.5 text-xs text-zinc-700">
+                <p className="font-bold text-zinc-900 mb-1 flex items-center gap-1">
+                  <FileText className="size-3.5 text-zinc-500" /> 기타사항 및 클럽 안내
+                </p>
+                <p className="leading-relaxed whitespace-pre-line text-zinc-700">{selectedClub.description}</p>
+              </div>
+            )}
+
+            {/* 배드민턴타임즈 원문 링크 */}
+            <div className="mt-3">
+              <a
+                href={selectedClub.sourceUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="flex items-center justify-between rounded-xl border border-emerald-200 bg-emerald-50 px-3.5 py-2 text-xs font-bold text-emerald-800 transition hover:bg-emerald-100"
+              >
+                <span className="flex items-center gap-1.5">
+                  <Building2 className="size-3.5 text-emerald-700" />
+                  배드민턴타임즈 전국클럽 정보 바로가기
+                </span>
+                <ExternalLink className="size-3.5 text-emerald-600" />
+              </a>
+            </div>
 
             {/* 가입 방문 팁 */}
             <div className="mt-3 rounded-xl border border-amber-200 bg-amber-50 p-3 text-[11px] text-amber-900">
@@ -381,3 +433,4 @@ export function ClubExplorer() {
     </div>
   );
 }
+
