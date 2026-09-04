@@ -285,7 +285,7 @@ export function TournamentExplorer({ tournaments }: { tournaments: Tournament[] 
   const [regions, setRegions] = useState<Set<string>>(new Set());
   const [categories, setCategories] = useState<Set<string>>(new Set());
   const [statuses, setStatuses] = useState<Set<string>>(new Set());
-  const [sources, setSources] = useState<Set<string>>(new Set());
+  const [sources, setSources] = useState<Set<string>>(new Set(['배드민턴타임즈']));
   const [distanceFilter, setDistanceFilter] = useState<DistanceFilter>('전체');
   const [sortOption, setSortOption] = useState<SortOption>('eventStart');
   const [view, setView] = useState<View>('list');
@@ -917,14 +917,14 @@ export function TournamentExplorer({ tournaments }: { tournaments: Tournament[] 
                 <div className="flex items-center gap-2 text-sm font-bold text-slate-800">
                   <SlidersHorizontal className="size-4 text-emerald-700" /> 맞춤 필터
                 </div>
-                {(regions.size > 0 || categories.size > 0 || statuses.size > 0 || sources.size > 0 || distanceFilter !== '전체' || query) && (
+                {(regions.size > 0 || categories.size > 0 || statuses.size > 0 || !(sources.size === 1 && sources.has('배드민턴타임즈')) || distanceFilter !== '전체' || query) && (
                   <button
                     type="button"
                     onClick={() => {
                       setRegions(new Set());
                       setCategories(new Set());
                       setStatuses(new Set());
-                      setSources(new Set());
+                      setSources(new Set(['배드민턴타임즈']));
                       setDistanceFilter('전체');
                       setQuery('');
                     }}
