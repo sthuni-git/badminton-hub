@@ -18,15 +18,11 @@ import {
 
 export function ClubExplorer() {
   const [query, setQuery] = useState('');
-  const [selectedSource, setSelectedSource] = useState('전체');
   const [selectedRegion, setSelectedRegion] = useState('전체');
   const [selectedTimeSlot, setSelectedTimeSlot] = useState('전체');
   const [onlyBeginner, setOnlyBeginner] = useState(false);
   const [onlyLesson, setOnlyLesson] = useState(false);
   const [selectedClub, setSelectedClub] = useState<BadmintonClub | null>(null);
-
-  // 출처 그룹 목록
-  const sources = ['전체', '배드민턴타임즈', '배드민턴게임', '지자체 협회/체육회'];
 
   // 시·도 목록 추출
   const regions = useMemo(() => {
@@ -46,22 +42,16 @@ export function ClubExplorer() {
         club.venue.toLowerCase().includes(q) || 
         club.district.toLowerCase().includes(q) ||
         club.region.toLowerCase().includes(q) ||
-        club.source.toLowerCase().includes(q);
-
-      const matchesSource = 
-        selectedSource === '전체' ||
-        (selectedSource === '배드민턴타임즈' && club.source === '배드민턴타임즈') ||
-        (selectedSource === '배드민턴게임' && club.source === '배드민턴게임') ||
-        (selectedSource === '지자체 협회/체육회' && club.source !== '배드민턴타임즈' && club.source !== '배드민턴게임');
+        club.address.toLowerCase().includes(q);
 
       const matchesRegion = selectedRegion === '전체' || club.region === selectedRegion;
       const matchesTimeSlot = selectedTimeSlot === '전체' || club.timeSlot === selectedTimeSlot;
       const matchesBeginner = !onlyBeginner || club.features.includes('초보환영');
       const matchesLesson = !onlyLesson || club.features.some(f => f.includes('레슨'));
 
-      return matchesQuery && matchesSource && matchesRegion && matchesTimeSlot && matchesBeginner && matchesLesson;
+      return matchesQuery && matchesRegion && matchesTimeSlot && matchesBeginner && matchesLesson;
     });
-  }, [query, selectedSource, selectedRegion, selectedTimeSlot, onlyBeginner, onlyLesson]);
+  }, [query, selectedRegion, selectedTimeSlot, onlyBeginner, onlyLesson]);
 
   return (
     <div className="space-y-6 pb-20">
@@ -70,21 +60,21 @@ export function ClubExplorer() {
         <div className="flex flex-col gap-2 md:flex-row md:items-center md:justify-between">
           <div>
             <div className="inline-flex items-center gap-1.5 rounded-full bg-emerald-700/80 px-3 py-1 text-xs font-semibold text-emerald-100 backdrop-blur-sm">
-              <ShieldCheck className="size-3.5 text-emerald-300" /> 지자체 체육회 & 공식 배드민턴협회 인증 데이터
+              <ShieldCheck className="size-3.5 text-emerald-300" /> 배드민턴타임즈(BadmintonTimes) 공식 인증 전국 클럽
             </div>
             <h2 className="mt-2 text-2xl font-black tracking-tight sm:text-3xl">내 주변 배드민턴 클럽 찾기</h2>
             <p className="mt-1 text-sm text-emerald-100/90">
-              새벽반부터 직장인 저녁반, 초보자 환영 클럽까지! 전국 전용구장 및 공공체육관 공식 등록 클럽을 만나보세요.
+              배드민턴타임즈에 공식 등록된 전국 3,600+ 배드민턴 클럽! 새벽반, 오전반, 직장인 저녁반, 초보자 환영 클럽을 만나보세요.
             </p>
           </div>
           <div className="mt-4 flex items-center gap-3 md:mt-0">
             <div className="rounded-xl bg-white/10 p-3 text-center backdrop-blur-sm">
-              <p className="text-xs font-bold text-emerald-200">인증 클럽</p>
-              <p className="text-xl font-black text-white">{badmintonClubs.length}개소</p>
+              <p className="text-xs font-bold text-emerald-200">등록 클럽</p>
+              <p className="text-xl font-black text-white">{badmintonClubs.length.toLocaleString()}개소</p>
             </div>
             <div className="rounded-xl bg-white/10 p-3 text-center backdrop-blur-sm">
               <p className="text-xs font-bold text-emerald-200">초보 환영</p>
-              <p className="text-xl font-black text-white">{badmintonClubs.filter(c => c.features.includes('초보환영')).length}개소</p>
+              <p className="text-xl font-black text-white">{badmintonClubs.filter(c => c.features.includes('초보환영')).length.toLocaleString()}개소</p>
             </div>
           </div>
         </div>
@@ -141,27 +131,8 @@ export function ClubExplorer() {
           </div>
         </div>
 
-        {/* 출처 필터 칩 */}
-        <div className="mt-4 flex flex-wrap items-center gap-1.5 border-t border-zinc-100 pt-3">
-          <span className="mr-1 text-xs font-bold text-zinc-500">출처:</span>
-          {sources.map(s => (
-            <button
-              key={s}
-              type="button"
-              onClick={() => setSelectedSource(s)}
-              className={`rounded-lg px-2.5 py-1 text-xs font-semibold transition ${
-                selectedSource === s
-                  ? 'bg-emerald-800 text-white shadow-xs'
-                  : 'bg-zinc-100 text-zinc-600 hover:bg-zinc-200'
-              }`}
-            >
-              {s}
-            </button>
-          ))}
-        </div>
-
         {/* 시·도 지역 필터 칩 */}
-        <div className="mt-2.5 flex flex-wrap items-center gap-1.5 border-t border-zinc-100 pt-2.5">
+        <div className="mt-4 flex flex-wrap items-center gap-1.5 border-t border-zinc-100 pt-3">
           <span className="mr-1 text-xs font-bold text-zinc-500">지역:</span>
           {regions.map(r => (
             <button
@@ -170,7 +141,7 @@ export function ClubExplorer() {
               onClick={() => setSelectedRegion(r)}
               className={`rounded-lg px-2.5 py-1 text-xs font-semibold transition ${
                 selectedRegion === r
-                  ? 'bg-emerald-700 text-white shadow-xs'
+                  ? 'bg-emerald-800 text-white shadow-xs'
                   : 'bg-zinc-100 text-zinc-600 hover:bg-zinc-200'
               }`}
             >
@@ -180,7 +151,7 @@ export function ClubExplorer() {
         </div>
 
         {/* 시간대 필터 칩 */}
-        <div className="mt-2.5 flex flex-wrap items-center gap-1.5">
+        <div className="mt-2.5 flex flex-wrap items-center gap-1.5 border-t border-zinc-100 pt-2.5">
           <span className="mr-1 text-xs font-bold text-zinc-500">시간대:</span>
           {timeSlots.map(t => (
             <button
@@ -202,10 +173,10 @@ export function ClubExplorer() {
       {/* 검색 결과 카운트 및 데이터 출처 안내 */}
       <div className="flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-between px-1">
         <p className="text-sm font-bold text-zinc-700">
-          검색된 클럽 <span className="text-emerald-700 font-extrabold">{filteredClubs.length}</span>곳
+          검색된 클럽 <span className="text-emerald-700 font-extrabold">{filteredClubs.length.toLocaleString()}</span>곳
         </p>
         <p className="text-xs text-muted-foreground flex items-center gap-1">
-          <Building2 className="size-3.5 text-emerald-600" /> 데이터 출처: 전국 시·도 배드민턴협회 및 지자체 체육회 공식 공고
+          <Building2 className="size-3.5 text-emerald-600" /> 데이터 출처: 배드민턴타임즈(BadmintonTimes) 공식 전국클럽 정보
         </p>
       </div>
 
@@ -375,11 +346,7 @@ export function ClubExplorer() {
                 >
                   <span className="flex items-center gap-1.5">
                     <Building2 className="size-3.5 text-emerald-700" />
-                    {selectedClub.source === '배드민턴타임즈'
-                      ? '배드민턴타임즈 전국클럽 정보 바로가기'
-                      : selectedClub.source === '배드민턴게임'
-                      ? '배드민턴게임 클럽 정보 바로가기'
-                      : '관할 체육회 / 시설관리공단 홈페이지'}
+                    배드민턴타임즈 전국클럽 정보 바로가기
                   </span>
                   <ExternalLink className="size-3.5 text-emerald-600" />
                 </a>
