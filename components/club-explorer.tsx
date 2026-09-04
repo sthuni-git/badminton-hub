@@ -18,11 +18,15 @@ import {
 
 export function ClubExplorer() {
   const [query, setQuery] = useState('');
+  const [selectedSource, setSelectedSource] = useState('전체');
   const [selectedRegion, setSelectedRegion] = useState('전체');
   const [selectedTimeSlot, setSelectedTimeSlot] = useState('전체');
   const [onlyBeginner, setOnlyBeginner] = useState(false);
   const [onlyLesson, setOnlyLesson] = useState(false);
   const [selectedClub, setSelectedClub] = useState<BadmintonClub | null>(null);
+
+  // 출처 그룹 목록
+  const sources = ['전체', '배드민턴타임즈', '배드민턴게임', '지자체 협회/체육회'];
 
   // 시·도 목록 추출
   const regions = useMemo(() => {
@@ -44,14 +48,20 @@ export function ClubExplorer() {
         club.region.toLowerCase().includes(q) ||
         club.source.toLowerCase().includes(q);
 
+      const matchesSource = 
+        selectedSource === '전체' ||
+        (selectedSource === '배드민턴타임즈' && club.source === '배드민턴타임즈') ||
+        (selectedSource === '배드민턴게임' && club.source === '배드민턴게임') ||
+        (selectedSource === '지자체 협회/체육회' && club.source !== '배드민턴타임즈' && club.source !== '배드민턴게임');
+
       const matchesRegion = selectedRegion === '전체' || club.region === selectedRegion;
       const matchesTimeSlot = selectedTimeSlot === '전체' || club.timeSlot === selectedTimeSlot;
       const matchesBeginner = !onlyBeginner || club.features.includes('초보환영');
       const matchesLesson = !onlyLesson || club.features.some(f => f.includes('레슨'));
 
-      return matchesQuery && matchesRegion && matchesTimeSlot && matchesBeginner && matchesLesson;
+      return matchesQuery && matchesSource && matchesRegion && matchesTimeSlot && matchesBeginner && matchesLesson;
     });
-  }, [query, selectedRegion, selectedTimeSlot, onlyBeginner, onlyLesson]);
+  }, [query, selectedSource, selectedRegion, selectedTimeSlot, onlyBeginner, onlyLesson]);
 
   return (
     <div className="space-y-6 pb-20">
@@ -131,8 +141,27 @@ export function ClubExplorer() {
           </div>
         </div>
 
-        {/* 시·도 지역 필터 칩 */}
+        {/* 출처 필터 칩 */}
         <div className="mt-4 flex flex-wrap items-center gap-1.5 border-t border-zinc-100 pt-3">
+          <span className="mr-1 text-xs font-bold text-zinc-500">출처:</span>
+          {sources.map(s => (
+            <button
+              key={s}
+              type="button"
+              onClick={() => setSelectedSource(s)}
+              className={`rounded-lg px-2.5 py-1 text-xs font-semibold transition ${
+                selectedSource === s
+                  ? 'bg-emerald-800 text-white shadow-xs'
+                  : 'bg-zinc-100 text-zinc-600 hover:bg-zinc-200'
+              }`}
+            >
+              {s}
+            </button>
+          ))}
+        </div>
+
+        {/* 시·도 지역 필터 칩 */}
+        <div className="mt-2.5 flex flex-wrap items-center gap-1.5 border-t border-zinc-100 pt-2.5">
           <span className="mr-1 text-xs font-bold text-zinc-500">지역:</span>
           {regions.map(r => (
             <button
@@ -141,7 +170,7 @@ export function ClubExplorer() {
               onClick={() => setSelectedRegion(r)}
               className={`rounded-lg px-2.5 py-1 text-xs font-semibold transition ${
                 selectedRegion === r
-                  ? 'bg-emerald-800 text-white shadow-xs'
+                  ? 'bg-emerald-700 text-white shadow-xs'
                   : 'bg-zinc-100 text-zinc-600 hover:bg-zinc-200'
               }`}
             >
@@ -234,9 +263,22 @@ export function ClubExplorer() {
               </div>
 
               {/* 공식 데이터 출처 표시 */}
-              <div className="mt-3 rounded-lg bg-emerald-50/70 px-2.5 py-1.5 text-[11px] font-semibold text-emerald-900 flex items-center gap-1.5">
-                <Building2 className="size-3 text-emerald-700 shrink-0" />
-                <span className="truncate">출처: {club.source}</span>
+              <div className="mt-3 flex items-center justify-between rounded-lg bg-emerald-50/70 px-2.5 py-1.5 text-[11px] font-semibold text-emerald-900">
+                <span className="flex items-center gap-1.5 truncate">
+                  <Building2 className="size-3 text-emerald-700 shrink-0" />
+                  <span className="truncate">출처: {club.source}</span>
+                </span>
+                {club.sourceUrl && (
+                  <a
+                    href={club.sourceUrl}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="ml-1 inline-flex items-center gap-0.5 text-[10px] font-bold text-emerald-700 hover:text-emerald-900 shrink-0 hover:underline"
+                    title={`${club.source} 원본 보기`}
+                  >
+                    원문 <ExternalLink className="size-2.5" />
+                  </a>
+                )}
               </div>
             </div>
 
@@ -333,7 +375,11 @@ export function ClubExplorer() {
                 >
                   <span className="flex items-center gap-1.5">
                     <Building2 className="size-3.5 text-emerald-700" />
-                    관할 체육회 / 시설관리공단 홈페이지
+                    {selectedClub.source === '배드민턴타임즈'
+                      ? '배드민턴타임즈 전국클럽 정보 바로가기'
+                      : selectedClub.source === '배드민턴게임'
+                      ? '배드민턴게임 클럽 정보 바로가기'
+                      : '관할 체육회 / 시설관리공단 홈페이지'}
                   </span>
                   <ExternalLink className="size-3.5 text-emerald-600" />
                 </a>
