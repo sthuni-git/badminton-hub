@@ -202,19 +202,29 @@ export function ClubExplorer() {
                 )}
               </div>
 
-              {/* 클럽위치 (혹은 운동장소) */}
-              <p className="mt-1 text-xs font-semibold text-emerald-800 flex items-start gap-1">
-                <span className="shrink-0 mt-0.5">🏟️</span>
-                <span className="line-clamp-2">{club.location}</span>
-              </p>
+              {/* 클럽위치 */}
+              <div className="mt-2 text-xs">
+                <p className="text-[11px] font-bold text-zinc-400">클럽위치</p>
+                <p className="font-semibold text-zinc-800 line-clamp-1 flex items-center gap-1 mt-0.5">
+                  <MapPin className="size-3 text-emerald-600 shrink-0" /> {club.location}
+                </p>
+              </div>
+
+              {/* 운동장소 */}
+              <div className="mt-1.5 rounded-lg bg-emerald-50/80 px-2.5 py-1.5 border border-emerald-100/80">
+                <p className="text-[10px] font-bold text-emerald-700">운동장소</p>
+                <p className="text-xs font-bold text-emerald-950 truncate mt-0.5">
+                  🏟️ {club.playVenue}
+                </p>
+              </div>
 
               {/* 상세 정보 요약 블록 */}
-              <div className="mt-3 space-y-1.5 rounded-xl bg-zinc-50 p-2.5 text-xs text-zinc-700">
-                <div className="flex items-center justify-between">
-                  <span className="text-zinc-500 flex items-center gap-1">
+              <div className="mt-2.5 space-y-1.5 rounded-xl bg-zinc-50 p-2.5 text-xs text-zinc-700">
+                <div className="flex items-start justify-between gap-2">
+                  <span className="text-zinc-500 flex items-center gap-1 shrink-0 mt-0.5">
                     <Clock className="size-3.5 text-zinc-400" /> 운동시간
                   </span>
-                  <strong className="text-zinc-900 font-semibold truncate max-w-[170px]">{club.hours}</strong>
+                  <strong className="text-zinc-900 font-semibold text-right line-clamp-2">{club.playHours}</strong>
                 </div>
                 <div className="flex items-center justify-between">
                   <span className="text-zinc-500 flex items-center gap-1">
@@ -244,7 +254,7 @@ export function ClubExplorer() {
 
               {/* 기타사항 미리보기 (있을 경우) */}
               {club.description && (
-                <p className="mt-2.5 text-[11px] text-zinc-500 line-clamp-2 bg-zinc-50/60 p-2 rounded-lg border border-zinc-100">
+                <p className="mt-2 text-[11px] text-zinc-500 line-clamp-2 bg-zinc-50/60 p-2 rounded-lg border border-zinc-100">
                   📝 {club.description}
                 </p>
               )}
@@ -316,49 +326,122 @@ export function ClubExplorer() {
             </div>
 
             <h3 className="mt-2 text-2xl font-black text-zinc-900">{selectedClub.name}</h3>
-            
-            {/* 클럽위치 (혹은 운동장소) */}
-            <div className="mt-3 rounded-xl bg-emerald-50 border border-emerald-100 p-3">
-              <p className="text-xs font-bold text-emerald-800 mb-0.5 flex items-center gap-1">
-                <MapPin className="size-3.5 text-emerald-700" /> 클럽위치 (운동장소)
-              </p>
-              <p className="text-sm font-semibold text-zinc-900">{selectedClub.location}</p>
-            </div>
 
-            {/* 세부 스펙 테이블 */}
-            <div className="mt-4 space-y-2 rounded-xl bg-zinc-50 p-4 text-xs">
-              <div className="flex justify-between border-b border-zinc-200 pb-2">
-                <span className="text-zinc-500">구장형태</span>
-                <span className="font-bold text-zinc-900">{selectedClub.venueType}</span>
-              </div>
-              <div className="flex justify-between border-b border-zinc-200 pb-2">
-                <span className="text-zinc-500">코트 수</span>
-                <span className="font-bold text-emerald-700">{selectedClub.courtCount}</span>
-              </div>
-              <div className="flex justify-between border-b border-zinc-200 pb-2">
-                <span className="text-zinc-500">회원 수</span>
-                <span className="font-bold text-zinc-900">{selectedClub.memberCount}</span>
-              </div>
-              <div className="flex justify-between border-b border-zinc-200 pb-2">
-                <span className="text-zinc-500">운동시간</span>
-                <span className="font-bold text-zinc-900">{selectedClub.hours}</span>
-              </div>
-              <div className="flex justify-between border-b border-zinc-200 pb-2">
-                <span className="text-zinc-500">회비안내</span>
-                <span className="font-bold text-amber-800 text-right">{selectedClub.feeInfo}</span>
-              </div>
-              <div className="flex justify-between border-b border-zinc-200 pb-2">
-                <span className="text-zinc-500">문의전화</span>
-                <span className="font-bold text-emerald-700">{selectedClub.contact}</span>
-              </div>
-              <div className="flex justify-between border-b border-zinc-200 pb-2">
-                <span className="text-zinc-500">등록일자</span>
-                <span className="font-bold text-zinc-700">{selectedClub.registeredDate || '-'}</span>
-              </div>
-              <div className="flex items-center justify-between pt-1">
-                <span className="text-zinc-500 font-semibold">데이터 공식 출처</span>
-                <span className="font-bold text-emerald-900 text-[11px]">{selectedClub.source}</span>
-              </div>
+            {/* 배드민턴타임즈 정규 상세 테이블 (사용자 제공 원본 형태 완벽 일치) */}
+            <div className="mt-4 overflow-hidden rounded-xl border border-zinc-200 shadow-xs text-xs">
+              <table className="w-full text-left border-collapse">
+                <tbody>
+                  <tr className="border-b border-zinc-200">
+                    <td className="w-24 bg-zinc-50/80 px-3.5 py-2.5 font-bold text-zinc-600 border-r border-zinc-200 shrink-0">
+                      클럽이름
+                    </td>
+                    <td className="px-3.5 py-2.5 font-extrabold text-zinc-900 text-sm">
+                      {selectedClub.name}
+                    </td>
+                  </tr>
+                  <tr className="border-b border-zinc-200">
+                    <td className="w-24 bg-zinc-50/80 px-3.5 py-2.5 font-bold text-zinc-600 border-r border-zinc-200">
+                      클럽위치
+                    </td>
+                    <td className="px-3.5 py-2.5 font-medium text-zinc-800 leading-relaxed">
+                      {selectedClub.location}
+                    </td>
+                  </tr>
+                  <tr className="border-b border-zinc-200">
+                    <td className="w-24 bg-emerald-50/80 px-3.5 py-2.5 font-bold text-emerald-800 border-r border-zinc-200">
+                      운동장소
+                    </td>
+                    <td className="px-3.5 py-2.5 font-bold text-emerald-900 leading-relaxed bg-emerald-50/30">
+                      🏟️ {selectedClub.playVenue}
+                    </td>
+                  </tr>
+                  <tr className="border-b border-zinc-200">
+                    <td className="w-24 bg-emerald-50/80 px-3.5 py-2.5 font-bold text-emerald-800 border-r border-zinc-200">
+                      운동시간
+                    </td>
+                    <td className="px-3.5 py-2.5 font-bold text-emerald-950 leading-relaxed bg-emerald-50/30">
+                      ⏰ {selectedClub.playHours}
+                    </td>
+                  </tr>
+                  <tr className="border-b border-zinc-200">
+                    <td className="w-24 bg-zinc-50/80 px-3.5 py-2.5 font-bold text-zinc-600 border-r border-zinc-200">
+                      구장형태
+                    </td>
+                    <td className="px-3.5 py-2.5 font-semibold text-zinc-800">
+                      {selectedClub.venueType}
+                    </td>
+                  </tr>
+                  <tr className="border-b border-zinc-200">
+                    <td className="w-24 bg-zinc-50/80 px-3.5 py-2.5 font-bold text-zinc-600 border-r border-zinc-200">
+                      코트수
+                    </td>
+                    <td className="px-3.5 py-2.5 font-semibold text-zinc-800">
+                      {selectedClub.courtCount}
+                    </td>
+                  </tr>
+                  <tr className="border-b border-zinc-200">
+                    <td className="w-24 bg-zinc-50/80 px-3.5 py-2.5 font-bold text-zinc-600 border-r border-zinc-200">
+                      회원수
+                    </td>
+                    <td className="px-3.5 py-2.5 font-semibold text-zinc-800">
+                      {selectedClub.memberCount}
+                    </td>
+                  </tr>
+                  <tr className="border-b border-zinc-200">
+                    <td className="w-24 bg-zinc-50/80 px-3.5 py-2.5 font-bold text-zinc-600 border-r border-zinc-200">
+                      회비안내
+                    </td>
+                    <td className="px-3.5 py-2.5 font-bold text-amber-800">
+                      {selectedClub.feeInfo}
+                    </td>
+                  </tr>
+                  <tr className="border-b border-zinc-200">
+                    <td className="w-24 bg-zinc-50/80 px-3.5 py-2.5 font-bold text-zinc-600 border-r border-zinc-200">
+                      문의전화
+                    </td>
+                    <td className="px-3.5 py-2.5 font-semibold text-zinc-800">
+                      {selectedClub.contact}
+                    </td>
+                  </tr>
+                  <tr className="border-b border-zinc-200">
+                    <td className="w-24 bg-zinc-50/80 px-3.5 py-2.5 font-bold text-zinc-600 border-r border-zinc-200">
+                      관련링크
+                    </td>
+                    <td className="px-3.5 py-2.5 font-semibold text-zinc-800">
+                      {selectedClub.link ? (
+                        <a
+                          href={selectedClub.link}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="text-blue-600 hover:underline flex items-center gap-1 font-bold"
+                        >
+                          {selectedClub.link} <ExternalLink className="size-3" />
+                        </a>
+                      ) : (
+                        <span className="text-zinc-400">http://</span>
+                      )}
+                    </td>
+                  </tr>
+                  {selectedClub.description && (
+                    <tr className="border-b border-zinc-200">
+                      <td className="w-24 bg-zinc-50/80 px-3.5 py-2.5 font-bold text-zinc-600 border-r border-zinc-200 align-top">
+                        기타사항
+                      </td>
+                      <td className="px-3.5 py-2.5 font-medium text-zinc-700 leading-relaxed whitespace-pre-line">
+                        {selectedClub.description}
+                      </td>
+                    </tr>
+                  )}
+                  <tr>
+                    <td className="w-24 bg-zinc-50/80 px-3.5 py-2.5 font-bold text-zinc-600 border-r border-zinc-200">
+                      등록일자
+                    </td>
+                    <td className="px-3.5 py-2.5 font-medium text-zinc-600">
+                      {selectedClub.registeredDate || '-'}
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
 
             {/* 관련링크 (블로그/카페/밴드) */}
@@ -376,16 +459,6 @@ export function ClubExplorer() {
                   </span>
                   <ExternalLink className="size-3.5 text-blue-600" />
                 </a>
-              </div>
-            )}
-
-            {/* 기타사항 (소개글 전문) */}
-            {selectedClub.description && (
-              <div className="mt-3 rounded-xl border border-zinc-200 bg-zinc-50/80 p-3.5 text-xs text-zinc-700">
-                <p className="font-bold text-zinc-900 mb-1 flex items-center gap-1">
-                  <FileText className="size-3.5 text-zinc-500" /> 기타사항 및 클럽 안내
-                </p>
-                <p className="leading-relaxed whitespace-pre-line text-zinc-700">{selectedClub.description}</p>
               </div>
             )}
 
