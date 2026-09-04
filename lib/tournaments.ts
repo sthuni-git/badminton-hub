@@ -10,6 +10,7 @@ export type TournamentSource =
   | '스포넷' 
   | '위꾹'
   | '대한배드민턴협회'
+  | '인포민턴'
   | '배드민턴게임'
   | '오마이플레이'
   | 'BKPLAY' 

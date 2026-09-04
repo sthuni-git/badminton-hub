@@ -18,7 +18,7 @@ const dataPath = path.resolve(process.cwd(), 'lib/tournaments-scraped.json');
 const records = JSON.parse(fs.readFileSync(dataPath, 'utf-8')) as TournamentRecord[];
 const errors: string[] = [];
 const ids = new Set<string>();
-const allowedSources = new Set(['페이스콕', '배드민톡', '배드민턴타임즈', '배드민턴게임', '코트엑스', '오마이플레이', '스포넷', '위꾹', '대한배드민턴협회']);
+const allowedSources = new Set(['페이스콕', '배드민톡', '배드민턴타임즈', '배드민턴게임', '코트엑스', '오마이플레이', '스포넷', '위꾹', '대한배드민턴협회', '인포민턴']);
 const genericListLinks = new Set([
   'https://facecock.co.kr/page/?pid=game',
   'https://badmintok.com/badminton-tournament/',

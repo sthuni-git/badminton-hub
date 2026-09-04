@@ -2,7 +2,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 
 type TournamentCategory = '전국오픈' | '지역구대회' | '학생선수권' | '브랜드대회' | '국제대회';
-type TournamentSource = '배드민톡' | '배드민턴타임즈' | '페이스콕' | '배드민턴게임' | '코트엑스' | '오마이플레이' | '스포넷' | '위꾹' | '대한배드민턴협회';
+type TournamentSource = '배드민톡' | '배드민턴타임즈' | '페이스콕' | '배드민턴게임' | '코트엑스' | '오마이플레이' | '스포넷' | '위꾹' | '대한배드민턴협회' | '인포민턴';
 
 interface ScrapedTournament {
   id: string;
@@ -807,6 +807,75 @@ async function scrapeBKA(): Promise<ScrapedTournament[]> {
   return tournaments;
 }
 
+async function scrapeInfominton(): Promise<ScrapedTournament[]> {
+  const url = 'https://infominton.com/ProgressiveWebApplication/Badminton/StartMobile/CompetitonInformation/List/Search/near_game';
+  const response = await fetch(url, {
+    headers: {
+      'User-Agent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 16_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.6 Mobile/15E148 Safari/604.1',
+    },
+    signal: AbortSignal.timeout(REQUEST_TIMEOUT_MS),
+  });
+
+  if (!response.ok) throw new Error(`${response.status} ${response.statusText}`);
+
+  const html = await response.text();
+  const cards = html.split('<div class="d-flex">');
+  const tournaments: ScrapedTournament[] = [];
+  const seen = new Set<string>();
+
+  for (let i = 1; i < cards.length; i++) {
+    const card = cards[i];
+
+    const idMatch = card.match(/CompetitonInformation\/View\/([A-Za-z0-9_-]+)/);
+    if (!idMatch) continue;
+    const id = idMatch[1];
+    if (seen.has(id)) continue;
+    seen.add(id);
+
+    const nameMatch = card.match(/<h5[^>]*>[\s\S]*?<\/span>\s*<br>\s*([\s\S]*?)<\/h5>/);
+    const name = cleanText(nameMatch ? nameMatch[1].replace(/<[^>]+>/g, '') : '');
+
+    const locMatch = card.match(/<i class="fa fa-map-pin"><\/i>\s*([\s\S]*?)<\/div>/);
+    const venue = cleanText(locMatch ? locMatch[1].replace(/<[^>]+>/g, '') : '인포민턴 요강 참조');
+
+    const dateMatch = card.match(/대회일시:\s*(\d{4}[.-]\d{2}[.-]\d{2})/);
+    let eventStart = '';
+    let eventEnd = '';
+
+    if (dateMatch) {
+      eventStart = dateMatch[1].replace(/\./g, '-');
+      eventEnd = eventStart;
+    } else {
+      const shortDateMatch = card.match(/대회일시:\s*(\d{2})[.-](\d{2})[.-](\d{2})/);
+      if (shortDateMatch) {
+        eventStart = `20${shortDateMatch[1]}-${shortDateMatch[2]}-${shortDateMatch[3]}`;
+        eventEnd = eventStart;
+      }
+    }
+
+    if (!name || !eventStart) continue;
+
+    tournaments.push({
+      id: `infominton-${id}`,
+      category: categorizeTournament(name, venue),
+      name,
+      registrationPeriod: '인포민턴 공식 요강 참조',
+      registrationStart: '',
+      registrationEnd: '',
+      eventPeriod: displayPeriod(eventStart, eventEnd || eventStart),
+      eventStart,
+      eventEnd: eventEnd || eventStart,
+      venue,
+      source: '인포민턴',
+      officialLink: `https://infominton.com/ProgressiveWebApplication/Badminton/StartMobile/CompetitonInformation/View/${id}`,
+      fee: '요강 참조',
+    });
+  }
+
+  console.log(`   ✅ 인포민턴 모바일 웹뷰 검증: ${tournaments.length}건`);
+  return tournaments;
+}
+
 function normalizeName(name: string): string {
   return name
     .toLowerCase()
@@ -862,7 +931,7 @@ async function main(): Promise<void> {
   console.log('🏸 검증 가능한 원문 기반 대회 수집을 시작합니다.');
   console.log('   합성 대회, 임의 날짜/참가비, 목록 주소만 있는 레코드는 생성하지 않습니다.');
 
-  const [facecock, badmintok, badmintonTimes, badmintonGame, courtX, ohMyPlay, sponet, wekkuk, bka] = await Promise.all([
+  const [facecock, badmintok, badmintonTimes, badmintonGame, courtX, ohMyPlay, sponet, wekkuk, bka, infominton] = await Promise.all([
     safelyCollect('페이스콕', scrapeFacecock),
     safelyCollect('배드민톡', scrapeBadmintok),
     safelyCollect('배드민턴타임즈', scrapeBadmintonTimes),
@@ -872,6 +941,7 @@ async function main(): Promise<void> {
     safelyCollect('스포넷', scrapeSponet),
     safelyCollect('위꾹', scrapeWekkuk),
     safelyCollect('대한배드민턴협회', scrapeBKA),
+    safelyCollect('인포민턴', scrapeInfominton),
   ]);
 
   const tournaments = mergeAndDeduplicate([
@@ -884,6 +954,7 @@ async function main(): Promise<void> {
     ...sponet,
     ...wekkuk,
     ...bka,
+    ...infominton,
   ]);
   if (tournaments.length === 0) throw new Error('검증 가능한 대회를 한 건도 수집하지 못해 기존 파일을 보존합니다.');
 
@@ -892,7 +963,7 @@ async function main(): Promise<void> {
 
   console.log(`✅ ${tournaments.length}건 저장 완료: ${outputPath}`);
   console.log(
-    `   페이스콕 ${facecock.length} / 배드민톡 ${badmintok.length} / 배드민턴타임즈 ${badmintonTimes.length} / 배드민턴게임 ${badmintonGame.length} / 코트엑스 ${courtX.length} / 오마이플레이 ${ohMyPlay.length} / 스포넷 ${sponet.length} / 위꾹 ${wekkuk.length} / 대한배드민턴협회 ${bka.length}`
+    `   페이스콕 ${facecock.length} / 배드민톡 ${badmintok.length} / 배드민턴타임즈 ${badmintonTimes.length} / 배드민턴게임 ${badmintonGame.length} / 코트엑스 ${courtX.length} / 오마이플레이 ${ohMyPlay.length} / 스포넷 ${sponet.length} / 위꾹 ${wekkuk.length} / 대한배드민턴협회 ${bka.length} / 인포민턴 ${infominton.length}`
   );
 }
 

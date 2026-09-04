@@ -33,7 +33,7 @@ jobs:
       - name: 3. 의존성 패키지 설치
         run: npm ci
 
-      - name: 4. 9대 플랫폼 전국 대회 전수 스크랩 & 데이터 무결성 검증
+      - name: 4. 10대 플랫폼 전국 대회 전수 스크랩 & 데이터 무결성 검증
         run: npm run scrape
 
       - name: 5. 정적 빌드 및 SSG 생성 사전 검증

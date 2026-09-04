@@ -32,19 +32,21 @@ import {
   Table as TableIcon,
   Trophy,
   Unlock,
+  Users,
   X,
 } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle } from '@/components/ui/sheet';
+import { ClubExplorer } from '@/components/club-explorer';
 import { CRAWLER_SOURCES, CRAWLER_TIPS, type SourceCategory } from '@/lib/crawler-sources';
 import { calculateDistanceKm, getVenueCoordinates, isInternationalVenue, PRESET_LOCATIONS, reverseGeocodeCoords, type Coordinates } from '@/lib/geo-utils';
 import type { Tournament, TournamentCategory } from '@/lib/tournaments';
 
 export type Status = '접수중' | '접수예정' | '마감임박' | '접수마감' | '접수정보확인' | '대회종료';
 export type StatusFilter = '전체' | '종료 제외' | Status;
-type MainTab = 'tournaments' | 'sources';
+type MainTab = 'tournaments' | 'sources' | 'clubs';
 type View = 'list' | 'table' | 'calendar';
 type SortOption = 'eventStart' | 'registrationEnd' | 'name';
 
@@ -717,6 +719,15 @@ export function TournamentExplorer({ tournaments }: { tournaments: Tournament[] 
               >
                 <Globe className="size-3.5" /> 출처 허브 ({tournaments.length}건)
               </button>
+              <button
+                type="button"
+                onClick={() => setActiveTab('clubs')}
+                className={`flex h-8 items-center gap-1.5 rounded-lg px-3 text-xs font-bold transition ${
+                  activeTab === 'clubs' ? 'bg-white text-emerald-800 shadow-sm' : 'text-muted-foreground'
+                }`}
+              >
+                <Users className="size-3.5" /> 클럽 찾기
+              </button>
             </div>
 
             {/* 상단 관리자 모드 로그인 / 로그아웃 버튼 */}
@@ -1145,13 +1156,16 @@ export function TournamentExplorer({ tournaments }: { tournaments: Tournament[] 
               <CalendarView tournaments={filtered} baseDate={today} favorites={validFavorites} onSelect={setSelected} />
             )}
           </>
-        ) : (
+        ) : activeTab === 'sources' ? (
           /* 출처 및 크롤링 채널 허브 탭 */
           <SourcesHubSection
             tournaments={tournaments}
             categoryFilter={sourceCategoryFilter}
             onCategoryChange={setSourceCategoryFilter}
           />
+        ) : (
+          /* 👥 전국 배드민턴 클럽 찾기 탭 */
+          <ClubExplorer />
         )}
       </div>
 
@@ -1381,6 +1395,7 @@ export function TournamentExplorer({ tournaments }: { tournaments: Tournament[] 
                     {selected.source === '위꾹' && '📄 위꾹 공식 상세 안내 및 대진표 보기'}
                     {selected.source === 'BKPLAY' && '📄 대한배드민턴협회 (BKPLAY) 공고 보기'}
                     {selected.source === '대한배드민턴협회' && '🏛️ 대한배드민턴협회(BKA) 공식 요강·대진표 보기'}
+                    {selected.source === '인포민턴' && '📄 인포민턴 공식 요강 및 상세 보기'}
                     {selected.source === '배드민톡' && '📄 배드민톡 세부 요강 바로가기'}
                     {selected.source === '배드민턴타임즈' && '📄 배드민턴타임즈 공식 요강 보기'}
                     {selected.source === '배드민턴게임' && '📄 배드민턴게임 공식 일정 보기'}
