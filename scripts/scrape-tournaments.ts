@@ -2,7 +2,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 
 type TournamentCategory = '전국오픈' | '지역구대회' | '학생선수권' | '브랜드대회' | '국제대회';
-type TournamentSource = '배드민톡' | '배드민턴타임즈' | '페이스콕' | '배드민턴게임' | '코트엑스' | '오마이플레이' | '스포넷' | '위꾹' | '대한배드민턴협회' | '인포민턴';
+type TournamentSource = '배드민톡' | '배드민턴타임즈' | '페이스콕' | '배드민턴게임' | '코트엑스' | '오마이플레이' | '스포넷' | '위꾹' | '대한배드민턴협회' | '대한체육회' | '인포민턴';
 
 interface ScrapedTournament {
   id: string;
@@ -274,8 +274,13 @@ async function scrapeBadmintok(): Promise<ScrapedTournament[]> {
     if (!item || typeof item.name !== 'string' || typeof item.startDate !== 'string' || typeof item.url !== 'string') continue;
 
     const eventStart = item.startDate.slice(0, 10);
-    const eventEnd = typeof item.endDate === 'string' ? item.endDate.slice(0, 10) : eventStart;
+    let eventEnd = typeof item.endDate === 'string' ? item.endDate.slice(0, 10) : eventStart;
     if (!/^20\d{2}-\d{2}-\d{2}$/.test(eventStart) || !/^20\d{2}-\d{2}-\d{2}$/.test(eventEnd)) continue;
+
+    // 원본 데이터의 오기입으로 종료일이 시작일보다 빠른 경우 시작일로 보정
+    if (eventEnd < eventStart) {
+      eventEnd = eventStart;
+    }
 
     const location = item.location as { name?: string; address?: { addressRegion?: string } } | undefined;
     const venue = [location?.address?.addressRegion, location?.name].filter(Boolean).join(' ').trim() || '장소는 공식 페이지 참조';
@@ -876,6 +881,120 @@ async function scrapeInfominton(): Promise<ScrapedTournament[]> {
   return tournaments;
 }
 
+async function scrapeSportsOrKr(): Promise<ScrapedTournament[]> {
+  const tournaments: ScrapedTournament[] = [];
+  const seen = new Set<string>();
+  const currentYear = new Date().getFullYear();
+  const searchStartDt = `${currentYear}0101`;
+  const searchEndDt = `${currentYear}1231`;
+
+  let totalPages = 1;
+
+  for (let page = 1; page <= totalPages; page++) {
+    const response = await fetch('https://result.sports.or.kr/BM/INF201.do', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+        'User-Agent': USER_AGENT,
+      },
+      body: `classCd=26&searchStartDt=${searchStartDt}&searchEndDt=${searchEndDt}&pageIndex=${page}`,
+      signal: AbortSignal.timeout(REQUEST_TIMEOUT_MS),
+    });
+
+    if (!response.ok) {
+      console.warn(`   ⚠️ 대한체육회 ${page}페이지 응답 오류: ${response.status}`);
+      break;
+    }
+
+    const html = await response.text();
+
+    if (page === 1) {
+      const totalMatch = html.match(/총게시물\s*(\d+)건/);
+      if (totalMatch) {
+        const totalItems = Number.parseInt(totalMatch[1], 10);
+        totalPages = Math.ceil(totalItems / 10);
+      }
+    }
+
+    const rows = html.match(/<tr>[\s\S]*?<\/tr>/g) || [];
+    for (const row of rows) {
+      if (row.includes('<th')) continue;
+
+      const toCdMatch = row.match(/fnEventInfo\(&#34;26&#34;,&#34;(\d+)&#34;\)/);
+      const toCd = toCdMatch ? toCdMatch[1] : '';
+
+      const cols = [...row.matchAll(/<td[^>]*>([\s\S]*?)<\/td>/g)].map((m) =>
+        cleanText(m[1].replace(/<[^>]+>/g, ''))
+      );
+
+      if (cols.length < 5) continue;
+      const name = cols[1];
+      const venue = cols[2] || '공식 요강 참조';
+      const eventPeriodRaw = cols[3];
+      const regPeriodRaw = cols[4];
+
+      if (!name) continue;
+
+      let eventStart = '';
+      let eventEnd = '';
+
+      const rangeMatch = eventPeriodRaw.match(/(\d{4})[.-](\d{2})[.-](\d{2})\s*~\s*(\d{4})[.-](\d{2})[.-](\d{2})/);
+      if (rangeMatch) {
+        eventStart = `${rangeMatch[1]}-${rangeMatch[2]}-${rangeMatch[3]}`;
+        eventEnd = `${rangeMatch[4]}-${rangeMatch[5]}-${rangeMatch[6]}`;
+      } else {
+        const singleMatch = eventPeriodRaw.match(/(\d{4})[.-](\d{2})[.-](\d{2})/);
+        if (singleMatch) {
+          eventStart = `${singleMatch[1]}-${singleMatch[2]}-${singleMatch[3]}`;
+          eventEnd = eventStart;
+        }
+      }
+
+      if (!eventStart) continue;
+      if (eventEnd < eventStart) eventEnd = eventStart;
+
+      let registrationStart = '';
+      let registrationEnd = '';
+      let registrationPeriod = '대한체육회 공식 요강 참조';
+
+      const regRangeMatch = regPeriodRaw.match(/(\d{4})[.-](\d{2})[.-](\d{2})\s*~\s*(\d{4})[.-](\d{2})[.-](\d{2})/);
+      if (regRangeMatch) {
+        registrationStart = `${regRangeMatch[1]}-${regRangeMatch[2]}-${regRangeMatch[3]}`;
+        registrationEnd = `${regRangeMatch[4]}-${regRangeMatch[5]}-${regRangeMatch[6]}`;
+        if (registrationEnd < registrationStart) registrationEnd = registrationStart;
+        registrationPeriod = displayPeriod(registrationStart, registrationEnd);
+      }
+
+      const id = toCd || stableHash(name);
+      if (seen.has(id)) continue;
+      seen.add(id);
+
+      const officialLink = toCd
+        ? `https://result.sports.or.kr/BM/INF306.do?classCd=26&toCd=${toCd}`
+        : 'https://result.sports.or.kr/BM/INF201.do';
+
+      tournaments.push({
+        id: `sports-${id}`,
+        category: categorizeTournament(name, venue),
+        name,
+        registrationPeriod,
+        registrationStart,
+        registrationEnd,
+        eventPeriod: displayPeriod(eventStart, eventEnd),
+        eventStart,
+        eventEnd,
+        venue,
+        source: '대한체육회',
+        officialLink,
+        fee: '공식 요강 참조',
+      });
+    }
+  }
+
+  console.log(`   ✅ 대한체육회(sports.or.kr) 공식 일정 검증: ${tournaments.length}건`);
+  return tournaments;
+}
+
 function normalizeName(name: string): string {
   return name
     .toLowerCase()
@@ -890,6 +1009,15 @@ function mergeAndDeduplicate(all: ScrapedTournament[]): ScrapedTournament[] {
 
   for (const tournament of all) {
     if (!tournament.officialLink || !/\/|\?/.test(tournament.officialLink)) continue;
+
+    // 날짜 역전 방어 보정
+    if (tournament.eventEnd < tournament.eventStart) {
+      tournament.eventEnd = tournament.eventStart;
+    }
+    if (tournament.registrationEnd && tournament.registrationStart && tournament.registrationEnd < tournament.registrationStart) {
+      tournament.registrationEnd = tournament.registrationStart;
+    }
+
     const key = `${normalizeName(tournament.name)}|${tournament.eventStart}`;
     const existing = merged.get(key);
 
@@ -931,7 +1059,7 @@ async function main(): Promise<void> {
   console.log('🏸 검증 가능한 원문 기반 대회 수집을 시작합니다.');
   console.log('   합성 대회, 임의 날짜/참가비, 목록 주소만 있는 레코드는 생성하지 않습니다.');
 
-  const [facecock, badmintok, badmintonTimes, badmintonGame, courtX, ohMyPlay, sponet, wekkuk, bka, infominton] = await Promise.all([
+  const [facecock, badmintok, badmintonTimes, badmintonGame, courtX, ohMyPlay, sponet, wekkuk, bka, infominton, sportsOrKr] = await Promise.all([
     safelyCollect('페이스콕', scrapeFacecock),
     safelyCollect('배드민톡', scrapeBadmintok),
     safelyCollect('배드민턴타임즈', scrapeBadmintonTimes),
@@ -942,6 +1070,7 @@ async function main(): Promise<void> {
     safelyCollect('위꾹', scrapeWekkuk),
     safelyCollect('대한배드민턴협회', scrapeBKA),
     safelyCollect('인포민턴', scrapeInfominton),
+    safelyCollect('대한체육회', scrapeSportsOrKr),
   ]);
 
   const tournaments = mergeAndDeduplicate([
@@ -955,6 +1084,7 @@ async function main(): Promise<void> {
     ...wekkuk,
     ...bka,
     ...infominton,
+    ...sportsOrKr,
   ]);
   if (tournaments.length === 0) throw new Error('검증 가능한 대회를 한 건도 수집하지 못해 기존 파일을 보존합니다.');
 
@@ -963,7 +1093,7 @@ async function main(): Promise<void> {
 
   console.log(`✅ ${tournaments.length}건 저장 완료: ${outputPath}`);
   console.log(
-    `   페이스콕 ${facecock.length} / 배드민톡 ${badmintok.length} / 배드민턴타임즈 ${badmintonTimes.length} / 배드민턴게임 ${badmintonGame.length} / 코트엑스 ${courtX.length} / 오마이플레이 ${ohMyPlay.length} / 스포넷 ${sponet.length} / 위꾹 ${wekkuk.length} / 대한배드민턴협회 ${bka.length} / 인포민턴 ${infominton.length}`
+    `   페이스콕 ${facecock.length} / 배드민톡 ${badmintok.length} / 배드민턴타임즈 ${badmintonTimes.length} / 배드민턴게임 ${badmintonGame.length} / 코트엑스 ${courtX.length} / 오마이플레이 ${ohMyPlay.length} / 스포넷 ${sponet.length} / 위꾹 ${wekkuk.length} / 대한배드민턴협회 ${bka.length} / 인포민턴 ${infominton.length} / 대한체육회 ${sportsOrKr.length}`
   );
 }
 
