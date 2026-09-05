@@ -50,7 +50,7 @@ type MainTab = 'tournaments' | 'sources' | 'clubs';
 type View = 'list' | 'table' | 'calendar';
 type SortOption = 'eventStart' | 'registrationEnd' | 'name';
 
-interface UserLocation {
+export interface UserLocation {
   coords: Coordinates;
   label: string;
   isGps: boolean;
@@ -1166,7 +1166,7 @@ export function TournamentExplorer({ tournaments }: { tournaments: Tournament[] 
           />
         ) : (
           /* 👥 전국 배드민턴 클럽 찾기 탭 */
-          <ClubExplorer />
+          <ClubExplorer userLocation={userLocation} />
         )}
       </div>
 
