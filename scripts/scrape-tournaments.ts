@@ -1049,7 +1049,7 @@ async function scrapeCockcock(): Promise<ScrapedTournament[]> {
       if (regEnd && regStart && regEnd < regStart) regEnd = regStart;
 
       const venue = cleanText(item.venue || '공식 요강 참조');
-      const officialLink = item.detail_url || `https://cockcock.co.kr/tournaments/${item.id}`;
+      const officialLink = `https://cockcock.co.kr/tournaments/${item.id}`;
       
       const key = `${name}|${eventStart}`;
       if (seen.has(key)) continue;
@@ -1117,10 +1117,16 @@ function mergeAndDeduplicate(all: ScrapedTournament[]): ScrapedTournament[] {
       continue;
     }
 
-    if (!existing.sources?.includes(tournament.source)) existing.sources = [...(existing.sources ?? [existing.source]), tournament.source];
-    if (!existing.sourceLinks?.some((link) => link.source === tournament.source)) {
-      existing.sourceLinks = [...(existing.sourceLinks ?? []), { source: tournament.source, link: tournament.officialLink }];
+    if (!existing.sources?.includes(tournament.source)) {
+      existing.sources = [...(existing.sources ?? [existing.source]), tournament.source];
     }
+    
+    // 출처명 또는 링크가 이미 등록되어 있지 않은 경우에만 추가 (URL 및 출처 중복 완벽 제거)
+    const normalizedLink = tournament.officialLink.trim();
+    if (!existing.sourceLinks?.some((link) => link.source === tournament.source || link.link === normalizedLink)) {
+      existing.sourceLinks = [...(existing.sourceLinks ?? []), { source: tournament.source, link: normalizedLink }];
+    }
+
     if (!existing.registrationStart && tournament.registrationStart) {
       existing.registrationStart = tournament.registrationStart;
       existing.registrationEnd = tournament.registrationEnd;
@@ -1128,6 +1134,18 @@ function mergeAndDeduplicate(all: ScrapedTournament[]): ScrapedTournament[] {
     }
     if (!existing.posterImage && tournament.posterImage) existing.posterImage = tournament.posterImage;
     if (tournament.venue.length > existing.venue.length) existing.venue = tournament.venue;
+  }
+
+  // 최종 sourceLinks 내부 동일 URL 중복 필터링
+  for (const item of merged.values()) {
+    if (item.sourceLinks && item.sourceLinks.length > 1) {
+      const seenLinks = new Set<string>();
+      item.sourceLinks = item.sourceLinks.filter((sl) => {
+        if (seenLinks.has(sl.link)) return false;
+        seenLinks.add(sl.link);
+        return true;
+      });
+    }
   }
 
   return [...merged.values()].sort((a, b) => a.eventStart.localeCompare(b.eventStart) || a.name.localeCompare(b.name, 'ko'));

@@ -1379,9 +1379,9 @@ export function TournamentExplorer({ tournaments }: { tournaments: Tournament[] 
                 <div className="space-y-2 pt-1">
                   <p className="text-xs font-bold text-slate-700">🏷️ 각 플랫폼별 공식 접수처·요강 바로가기:</p>
                   <div className="grid gap-2 sm:grid-cols-2">
-                    {selected.sourceLinks.map((sl) => (
+                    {Array.from(new Map(selected.sourceLinks.map((sl) => [sl.link, sl])).values()).map((sl) => (
                       <a
-                        key={sl.source}
+                        key={`${sl.source}-${sl.link}`}
                         href={sl.link}
                         target="_blank"
                         rel="noreferrer"
@@ -1404,17 +1404,24 @@ export function TournamentExplorer({ tournaments }: { tournaments: Tournament[] 
                   >
                     {selected.source === '페이스콕' && '📄 페이스콕 공식 접수처 바로가기'}
                     {selected.source === '코트엑스' && '📄 코트엑스 공식 접수처 바로가기'}
+                    {selected.source === '콕콕' && '📄 콕콕(COCKCOCK) 공식 요강 바로가기'}
                     {selected.source === '오마이플레이' && '📄 오마이플레이 공식 대진표·요강 바로가기'}
                     {selected.source === '스포넷' && '📄 스포넷 공식 요강 PDF 원본 보기'}
                     {selected.source === '위꾹' && '📄 위꾹 공식 상세 안내 및 대진표 보기'}
                     {selected.source === 'BKPLAY' && '📄 대한배드민턴협회 (BKPLAY) 공고 보기'}
                     {selected.source === '대한배드민턴협회' && '🏛️ 대한배드민턴협회(BKA) 공식 요강·대진표 보기'}
+                    {selected.source === '대한체육회' && '🏛️ 대한체육회 대회운영정보 공식 일정 보기'}
                     {selected.source === '인포민턴' && '📄 인포민턴 공식 요강 및 상세 보기'}
                     {selected.source === '배드민톡' && '📄 배드민톡 세부 요강 바로가기'}
                     {selected.source === '배드민턴타임즈' && '📄 배드민턴타임즈 공식 요강 보기'}
                     {selected.source === '배드민턴게임' && '📄 배드민턴게임 공식 일정 보기'}
                     {selected.source === 'BWF' && '🌏 BWF World Tour 공식 캘린더 보기'}
                     {selected.source === '네이버밴드' && (getStatus(selected, today) === '대회종료' ? '📄 대회 결과 및 요강 보기' : '📄 대회 공식 요강 및 접수글 보기')}
+                    {![
+                      '페이스콕', '코트엑스', '콕콕', '오마이플레이', '스포넷', '위꾹',
+                      'BKPLAY', '대한배드민턴협회', '대한체육회', '인포민턴', '배드민톡',
+                      '배드민턴타임즈', '배드민턴게임', 'BWF', '네이버밴드'
+                    ].includes(selected.source) && `📄 ${selected.source} 공식 접수·요강 바로가기`}
                     <ExternalLink className="size-4" />
                   </a>
 
