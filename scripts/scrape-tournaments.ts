@@ -2,7 +2,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 
 type TournamentCategory = '전국오픈' | '지역구대회' | '학생선수권' | '브랜드대회' | '국제대회';
-type TournamentSource = '배드민톡' | '배드민턴타임즈' | '페이스콕' | '배드민턴게임' | '코트엑스' | '오마이플레이' | '스포넷' | '위꾹' | '대한배드민턴협회' | '대한체육회' | '인포민턴';
+type TournamentSource = '배드민톡' | '배드민턴타임즈' | '페이스콕' | '배드민턴게임' | '코트엑스' | '오마이플레이' | '스포넷' | '위꾹' | '대한배드민턴협회' | '대한체육회' | '인포민턴' | '콕콕';
 
 interface ScrapedTournament {
   id: string;
@@ -995,6 +995,93 @@ async function scrapeSportsOrKr(): Promise<ScrapedTournament[]> {
   return tournaments;
 }
 
+async function scrapeCockcock(): Promise<ScrapedTournament[]> {
+  const tournaments: ScrapedTournament[] = [];
+  const seen = new Set<string>();
+
+  let lastPage = 1;
+
+  for (let page = 1; page <= lastPage; page++) {
+    const url = `https://cockcock.co.kr/tournaments?page=${page}`;
+    const response = await fetch(url, {
+      headers: {
+        Accept: 'text/html,application/xhtml+xml',
+        'User-Agent': USER_AGENT,
+      },
+      signal: AbortSignal.timeout(REQUEST_TIMEOUT_MS),
+    });
+
+    if (!response.ok) {
+      console.warn(`   ⚠️ 콕콕 ${page}페이지 응답 오류: ${response.status}`);
+      break;
+    }
+
+    const html = await response.text();
+    const scriptMatch = html.match(/<script data-page="app" type="application\/json">([\s\S]*?)<\/script>/);
+    if (!scriptMatch) {
+      console.warn(`   ⚠️ 콕콕 ${page}페이지 JSON 스크립트 태그를 찾을 수 없습니다.`);
+      break;
+    }
+
+    let json: any;
+    try {
+      json = JSON.parse(scriptMatch[1]);
+    } catch (e) {
+      console.warn(`   ⚠️ 콕콕 ${page}페이지 JSON 파싱 실패:`, e);
+      break;
+    }
+
+    if (page === 1 && json.props?.pagination?.lastPage) {
+      lastPage = Number(json.props.pagination.lastPage);
+    }
+
+    const items = json.props?.items || [];
+    for (const item of items) {
+      const name = cleanText(item.title || '');
+      const eventStart = item.event_start_date ? item.event_start_date.slice(0, 10) : '';
+      let eventEnd = item.event_end_date ? item.event_end_date.slice(0, 10) : eventStart;
+
+      if (!name || !eventStart) continue;
+      if (eventEnd < eventStart) eventEnd = eventStart;
+
+      const regStart = item.registration_start_date ? item.registration_start_date.slice(0, 10) : '';
+      let regEnd = item.registration_end_date ? item.registration_end_date.slice(0, 10) : regStart;
+      if (regEnd && regStart && regEnd < regStart) regEnd = regStart;
+
+      const venue = cleanText(item.venue || '공식 요강 참조');
+      const officialLink = item.detail_url || `https://cockcock.co.kr/tournaments/${item.id}`;
+      
+      const key = `${name}|${eventStart}`;
+      if (seen.has(key)) continue;
+      seen.add(key);
+
+      const regPeriod = (regStart && regEnd) 
+        ? displayPeriod(regStart, regEnd) 
+        : '콕콕 공식 요강 참조';
+
+      tournaments.push({
+        id: `cockcock-${item.id || stableHash(name)}`,
+        category: categorizeTournament(name, venue),
+        name,
+        registrationPeriod: regPeriod,
+        registrationStart: regStart,
+        registrationEnd: regEnd,
+        eventPeriod: displayPeriod(eventStart, eventEnd),
+        eventStart,
+        eventEnd,
+        venue,
+        source: '콕콕',
+        officialLink,
+        posterImage: item.image_url || undefined,
+        fee: '공식 요강 참조',
+      });
+    }
+  }
+
+  console.log(`   ✅ 콕콕(cockcock.co.kr) 실시간 대회 검증: ${tournaments.length}건`);
+  return tournaments;
+}
+
 function normalizeName(name: string): string {
   return name
     .toLowerCase()
@@ -1059,7 +1146,7 @@ async function main(): Promise<void> {
   console.log('🏸 검증 가능한 원문 기반 대회 수집을 시작합니다.');
   console.log('   합성 대회, 임의 날짜/참가비, 목록 주소만 있는 레코드는 생성하지 않습니다.');
 
-  const [facecock, badmintok, badmintonTimes, badmintonGame, courtX, ohMyPlay, sponet, wekkuk, bka, infominton, sportsOrKr] = await Promise.all([
+  const [facecock, badmintok, badmintonTimes, badmintonGame, courtX, ohMyPlay, sponet, wekkuk, bka, infominton, sportsOrKr, cockcock] = await Promise.all([
     safelyCollect('페이스콕', scrapeFacecock),
     safelyCollect('배드민톡', scrapeBadmintok),
     safelyCollect('배드민턴타임즈', scrapeBadmintonTimes),
@@ -1071,6 +1158,7 @@ async function main(): Promise<void> {
     safelyCollect('대한배드민턴협회', scrapeBKA),
     safelyCollect('인포민턴', scrapeInfominton),
     safelyCollect('대한체육회', scrapeSportsOrKr),
+    safelyCollect('콕콕', scrapeCockcock),
   ]);
 
   const tournaments = mergeAndDeduplicate([
@@ -1085,6 +1173,7 @@ async function main(): Promise<void> {
     ...bka,
     ...infominton,
     ...sportsOrKr,
+    ...cockcock,
   ]);
   if (tournaments.length === 0) throw new Error('검증 가능한 대회를 한 건도 수집하지 못해 기존 파일을 보존합니다.');
 
@@ -1093,7 +1182,7 @@ async function main(): Promise<void> {
 
   console.log(`✅ ${tournaments.length}건 저장 완료: ${outputPath}`);
   console.log(
-    `   페이스콕 ${facecock.length} / 배드민톡 ${badmintok.length} / 배드민턴타임즈 ${badmintonTimes.length} / 배드민턴게임 ${badmintonGame.length} / 코트엑스 ${courtX.length} / 오마이플레이 ${ohMyPlay.length} / 스포넷 ${sponet.length} / 위꾹 ${wekkuk.length} / 대한배드민턴협회 ${bka.length} / 인포민턴 ${infominton.length} / 대한체육회 ${sportsOrKr.length}`
+    `   페이스콕 ${facecock.length} / 배드민톡 ${badmintok.length} / 배드민턴타임즈 ${badmintonTimes.length} / 배드민턴게임 ${badmintonGame.length} / 코트엑스 ${courtX.length} / 오마이플레이 ${ohMyPlay.length} / 스포넷 ${sponet.length} / 위꾹 ${wekkuk.length} / 대한배드민턴협회 ${bka.length} / 인포민턴 ${infominton.length} / 대한체육회 ${sportsOrKr.length} / 콕콕 ${cockcock.length}`
   );
 }
 

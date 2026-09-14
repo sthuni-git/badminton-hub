@@ -14,6 +14,7 @@ export type TournamentSource =
   | '인포민턴'
   | '배드민턴게임'
   | '오마이플레이'
+  | '콕콕'
   | 'BKPLAY' 
   | '네이버밴드'
   | 'BWF';

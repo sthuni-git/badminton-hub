@@ -2080,6 +2080,7 @@ function SourcesHubSection({
     if (s.id === 'reboot') return sourceCounts.get('리부트아카데미') || 0;
     if (s.id === 'bwf') return sourceCounts.get('BWF') || 0;
     if (s.id === 'kspo' || s.id === 'koreabadminton') return sourceCounts.get('대한체육회') || 0;
+    if (s.id === 'cockcock') return sourceCounts.get('콕콕') || 0;
 
     // 이름 기반 탐색
     for (const [key, val] of sourceCounts.entries()) {

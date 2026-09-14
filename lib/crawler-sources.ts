@@ -23,6 +23,19 @@ export interface CrawlerSource {
 export const CRAWLER_SOURCES: CrawlerSource[] = [
   // 1. 모바일·온라인 대회 접수 플랫폼
   {
+    id: 'cockcock',
+    name: '콕콕 (COCKCOCK)',
+    category: '모바일·온라인 접수 플랫폼',
+    targetUrl: 'https://cockcock.co.kr/tournaments',
+    subUrls: ['https://cockcock.co.kr/tournaments', 'https://cockcock.co.kr/'],
+    difficulty: '쉬움',
+    phase: 'Phase 1 (쉬움/즉시수집)',
+    method: 'Inertia.js JSON 데이터 파싱 / REST 뷰',
+    recommendedTool: 'Fetch API / JSON 파싱',
+    collectedData: '전국 배드민턴 대회 캘린더, 포스터 이미지, 세부 요강 및 원문 신청 링크',
+    description: '전국 동호인 및 오픈 대회의 일정과 공식 접수처 원문 링크를 큐레이션하는 최신 배드민턴 플랫폼입니다.',
+  },
+  {
     id: 'courtx',
     name: '코트엑스 (CourtX)',
     category: '모바일·온라인 접수 플랫폼',
@@ -64,7 +77,11 @@ export const CRAWLER_SOURCES: CrawlerSource[] = [
     name: '배드민턴게임 (BadmintonGame)',
     category: '모바일·온라인 접수 플랫폼',
     targetUrl: 'http://www.badmintongame.co.kr/game/game.html',
-    subUrls: ['http://www.badmintongame.co.kr/game/game.html', 'http://www.badmintongame.co.kr/'],
+    subUrls: [
+      'http://www.badmintongame.co.kr/game/game.html',
+      'http://zum.badmintongame.co.kr/game/game.html',
+      'http://www.badmintongame.co.kr/'
+    ],
     difficulty: '쉬움',
     phase: 'Phase 1 (쉬움/즉시수집)',
     method: '온라인 접수 및 대회 캘린더 테이블 파싱',
