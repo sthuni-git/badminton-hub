@@ -17,6 +17,9 @@ export type TournamentSource =
   | '콕콕'
   | 'BKPLAY' 
   | '네이버밴드'
+  | '네이버카페'
+  | '네이버블로그'
+  | '웹검색'
   | 'BWF';
 
 export interface Tournament {

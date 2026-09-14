@@ -10,6 +10,7 @@
     "build": "vinext build && vite build --config vite.spa.config.ts && npx tsx scripts/generate-static-html.ts",
     "start": "wrangler dev --config dist/server/wrangler.json",
     "scrape": "tsx scripts/scrape-tournaments.ts && npm run validate:data",
+    "scrape:ai": "tsx scripts/ai-discovery/discover-tournaments.ts",
     "validate:data": "tsx scripts/validate-tournaments.ts",
     "lint": "oxlint",
     "format": "oxfmt"
