@@ -102,12 +102,14 @@ export function extractTournamentHeuristic(text: string, title: string, url: str
 
   // 카테고리 판별
   let category: ParsedTournament['category'] = '전국오픈';
-  if (/구청장기|협회장기|구대회|시대회|연합회장기|의장기/.test(cleanName)) {
-    category = '지역구대회';
-  } else if (/요넥스|빅터|미즈노|플라이파워|익스트림|테크니스트|스펙트럼/.test(cleanName)) {
-    category = '브랜드대회';
-  } else if (/학생|청소년|유소년|대학/.test(cleanName)) {
+  if (/(?:BWF|월드투어|국제챌린지|인터내셔널)/i.test(cleanName)) {
+    category = '국제대회';
+  } else if (/(?:초등|중등|고등|학생|주니어|꿈나무|학교|유소년|청소년|어린이|대학)/i.test(cleanName)) {
     category = '학생선수권';
+  } else if (/(?:요넥스|빅터|테크니스트|플리트|리닝|미즈노|아펙스|익스트림|플라이파워|트라이온|스펙트럼)/i.test(cleanName)) {
+    category = '브랜드대회';
+  } else if (/(?:구청장|시장기|시장배|군수기|협회장기|협회장배|회장기|의장기|연합회장|체육회장|도지사|구대회|시대회|군대회|구민|시민|생활체육|클럽대항|동호인|관내|한마음)/i.test(cleanName)) {
+    category = '지역구대회';
   }
 
   return {
@@ -128,12 +130,12 @@ export function extractTournamentHeuristic(text: string, title: string, url: str
 
 /**
  * 최신 Google Gemini Flash 모델 목록
- * (2.5-flash / 2.0-flash / 1.5-flash 등 지원되는 최신 모델 순차 폴백)
+ * (3.8-flash / 3.7-flash / 3.6-flash 등 지원되는 최신 모델 순차 폴백)
  */
 const GEMINI_MODELS = [
-  'gemini-2.5-flash',
-  'gemini-2.0-flash',
-  'gemini-1.5-flash',
+  'gemini-3.8-flash',
+  'gemini-3.7-flash',
+  'gemini-3.6-flash',
 ];
 
 /**

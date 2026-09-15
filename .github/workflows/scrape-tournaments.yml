@@ -1,0 +1,57 @@
+name: '자동 배드민턴 대회 수집 및 갱신 (24/7)'
+
+on:
+  schedule:
+    # 매일 한국시간 오전 04:00 (UTC 19:00)
+    - cron: '0 19 * * *'
+  workflow_dispatch: # GitHub 웹 화면에서 [Run workflow] 버튼으로 즉시 수동 실행 가능
+
+permissions:
+  contents: write
+
+jobs:
+  scrape-and-update:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 저장소 체크아웃
+        uses: actions/checkout@v4
+
+      - name: Node.js 22 환경 설정
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: 'npm'
+
+      - name: 의존성 설치
+        run: npm ci
+
+      - name: 1단계 - 공식 12개 플랫폼 대회 수집
+        run: npm run scrape
+
+      - name: 2단계 - AI 숨은 대회 발굴 (네이버 카페/블로그/웹)
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GOOGLE_API_KEY: ${{ secrets.GOOGLE_API_KEY }}
+          NAVER_CLIENT_ID: ${{ secrets.NAVER_CLIENT_ID }}
+          NAVER_CLIENT_SECRET: ${{ secrets.NAVER_CLIENT_SECRET }}
+        run: npm run scrape:ai
+
+      - name: 3단계 - 수집 데이터 무결성 검증
+        run: npm run validate:data
+
+      - name: 4단계 - 빌드 사전 검증
+        run: npm run build
+
+      - name: 5단계 - 변경사항 자동 커밋 및 푸시
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add lib/tournaments-scraped.json
+          if git diff --staged --quiet; then
+            echo "ℹ️ 변경된 신규 대회 데이터가 없습니다."
+          else
+            git commit -m "chore(auto-scrape): 정기 자동 대회 수집 및 AI 발굴 데이터 갱신 [skip ci]"
+            git push
+            echo "✅ 신규 대회 데이터 자동 커밋 및 푸시 완료"
+          fi

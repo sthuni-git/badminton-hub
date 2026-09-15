@@ -230,7 +230,56 @@ export async function runAiDiscovery(): Promise<number> {
     await sleep(1000);
   }
 
-  console.log(`🎉 최신 AI 탐색 완료: 총 ${candidateTournaments.length}건 유효 대회 발굴`);
+  let addedCount = 0;
+  let enrichedCount = 0;
+
+  if (candidateTournaments.length > 0) {
+    const scrapedPath = path.resolve(process.cwd(), 'lib/tournaments-scraped.json');
+    if (fs.existsSync(scrapedPath)) {
+      const raw = fs.readFileSync(scrapedPath, 'utf-8');
+      const existingList: any[] = JSON.parse(raw);
+
+      const normalizeName = (str: string) =>
+        str
+          .toLowerCase()
+          .replace(/\[[^\]]+\]/g, '')
+          .replace(/[\s\-_·()]/g, '')
+          .replace(/202[4-7]년?/g, '')
+          .replace(/제\d+회/g, '');
+
+      for (const candidate of candidateTournaments) {
+        const candNorm = normalizeName(candidate.name);
+        const matched = existingList.find((ex) => {
+          if (ex.eventStart !== candidate.eventStart) return false;
+          const exNorm = normalizeName(ex.name);
+          return exNorm.includes(candNorm) || candNorm.includes(exNorm);
+        });
+
+        if (matched) {
+          // 기존 대회에 신규 출처 및 링크 보강
+          matched.sources = Array.from(new Set([...(matched.sources || [matched.source]), candidate.source]));
+          matched.sourceLinks = matched.sourceLinks || [{ source: matched.source, link: matched.officialLink }];
+          if (!matched.sourceLinks.some((sl: any) => sl.link === candidate.officialLink)) {
+            matched.sourceLinks.push({ source: candidate.source, link: candidate.officialLink });
+          }
+          if (candidate.venue && candidate.venue !== '상세 요강 참조' && (!matched.venue || matched.venue.includes('참조'))) {
+            matched.venue = candidate.venue;
+          }
+          enrichedCount++;
+        } else {
+          // 신규 대회 등록
+          existingList.push(candidate);
+          addedCount++;
+        }
+      }
+
+      existingList.sort((a, b) => a.eventStart.localeCompare(b.eventStart) || a.name.localeCompare(b.name, 'ko'));
+      fs.writeFileSync(scrapedPath, `${JSON.stringify(existingList, null, 2)}\n`, 'utf-8');
+      console.log(`💾 데이터셋 자동 갱신 완료: 신규 추가 ${addedCount}건 / 출처 보강 ${enrichedCount}건 (총 ${existingList.length}건 저장)`);
+    }
+  }
+
+  console.log(`🎉 최신 AI 탐색 완료: 총 ${candidateTournaments.length}건 유효 대회 발굴 (신규 ${addedCount}건, 보강 ${enrichedCount}건)`);
   return candidateTournaments.length;
 }
 

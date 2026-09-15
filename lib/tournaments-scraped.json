@@ -10262,24 +10262,52 @@
   },
   {
     "id": "bm-x7ykw6",
-    "category": "지역구대회",
+    "category": "전국오픈",
+    "subCategory": "전국 승급",
     "name": "2026년 제10회 남한산성배 생활체육 전국 배드민턴대회",
-    "registrationPeriod": "공식 상세 페이지 확인",
-    "registrationStart": "",
-    "registrationEnd": "",
+    "registrationPeriod": "2026.05.18 ~ 2026.06.19",
+    "registrationStart": "2026-05-18",
+    "registrationEnd": "2026-06-19",
     "eventPeriod": "2026.07.04 ~ 07.05",
     "eventStart": "2026-07-04",
     "eventEnd": "2026-07-05",
-    "venue": "경기 성남시실내체육관 및 보조경기장",
-    "source": "배드민톡",
-    "officialLink": "https://badmintok.com/badminton-tournament/2026-남한산성배-배드민턴대회/",
+    "venue": "[경기] 성남시실내체육관 및 보조경기장",
+    "source": "위꾹",
+    "officialLink": "https://m.wekkuk.com/tournament/detail/1231",
     "posterImage": "https://pub-af1d3a66f97c45f3a414655b3faa6354.r2.dev/crawlers/wekkuk/wekkuk_2026_07_1231.jpg",
-    "fee": "요강 참조",
+    "fee": "1팀당 60,000원",
+    "shuttlecock": "요넥스 AEROCLEAR K1",
+    "sponsor": "요넥스",
+    "registrationSite": "위꾹라이브 홈페이지/위꾹라이브 앱",
+    "dailySchedule": [
+      {
+        "date": "7월 4일(토)",
+        "events": [
+          "혼합복식",
+          "남자복식",
+          "여자복식"
+        ],
+        "description": "07:30 혼합복식 전경기[A, B, C, D], 20·30·40·45대 남복·여복 전국리그[C1, D1] 및 지역리그[D2, E2], 60대 이상 전경기[A, B, C, D]"
+      },
+      {
+        "date": "7월 5일(일)",
+        "events": [
+          "남자복식",
+          "여자복식"
+        ],
+        "description": "07:30 20·30·40·45·50·55대 남복·여복 전국리그[A, B, C, D], 20·30·40·45대 남복·여복 지역리그[D3, E3]"
+      }
+    ],
     "sources": [
+      "위꾹",
       "배드민톡",
       "콕콕"
     ],
     "sourceLinks": [
+      {
+        "source": "위꾹",
+        "link": "https://m.wekkuk.com/tournament/detail/1231"
+      },
       {
         "source": "배드민톡",
         "link": "https://badmintok.com/badminton-tournament/2026-남한산성배-배드민턴대회/"

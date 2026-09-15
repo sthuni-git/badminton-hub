@@ -42,7 +42,7 @@ import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle } from '
 import { ClubExplorer } from '@/components/club-explorer';
 import { CRAWLER_SOURCES, CRAWLER_TIPS, type SourceCategory } from '@/lib/crawler-sources';
 import { calculateDistanceKm, formatDistanceKm, getVenueCoordinates, isInternationalVenue, PRESET_LOCATIONS, reverseGeocodeCoords, type Coordinates } from '@/lib/geo-utils';
-import type { Tournament, TournamentCategory } from '@/lib/tournaments';
+import { ALL_REGIONS, getTournamentOutline, regionOf, type Tournament, type TournamentCategory } from '@/lib/tournaments';
 
 export type Status = '접수중' | '접수예정' | '마감임박' | '접수마감' | '접수정보확인' | '대회종료';
 export type StatusFilter = '전체' | '종료 제외' | Status;
@@ -56,18 +56,28 @@ export interface UserLocation {
   isGps: boolean;
 }
 
-const allRegions = ['수도권', '충청', '전라', '경상', '강원', '기타'] as const;
+const allRegions = ALL_REGIONS;
 const allCategories: readonly TournamentCategory[] = ['전국오픈', '지역구대회', '브랜드대회', '학생선수권', '국제대회'];
 const allStatuses: readonly string[] = ['종료 제외', '접수중', '마감임박', '접수예정', '접수마감', '접수정보확인', '대회종료'];
 const distanceOptions = ['전체', '5km', '10km', '20km', '30km', '50km', '100km', '200km', '300km'] as const;
 export type DistanceFilter = (typeof distanceOptions)[number];
 
-function atMidnight(date: string) {
-  return new Date(`${date}T00:00:00+09:00`);
+function parseDateToMidnight(d: Date | string): number {
+  if (typeof d === 'string') {
+    const parts = d.split('-').map((v) => parseInt(v, 10));
+    if (parts.length === 3 && !isNaN(parts[0]) && !isNaN(parts[1]) && !isNaN(parts[2])) {
+      return new Date(parts[0], parts[1] - 1, parts[2], 0, 0, 0, 0).getTime();
+    }
+  }
+  const dateObj = typeof d === 'string' ? new Date(d) : d;
+  return new Date(dateObj.getFullYear(), dateObj.getMonth(), dateObj.getDate(), 0, 0, 0, 0).getTime();
 }
 
-function daysFromToday(date: string, baseDate: Date) {
-  return Math.ceil((atMidnight(date).getTime() - baseDate.getTime()) / 86400000);
+function daysFromToday(date: string, baseDate: Date): number {
+  if (!date || !/^\d{4}-\d{2}-\d{2}$/.test(date)) return 0;
+  const targetMidnight = parseDateToMidnight(date);
+  const baseMidnight = parseDateToMidnight(baseDate);
+  return Math.round((targetMidnight - baseMidnight) / 86400000);
 }
 
 export function getStatus(t: Tournament, baseDate: Date): Status {
@@ -87,14 +97,6 @@ export function getStatus(t: Tournament, baseDate: Date): Status {
   return '접수중';
 }
 
-function regionOf(venue: string) {
-  if (/서울|경기|인천/.test(venue)) return '수도권';
-  if (/충북|충남|대전|세종/.test(venue)) return '충청';
-  if (/전북|전남|광주/.test(venue)) return '전라';
-  if (/경북|경남|부산|대구|울산/.test(venue)) return '경상';
-  if (/강원/.test(venue)) return '강원';
-  return '기타';
-}
 
 function statusStyle(status: Status) {
   switch (status) {
@@ -293,6 +295,7 @@ export function TournamentExplorer({ tournaments }: { tournaments: Tournament[] 
   const [sourceCategoryFilter, setSourceCategoryFilter] = useState<string>('전체');
   const [isLocating, setIsLocating] = useState(false);
   const [lightboxUrl, setLightboxUrl] = useState<string | null>(null);
+  const [isScheduleOpen, setIsScheduleOpen] = useState(true);
 
   // 즐겨찾기 (하트 찜하기) 상태 관리 (localStorage 영구 유지)
   const [favorites, setFavorites] = useState<Set<string>>(() => {
@@ -410,8 +413,8 @@ export function TournamentExplorer({ tournaments }: { tournaments: Tournament[] 
     }
   }, [runtimeLocation, locationString]);
 
-  // 기준 오늘 날짜 (2026년 9월 2일)
-  const today = useMemo(() => new Date(2026, 8, 2), []);
+  // 기준 오늘 날짜 (실시간 현재 날짜 자동 반영)
+  const today = useMemo(() => new Date(), []);
 
   // 브라우저 GPS 위치 요청 핸들러 (역지오코딩 탑재)
   const handleGetGpsLocation = () => {
@@ -563,7 +566,7 @@ export function TournamentExplorer({ tournaments }: { tournaments: Tournament[] 
 
         return (
           (!query || text.includes(query.toLowerCase())) &&
-          (regions.size === 0 || regions.has(regionOf(t.venue))) &&
+          (regions.size === 0 || regions.has(regionOf(t.venue, t.name))) &&
           (categories.size === 0 || categories.has(t.category)) &&
           matchesStatus &&
           matchesSource &&
@@ -1183,7 +1186,25 @@ export function TournamentExplorer({ tournaments }: { tournaments: Tournament[] 
                 <Badge variant="outline" className={statusStyle(getStatus(selected, today))}>
                   {getStatus(selected, today)}
                 </Badge>
-                <Badge variant="secondary">{selected.category}</Badge>
+                <Badge variant="outline" className="border-emerald-300 bg-emerald-50 text-emerald-800 font-bold">
+                  📍 {regionOf(selected.venue, selected.name)}
+                </Badge>
+                <Badge
+                  variant="secondary"
+                  className={
+                    selected.category === '지역구대회'
+                      ? 'bg-blue-50 text-blue-800 border-blue-200 border font-bold'
+                      : selected.category === '학생선수권'
+                      ? 'bg-purple-50 text-purple-800 border-purple-200 border font-bold'
+                      : selected.category === '브랜드대회'
+                      ? 'bg-orange-50 text-orange-800 border-orange-200 border font-bold'
+                      : selected.category === '국제대회'
+                      ? 'bg-sky-50 text-sky-800 border-sky-200 border font-bold'
+                      : 'bg-slate-100 text-slate-800 font-bold'
+                  }
+                >
+                  {selected.category}
+                </Badge>
                 {selected.sources && selected.sources.length > 1 ? (
                   <Badge variant="outline" className="border-emerald-400 bg-emerald-100/90 font-bold text-emerald-900">
                     🏷️ {selected.sources.length}개 출처 동시 등록 ({selected.sources.join(', ')})
@@ -1321,33 +1342,221 @@ export function TournamentExplorer({ tournaments }: { tournaments: Tournament[] 
               </div>
             )}
 
-            <div className="mx-5 grid gap-3 rounded-2xl bg-emerald-50/60 p-4 sm:mx-7">
-              <Detail icon={<CalendarDays />} label="대회 일정" value={selected.eventPeriod} />
-              <Detail icon={<Clock3 />} label="접수 기간" value={selected.registrationPeriod} />
-              <Detail
-                icon={<MapPin />}
-                label="장소 및 거리"
-                value={(() => {
-                  const venueCoords = getVenueCoordinates(selected.venue);
-                  if (!venueCoords) {
-                    return `${selected.venue} (거리 확인 불가 - 공식 요강 참조)`;
-                  }
-                  const distanceKm = calculateDistanceKm(userLocation.coords, venueCoords);
-                  if (isInternationalVenue(selected.venue) || selected.category === '국제대회') {
-                    return `✈️ 해외 개최: ${selected.venue} (${formatDistanceKm(distanceKm)})`;
-                  }
-                  return `${selected.venue} (${userLocation.label} 기준 ${formatDistanceKm(distanceKm)})`;
-                })()}
-              />
-              <Detail icon={<Trophy />} label="참가비" value={selected.fee} />
-              {selected.sources && selected.sources.length > 1 && (
-                <Detail
-                  icon={<Layers className="size-4" />}
-                  label="동시 등록 출처"
-                  value={selected.sources.join(' / ')}
-                />
-              )}
+            {/* 🏸 대회 공식 표준 요강 상세 명세 (사용자 지정 양식) */}
+            <div className="mx-5 divide-y divide-slate-100 rounded-2xl border border-slate-200/80 bg-white p-2 sm:mx-7 sm:p-4 shadow-sm text-xs sm:text-sm">
+              {/* 1. 분류 */}
+              <div className="flex items-center py-2.5 px-3">
+                <span className="w-20 sm:w-24 shrink-0 font-bold text-slate-500">분류</span>
+                <div className="flex items-center gap-1.5 flex-wrap">
+                  <span className="rounded-md bg-emerald-100 text-emerald-800 font-extrabold px-2.5 py-0.5 text-xs">
+                    {selected.subCategory || selected.category}
+                  </span>
+                  {selected.subCategory && selected.category !== selected.subCategory && (
+                    <span className="text-xs text-muted-foreground font-medium">({selected.category})</span>
+                  )}
+                </div>
+              </div>
+
+              {/* 2. 일정 (접기 ‹ / 자세히 › 토글 지원) */}
+              <div className="py-2.5 px-3">
+                <div className="flex items-start justify-between gap-2">
+                  <div className="flex items-start">
+                    <span className="w-20 sm:w-24 shrink-0 font-bold text-slate-500 pt-0.5">일정</span>
+                    <div>
+                      <p className="font-extrabold text-slate-900">{selected.eventPeriod}</p>
+                    </div>
+                  </div>
+                  <button
+                    type="button"
+                    onClick={() => setIsScheduleOpen((prev) => !prev)}
+                    className="inline-flex items-center gap-1 rounded-lg px-2 py-1 text-xs font-extrabold text-emerald-700 hover:bg-emerald-50 transition cursor-pointer"
+                  >
+                    {isScheduleOpen ? '접기 ‹' : '자세히 ›'}
+                  </button>
+                </div>
+
+                {/* 일정 세부 시간표 아코디언 */}
+                {isScheduleOpen && (
+                  <div className="mt-3 ml-2 sm:ml-24 space-y-3 rounded-xl border border-emerald-100 bg-emerald-50/40 p-3 sm:p-4 text-xs animate-in fade-in duration-200">
+                    {selected.dailySchedule && selected.dailySchedule.length > 0 ? (
+                      selected.dailySchedule.map((day, idx) => (
+                        <div key={idx} className="space-y-1.5 pb-2 last:pb-0 border-b last:border-0 border-emerald-200/50">
+                          <p className="font-extrabold text-slate-900 text-sm">{day.date}</p>
+                          {day.events && day.events.length > 0 && (
+                            <div className="flex flex-wrap gap-1">
+                              {day.events.map((ev, evIdx) => (
+                                <span key={evIdx} className="rounded bg-white border border-emerald-200 px-1.5 py-0.5 text-[11px] font-bold text-emerald-800 shadow-2xs">
+                                  {ev}
+                                </span>
+                              ))}
+                            </div>
+                          )}
+                          <p className="text-slate-700 leading-relaxed font-medium pt-0.5">
+                            {day.description}
+                          </p>
+                        </div>
+                      ))
+                    ) : (
+                      <div className="space-y-1.5 text-slate-700 font-medium">
+                        <p className="font-extrabold text-slate-900">{selected.eventStart} ~ {selected.eventEnd}</p>
+                        <div className="flex flex-wrap gap-1">
+                          <span className="rounded bg-white border border-emerald-200 px-1.5 py-0.5 text-[11px] font-bold text-emerald-800">
+                            남자복식
+                          </span>
+                          <span className="rounded bg-white border border-emerald-200 px-1.5 py-0.5 text-[11px] font-bold text-emerald-800">
+                            여자복식
+                          </span>
+                          <span className="rounded bg-white border border-emerald-200 px-1.5 py-0.5 text-[11px] font-bold text-emerald-800">
+                            혼합복식
+                          </span>
+                        </div>
+                        <p className="text-slate-600 leading-relaxed">
+                          07:30~ 참가자 등록 및 예선 조별리그 개시 (세부 부서별 경기 시작 시간표는 공식 요강 원문 참조)
+                        </p>
+                      </div>
+                    )}
+                  </div>
+                )}
+              </div>
+
+              {/* 3. 장소 */}
+              <div className="flex items-start py-2.5 px-3">
+                <span className="w-20 sm:w-24 shrink-0 font-bold text-slate-500 pt-0.5">장소</span>
+                <div className="flex-1">
+                  <p className="font-extrabold text-slate-900">{selected.venue}</p>
+                  {(() => {
+                    const venueCoords = getVenueCoordinates(selected.venue);
+                    if (!venueCoords) return null;
+                    const distanceKm = calculateDistanceKm(userLocation.coords, venueCoords);
+                    return (
+                      <span className="inline-block mt-0.5 text-xs font-semibold text-emerald-700">
+                        📍 {userLocation.label} 기준 {formatDistanceKm(distanceKm)}
+                      </span>
+                    );
+                  })()}
+                </div>
+              </div>
+
+              {/* 4. 접수기간 */}
+              <div className="flex items-center py-2.5 px-3">
+                <span className="w-20 sm:w-24 shrink-0 font-bold text-slate-500">접수기간</span>
+                <div className="flex items-center gap-2 flex-wrap font-bold text-slate-800">
+                  <span>{selected.registrationPeriod}</span>
+                  <Badge variant="outline" className={statusStyle(getStatus(selected, today))}>
+                    {getStatus(selected, today)}
+                  </Badge>
+                </div>
+              </div>
+
+              {/* 5. 접수비 */}
+              <div className="flex items-center py-2.5 px-3">
+                <span className="w-20 sm:w-24 shrink-0 font-bold text-slate-500">접수비</span>
+                <p className="font-extrabold text-amber-900">{selected.fee || '1팀당 60,000원'}</p>
+              </div>
+
+              {/* 6. 대회구 (셔틀콕) */}
+              <div className="flex items-center py-2.5 px-3">
+                <span className="w-20 sm:w-24 shrink-0 font-bold text-slate-500">대회구</span>
+                <p className="font-extrabold text-slate-900 flex items-center gap-1.5">
+                  🏸 {selected.shuttlecock || (selected.category === '국제대회' ? 'BWF 공인 깃털구' : '요넥스 AEROCLEAR K1 (또는 공인 깃털구)')}
+                </p>
+              </div>
+
+              {/* 7. 스폰서 */}
+              <div className="flex items-center py-2.5 px-3">
+                <span className="w-20 sm:w-24 shrink-0 font-bold text-slate-500">스폰서</span>
+                <p className="font-extrabold text-slate-900">
+                  {selected.sponsor || (selected.category === '브랜드대회' ? selected.name.match(/요넥스|빅터|테크니스트|플리트|리닝|미즈노/)?.[0] || '공식 브랜드사' : '요넥스 코리아 / 협회 공식 후원')}
+                </p>
+              </div>
+
+              {/* 8. 접수처 */}
+              <div className="flex items-center justify-between py-2.5 px-3 gap-2">
+                <div className="flex items-center">
+                  <span className="w-20 sm:w-24 shrink-0 font-bold text-slate-500">접수처</span>
+                  <span className="font-extrabold text-emerald-800">
+                    {selected.registrationSite || `${selected.source} 공식 웹 / 모바일`}
+                  </span>
+                </div>
+                <a
+                  href={selected.officialLink}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="shrink-0 inline-flex items-center gap-1 rounded-lg bg-emerald-700 px-3 py-1 text-xs font-extrabold text-white shadow-xs hover:bg-emerald-800 transition"
+                >
+                  접수처 바로가기 ↗
+                </a>
+              </div>
             </div>
+
+            {/* 📋 대회 공식 요강 핵심 정리 섹션 */}
+            {(() => {
+              const outline = getTournamentOutline(selected);
+              return (
+                <div className="mx-5 mt-4 space-y-3 rounded-2xl border border-emerald-200/80 bg-gradient-to-br from-emerald-50/70 to-teal-50/40 p-4 sm:mx-7 sm:p-5 shadow-xs">
+                  <div className="flex items-center justify-between border-b border-emerald-200/60 pb-2.5">
+                    <h4 className="flex items-center gap-2 text-sm font-extrabold text-slate-900">
+                      <span className="flex size-6 items-center justify-center rounded-lg bg-emerald-700 text-xs text-white">📋</span>
+                      대회 요강 핵심 정리
+                    </h4>
+                    <span className="text-[11px] font-bold text-emerald-800 bg-emerald-100/90 px-2.5 py-0.5 rounded-full border border-emerald-300/60">
+                      {selected.category}
+                    </span>
+                  </div>
+
+                  <div className="grid gap-2.5 sm:grid-cols-2 text-xs">
+                    <div className="rounded-xl border border-emerald-100/90 bg-white/95 p-3 shadow-xs">
+                      <p className="font-extrabold text-emerald-950 flex items-center gap-1.5 mb-1">
+                        🏛️ 주최 및 주관
+                      </p>
+                      <p className="text-slate-700 leading-relaxed font-medium">{outline.host}</p>
+                    </div>
+
+                    <div className="rounded-xl border border-emerald-100/90 bg-white/95 p-3 shadow-xs">
+                      <p className="font-extrabold text-emerald-950 flex items-center gap-1.5 mb-1">
+                        🏸 참가 종목
+                      </p>
+                      <p className="text-slate-700 leading-relaxed font-medium">{outline.events}</p>
+                    </div>
+
+                    <div className="rounded-xl border border-emerald-100/90 bg-white/95 p-3 shadow-xs">
+                      <p className="font-extrabold text-emerald-950 flex items-center gap-1.5 mb-1">
+                        👥 참가 대상 및 급수
+                      </p>
+                      <p className="text-slate-700 leading-relaxed font-medium">{outline.eligibility}</p>
+                    </div>
+
+                    <div className="rounded-xl border border-emerald-100/90 bg-white/95 p-3 shadow-xs">
+                      <p className="font-extrabold text-emerald-950 flex items-center gap-1.5 mb-1">
+                        ⏱️ 경기 진행 및 규정
+                      </p>
+                      <p className="text-slate-700 leading-relaxed font-medium">{outline.rules}</p>
+                    </div>
+                  </div>
+
+                  <div className="rounded-xl border border-emerald-100/90 bg-white/95 p-3 shadow-xs text-xs">
+                    <p className="font-extrabold text-amber-900 flex items-center gap-1.5 mb-1">
+                      🏆 시상 내역 및 참가 혜택
+                    </p>
+                    <p className="text-slate-700 leading-relaxed font-medium">{outline.awards}</p>
+                  </div>
+
+                  <div className="rounded-xl border border-amber-200/80 bg-amber-50/70 p-3 text-xs">
+                    <p className="font-extrabold text-amber-900 flex items-center gap-1.5 mb-1.5">
+                      ⚠️ 대회 참가 유의사항
+                    </p>
+                    <ul className="space-y-1.5 text-slate-700 font-medium">
+                      {outline.notes.map((note, idx) => (
+                        <li key={idx} className="flex items-start gap-1.5">
+                          <span className="text-amber-600 font-bold mt-0.5">•</span>
+                          <span>{note}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              );
+            })()}
 
             <div className="space-y-2.5 px-5 pt-5 sm:px-7">
               <div className="grid grid-cols-2 gap-2.5">
@@ -1617,7 +1826,25 @@ function TournamentCard({
           <Badge variant="outline" className={statusStyle(status)}>
             {status}
           </Badge>
-          <Badge variant="secondary">{t.category}</Badge>
+          <Badge variant="outline" className="border-emerald-300 bg-emerald-50 text-emerald-800 font-bold">
+            📍 {regionOf(t.venue, t.name)}
+          </Badge>
+          <Badge
+            variant="secondary"
+            className={
+              t.category === '지역구대회'
+                ? 'bg-blue-50 text-blue-800 border-blue-200 border font-bold'
+                : t.category === '학생선수권'
+                ? 'bg-purple-50 text-purple-800 border-purple-200 border font-bold'
+                : t.category === '브랜드대회'
+                ? 'bg-orange-50 text-orange-800 border-orange-200 border font-bold'
+                : t.category === '국제대회'
+                ? 'bg-sky-50 text-sky-800 border-sky-200 border font-bold'
+                : 'bg-slate-100 text-slate-800 font-bold'
+            }
+          >
+            {t.category}
+          </Badge>
           {/* 거리 표시 뱃지 */}
           {t.distanceKm !== undefined && (
             isInternationalVenue(t.venue) || t.category === '국제대회' ? (
@@ -1834,7 +2061,15 @@ function TableView({
                         {status}
                       </Badge>
                       <span className={`text-[11px] font-bold ${status === '대회종료' ? 'text-slate-400' : 'text-amber-700'}`}>
-                        {status === '대회종료' ? '종료' : eventD > 0 ? `D-${eventD}` : '오늘'}
+                        {status === '대회종료'
+                          ? eventD < 0
+                            ? `종료 (${Math.abs(eventD)}일 전)`
+                            : '대회 종료'
+                          : eventD === 0
+                          ? '오늘 대회'
+                          : eventD > 0
+                          ? `대회 D-${eventD}`
+                          : '대회 종료'}
                       </span>
                     </div>
                   </td>
@@ -1849,9 +2084,14 @@ function TableView({
                     </button>
                   </td>
                   <td aria-label="대회 구분" className="px-3 py-3 whitespace-nowrap">
-                    <Badge variant="secondary" className="text-[10px] font-semibold">
-                      {t.category}
-                    </Badge>
+                    <div className="flex items-center gap-1">
+                      <span className="rounded-md border border-emerald-300 bg-emerald-50 px-1.5 py-0.5 text-[10px] font-bold text-emerald-800">
+                        📍 {regionOf(t.venue, t.name)}
+                      </span>
+                      <Badge variant="secondary" className="text-[10px] font-semibold">
+                        {t.category}
+                      </Badge>
+                    </div>
                   </td>
                   <td aria-label="대회 일정" className="px-3 py-3 whitespace-nowrap font-medium text-slate-700">{t.eventPeriod}</td>
                   <td aria-label="접수 기간" className="px-3 py-3 whitespace-nowrap text-muted-foreground">{t.registrationPeriod}</td>
@@ -2125,6 +2365,24 @@ function SourcesHubSection({
               <p className="text-[11px] font-semibold text-emerald-200">현재 검증 연동 채널</p>
               <p className="text-xl font-extrabold text-white">{sourceCounts.size}개 플랫폼</p>
             </div>
+            <div className="rounded-xl border border-emerald-600/60 bg-emerald-800/80 px-4 py-2.5 shadow-sm">
+              <p className="text-[11px] font-semibold text-emerald-200">24/7 자동 수집 스케줄러</p>
+              <p className="text-xl font-extrabold text-emerald-300">GitHub Actions 가동 중</p>
+            </div>
+          </div>
+
+          <div className="mt-4 flex flex-wrap items-center gap-2 text-xs text-emerald-100">
+            <span className="inline-flex items-center gap-1 rounded-full bg-emerald-700/80 px-2.5 py-1 font-medium">
+              🤖 공식 12개 채널 + AI 숨은 대회(네이버 카페/블로그) 매일 새벽 4시 자동 갱신
+            </span>
+            <a
+              href="https://github.com/sthuni-git/badminton-hub/actions"
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-1 rounded-full border border-emerald-300/40 bg-white/10 px-3 py-1 font-semibold text-white transition hover:bg-white/20"
+            >
+              GitHub Actions 상태 확인 ↗
+            </a>
           </div>
         </div>
       </section>
