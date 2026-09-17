@@ -768,7 +768,7 @@ export function TournamentExplorer({ tournaments }: { tournaments: Tournament[] 
           .map((s) => {
             if (s === '다음카페') return '다음카페 다음 카페 daum cafe daumcafe 다음';
             if (s === '네이버밴드') return '네이버밴드 네이버 밴드 naver band naverband 밴드';
-            if (s === '네이버카페') return '네이버카페 네이버 카페 naver cafe';
+            if (s === '네이버카페') return '네이버카페 네이버 카페 naver cafe navercafe 네이버 카페 배드민턴마켓';
             return s;
           })
           .join(' ');
@@ -902,8 +902,8 @@ export function TournamentExplorer({ tournaments }: { tournaments: Tournament[] 
         counts.set(s, (counts.get(s) || 0) + 1);
       }
     }
-    // 사용자가 자주 찾는 커뮤니티 출처(네이버밴드, 다음카페)를 최우선 노출
-    const prioritySources = ['다음카페', '네이버밴드'];
+    // 사용자가 자주 찾는 커뮤니티 출처(다음카페, 네이버카페, 네이버밴드)를 최우선 노출
+    const prioritySources = ['다음카페', '네이버카페', '네이버밴드'];
     const sortedSources = Array.from(counts.entries())
       .sort((a, b) => {
         const aPri = prioritySources.indexOf(a[0]);
@@ -1913,10 +1913,11 @@ export function TournamentExplorer({ tournaments }: { tournaments: Tournament[] 
                     {selected.source === 'BWF' && '🌏 BWF World Tour 공식 캘린더 보기'}
                     {selected.source === '네이버밴드' && (getStatus(selected, today) === '대회종료' ? '📄 대회 결과 및 요강 보기' : '📄 대회 공식 요강 및 접수글 보기')}
                     {selected.source === '다음카페' && (getStatus(selected, today) === '대회종료' ? '📄 대회 결과 및 요강 보기' : '☕ 다음 카페 공식 요강 및 접수글 보기')}
+                    {selected.source === '네이버카페' && (getStatus(selected, today) === '대회종료' ? '📄 대회 결과 및 요강 보기' : '☕ 네이버 카페 공식 요강 및 접수글 보기')}
                     {![
                       '페이스콕', '코트엑스', '콕콕', '오마이플레이', '스포넷', '위꾹',
                       'BKPLAY', '대한배드민턴협회', '대한체육회', '인포민턴', '배드민톡',
-                      '배드민턴타임즈', '배드민턴게임', 'BWF', '네이버밴드', '다음카페'
+                      '배드민턴타임즈', '배드민턴게임', 'BWF', '네이버밴드', '다음카페', '네이버카페'
                     ].includes(selected.source) && `📄 ${selected.source} 공식 접수·요강 바로가기`}
                     <ExternalLink className="size-4" />
                   </a>
@@ -1942,6 +1943,18 @@ export function TournamentExplorer({ tournaments }: { tournaments: Tournament[] 
                       className="inline-flex h-11 w-full items-center justify-center gap-2 rounded-xl border-2 border-amber-500 bg-amber-50/70 text-xs font-extrabold text-amber-950 transition hover:bg-amber-100"
                     >
                       ☕ 출처 카페: {selected.cafeName || '다음 배드민턴 카페 바로가기'} <ExternalLink className="size-3.5" />
+                    </a>
+                  )}
+
+                  {selected.source === '네이버카페' && selected.cafeUrl && (
+                    <a
+                      href={selected.cafeUrl}
+                      target="_blank"
+                      rel="noreferrer"
+                      aria-label={`${selected.cafeName || '네이버 카페'} 공식 카페 홈 이동`}
+                      className="inline-flex h-11 w-full items-center justify-center gap-2 rounded-xl border-2 border-green-600 bg-green-50/70 text-xs font-extrabold text-green-950 transition hover:bg-green-100"
+                    >
+                      ☕ 출처 카페: {selected.cafeName || '네이버 배드민턴 카페 바로가기'} <ExternalLink className="size-3.5" />
                     </a>
                   )}
                 </div>
@@ -2426,12 +2439,17 @@ function TournamentCard({
             📍 {regionOf(t.venue, t.name)}
           </Badge>
           {t.source === '다음카페' && (
-            <span className="inline-flex items-center gap-1 rounded-full border border-amber-300 bg-amber-50 px-2 py-0.5 text-[11px] font-extrabold text-amber-900 shadow-xs">
+            <span className="inline-flex items-center gap-1 rounded-full border border-amber-300 bg-amber-50 px-2.5 py-0.5 text-[11px] font-extrabold text-amber-900 shadow-xs">
               ☕ 다음 카페
             </span>
           )}
+          {t.source === '네이버카페' && (
+            <span className="inline-flex items-center gap-1 rounded-full border border-green-300 bg-green-50 px-2.5 py-0.5 text-[11px] font-extrabold text-green-900 shadow-xs">
+              ☕ 네이버 카페
+            </span>
+          )}
           {t.source === '네이버밴드' && (
-            <span className="inline-flex items-center gap-1 rounded-full border border-emerald-300 bg-emerald-50 px-2 py-0.5 text-[11px] font-extrabold text-emerald-900 shadow-xs">
+            <span className="inline-flex items-center gap-1 rounded-full border border-emerald-300 bg-emerald-50 px-2.5 py-0.5 text-[11px] font-extrabold text-emerald-900 shadow-xs">
               📱 네이버 밴드
             </span>
           )}

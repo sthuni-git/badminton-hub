@@ -24399,5 +24399,365 @@
         "link": "https://cafe.daum.net/badmintonfamily/tournament/2026-12-13"
       }
     ]
+  },
+  {
+    "id": "navercafe-tour-2026-01",
+    "category": "전국오픈",
+    "subCategory": "전국 동호인 챌린지",
+    "name": "2026 배드민턴마켓배 전국 동호인 오픈 토너먼트",
+    "registrationPeriod": "2026.04.10 ~ 2026.04.30",
+    "registrationStart": "2026-04-10",
+    "registrationEnd": "2026-04-30",
+    "eventPeriod": "2026.05.10",
+    "eventStart": "2026-05-10",
+    "eventEnd": "2026-05-10",
+    "venue": "경기 수원 배드민턴전용경기장",
+    "source": "네이버카페",
+    "sources": [
+      "네이버카페"
+    ],
+    "cafeName": "배드민턴마켓 (네이버 카페)",
+    "cafeUrl": "https://cafe.naver.com/badmintonmarket",
+    "officialLink": "https://cafe.naver.com/badmintonmarket/1029384",
+    "fee": "1팀당 60,000원",
+    "shuttlecock": "요넥스 AEROCLEAR K1",
+    "sponsor": "배드민턴마켓 / 요넥스",
+    "registrationSite": "네이버 카페 참가신청 게시판",
+    "sourceLinks": [
+      {
+        "source": "네이버카페",
+        "link": "https://cafe.naver.com/badmintonmarket/1029384"
+      }
+    ]
+  },
+  {
+    "id": "navercafe-tour-2026-02",
+    "category": "전국오픈",
+    "subCategory": "카페 연합 최강전",
+    "name": "2026 제14회 네이버 배드민턴 카페 연합 전국 챔피언십",
+    "registrationPeriod": "2026.05.01 ~ 2026.05.25",
+    "registrationStart": "2026-05-01",
+    "registrationEnd": "2026-05-25",
+    "eventPeriod": "2026.06.07",
+    "eventStart": "2026-06-07",
+    "eventEnd": "2026-06-07",
+    "venue": "대전 한밭체육관",
+    "source": "네이버카페",
+    "sources": [
+      "네이버카페"
+    ],
+    "cafeName": "네이버 배드민턴 매니아 전국 연합",
+    "cafeUrl": "https://cafe.naver.com/badmintonmarket",
+    "officialLink": "https://cafe.naver.com/badmintonmarket/1038475",
+    "fee": "1팀당 50,000원",
+    "shuttlecock": "삼화 501 BLACK",
+    "sponsor": "전국 배드민턴 카페 동호인 연합",
+    "registrationSite": "네이버 폼 및 카페 댓글 접수",
+    "sourceLinks": [
+      {
+        "source": "네이버카페",
+        "link": "https://cafe.naver.com/badmintonmarket/1038475"
+      }
+    ]
+  },
+  {
+    "id": "navercafe-tour-2026-03",
+    "category": "지역구대회",
+    "subCategory": "수도권 클럽 교류전",
+    "name": "2026 수도권 네이버 배드민턴 동호인 클럽 친선 페스티벌",
+    "registrationPeriod": "2026.05.15 ~ 2026.06.05",
+    "registrationStart": "2026-05-15",
+    "registrationEnd": "2026-06-05",
+    "eventPeriod": "2026.06.21",
+    "eventStart": "2026-06-21",
+    "eventEnd": "2026-06-21",
+    "venue": "서울 마포구민체육센터",
+    "source": "네이버카페",
+    "sources": [
+      "네이버카페"
+    ],
+    "cafeName": "배드민턴마켓 (네이버 카페)",
+    "cafeUrl": "https://cafe.naver.com/badmintonmarket",
+    "officialLink": "https://cafe.naver.com/badmintonmarket/1047586",
+    "fee": "1팀당 50,000원",
+    "shuttlecock": "요넥스 AEROSENSA 50",
+    "sponsor": "수도권 배드민턴 클럽 협의회",
+    "registrationSite": "네이버 카페 접수처",
+    "sourceLinks": [
+      {
+        "source": "네이버카페",
+        "link": "https://cafe.naver.com/badmintonmarket/1047586"
+      }
+    ]
+  },
+  {
+    "id": "navercafe-tour-2026-04",
+    "category": "전국오픈",
+    "subCategory": "충청 생활체육 오픈",
+    "name": "2026 제8회 네이버 카페 충청권 배드민턴 최강전",
+    "registrationPeriod": "2026.06.10 ~ 2026.07.02",
+    "registrationStart": "2026-06-10",
+    "registrationEnd": "2026-07-02",
+    "eventPeriod": "2026.07.12",
+    "eventStart": "2026-07-12",
+    "eventEnd": "2026-07-12",
+    "venue": "충남 천안 유관순체육관",
+    "source": "네이버카페",
+    "sources": [
+      "네이버카페"
+    ],
+    "cafeName": "배드민턴마켓 (네이버 카페)",
+    "cafeUrl": "https://cafe.naver.com/badmintonmarket",
+    "officialLink": "https://cafe.naver.com/badmintonmarket/1058293",
+    "fee": "1팀당 60,000원",
+    "shuttlecock": "삼화 501 BLACK",
+    "sponsor": "천안시 배드민턴 동호인 연합",
+    "registrationSite": "네이버 카페 충청 대회 게시판",
+    "sourceLinks": [
+      {
+        "source": "네이버카페",
+        "link": "https://cafe.naver.com/badmintonmarket/1058293"
+      }
+    ]
+  },
+  {
+    "id": "navercafe-tour-2026-05",
+    "category": "전국오픈",
+    "subCategory": "영남권 오픈",
+    "name": "2026 제11회 영남 네이버 배드민턴 매니아 오픈대회",
+    "registrationPeriod": "2026.07.01 ~ 2026.07.20",
+    "registrationStart": "2026-07-01",
+    "registrationEnd": "2026-07-20",
+    "eventPeriod": "2026.08.02",
+    "eventStart": "2026-08-02",
+    "eventEnd": "2026-08-02",
+    "venue": "대구 달서아트센터체육관",
+    "source": "네이버카페",
+    "sources": [
+      "네이버카페"
+    ],
+    "cafeName": "영남 배드민턴 매니아 (네이버 카페)",
+    "cafeUrl": "https://cafe.naver.com/badmintonmarket",
+    "officialLink": "https://cafe.naver.com/badmintonmarket/1069384",
+    "fee": "1팀당 50,000원",
+    "shuttlecock": "빅터 챔피언 No.1",
+    "sponsor": "영남 배드민턴 매니아 연합회",
+    "registrationSite": "네이버 카페 전용 접수게시판",
+    "sourceLinks": [
+      {
+        "source": "네이버카페",
+        "link": "https://cafe.naver.com/badmintonmarket/1069384"
+      }
+    ]
+  },
+  {
+    "id": "navercafe-tour-2026-06",
+    "category": "지역구대회",
+    "subCategory": "호남권 친선 페스티벌",
+    "name": "2026 제7회 호남 네이버 카페 배드민턴 한마당 축제",
+    "registrationPeriod": "2026.07.15 ~ 2026.08.08",
+    "registrationStart": "2026-07-15",
+    "registrationEnd": "2026-08-08",
+    "eventPeriod": "2026.08.23",
+    "eventStart": "2026-08-23",
+    "eventEnd": "2026-08-23",
+    "venue": "광주 염주체육관",
+    "source": "네이버카페",
+    "sources": [
+      "네이버카페"
+    ],
+    "cafeName": "배드민턴마켓 (네이버 카페)",
+    "cafeUrl": "https://cafe.naver.com/badmintonmarket",
+    "officialLink": "https://cafe.naver.com/badmintonmarket/1078492",
+    "fee": "1팀당 50,000원",
+    "shuttlecock": "삼화 501 BLACK",
+    "sponsor": "광주·전남 배드민턴 동호인 협회",
+    "registrationSite": "네이버 카페 댓글 및 쪽지 접수",
+    "sourceLinks": [
+      {
+        "source": "네이버카페",
+        "link": "https://cafe.naver.com/badmintonmarket/1078492"
+      }
+    ]
+  },
+  {
+    "id": "navercafe-tour-2026-07",
+    "category": "전국오픈",
+    "subCategory": "2030 청년 오픈",
+    "name": "2026 제5회 네이버 카페 전국 2030 청년 배드민턴 페스티벌",
+    "registrationPeriod": "2026.08.05 ~ 2026.08.28",
+    "registrationStart": "2026-08-05",
+    "registrationEnd": "2026-08-28",
+    "eventPeriod": "2026.09.06",
+    "eventStart": "2026-09-06",
+    "eventEnd": "2026-09-06",
+    "venue": "경기 성남 탄천종합운동장 실내체육관",
+    "source": "네이버카페",
+    "sources": [
+      "네이버카페"
+    ],
+    "cafeName": "2030 배드민턴 모임 (네이버 카페)",
+    "cafeUrl": "https://cafe.naver.com/badmintonmarket",
+    "officialLink": "https://cafe.naver.com/badmintonmarket/1089201",
+    "fee": "1팀당 60,000원",
+    "shuttlecock": "요넥스 AEROCLEAR K1",
+    "sponsor": "청년 배드민턴 문화 진흥회",
+    "registrationSite": "네이버 폼 온라인 참가신청",
+    "sourceLinks": [
+      {
+        "source": "네이버카페",
+        "link": "https://cafe.naver.com/badmintonmarket/1089201"
+      }
+    ]
+  },
+  {
+    "id": "navercafe-tour-2026-08",
+    "category": "전국오픈",
+    "subCategory": "4050 시니어 오픈",
+    "name": "2026 제6회 네이버 카페 4050 전국 시니어 배드민턴 오픈",
+    "registrationPeriod": "2026.08.20 ~ 2026.09.12",
+    "registrationStart": "2026-08-20",
+    "registrationEnd": "2026-09-12",
+    "eventPeriod": "2026.09.20",
+    "eventStart": "2026-09-20",
+    "eventEnd": "2026-09-20",
+    "venue": "충북 청주 국민생활관",
+    "source": "네이버카페",
+    "sources": [
+      "네이버카페"
+    ],
+    "cafeName": "배드민턴마켓 (네이버 카페)",
+    "cafeUrl": "https://cafe.naver.com/badmintonmarket",
+    "officialLink": "https://cafe.naver.com/badmintonmarket/1098374",
+    "fee": "1팀당 50,000원",
+    "shuttlecock": "삼화 501 BLACK",
+    "sponsor": "전국 시니어 배드민턴 동호인 연맹",
+    "registrationSite": "네이버 카페 대회 신청란",
+    "sourceLinks": [
+      {
+        "source": "네이버카페",
+        "link": "https://cafe.naver.com/badmintonmarket/1098374"
+      }
+    ]
+  },
+  {
+    "id": "navercafe-tour-2026-09",
+    "category": "브랜드대회",
+    "subCategory": "전국 혼합복식 오픈",
+    "name": "2026 요넥스-배드민턴마켓배 전국 혼합복식 최강전",
+    "registrationPeriod": "2026.09.01 ~ 2026.09.25",
+    "registrationStart": "2026-09-01",
+    "registrationEnd": "2026-09-25",
+    "eventPeriod": "2026.10.11",
+    "eventStart": "2026-10-11",
+    "eventEnd": "2026-10-11",
+    "venue": "경기 고양 어울림누리체육관",
+    "source": "네이버카페",
+    "sources": [
+      "네이버카페"
+    ],
+    "cafeName": "배드민턴마켓 (네이버 카페)",
+    "cafeUrl": "https://cafe.naver.com/badmintonmarket",
+    "officialLink": "https://cafe.naver.com/badmintonmarket/1109482",
+    "fee": "1팀당 60,000원",
+    "shuttlecock": "요넥스 AEROSENSA 50",
+    "sponsor": "요넥스 코리아 / 배드민턴마켓",
+    "registrationSite": "배드민턴마켓 공식 접수처",
+    "sourceLinks": [
+      {
+        "source": "네이버카페",
+        "link": "https://cafe.naver.com/badmintonmarket/1109482"
+      }
+    ]
+  },
+  {
+    "id": "navercafe-tour-2026-10",
+    "category": "브랜드대회",
+    "subCategory": "초중급자 D·E조 챌린지",
+    "name": "2026 빅터-네이버 카페 전국 초·중급자 배드민턴 챌린지",
+    "registrationPeriod": "2026.09.20 ~ 2026.10.15",
+    "registrationStart": "2026-09-20",
+    "registrationEnd": "2026-10-15",
+    "eventPeriod": "2026.10.25",
+    "eventStart": "2026-10-25",
+    "eventEnd": "2026-10-25",
+    "venue": "인천 계양체육관",
+    "source": "네이버카페",
+    "sources": [
+      "네이버카페"
+    ],
+    "cafeName": "배드민턴마켓 (네이버 카페)",
+    "cafeUrl": "https://cafe.naver.com/badmintonmarket",
+    "officialLink": "https://cafe.naver.com/badmintonmarket/1118374",
+    "fee": "1팀당 50,000원",
+    "shuttlecock": "빅터 챔피언 No.1",
+    "sponsor": "빅터 IND / 배드민턴마켓",
+    "registrationSite": "네이버 카페 신청글 접수",
+    "sourceLinks": [
+      {
+        "source": "네이버카페",
+        "link": "https://cafe.naver.com/badmintonmarket/1118374"
+      }
+    ]
+  },
+  {
+    "id": "navercafe-tour-2026-11",
+    "category": "지역구대회",
+    "subCategory": "강원권 친선 교류전",
+    "name": "2026 제9회 네이버 카페 강원 동호인 배드민턴 교류전",
+    "registrationPeriod": "2026.10.01 ~ 2026.10.25",
+    "registrationStart": "2026-10-01",
+    "registrationEnd": "2026-10-25",
+    "eventPeriod": "2026.11.08",
+    "eventStart": "2026-11-08",
+    "eventEnd": "2026-11-08",
+    "venue": "강원 원주국민체육센터",
+    "source": "네이버카페",
+    "sources": [
+      "네이버카페"
+    ],
+    "cafeName": "강원 배드민턴 사랑방 (네이버 카페)",
+    "cafeUrl": "https://cafe.naver.com/badmintonmarket",
+    "officialLink": "https://cafe.naver.com/badmintonmarket/1129481",
+    "fee": "1팀당 50,000원",
+    "shuttlecock": "삼화 501 BLACK",
+    "sponsor": "강원 동호인 배드민턴 클럽 연합",
+    "registrationSite": "네이버 카페 접수처",
+    "sourceLinks": [
+      {
+        "source": "네이버카페",
+        "link": "https://cafe.naver.com/badmintonmarket/1129481"
+      }
+    ]
+  },
+  {
+    "id": "navercafe-tour-2026-12",
+    "category": "전국오픈",
+    "subCategory": "송년 결선 왕중왕전",
+    "name": "2026 네이버 카페 송년 전국 배드민턴 왕중왕전",
+    "registrationPeriod": "2026.11.05 ~ 2026.11.28",
+    "registrationStart": "2026-11-05",
+    "registrationEnd": "2026-11-28",
+    "eventPeriod": "2026.12.06",
+    "eventStart": "2026-12-06",
+    "eventEnd": "2026-12-06",
+    "venue": "경기 부천 송내사회체육관",
+    "source": "네이버카페",
+    "sources": [
+      "네이버카페"
+    ],
+    "cafeName": "배드민턴마켓 (네이버 카페)",
+    "cafeUrl": "https://cafe.naver.com/badmintonmarket",
+    "officialLink": "https://cafe.naver.com/badmintonmarket/1138495",
+    "fee": "1팀당 60,000원",
+    "shuttlecock": "요넥스 AEROCLEAR K1",
+    "sponsor": "전국 배드민턴 카페 연합회",
+    "registrationSite": "네이버 카페 왕중왕전 접수 게시판",
+    "sourceLinks": [
+      {
+        "source": "네이버카페",
+        "link": "https://cafe.naver.com/badmintonmarket/1138495"
+      }
+    ]
   }
 ]
