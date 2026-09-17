@@ -7,6 +7,7 @@ type TournamentSource = '배드민톡' | '배드민턴타임즈' | '페이스콕
 interface ScrapedTournament {
   id: string;
   category: TournamentCategory;
+  subCategory?: string;
   name: string;
   registrationPeriod: string;
   registrationStart: string;
@@ -21,11 +22,21 @@ interface ScrapedTournament {
   officialLink: string;
   posterImage?: string;
   fee: string;
+  shuttlecock?: string;
+  sponsor?: string;
+  registrationSite?: string;
+  dailySchedule?: Array<{
+    date: string;
+    events?: string[];
+    description?: string;
+  }>;
 }
 
 const USER_AGENT =
   'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36';
-const REQUEST_TIMEOUT_MS = 20_000;
+const REQUEST_TIMEOUT_MS = 25_000;
+
+const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 
 function decodeEntities(value: string): string {
   const named: Record<string, string> = {
@@ -55,13 +66,50 @@ function cleanText(value: string): string {
     .trim();
 }
 
+/**
+ * 지수 백오프(Exponential Backoff) 기반 고신뢰 네트워크 요청 엔진
+ */
+async function fetchWithRetry(url: string, options: RequestInit = {}, maxRetries = 3): Promise<Response> {
+  let lastError: unknown;
+  for (let attempt = 1; attempt <= maxRetries; attempt++) {
+    try {
+      const controller = new AbortController();
+      const timer = setTimeout(() => controller.abort(), REQUEST_TIMEOUT_MS);
+      const res = await fetch(url, {
+        ...options,
+        signal: controller.signal,
+      });
+      clearTimeout(timer);
+
+      // 성공 또는 리다이렉트
+      if (res.ok) return res;
+
+      // 404 등 클라이언트 영구 오류는 재시도 없이 반환
+      if (res.status === 404 || res.status === 400 || res.status === 403) return res;
+
+      // 429(Rate limit), 5xx 서버 오류 시 백오프 대기 후 재시도
+      if (attempt < maxRetries) {
+        const delayMs = attempt * 1200 + Math.floor(Math.random() * 800);
+        await sleep(delayMs);
+      }
+    } catch (err) {
+      lastError = err;
+      if (attempt < maxRetries) {
+        const delayMs = attempt * 1500 + Math.floor(Math.random() * 1000);
+        await sleep(delayMs);
+      }
+    }
+  }
+  throw lastError || new Error(`Failed to fetch ${url} after ${maxRetries} attempts`);
+}
+
 async function fetchHtml(url: string): Promise<string> {
-  const response = await fetch(url, {
+  const response = await fetchWithRetry(url, {
     headers: {
-      Accept: 'text/html,application/xhtml+xml',
+      Accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
+      'Accept-Language': 'ko-KR,ko;q=0.9,en-US;q=0.8,en;q=0.7',
       'User-Agent': USER_AGENT,
     },
-    signal: AbortSignal.timeout(REQUEST_TIMEOUT_MS),
   });
 
   if (!response.ok) throw new Error(`${response.status} ${response.statusText}`);
@@ -73,7 +121,7 @@ async function fetchHtml(url: string): Promise<string> {
 }
 
 async function fetchJson<T>(url: string, body: unknown): Promise<T> {
-  const response = await fetch(url, {
+  const response = await fetchWithRetry(url, {
     method: 'POST',
     headers: {
       Accept: 'application/json, text/javascript, */*; q=0.01',
@@ -84,7 +132,6 @@ async function fetchJson<T>(url: string, body: unknown): Promise<T> {
       'X-Requested-With': 'XMLHttpRequest',
     },
     body: JSON.stringify(body),
-    signal: AbortSignal.timeout(REQUEST_TIMEOUT_MS),
   });
 
   if (!response.ok) throw new Error(`${response.status} ${response.statusText}`);
@@ -186,6 +233,117 @@ function extractTableValue(html: string, label: string): string {
   return match ? cleanText(match[1]) : '';
 }
 
+/**
+ * 대회 상세 요강 텍스트/HTML에서 고급 메타데이터 자동 추출
+ * (대회구, 스폰서, 접수처, 세부 분류, 일자별 타임테이블 등)
+ */
+function parseSpecificationDetails(text: string, title = ''): {
+  subCategory?: string;
+  shuttlecock?: string;
+  sponsor?: string;
+  registrationSite?: string;
+  fee?: string;
+  dailySchedule?: Array<{ date: string; events?: string[]; description?: string }>;
+} {
+  const result: ReturnType<typeof parseSpecificationDetails> = {};
+  const fullText = `${title}\n${text}`;
+
+  // 1. 대회구 (셔틀콕)
+  const shuttleMatch = fullText.match(/(?:대회구|사용구|공인구|지정구|셔틀콕|사용\s*셔틀콕|공인\s*셔틀콕)\s*[:：]\s*([^\n\r<>,()]+)/i);
+  if (shuttleMatch) {
+    const raw = shuttleMatch[1].trim();
+    if (raw.length >= 2 && raw.length <= 40 && !/참조|추후/i.test(raw)) {
+      result.shuttlecock = raw;
+    }
+  } else {
+    const brandMatch = fullText.match(/(요넥스\s*(?:AEROCLEAR\s*K\d|AS-\d+|에어로클리어)|삼화\s*(?:BLACK|BLACK\s*SPECIAL|700|900|스페셜)|KBB\s*(?:79|Tour|Super)|빅터\s*(?:챔피언|마스터|마스터\s*No\.\d+)|강산연\s*(?:301|501)|스펙트럼\s*\d+|테크니스트\s*(?:마스터|프로))/i);
+    if (brandMatch) {
+      result.shuttlecock = brandMatch[1].trim();
+    }
+  }
+
+  // 2. 스폰서 (후원/협찬)
+  const sponsorMatch = fullText.match(/(?:스폰서|후원|협찬|주관사)\s*[:：]\s*([^\n\r<>()]+)/i);
+  if (sponsorMatch) {
+    const raw = sponsorMatch[1].trim();
+    if (raw.length >= 2 && raw.length <= 30 && !/참조|추후/i.test(raw)) {
+      result.sponsor = raw;
+    }
+  } else {
+    const brand = fullText.match(/(?:요넥스|빅터|테크니스트|플리트|리닝|미즈노|아펙스|익스트림|플라이파워|트라이온|스펙트럼)/i);
+    if (brand && (title.includes(brand[0]) || /후원|협찬|배드민턴대회/i.test(fullText))) {
+      result.sponsor = brand[0];
+    }
+  }
+
+  // 3. 접수처 / 접수시스템
+  const siteMatch = fullText.match(/(?:접수처|접수방법|신청처|접수처\s*안내)\s*[:：]\s*([^\n\r<>()]+)/i);
+  if (siteMatch) {
+    const raw = siteMatch[1].trim();
+    if (raw.length >= 2 && raw.length <= 50) {
+      result.registrationSite = raw;
+    }
+  }
+
+  // 4. 세부 분류 (전국 승급, 생활체육, 최강전 등)
+  if (/승급|전국\s*승급/i.test(fullText)) {
+    result.subCategory = '전국 승급';
+  } else if (/동호인|생활체육/i.test(fullText)) {
+    result.subCategory = '생활체육 전국';
+  } else if (/최강전|마스터즈/i.test(fullText)) {
+    result.subCategory = '최강자전';
+  }
+
+  // 5. 세부 참가비 정제
+  const feeMatch = fullText.match(/(?:참가비|출전비|등록비)\s*[:：]?\s*(1팀당\s*[0-9,]+원|팀당\s*[0-9,]+원|[0-9,]+원\/팀|[0-9,]{4,7}원)/i);
+  if (feeMatch) {
+    let feeStr = feeMatch[1].trim();
+    if (/^\d/.test(feeStr)) feeStr = `1팀당 ${feeStr}`;
+    result.fee = feeStr;
+  }
+
+  // 6. 일자별 경기 일정 및 타임테이블 (dailySchedule)
+  const scheduleList: Array<{ date: string; events?: string[]; description?: string }> = [];
+  const dayPatterns = [
+    /(\d{1,2}월\s*\d{1,2}일\s*\([월화수목금토일]\))([\s\S]*?)(?=(\d{1,2}월\s*\d{1,2}일\s*\([월화수목금토일]\))|$)/g,
+    /([12]일차\s*\([월화수목금토일]\)|[12]일차)([\s\S]*?)(?=([12]일차)|$)/g,
+  ];
+
+  for (const pat of dayPatterns) {
+    const matches = [...text.matchAll(pat)];
+    if (matches.length >= 2) {
+      for (const m of matches) {
+        const dateHeader = m[1].trim();
+        const block = m[2].trim();
+        const events: string[] = [];
+        if (/혼복|혼합복식/i.test(block)) events.push('혼합복식');
+        if (/남복|남자복식/i.test(block)) events.push('남자복식');
+        if (/여복|여자복식/i.test(block)) events.push('여자복식');
+        if (/단식/i.test(block)) events.push('단식');
+
+        const descLines = block
+          .split('\n')
+          .map((l) => l.trim())
+          .filter((l) => l.length > 5 && !/^[=-]+$/.test(l))
+          .slice(0, 3);
+
+        scheduleList.push({
+          date: dateHeader,
+          events: events.length > 0 ? events : ['복식 전경기'],
+          description: descLines.length > 0 ? descLines.join(', ') : '해당 일자 종목 진행',
+        });
+      }
+      break;
+    }
+  }
+
+  if (scheduleList.length > 0) {
+    result.dailySchedule = scheduleList;
+  }
+
+  return result;
+}
+
 function stableHash(value: string): string {
   let hash = 2166136261;
   for (let index = 0; index < value.length; index++) {
@@ -242,6 +400,8 @@ async function scrapeFacecock(): Promise<ScrapedTournament[]> {
       let venue = candidate.venue;
       let posterImage = candidate.posterImage;
 
+      let specs: ReturnType<typeof parseSpecificationDetails> = {};
+
       try {
         const detailHtml = await fetchHtml(candidate.detailUrl);
         const registration = parseKoreanDateRange(extractTableValue(detailHtml, '접수기간'));
@@ -256,6 +416,8 @@ async function scrapeFacecock(): Promise<ScrapedTournament[]> {
 
         const posterMatch = detailHtml.match(/<img[^>]+src=["']([^"']*\/data\/game\/poster_[^"']+)["'][^>]*>/i);
         if (posterMatch) posterImage = toAbsoluteUrl(baseUrl, posterMatch[1]);
+
+        specs = parseSpecificationDetails(cleanText(detailHtml), candidate.name);
       } catch (error) {
         console.warn(`   ⚠️ 페이스콕 상세 정보 일부를 읽지 못했습니다: ${candidate.detailUrl}`, error);
       }
@@ -263,6 +425,7 @@ async function scrapeFacecock(): Promise<ScrapedTournament[]> {
       return {
         id: `fc-${candidate.id}`,
         category: categorizeTournament(candidate.name, venue),
+        subCategory: specs.subCategory,
         name: candidate.name,
         registrationPeriod: registrationStart ? displayPeriod(registrationStart, registrationEnd) : '공식 상세 페이지 확인',
         registrationStart,
@@ -274,7 +437,11 @@ async function scrapeFacecock(): Promise<ScrapedTournament[]> {
         source: '페이스콕',
         officialLink: candidate.detailUrl,
         posterImage,
-        fee: '요강 참조',
+        fee: specs.fee || '요강 참조',
+        shuttlecock: specs.shuttlecock,
+        sponsor: specs.sponsor,
+        registrationSite: specs.registrationSite,
+        dailySchedule: specs.dailySchedule,
       };
     })
   );
@@ -359,9 +526,12 @@ async function scrapeBadmintonTimes(): Promise<ScrapedTournament[]> {
       const idMatch = detailUrl.match(/[?&]no=(\d+)/);
       const sourceId = idMatch?.[1] ?? stableHash(detailUrl);
 
+      const specs = parseSpecificationDetails(`${name} ${venue}`, name);
+
       tournaments.set(detailUrl, {
         id: `bt-${sourceId}`,
         category: match[1] === '국제' ? '국제대회' : categorizeTournament(name, venue),
+        subCategory: specs.subCategory,
         name,
         registrationPeriod: '공식 상세 페이지 확인',
         registrationStart: '',
@@ -372,7 +542,11 @@ async function scrapeBadmintonTimes(): Promise<ScrapedTournament[]> {
         venue,
         source: '배드민턴타임즈',
         officialLink: detailUrl,
-        fee: '요강 참조',
+        fee: specs.fee || '요강 참조',
+        shuttlecock: specs.shuttlecock,
+        sponsor: specs.sponsor,
+        registrationSite: specs.registrationSite,
+        dailySchedule: specs.dailySchedule,
       });
     }
   }
@@ -411,10 +585,12 @@ async function scrapeBadmintonGame(): Promise<ScrapedTournament[]> {
         const registration = parseKoreanDateRange(extractTableValue(detailHtml, '접수기간'));
         const detailVenue = extractTableValue(detailHtml, '대회장소');
         const venue = detailVenue || candidate.venue;
+        const specs = parseSpecificationDetails(cleanText(detailHtml), candidate.name);
 
         return {
           id: `bg-${candidate.id}`,
           category: categorizeTournament(candidate.name, venue),
+          subCategory: specs.subCategory,
           name: candidate.name,
           registrationPeriod: registration ? displayPeriod(registration.start, registration.end) : '공식 상세 페이지 확인',
           registrationStart: registration?.start ?? '',
@@ -425,7 +601,11 @@ async function scrapeBadmintonGame(): Promise<ScrapedTournament[]> {
           venue,
           source: '배드민턴게임',
           officialLink: candidate.detailUrl,
-          fee: '요강 참조',
+          fee: specs.fee || '요강 참조',
+          shuttlecock: specs.shuttlecock,
+          sponsor: specs.sponsor,
+          registrationSite: specs.registrationSite,
+          dailySchedule: specs.dailySchedule,
         };
       } catch (error) {
         console.warn(`   ⚠️ 배드민턴게임 상세 페이지를 읽지 못했습니다: ${candidate.detailUrl}`, error);
@@ -482,11 +662,15 @@ async function scrapeCourtX(): Promise<ScrapedTournament[]> {
     const venue = cleanText(
       row.DISPLAY_REGION || row.LOCATION || [row.VENUE_SIDO, row.VENUE_SIGUNGU].filter(Boolean).join(' ') || '장소는 공식 상세 페이지 참조'
     );
-    const posterImage = row.POSTER_URL ? toAbsoluteUrl('https://imgs.courtx.co.kr', row.POSTER_URL) : undefined;
+    const specs = parseSpecificationDetails(
+      `${name} ${row.DISPLAY_REGION ?? ''} ${row.LOCATION ?? ''} ${row.DESCRIPTION ?? ''}`,
+      name
+    );
 
     tournaments.push({
       id: `cx-${id}`,
       category: categorizeTournament(name, venue),
+      subCategory: specs.subCategory,
       name,
       registrationPeriod: hasRegistration ? displayPeriod(registrationStart, registrationEnd) : '공식 상세 페이지 확인',
       registrationStart: hasRegistration ? registrationStart : '',
@@ -498,7 +682,11 @@ async function scrapeCourtX(): Promise<ScrapedTournament[]> {
       source: '코트엑스',
       officialLink: `${origin}/Tournament/Details/${encodeURIComponent(id)}`,
       posterImage,
-      fee: '요강 참조',
+      fee: specs.fee || '요강 참조',
+      shuttlecock: specs.shuttlecock,
+      sponsor: specs.sponsor || '코트엑스',
+      registrationSite: specs.registrationSite || '코트엑스 온라인 접수',
+      dailySchedule: specs.dailySchedule,
     });
   }
 
@@ -566,9 +754,12 @@ async function scrapeOhMyPlay(): Promise<ScrapedTournament[]> {
       posterImage = item.posterImgPath;
     }
 
+    const specs = parseSpecificationDetails(name, name);
+
     tournaments.push({
       id: `omp-${item.tnmtId}`,
       category: categorizeTournament(name, venue),
+      subCategory: specs.subCategory,
       name,
       registrationPeriod: hasRegistration ? displayPeriod(registrationStart, registrationEnd) : '공식 상세 페이지 확인',
       registrationStart: hasRegistration ? registrationStart : '',
@@ -580,7 +771,11 @@ async function scrapeOhMyPlay(): Promise<ScrapedTournament[]> {
       source: '오마이플레이',
       officialLink: `https://m.ohmyplay.com/tournament/${item.tnmtId}`,
       posterImage,
-      fee: '요강 참조',
+      fee: specs.fee || '요강 참조',
+      shuttlecock: specs.shuttlecock,
+      sponsor: specs.sponsor,
+      registrationSite: specs.registrationSite || '오마이플레이 앱/웹 접수',
+      dailySchedule: specs.dailySchedule,
     });
   }
 
@@ -671,9 +866,12 @@ async function scrapeSponet(): Promise<ScrapedTournament[]> {
     const eventStart = eventDate || '2026-06-01';
     const eventEnd = eventStart;
 
+    const specs = parseSpecificationDetails(cleanName, cleanName);
+
     tournaments.push({
       id: `sp-${stableHash(cleanName)}`,
       category: categorizeTournament(cleanName, venue),
+      subCategory: specs.subCategory,
       name: cleanName,
       registrationPeriod: '공식 요강(PDF) 참조',
       registrationStart: '',
@@ -685,7 +883,11 @@ async function scrapeSponet(): Promise<ScrapedTournament[]> {
       source: '스포넷',
       officialLink,
       posterImage,
-      fee: '공식 요강(PDF) 참조',
+      fee: specs.fee || '공식 요강(PDF) 참조',
+      shuttlecock: specs.shuttlecock,
+      sponsor: specs.sponsor,
+      registrationSite: specs.registrationSite || '스포넷 온라인 접수',
+      dailySchedule: specs.dailySchedule,
     });
   }
 
@@ -741,9 +943,12 @@ async function scrapeWekkuk(): Promise<ScrapedTournament[]> {
       ? `https://app2.wekkuk.com/v2/contest_badminton/contest/${bct_id}`
       : url;
 
+    const specs = parseSpecificationDetails(`${name} ${venue}`, name);
+
     tournaments.push({
       id: bct_id ? `wk-${bct_id}` : `wk-${stableHash(name)}`,
       category: categorizeTournament(name, venue),
+      subCategory: specs.subCategory,
       name,
       registrationPeriod: '공식 상세 페이지 참조',
       registrationStart: '',
@@ -755,7 +960,11 @@ async function scrapeWekkuk(): Promise<ScrapedTournament[]> {
       source: '위꾹',
       officialLink,
       posterImage,
-      fee: '공식 상세 페이지 참조',
+      fee: specs.fee || '공식 상세 페이지 참조',
+      shuttlecock: specs.shuttlecock,
+      sponsor: specs.sponsor,
+      registrationSite: specs.registrationSite || '위꾹 앱 접수',
+      dailySchedule: specs.dailySchedule,
     });
   }
 
@@ -1090,9 +1299,12 @@ async function scrapeCockcock(): Promise<ScrapedTournament[]> {
         ? displayPeriod(regStart, regEnd) 
         : '콕콕 공식 요강 참조';
 
+      const specs = parseSpecificationDetails(`${name} ${venue}`, name);
+
       tournaments.push({
         id: `cockcock-${item.id || stableHash(name)}`,
         category: categorizeTournament(name, venue),
+        subCategory: specs.subCategory,
         name,
         registrationPeriod: regPeriod,
         registrationStart: regStart,
@@ -1104,7 +1316,11 @@ async function scrapeCockcock(): Promise<ScrapedTournament[]> {
         source: '콕콕',
         officialLink,
         posterImage: item.image_url || undefined,
-        fee: '공식 요강 참조',
+        fee: specs.fee || '공식 요강 참조',
+        shuttlecock: specs.shuttlecock,
+        sponsor: specs.sponsor,
+        registrationSite: specs.registrationSite || '콕콕 온라인 접수',
+        dailySchedule: specs.dailySchedule,
       });
     }
   }
@@ -1165,6 +1381,20 @@ function mergeAndDeduplicate(all: ScrapedTournament[]): ScrapedTournament[] {
     }
     if (!existing.posterImage && tournament.posterImage) existing.posterImage = tournament.posterImage;
     if (tournament.venue.length > existing.venue.length) existing.venue = tournament.venue;
+
+    // 세부 요강 메타데이터 고도화 병합
+    if (!existing.shuttlecock && tournament.shuttlecock) existing.shuttlecock = tournament.shuttlecock;
+    if (!existing.sponsor && tournament.sponsor) existing.sponsor = tournament.sponsor;
+    if (!existing.registrationSite && tournament.registrationSite) existing.registrationSite = tournament.registrationSite;
+    if (!existing.subCategory && tournament.subCategory) existing.subCategory = tournament.subCategory;
+    if ((!existing.dailySchedule || existing.dailySchedule.length === 0) && tournament.dailySchedule && tournament.dailySchedule.length > 0) {
+      existing.dailySchedule = tournament.dailySchedule;
+    }
+    if (existing.fee === '요강 참조' || existing.fee === '공식 요강 참조' || existing.fee === '공식 상세 페이지 참조') {
+      if (tournament.fee && tournament.fee !== '요강 참조' && tournament.fee !== '공식 요강 참조' && tournament.fee !== '공식 상세 페이지 참조') {
+        existing.fee = tournament.fee;
+      }
+    }
   }
 
   // 최종 sourceLinks 내부 동일 URL 중복 필터링
