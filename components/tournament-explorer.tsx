@@ -26,10 +26,13 @@ import {
   LogOut,
   MapPin,
   Navigation,
+  PlusCircle,
+  RefreshCw,
   Search,
   ShieldCheck,
   SlidersHorizontal,
   Table as TableIcon,
+  Trash2,
   Trophy,
   Unlock,
   Users,
@@ -310,6 +313,69 @@ export function TournamentExplorer({ tournaments }: { tournaments: Tournament[] 
 
   const [onlyFavorites, setOnlyFavorites] = useState(false);
 
+  // 관리자 수동 추가된 대회 목록 (localStorage)
+  const [manualTournaments, setManualTournaments] = useState<Tournament[]>(() => {
+    if (typeof window === 'undefined') return [];
+    try {
+      const saved = localStorage.getItem('minton_manual_added');
+      return saved ? JSON.parse(saved) : [];
+    } catch {
+      return [];
+    }
+  });
+
+  // 관리자 수동 삭제된 대회 ID 목록 (localStorage)
+  const [deletedTournamentIds, setDeletedTournamentIds] = useState<Set<string>>(() => {
+    if (typeof window === 'undefined') return new Set();
+    try {
+      const saved = localStorage.getItem('minton_deleted_ids');
+      return saved ? new Set(JSON.parse(saved)) : new Set();
+    } catch {
+      return new Set();
+    }
+  });
+
+  // 대회 수동 등록 모달 상태
+  const [isAddModalOpen, setIsAddModalOpen] = useState(false);
+  const [newTournamentForm, setNewTournamentForm] = useState<{
+    name: string;
+    category: TournamentCategory;
+    subCategory?: string;
+    eventStart: string;
+    eventEnd: string;
+    registrationStart: string;
+    registrationEnd: string;
+    venue: string;
+    fee: string;
+    source: TournamentSource;
+    officialLink: string;
+    bandName?: string;
+    bandUrl?: string;
+    cafeName?: string;
+    cafeUrl?: string;
+    shuttlecock?: string;
+    sponsor?: string;
+  }>({
+    name: '',
+    category: '전국오픈',
+    subCategory: '전국 승급',
+    eventStart: '',
+    eventEnd: '',
+    registrationStart: '',
+    registrationEnd: '',
+    venue: '',
+    fee: '1팀당 60,000원',
+    source: '다음카페',
+    officialLink: '',
+    bandName: '배드민턴 대회 일정 및 요강 (전국)',
+    bandUrl: 'https://band.us/@mintoncontest',
+    cafeName: '다음 배드민턴 패밀리 (대회 알림방)',
+    cafeUrl: 'https://cafe.daum.net/badmintonfamily',
+    shuttlecock: '요넥스 AEROCLEAR K1 (또는 공인구)',
+    sponsor: '요넥스 코리아',
+  });
+  const [addFormError, setAddFormError] = useState('');
+
   // 실존하는 대회 ID만 유효한 찜 목록으로 추출 (삭제된 대회 ID 배제)
   const validFavorites = useMemo(() => {
     const tournamentIdSet = new Set(tournaments.map((t) => t.id));
@@ -529,9 +595,168 @@ export function TournamentExplorer({ tournaments }: { tournaments: Tournament[] 
     }
   };
 
+  // 관리자 대회 수동 등록 핸들러
+  const handleAddTournament = (e: React.FormEvent) => {
+    e.preventDefault();
+    setAddFormError('');
+
+    if (!newTournamentForm.name.trim()) {
+      setAddFormError('대회명을 입력해주세요.');
+      return;
+    }
+    if (!/^\d{4}-\d{2}-\d{2}$/.test(newTournamentForm.eventStart) || !/^\d{4}-\d{2}-\d{2}$/.test(newTournamentForm.eventEnd)) {
+      setAddFormError('대회 일정 날짜는 YYYY-MM-DD 형식이어야 합니다.');
+      return;
+    }
+    if (newTournamentForm.eventStart > newTournamentForm.eventEnd) {
+      setAddFormError('대회 종료일이 시작일보다 빠를 수 없습니다.');
+      return;
+    }
+    if (newTournamentForm.registrationStart || newTournamentForm.registrationEnd) {
+      if (!/^\d{4}-\d{2}-\d{2}$/.test(newTournamentForm.registrationStart) || !/^\d{4}-\d{2}-\d{2}$/.test(newTournamentForm.registrationEnd)) {
+        setAddFormError('접수 일정은 둘 다 YYYY-MM-DD 형식으로 입력하거나 비워두셔야 합니다.');
+        return;
+      }
+      if (newTournamentForm.registrationStart > newTournamentForm.registrationEnd) {
+        setAddFormError('접수 마감일이 접수 시작일보다 빠를 수 없습니다.');
+        return;
+      }
+    }
+    if (!newTournamentForm.venue.trim()) {
+      setAddFormError('개최 장소(체육관)를 입력해주세요.');
+      return;
+    }
+    if (!/^https?:\/\//.test(newTournamentForm.officialLink.trim())) {
+      setAddFormError('공식 요강 링크(URL)는 http:// 또는 https:// 로 시작해야 합니다.');
+      return;
+    }
+
+    const newId = `manual-${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 6)}`;
+    const eventPeriod = newTournamentForm.eventStart === newTournamentForm.eventEnd
+      ? newTournamentForm.eventStart.replace(/-/g, '.')
+      : `${newTournamentForm.eventStart.replace(/-/g, '.')} ~ ${newTournamentForm.eventEnd.replace(/-/g, '.')}`;
+
+    const registrationPeriod = (newTournamentForm.registrationStart && newTournamentForm.registrationEnd)
+      ? `${newTournamentForm.registrationStart.replace(/-/g, '.')} ~ ${newTournamentForm.registrationEnd.replace(/-/g, '.')}`
+      : '공식 상세 페이지 확인';
+
+    const currentSource = newTournamentForm.source || '네이버밴드';
+
+    const created: Tournament = {
+      id: newId,
+      name: newTournamentForm.name.trim(),
+      category: newTournamentForm.category,
+      subCategory: newTournamentForm.subCategory || newTournamentForm.category,
+      eventStart: newTournamentForm.eventStart,
+      eventEnd: newTournamentForm.eventEnd,
+      eventPeriod,
+      registrationStart: newTournamentForm.registrationStart || '',
+      registrationEnd: newTournamentForm.registrationEnd || '',
+      registrationPeriod,
+      venue: newTournamentForm.venue.trim(),
+      fee: newTournamentForm.fee.trim() || '요강 참조',
+      source: currentSource,
+      sources: [currentSource],
+      officialLink: newTournamentForm.officialLink.trim(),
+      sourceLinks: [{ source: currentSource, link: newTournamentForm.officialLink.trim() }],
+      bandName: currentSource === '네이버밴드' ? (newTournamentForm.bandName?.trim() || '배드민턴 대회 일정 및 요강 (전국)') : undefined,
+      bandUrl: currentSource === '네이버밴드' ? (newTournamentForm.bandUrl?.trim() || 'https://band.us/@mintoncontest') : undefined,
+      cafeName: (currentSource === '다음카페' || currentSource === '네이버카페') ? (newTournamentForm.cafeName?.trim() || (currentSource === '다음카페' ? '다음 배드민턴 패밀리' : '네이버 배드민턴 카페')) : undefined,
+      cafeUrl: (currentSource === '다음카페' || currentSource === '네이버카페') ? (newTournamentForm.cafeUrl?.trim() || (currentSource === '다음카페' ? 'https://cafe.daum.net/badmintonfamily' : 'https://cafe.naver.com/badmintonmarket')) : undefined,
+      shuttlecock: newTournamentForm.shuttlecock?.trim() || undefined,
+      sponsor: newTournamentForm.sponsor?.trim() || undefined,
+      registrationSite: currentSource === '네이버밴드' ? '네이버 밴드 공식 접수' : currentSource === '다음카페' ? '다음 카페 대회 게시판' : '공식 접수처',
+    };
+
+    const updated = [created, ...manualTournaments];
+    setManualTournaments(updated);
+    try {
+      localStorage.setItem('minton_manual_added', JSON.stringify(updated));
+    } catch {}
+
+    setIsAddModalOpen(false);
+    setNewTournamentForm({
+      name: '',
+      category: '전국오픈',
+      subCategory: '전국 승급',
+      eventStart: '',
+      eventEnd: '',
+      registrationStart: '',
+      registrationEnd: '',
+      venue: '',
+      fee: '1팀당 60,000원',
+      source: '다음카페',
+      officialLink: '',
+      bandName: '배드민턴 대회 일정 및 요강 (전국)',
+      bandUrl: 'https://band.us/@mintoncontest',
+      cafeName: '다음 배드민턴 패밀리 (대회 알림방)',
+      cafeUrl: 'https://cafe.daum.net/badmintonfamily',
+      shuttlecock: '요넥스 AEROCLEAR K1 (또는 공인구)',
+      sponsor: '요넥스 코리아',
+    });
+    alert(`✅ [${created.name}] (${created.source}) 대회가 성공적으로 등록되었습니다!`);
+  };
+
+  // 관리자 대회 수동 삭제 핸들러
+  const handleDeleteTournament = (t: Tournament, e?: React.SyntheticEvent) => {
+    if (e) {
+      e.preventDefault();
+      e.stopPropagation();
+    }
+    const confirmDelete = window.confirm(`정말 [${t.name}] 대회를 삭제하시겠습니까?\n삭제된 대회는 목록에서 즉시 제거됩니다.`);
+    if (!confirmDelete) return;
+
+    const nextDeleted = new Set(deletedTournamentIds);
+    nextDeleted.add(t.id);
+    setDeletedTournamentIds(nextDeleted);
+
+    // 수동 등록 목록에서도 제거
+    const nextManual = manualTournaments.filter((m) => m.id !== t.id);
+    setManualTournaments(nextManual);
+
+    try {
+      localStorage.setItem('minton_deleted_ids', JSON.stringify(Array.from(nextDeleted)));
+      localStorage.setItem('minton_manual_added', JSON.stringify(nextManual));
+    } catch {}
+
+    if (selected?.id === t.id) {
+      setSelected(null);
+    }
+    alert(`🗑️ [${t.name}] 대회가 삭제되었습니다.`);
+  };
+
+  // 전체 통합 데이터셋 JSON 영구 다운로드 핸들러
+  const handleDownloadDatasetJson = () => {
+    const cleanList = activeTournaments.map((t) => {
+      const { distanceKm, ...rest } = t as unknown as { distanceKm?: number; [key: string]: unknown };
+      return rest;
+    });
+    const jsonStr = JSON.stringify(cleanList, null, 2);
+    const blob = new Blob([jsonStr], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'tournaments-scraped.json';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+    alert('💾 tournaments-scraped.json 파일이 다운로드되었습니다!\n프로젝트의 lib/tournaments-scraped.json 위치에 덮어쓰고 push-changes.bat을 실행하시면 영구 배포됩니다.');
+  };
+
+  // 1. 수동 등록 및 삭제가 반영된 실시간 통합 대회 목록
+  const activeTournaments = useMemo(() => {
+    // 1) 기본 tournaments 중 삭제된 ID 제외
+    const base = tournaments.filter((t) => !deletedTournamentIds.has(t.id));
+    // 2) 수동 등록된 대회 중 삭제된 ID 제외
+    const manual = manualTournaments.filter((t) => !deletedTournamentIds.has(t.id));
+    // 3) 합치기 (수동 등록이 우선되도록)
+    return [...manual, ...base];
+  }, [tournaments, manualTournaments, deletedTournamentIds]);
+
   // 대회 목록 필터 및 정렬 (거리 계산 및 다중 출처 매칭 포함)
   const filtered = useMemo(() => {
-    return tournaments
+    return activeTournaments
       .map((t) => {
         const venueCoords = getVenueCoordinates(t.venue);
         const distanceKm = venueCoords ? calculateDistanceKm(userLocation.coords, venueCoords) : undefined;
@@ -585,7 +810,7 @@ export function TournamentExplorer({ tournaments }: { tournaments: Tournament[] 
         if (sortOption === 'registrationEnd') return a.registrationEnd.localeCompare(b.registrationEnd);
         return a.name.localeCompare(b.name);
       });
-  }, [tournaments, query, regions, categories, statuses, sources, distanceFilter, sortOption, today, userLocation, validFavorites, onlyFavorites]);
+  }, [activeTournaments, query, regions, categories, statuses, sources, distanceFilter, sortOption, today, userLocation, validFavorites, onlyFavorites]);
 
   // 구글 시트 및 엑셀용 CSV 내보내기 핸들러 (한글 깨짐 방지 UTF-8 BOM 적용)
   const handleExportCsv = () => {
@@ -664,7 +889,7 @@ export function TournamentExplorer({ tournaments }: { tournaments: Tournament[] 
   // 수집된 대회 데이터로부터 실제 존재하는 출처 목록 및 개수 동적 추출 (중복 출처 포함)
   const dynamicSources = useMemo(() => {
     const counts = new Map<string, number>();
-    for (const t of tournaments) {
+    for (const t of activeTournaments) {
       const list = t.sources && t.sources.length > 0 ? t.sources : [t.source];
       for (const s of list) {
         counts.set(s, (counts.get(s) || 0) + 1);
@@ -675,19 +900,19 @@ export function TournamentExplorer({ tournaments }: { tournaments: Tournament[] 
       .map(([name, count]) => ({ name, count }));
 
     return [
-      { label: `전체 (${tournaments.length})`, value: '전체' },
+      { label: `전체 (${activeTournaments.length})`, value: '전체' },
       ...sortedSources.map(({ name, count }) => ({ label: `${name} (${count})`, value: name })),
     ];
-  }, [tournaments]);
+  }, [activeTournaments]);
 
   const openCount = useMemo(
-    () => tournaments.filter((t) => ['접수중', '마감임박'].includes(getStatus(t, today))).length,
-    [tournaments, today]
+    () => activeTournaments.filter((t) => ['접수중', '마감임박'].includes(getStatus(t, today))).length,
+    [activeTournaments, today]
   );
 
   const endedCount = useMemo(
-    () => tournaments.filter((t) => getStatus(t, today) === '대회종료').length,
-    [tournaments, today]
+    () => activeTournaments.filter((t) => getStatus(t, today) === '대회종료').length,
+    [activeTournaments, today]
   );
 
   return (
@@ -794,6 +1019,21 @@ export function TournamentExplorer({ tournaments }: { tournaments: Tournament[] 
                   </div>
 
                   <div className="flex flex-wrap items-center gap-2">
+                    <button
+                      type="button"
+                      onClick={() => setIsAddModalOpen(true)}
+                      className="inline-flex h-9 items-center gap-1.5 rounded-xl bg-emerald-700 px-3.5 text-xs font-bold text-white shadow-xs transition hover:bg-emerald-800 active:scale-95"
+                    >
+                      <PlusCircle className="size-3.5 text-white" /> + 새 대회 등록
+                    </button>
+                    <button
+                      type="button"
+                      onClick={handleDownloadDatasetJson}
+                      title="수동 추가/삭제가 모두 반영된 최신 전체 데이터셋(JSON)을 다운로드합니다."
+                      className="inline-flex h-9 items-center gap-1.5 rounded-xl border border-amber-400 bg-amber-50 px-3.5 text-xs font-bold text-amber-950 shadow-xs transition hover:bg-amber-100 active:scale-95"
+                    >
+                      <Download className="size-3.5 text-amber-700" /> JSON 저장·백업
+                    </button>
                     <button
                       type="button"
                       onClick={handleExportCsv}
@@ -1051,9 +1291,32 @@ export function TournamentExplorer({ tournaments }: { tournaments: Tournament[] 
               </div>
 
               <div className="flex flex-wrap items-center gap-2">
-                {/* 관리자 모드 전용: CSV 내보내기 및 표 복사 액션 버튼 */}
+                {/* 관리자 모드 전용: 대회 수동 등록, CSV 내보내기, 전체 JSON 저장 액션 버튼 */}
                 {isAdmin && (
-                  <div className="flex items-center gap-1.5">
+                  <div className="flex flex-wrap items-center gap-1.5">
+                    <Button
+                      type="button"
+                      size="sm"
+                      onClick={() => setIsAddModalOpen(true)}
+                      title="관리자 권한으로 신규 대회를 직접 등록합니다."
+                      className="h-8 gap-1.5 rounded-xl bg-emerald-700 text-xs font-bold text-white shadow-sm transition hover:bg-emerald-800"
+                    >
+                      <PlusCircle className="size-3.5 text-white" />
+                      + 새 대회 등록
+                    </Button>
+
+                    <Button
+                      type="button"
+                      size="sm"
+                      variant="outline"
+                      onClick={handleDownloadDatasetJson}
+                      title="수동 추가/삭제가 모두 반영된 최신 전체 데이터셋(JSON)을 다운로드합니다."
+                      className="h-8 gap-1.5 rounded-xl border-amber-300 bg-amber-50/80 text-xs font-bold text-amber-900 shadow-sm transition hover:bg-amber-100"
+                    >
+                      <Download className="size-3.5 text-amber-700" />
+                      JSON 저장·백업
+                    </Button>
+
                     <Button
                       type="button"
                       size="sm"
@@ -1143,6 +1406,7 @@ export function TournamentExplorer({ tournaments }: { tournaments: Tournament[] 
                     isAdmin={isAdmin}
                     isFavorite={validFavorites.has(t.id)}
                     onToggleFavorite={(e) => toggleFavorite(t.id, e)}
+                    onDeleteTournament={(e) => handleDeleteTournament(t, e)}
                     onSelect={() => setSelected(t)}
                   />
                 ))}
@@ -1155,6 +1419,7 @@ export function TournamentExplorer({ tournaments }: { tournaments: Tournament[] 
                 isAdmin={isAdmin}
                 favorites={validFavorites}
                 onToggleFavorite={toggleFavorite}
+                onDeleteTournament={handleDeleteTournament}
                 onSelect={setSelected}
               />
             ) : (
@@ -1627,10 +1892,11 @@ export function TournamentExplorer({ tournaments }: { tournaments: Tournament[] 
                     {selected.source === '배드민턴게임' && '📄 배드민턴게임 공식 일정 보기'}
                     {selected.source === 'BWF' && '🌏 BWF World Tour 공식 캘린더 보기'}
                     {selected.source === '네이버밴드' && (getStatus(selected, today) === '대회종료' ? '📄 대회 결과 및 요강 보기' : '📄 대회 공식 요강 및 접수글 보기')}
+                    {selected.source === '다음카페' && (getStatus(selected, today) === '대회종료' ? '📄 대회 결과 및 요강 보기' : '☕ 다음 카페 공식 요강 및 접수글 보기')}
                     {![
                       '페이스콕', '코트엑스', '콕콕', '오마이플레이', '스포넷', '위꾹',
                       'BKPLAY', '대한배드민턴협회', '대한체육회', '인포민턴', '배드민톡',
-                      '배드민턴타임즈', '배드민턴게임', 'BWF', '네이버밴드'
+                      '배드민턴타임즈', '배드민턴게임', 'BWF', '네이버밴드', '다음카페'
                     ].includes(selected.source) && `📄 ${selected.source} 공식 접수·요강 바로가기`}
                     <ExternalLink className="size-4" />
                   </a>
@@ -1644,6 +1910,18 @@ export function TournamentExplorer({ tournaments }: { tournaments: Tournament[] 
                       className="inline-flex h-11 w-full items-center justify-center gap-2 rounded-xl border-2 border-emerald-600 bg-emerald-50/70 text-xs font-extrabold text-emerald-900 transition hover:bg-emerald-100"
                     >
                       📱 출처 밴드: {selected.bandName || '네이버 밴드 채널 홈 바로가기'} <ExternalLink className="size-3.5" />
+                    </a>
+                  )}
+
+                  {selected.source === '다음카페' && selected.cafeUrl && (
+                    <a
+                      href={selected.cafeUrl}
+                      target="_blank"
+                      rel="noreferrer"
+                      aria-label={`${selected.cafeName || '다음 카페'} 공식 카페 홈 이동`}
+                      className="inline-flex h-11 w-full items-center justify-center gap-2 rounded-xl border-2 border-amber-500 bg-amber-50/70 text-xs font-extrabold text-amber-950 transition hover:bg-amber-100"
+                    >
+                      ☕ 출처 카페: {selected.cafeName || '다음 배드민턴 카페 바로가기'} <ExternalLink className="size-3.5" />
                     </a>
                   )}
                 </div>
@@ -1670,6 +1948,20 @@ export function TournamentExplorer({ tournaments }: { tournaments: Tournament[] 
                   체육관 지도·길찾기
                 </a>
               </div>
+
+              {/* 관리자 모드 전용: 상세 시트 내 삭제 버튼 */}
+              {isAdmin && (
+                <div className="pt-2 border-t border-rose-100">
+                  <button
+                    type="button"
+                    onClick={(e) => handleDeleteTournament(selected, e)}
+                    className="inline-flex h-10 w-full items-center justify-center gap-1.5 rounded-xl border border-rose-200 bg-rose-50 text-xs font-bold text-rose-700 shadow-xs transition hover:bg-rose-100 active:scale-98"
+                  >
+                    <Trash2 className="size-3.5 text-rose-600" />
+                    이 대회를 목록에서 삭제하기 (관리자)
+                  </button>
+                </div>
+              )}
             </div>
           </SheetContent>
         )}
@@ -1767,6 +2059,287 @@ export function TournamentExplorer({ tournaments }: { tournaments: Tournament[] 
             </form>
           </div>
         </div>
+      {/* 대회 수동 등록 모달 (관리자 전용) */}
+      {isAddModalOpen && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4 backdrop-blur-xs overflow-y-auto">
+          <div className="w-full max-w-lg rounded-3xl bg-white p-6 shadow-2xl my-8 max-h-[90vh] overflow-y-auto">
+            <div className="flex items-center justify-between border-b pb-3">
+              <div className="flex items-center gap-2">
+                <div className="grid size-8 place-items-center rounded-xl bg-emerald-100 text-emerald-800">
+                  <PlusCircle className="size-4" />
+                </div>
+                <h3 className="text-base font-extrabold text-slate-900">배드민턴 대회 수동 등록</h3>
+              </div>
+              <button
+                type="button"
+                onClick={() => setIsAddModalOpen(false)}
+                className="rounded-full p-1 text-slate-400 hover:bg-slate-100 hover:text-slate-700"
+              >
+                <X className="size-4" />
+              </button>
+            </div>
+
+            <p className="mt-2 text-xs leading-relaxed text-muted-foreground">
+              크롤링되지 않는 밴드, 지역 협회, 클럽 주최 대회를 직접 등록합니다. 등록 즉시 화면에 반영됩니다.
+            </p>
+
+            <form onSubmit={handleAddTournament} className="mt-4 space-y-3.5 text-xs">
+              {addFormError && (
+                <div className="rounded-xl border border-rose-200 bg-rose-50 p-2.5 text-xs font-bold text-rose-700">
+                  ⚠️ {addFormError}
+                </div>
+              )}
+
+              {/* 대회명 */}
+              <div>
+                <label className="block font-bold text-slate-700 mb-1">대회 공식 명칭 *</label>
+                <Input
+                  type="text"
+                  placeholder="예: 2026 제1회 계룡시 전국 배드민턴 오픈대회"
+                  value={newTournamentForm.name}
+                  onChange={(e) => setNewTournamentForm((prev) => ({ ...prev, name: e.target.value }))}
+                  required
+                  className="rounded-xl text-xs"
+                />
+              </div>
+
+              {/* 대회 출처 선택 (네이버 밴드 / 다음 카페 등) */}
+              <div className="rounded-2xl border border-emerald-200 bg-emerald-50/50 p-3 space-y-2">
+                <div>
+                  <label className="block font-bold text-emerald-900 mb-1">🏷️ 대회 정보 출처 *</label>
+                  <select
+                    value={newTournamentForm.source}
+                    onChange={(e) => setNewTournamentForm((prev) => ({ ...prev, source: e.target.value as TournamentSource }))}
+                    className="w-full rounded-xl border border-emerald-300 p-2 text-xs font-bold bg-white text-slate-900 outline-none"
+                  >
+                    <option value="다음카페">☕ 다음 카페 (Daum Cafe)</option>
+                    <option value="네이버밴드">📱 네이버 밴드 (권장)</option>
+                    <option value="네이버카페">☕ 네이버 카페</option>
+                    <option value="관리자수동등록">🛡️ 관리자 직접 등록</option>
+                    <option value="네이버블로그">📝 네이버 블로그</option>
+                    <option value="웹검색">🌐 웹 공식 요강 검색</option>
+                    <option value="페이스콕">페이스콕</option>
+                    <option value="코트엑스">코트엑스</option>
+                    <option value="스포넷">스포넷</option>
+                    <option value="위꾹">위꾹</option>
+                    <option value="오마이플레이">오마이플레이</option>
+                    <option value="콕콕">콕콕</option>
+                    <option value="대한배드민턴협회">대한배드민턴협회</option>
+                  </select>
+                </div>
+
+                {newTournamentForm.source === '네이버밴드' && (
+                  <div className="grid grid-cols-2 gap-2 pt-1 border-t border-emerald-200/60">
+                    <div>
+                      <label className="block font-bold text-emerald-900 mb-1">밴드 채널명</label>
+                      <Input
+                        type="text"
+                        placeholder="예: 배드민턴 대회 일정 및 요강 (전국)"
+                        value={newTournamentForm.bandName || ''}
+                        onChange={(e) => setNewTournamentForm((prev) => ({ ...prev, bandName: e.target.value }))}
+                        className="rounded-xl text-xs bg-white"
+                      />
+                    </div>
+                    <div>
+                      <label className="block font-bold text-emerald-900 mb-1">밴드 홈 링크 (URL)</label>
+                      <Input
+                        type="url"
+                        placeholder="https://band.us/@mintoncontest"
+                        value={newTournamentForm.bandUrl || ''}
+                        onChange={(e) => setNewTournamentForm((prev) => ({ ...prev, bandUrl: e.target.value }))}
+                        className="rounded-xl text-xs bg-white"
+                      />
+                    </div>
+                  </div>
+                )}
+
+                {(newTournamentForm.source === '다음카페' || newTournamentForm.source === '네이버카페') && (
+                  <div className="grid grid-cols-2 gap-2 pt-1 border-t border-emerald-200/60">
+                    <div>
+                      <label className="block font-bold text-emerald-900 mb-1">
+                        {newTournamentForm.source === '다음카페' ? '다음 카페 이름' : '네이버 카페 이름'}
+                      </label>
+                      <Input
+                        type="text"
+                        placeholder={newTournamentForm.source === '다음카페' ? '예: 다음 배드민턴 패밀리' : '예: 배드민턴마켓'}
+                        value={newTournamentForm.cafeName || ''}
+                        onChange={(e) => setNewTournamentForm((prev) => ({ ...prev, cafeName: e.target.value }))}
+                        className="rounded-xl text-xs bg-white"
+                      />
+                    </div>
+                    <div>
+                      <label className="block font-bold text-emerald-900 mb-1">
+                        {newTournamentForm.source === '다음카페' ? '다음 카페 홈 링크' : '네이버 카페 홈 링크'}
+                      </label>
+                      <Input
+                        type="url"
+                        placeholder={newTournamentForm.source === '다음카페' ? 'https://cafe.daum.net/badmintonfamily' : 'https://cafe.naver.com/...'}
+                        value={newTournamentForm.cafeUrl || ''}
+                        onChange={(e) => setNewTournamentForm((prev) => ({ ...prev, cafeUrl: e.target.value }))}
+                        className="rounded-xl text-xs bg-white"
+                      />
+                    </div>
+                  </div>
+                )}
+              </div>
+
+              {/* 대회 구분 & 세부 분류 */}
+              <div className="grid grid-cols-2 gap-2">
+                <div>
+                  <label className="block font-bold text-slate-700 mb-1">대회 구분 *</label>
+                  <select
+                    value={newTournamentForm.category}
+                    onChange={(e) => setNewTournamentForm((prev) => ({ ...prev, category: e.target.value as TournamentCategory }))}
+                    className="w-full rounded-xl border border-slate-300 p-2 text-xs font-semibold bg-white outline-none"
+                  >
+                    <option value="전국오픈">전국오픈</option>
+                    <option value="지역구대회">지역구대회</option>
+                    <option value="브랜드대회">브랜드대회</option>
+                    <option value="학생선수권">학생선수권</option>
+                    <option value="국제대회">국제대회</option>
+                  </select>
+                </div>
+                <div>
+                  <label className="block font-bold text-slate-700 mb-1">세부 분류</label>
+                  <Input
+                    type="text"
+                    placeholder="예: 전국 승급, 생활체육"
+                    value={newTournamentForm.subCategory}
+                    onChange={(e) => setNewTournamentForm((prev) => ({ ...prev, subCategory: e.target.value }))}
+                    className="rounded-xl text-xs"
+                  />
+                </div>
+              </div>
+
+              {/* 대회 일정 (시작일 ~ 종료일) */}
+              <div className="grid grid-cols-2 gap-2">
+                <div>
+                  <label className="block font-bold text-slate-700 mb-1">대회 시작일 * (YYYY-MM-DD)</label>
+                  <Input
+                    type="date"
+                    value={newTournamentForm.eventStart}
+                    onChange={(e) => setNewTournamentForm((prev) => ({ ...prev, eventStart: e.target.value }))}
+                    required
+                    className="rounded-xl text-xs"
+                  />
+                </div>
+                <div>
+                  <label className="block font-bold text-slate-700 mb-1">대회 종료일 * (YYYY-MM-DD)</label>
+                  <Input
+                    type="date"
+                    value={newTournamentForm.eventEnd}
+                    onChange={(e) => setNewTournamentForm((prev) => ({ ...prev, eventEnd: e.target.value }))}
+                    required
+                    className="rounded-xl text-xs"
+                  />
+                </div>
+              </div>
+
+              {/* 접수 일정 (시작일 ~ 종료일) */}
+              <div className="grid grid-cols-2 gap-2">
+                <div>
+                  <label className="block font-bold text-slate-700 mb-1">접수 시작일 (선택)</label>
+                  <Input
+                    type="date"
+                    value={newTournamentForm.registrationStart}
+                    onChange={(e) => setNewTournamentForm((prev) => ({ ...prev, registrationStart: e.target.value }))}
+                    className="rounded-xl text-xs"
+                  />
+                </div>
+                <div>
+                  <label className="block font-bold text-slate-700 mb-1">접수 종료일 (선택)</label>
+                  <Input
+                    type="date"
+                    value={newTournamentForm.registrationEnd}
+                    onChange={(e) => setNewTournamentForm((prev) => ({ ...prev, registrationEnd: e.target.value }))}
+                    className="rounded-xl text-xs"
+                  />
+                </div>
+              </div>
+
+              {/* 개최 장소 (체육관) */}
+              <div>
+                <label className="block font-bold text-slate-700 mb-1">개최 장소 (체육관명) *</label>
+                <Input
+                  type="text"
+                  placeholder="예: 서울 마포구민체육센터 또는 계룡시민체육관"
+                  value={newTournamentForm.venue}
+                  onChange={(e) => setNewTournamentForm((prev) => ({ ...prev, venue: e.target.value }))}
+                  required
+                  className="rounded-xl text-xs"
+                />
+              </div>
+
+              {/* 참가비 */}
+              <div>
+                <label className="block font-bold text-slate-700 mb-1">참가비</label>
+                <Input
+                  type="text"
+                  placeholder="예: 1팀당 60,000원"
+                  value={newTournamentForm.fee}
+                  onChange={(e) => setNewTournamentForm((prev) => ({ ...prev, fee: e.target.value }))}
+                  className="rounded-xl text-xs"
+                />
+              </div>
+
+              {/* 공식 요강 링크 */}
+              <div>
+                <label className="block font-bold text-slate-700 mb-1">공식 요강 / 접수 링크 (URL) *</label>
+                <Input
+                  type="url"
+                  placeholder="https://band.us/band/... 또는 접수 링크"
+                  value={newTournamentForm.officialLink}
+                  onChange={(e) => setNewTournamentForm((prev) => ({ ...prev, officialLink: e.target.value }))}
+                  required
+                  className="rounded-xl text-xs"
+                />
+              </div>
+
+              {/* 추가 메타: 공인구 / 스폰서 */}
+              <div className="grid grid-cols-2 gap-2">
+                <div>
+                  <label className="block font-bold text-slate-700 mb-1">공인 대회구 (셔틀콕)</label>
+                  <Input
+                    type="text"
+                    placeholder="예: 삼화 BLACK, 요넥스 K1"
+                    value={newTournamentForm.shuttlecock}
+                    onChange={(e) => setNewTournamentForm((prev) => ({ ...prev, shuttlecock: e.target.value }))}
+                    className="rounded-xl text-xs"
+                  />
+                </div>
+                <div>
+                  <label className="block font-bold text-slate-700 mb-1">후원 / 스폰서</label>
+                  <Input
+                    type="text"
+                    placeholder="예: 요넥스, 빅터, 테크니스트"
+                    value={newTournamentForm.sponsor}
+                    onChange={(e) => setNewTournamentForm((prev) => ({ ...prev, sponsor: e.target.value }))}
+                    className="rounded-xl text-xs"
+                  />
+                </div>
+              </div>
+
+              <div className="flex justify-end gap-2 pt-3 border-t">
+                <Button
+                  type="button"
+                  variant="outline"
+                  size="sm"
+                  onClick={() => setIsAddModalOpen(false)}
+                  className="rounded-xl text-xs"
+                >
+                  취소
+                </Button>
+                <Button
+                  type="submit"
+                  size="sm"
+                  className="rounded-xl bg-emerald-700 font-bold hover:bg-emerald-800 text-xs"
+                >
+                  대회 등록 완료
+                </Button>
+              </div>
+            </form>
+          </div>
+        </div>
       )}
     </main>
   );
@@ -1792,6 +2365,7 @@ function TournamentCard({
   isAdmin = false,
   isFavorite = false,
   onToggleFavorite,
+  onDeleteTournament,
   onSelect,
 }: {
   tournament: Tournament & { distanceKm?: number };
@@ -1800,6 +2374,7 @@ function TournamentCard({
   isAdmin?: boolean;
   isFavorite?: boolean;
   onToggleFavorite: (e: React.SyntheticEvent) => void;
+  onDeleteTournament?: (e: React.SyntheticEvent) => void;
   onSelect: () => void;
 }) {
   const status = getStatus(t, baseDate);
@@ -1957,6 +2532,16 @@ function TournamentCard({
             >
               📱 {t.bandName.length > 12 ? `${t.bandName.slice(0, 12)}...` : t.bandName}
             </a>
+          ) : (t.source === '다음카페' || t.source === '네이버카페') && t.cafeName ? (
+            <a
+              href={t.cafeUrl || (t.source === '다음카페' ? 'https://cafe.daum.net/badmintonfamily' : 'https://cafe.naver.com/badmintonmarket')}
+              target="_blank"
+              rel="noreferrer"
+              aria-label={`${t.cafeName} 카페 홈 새창 열기`}
+              className="inline-flex items-center gap-1 rounded-md bg-amber-50 border border-amber-300 px-2 py-0.5 text-[11px] font-bold text-amber-900 transition hover:bg-amber-100"
+            >
+              ☕ {t.cafeName.length > 12 ? `${t.cafeName.slice(0, 12)}...` : t.cafeName}
+            </a>
           ) : isAdmin && (
             t.sources && t.sources.length > 1 ? (
               <span className="rounded bg-emerald-50 border border-emerald-300 px-1.5 py-0.5 text-[11px] font-extrabold text-emerald-900">
@@ -1972,6 +2557,17 @@ function TournamentCard({
         </div>
 
         <div className="flex items-center gap-1.5">
+          {isAdmin && onDeleteTournament && (
+            <button
+              type="button"
+              onClick={onDeleteTournament}
+              title="이 대회를 목록에서 삭제합니다 (관리자)"
+              className="inline-flex items-center gap-1 rounded-lg border border-rose-200 bg-rose-50 px-2 py-1.5 text-xs font-bold text-rose-700 shadow-xs transition hover:bg-rose-100 active:scale-95"
+            >
+              <Trash2 className="size-3.5 text-rose-600" />
+              삭제
+            </button>
+          )}
           {t.source === '네이버밴드' && t.bandUrl && (
             <a
               href={t.bandUrl}
@@ -1981,6 +2577,17 @@ function TournamentCard({
               className="inline-flex items-center gap-1 rounded-lg border border-slate-200 bg-white px-2.5 py-1.5 text-xs font-bold text-slate-700 shadow-xs transition hover:bg-slate-50 hover:text-emerald-700"
             >
               밴드 홈
+            </a>
+          )}
+          {(t.source === '다음카페' || t.source === '네이버카페') && t.cafeUrl && (
+            <a
+              href={t.cafeUrl}
+              target="_blank"
+              rel="noreferrer"
+              aria-label={`${t.name} 공식 카페 홈 열기`}
+              className="inline-flex items-center gap-1 rounded-lg border border-amber-300 bg-amber-50/70 px-2.5 py-1.5 text-xs font-bold text-amber-900 shadow-xs transition hover:bg-amber-100"
+            >
+              카페 홈
             </a>
           )}
           <a
@@ -2006,6 +2613,7 @@ function TableView({
   isAdmin = false,
   favorites = new Set(),
   onToggleFavorite,
+  onDeleteTournament,
   onSelect,
 }: {
   tournaments: (Tournament & { distanceKm?: number })[];
@@ -2014,6 +2622,7 @@ function TableView({
   isAdmin?: boolean;
   favorites?: Set<string>;
   onToggleFavorite?: (id: string, e: React.SyntheticEvent) => void;
+  onDeleteTournament?: (t: Tournament, e: React.SyntheticEvent) => void;
   onSelect: (t: Tournament) => void;
 }) {
   return (
@@ -2030,7 +2639,7 @@ function TableView({
               <th scope="col" className="px-3 py-3 font-bold">접수 기간</th>
               <th scope="col" className="px-3 py-3 font-bold">장소 및 거리 ({userLocationLabel} 기준)</th>
               {isAdmin && <th scope="col" className="px-3 py-3 font-bold">출처 (동시 등록 포함)</th>}
-              <th scope="col" className="py-3 pl-2 pr-4 text-center font-bold">요강 / 신청</th>
+              <th scope="col" className="py-3 pl-2 pr-4 text-center font-bold">요강 / 관리</th>
             </tr>
           </thead>
           <tbody className="divide-y divide-slate-100">
@@ -2121,16 +2730,29 @@ function TableView({
                       )}
                     </td>
                   )}
-                  <td aria-label="요강 바로가기" className="py-3 pl-2 pr-4 text-center whitespace-nowrap">
-                    <a
-                      href={t.officialLink}
-                      target="_blank"
-                      rel="noreferrer"
-                      aria-label={`${t.name} 공식 요강 페이지 새창 열기`}
-                      className="inline-flex items-center gap-1 rounded-lg bg-emerald-700 px-2.5 py-1 text-[11px] font-bold text-white transition hover:bg-emerald-800"
-                    >
-                      요강 <ExternalLink className="size-3" />
-                    </a>
+                  <td aria-label="요강 및 관리" className="py-3 pl-2 pr-4 text-center whitespace-nowrap">
+                    <div className="flex items-center justify-center gap-1.5">
+                      {isAdmin && onDeleteTournament && (
+                        <button
+                          type="button"
+                          onClick={(e) => onDeleteTournament(t, e)}
+                          title="이 대회를 목록에서 삭제합니다 (관리자)"
+                          className="inline-flex items-center gap-1 rounded-lg border border-rose-200 bg-rose-50 px-2 py-1 text-[11px] font-bold text-rose-700 shadow-xs transition hover:bg-rose-100 active:scale-95"
+                        >
+                          <Trash2 className="size-3 text-rose-600" />
+                          삭제
+                        </button>
+                      )}
+                      <a
+                        href={t.officialLink}
+                        target="_blank"
+                        rel="noreferrer"
+                        aria-label={`${t.name} 공식 요강 페이지 새창 열기`}
+                        className="inline-flex items-center gap-1 rounded-lg bg-emerald-700 px-2.5 py-1 text-[11px] font-bold text-white transition hover:bg-emerald-800"
+                      >
+                        요강 <ExternalLink className="size-3" />
+                      </a>
+                    </div>
                   </td>
                 </tr>
               );
@@ -2323,7 +2945,9 @@ function SourcesHubSection({
     if (s.id === 'baef') return sourceCounts.get('배프') || 0;
     if (s.id === 'wecook') return sourceCounts.get('위꾹') || 0;
     if (s.id === 'ddakple') return sourceCounts.get('딱플') || 0;
-    if (s.id === 'band') return sourceCounts.get('네이버밴드') || 0;
+    if (s.id === 'band' || s.id === 'naverband') return sourceCounts.get('네이버밴드') || 0;
+    if (s.id === 'daumcafe' || s.id === 'daum') return sourceCounts.get('다음카페') || 0;
+    if (s.id === 'cafe_market' || s.id === 'navercafe') return sourceCounts.get('네이버카페') || 0;
     if (s.id === 'bkplay') return sourceCounts.get('BKPLAY') || 0;
     if (s.id === 'reboot') return sourceCounts.get('리부트아카데미') || 0;
     if (s.id === 'bwf') return sourceCounts.get('BWF') || 0;

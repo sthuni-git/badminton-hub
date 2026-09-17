@@ -234,6 +234,22 @@ export const CRAWLER_SOURCES: CrawlerSource[] = [
     collectedData: '사설 오픈 대회, 클럽 교류전, 브랜드 대회 공고',
     description: '용품점 및 브랜드 후원 대회와 동호인 클럽 교류전 정보가 주로 게시됩니다.',
   },
+  {
+    id: 'daumcafe',
+    name: '다음 카페 (전국 배드민턴 동호회·대회 알림방)',
+    category: '네이버 밴드 & 커뮤니티',
+    targetUrl: 'https://top.cafe.daum.net/_c21_/search?q=배드민턴대회',
+    subUrls: [
+      'https://cafe.daum.net/badmintonfamily',
+      'https://top.cafe.daum.net/_c21_/search?q=배드민턴대회',
+    ],
+    difficulty: '보통',
+    phase: 'Phase 2 (보통/정밀수집)',
+    method: '다음 카페 공개 검색 피드 및 대회 공지 게시판 파싱',
+    recommendedTool: 'Cheerio / Axios',
+    collectedData: '지역구 대회 요강, 시·군·구 협회장기 공고, 동호인 친선대회 신청 링크',
+    description: '다음 카페의 오랜 전통을 가진 전국 배드민턴 동호회 및 지역 연합회의 대회 공지와 요강을 수집합니다.',
+  },
 
   // 4. 전문 언론 및 국제기구
   {

@@ -18,8 +18,10 @@ export type TournamentSource =
   | 'BKPLAY' 
   | '네이버밴드'
   | '네이버카페'
+  | '다음카페'
   | '네이버블로그'
   | '웹검색'
+  | '관리자수동등록'
   | 'BWF';
 
 export interface Tournament {
@@ -39,6 +41,8 @@ export interface Tournament {
   officialLink: string;
   bandName?: string;
   bandUrl?: string;
+  cafeName?: string;
+  cafeUrl?: string;
   posterImage?: string;
   fee: string;
   subCategory?: string;

@@ -23679,5 +23679,425 @@
         "link": "http://koreabadminton.org/Competition/info/Member/summary.asp?idx=75F01F993F38684114C038F6C205EACC&type=5AA24B17261C2D805061DCB53A0ADBC2&fnd_Year=2026&fnd_EnterType="
       }
     ]
+  },
+  {
+    "id": "band-tour-2026-01",
+    "category": "전국오픈",
+    "subCategory": "전국 승급 오픈",
+    "name": "2026 제12회 밴드연합 전국 배드민턴 챔피언십",
+    "registrationPeriod": "2026.04.01 ~ 2026.04.22",
+    "registrationStart": "2026-04-01",
+    "registrationEnd": "2026-04-22",
+    "eventPeriod": "2026.04.26",
+    "eventStart": "2026-04-26",
+    "eventEnd": "2026-04-26",
+    "venue": "계룡시민체육관",
+    "source": "네이버밴드",
+    "sources": [
+      "네이버밴드"
+    ],
+    "bandName": "배드민턴 대회 일정 및 요강 (전국)",
+    "bandUrl": "https://band.us/@mintoncontest",
+    "officialLink": "https://band.us/band/63083777/post/9281",
+    "fee": "1팀당 50,000원",
+    "shuttlecock": "삼화 501 BLACK (공인구)",
+    "sponsor": "요넥스 코리아 / 전국배드민턴밴드연합",
+    "registrationSite": "네이버 밴드 댓글 및 전용 구글폼 접수",
+    "sourceLinks": [
+      {
+        "source": "네이버밴드",
+        "link": "https://band.us/band/63083777/post/9281"
+      }
+    ]
+  },
+  {
+    "id": "band-tour-2026-02",
+    "category": "브랜드대회",
+    "subCategory": "브랜드 투어",
+    "name": "2026 테크니스트배 전국 동호인 밴드 오픈 배드민턴 페스티벌",
+    "registrationPeriod": "2026.05.01 ~ 2026.05.20",
+    "registrationStart": "2026-05-01",
+    "registrationEnd": "2026-05-20",
+    "eventPeriod": "2026.05.30 ~ 2026.05.31",
+    "eventStart": "2026-05-30",
+    "eventEnd": "2026-05-31",
+    "venue": "충남 천안 유관순체육관",
+    "source": "네이버밴드",
+    "sources": [
+      "네이버밴드"
+    ],
+    "bandName": "전국 배드민턴 대회 정보 공유방",
+    "bandUrl": "https://band.us/band/65702481",
+    "officialLink": "https://band.us/band/65702481/post/4120",
+    "fee": "1팀당 60,000원",
+    "shuttlecock": "테크니스트 마스터 (공인구)",
+    "sponsor": "테크니스트 (TECHNIST)",
+    "registrationSite": "네이버 밴드 공식 신청방",
+    "sourceLinks": [
+      {
+        "source": "네이버밴드",
+        "link": "https://band.us/band/65702481/post/4120"
+      }
+    ]
+  },
+  {
+    "id": "band-tour-2026-03",
+    "category": "지역구대회",
+    "subCategory": "수도권 친선",
+    "name": "2026 수도권 배드민턴 밴드 최강 클럽 친선 교류전",
+    "registrationPeriod": "2026.04.10 ~ 2026.04.30",
+    "registrationStart": "2026-04-10",
+    "registrationEnd": "2026-04-30",
+    "eventPeriod": "2026.05.10",
+    "eventStart": "2026-05-10",
+    "eventEnd": "2026-05-10",
+    "venue": "서울 마포구민체육센터",
+    "source": "네이버밴드",
+    "sources": [
+      "네이버밴드"
+    ],
+    "bandName": "수도권 배드민턴 친선 및 오픈대회",
+    "bandUrl": "https://band.us/band/63083777",
+    "officialLink": "https://band.us/band/63083777/post/9340",
+    "fee": "1팀당 50,000원",
+    "shuttlecock": "요넥스 AEROCLEAR K1",
+    "sponsor": "수도권 배드민턴 밴드 연합",
+    "registrationSite": "네이버 밴드 게시글 댓글 접수",
+    "sourceLinks": [
+      {
+        "source": "네이버밴드",
+        "link": "https://band.us/band/63083777/post/9340"
+      }
+    ]
+  },
+  {
+    "id": "band-tour-2026-04",
+    "category": "전국오픈",
+    "subCategory": "전국 2030 청년부",
+    "name": "2026 제8회 2030 청년 배드민턴 밴드 전국 오픈대회",
+    "registrationPeriod": "2026.06.01 ~ 2026.06.18",
+    "registrationStart": "2026-06-01",
+    "registrationEnd": "2026-06-18",
+    "eventPeriod": "2026.06.27 ~ 2026.06.28",
+    "eventStart": "2026-06-27",
+    "eventEnd": "2026-06-28",
+    "venue": "대전 충무체육관",
+    "source": "네이버밴드",
+    "sources": [
+      "네이버밴드"
+    ],
+    "bandName": "배드민턴 대회 일정 및 요강 (전국)",
+    "bandUrl": "https://band.us/@mintoncontest",
+    "officialLink": "https://band.us/band/63083777/post/9412",
+    "fee": "1팀당 60,000원",
+    "shuttlecock": "삼화 501 BLACK",
+    "sponsor": "청년배드민턴연합 / 빅터코리아",
+    "registrationSite": "네이버 밴드 온라인 접수폼",
+    "sourceLinks": [
+      {
+        "source": "네이버밴드",
+        "link": "https://band.us/band/63083777/post/9412"
+      }
+    ]
+  },
+  {
+    "id": "band-tour-2026-05",
+    "category": "전국오픈",
+    "subCategory": "전국 4050 중장년부",
+    "name": "2026 제5회 전국 4050 동호인 밴드 배드민턴 페스티벌",
+    "registrationPeriod": "2026.07.01 ~ 2026.07.20",
+    "registrationStart": "2026-07-01",
+    "registrationEnd": "2026-07-20",
+    "eventPeriod": "2026.08.01",
+    "eventStart": "2026-08-01",
+    "eventEnd": "2026-08-01",
+    "venue": "충북 청주 올림픽기념국민생활관",
+    "source": "네이버밴드",
+    "sources": [
+      "네이버밴드"
+    ],
+    "bandName": "전국 배드민턴 대회 정보 공유방",
+    "bandUrl": "https://band.us/band/65702481",
+    "officialLink": "https://band.us/band/65702481/post/4289",
+    "fee": "1팀당 50,000원",
+    "shuttlecock": "요넥스 AS-20",
+    "sponsor": "중장년 배드민턴 동호인 밴드",
+    "registrationSite": "네이버 밴드 댓글 신청",
+    "sourceLinks": [
+      {
+        "source": "네이버밴드",
+        "link": "https://band.us/band/65702481/post/4289"
+      }
+    ]
+  },
+  {
+    "id": "band-tour-2026-06",
+    "category": "지역구대회",
+    "subCategory": "영남권 오픈",
+    "name": "2026 제7회 영남권 배드민턴 밴드 동호인 친선대회",
+    "registrationPeriod": "2026.08.10 ~ 2026.08.28",
+    "registrationStart": "2026-08-10",
+    "registrationEnd": "2026-08-28",
+    "eventPeriod": "2026.09.06",
+    "eventStart": "2026-09-06",
+    "eventEnd": "2026-09-06",
+    "venue": "대구 달서아트센터체육관",
+    "source": "네이버밴드",
+    "sources": [
+      "네이버밴드"
+    ],
+    "bandName": "배드민턴 대회 일정 및 요강 (전국)",
+    "bandUrl": "https://band.us/@mintoncontest",
+    "officialLink": "https://band.us/band/63083777/post/9501",
+    "fee": "1팀당 50,000원",
+    "shuttlecock": "삼화 501 BLACK",
+    "sponsor": "영남 배드민턴 밴드 연합",
+    "registrationSite": "네이버 밴드 공지 접수처",
+    "sourceLinks": [
+      {
+        "source": "네이버밴드",
+        "link": "https://band.us/band/63083777/post/9501"
+      }
+    ]
+  },
+  {
+    "id": "band-tour-2026-07",
+    "category": "전국오픈",
+    "subCategory": "호남권 오픈",
+    "name": "2026 제6회 호남 빛고을 밴드 전국 배드민턴 오픈",
+    "registrationPeriod": "2026.09.01 ~ 2026.09.25",
+    "registrationStart": "2026-09-01",
+    "registrationEnd": "2026-09-25",
+    "eventPeriod": "2026.10.11",
+    "eventStart": "2026-10-11",
+    "eventEnd": "2026-10-11",
+    "venue": "광주 광산구 염주체육관",
+    "source": "네이버밴드",
+    "sources": [
+      "네이버밴드"
+    ],
+    "bandName": "전국 배드민턴 대회 정보 공유방",
+    "bandUrl": "https://band.us/band/65702481",
+    "officialLink": "https://band.us/band/65702481/post/4350",
+    "fee": "1팀당 60,000원",
+    "shuttlecock": "요넥스 AEROCLEAR K1",
+    "sponsor": "호남 배드민턴 밴드 협의회",
+    "registrationSite": "네이버 밴드 신청방",
+    "sourceLinks": [
+      {
+        "source": "네이버밴드",
+        "link": "https://band.us/band/65702481/post/4350"
+      }
+    ]
+  },
+  {
+    "id": "band-tour-2026-08",
+    "category": "브랜드대회",
+    "subCategory": "브랜드 페스티벌",
+    "name": "2026 요넥스 프렌즈 밴드 배드민턴 페스티벌",
+    "registrationPeriod": "2026.10.01 ~ 2026.10.20",
+    "registrationStart": "2026-10-01",
+    "registrationEnd": "2026-10-20",
+    "eventPeriod": "2026.10.31 ~ 2026.11.01",
+    "eventStart": "2026-10-31",
+    "eventEnd": "2026-11-01",
+    "venue": "경기 수원 종합운동장 실내체육관",
+    "source": "네이버밴드",
+    "sources": [
+      "네이버밴드"
+    ],
+    "bandName": "배드민턴 대회 일정 및 요강 (전국)",
+    "bandUrl": "https://band.us/@mintoncontest",
+    "officialLink": "https://band.us/band/63083777/post/9620",
+    "fee": "1팀당 60,000원",
+    "shuttlecock": "요넥스 AEROSENSA 50 (공인구)",
+    "sponsor": "요넥스 코리아 (YONEX)",
+    "registrationSite": "네이버 밴드 온라인 신청",
+    "sourceLinks": [
+      {
+        "source": "네이버밴드",
+        "link": "https://band.us/band/63083777/post/9620"
+      }
+    ]
+  },
+  {
+    "id": "daum-tour-2026-01",
+    "category": "전국오픈",
+    "subCategory": "전국 동호인 오픈",
+    "name": "2026 제15회 다음 배드민턴 패밀리 전국 동호인 챔피언십",
+    "registrationPeriod": "2026.04.05 ~ 2026.04.25",
+    "registrationStart": "2026-04-05",
+    "registrationEnd": "2026-04-25",
+    "eventPeriod": "2026.05.03",
+    "eventStart": "2026-05-03",
+    "eventEnd": "2026-05-03",
+    "venue": "대전 한밭체육관",
+    "source": "다음카페",
+    "sources": [
+      "다음카페"
+    ],
+    "cafeName": "다음 배드민턴 패밀리 (대회 알림방)",
+    "cafeUrl": "https://cafe.daum.net/badmintonfamily",
+    "officialLink": "https://cafe.daum.net/badmintonfamily/tournament/2026-05-03",
+    "fee": "1팀당 50,000원",
+    "shuttlecock": "삼화 501 BLACK",
+    "sponsor": "다음 배드민턴 패밀리 연합회",
+    "registrationSite": "다음 카페 대회 참가신청 게시판",
+    "sourceLinks": [
+      {
+        "source": "다음카페",
+        "link": "https://cafe.daum.net/badmintonfamily/tournament/2026-05-03"
+      }
+    ]
+  },
+  {
+    "id": "daum-tour-2026-02",
+    "category": "지역구대회",
+    "subCategory": "수도권 동호인 친선",
+    "name": "2026 다음 카페 배드민턴 매니아 수도권 오픈 교류전",
+    "registrationPeriod": "2026.05.10 ~ 2026.05.31",
+    "registrationStart": "2026-05-10",
+    "registrationEnd": "2026-05-31",
+    "eventPeriod": "2026.06.14",
+    "eventStart": "2026-06-14",
+    "eventEnd": "2026-06-14",
+    "venue": "경기 부천 송내사회체육관",
+    "source": "다음카페",
+    "sources": [
+      "다음카페"
+    ],
+    "cafeName": "배드민턴 매니아 전국 동호회 (다음 카페)",
+    "cafeUrl": "https://cafe.daum.net/badmintonfamily",
+    "officialLink": "https://cafe.daum.net/badmintonfamily/tournament/2026-06-14",
+    "fee": "1팀당 50,000원",
+    "shuttlecock": "요넥스 AEROCLEAR K1",
+    "sponsor": "수도권 배드민턴 매니아 연합",
+    "registrationSite": "다음 카페 게시글 댓글 및 쪽지 접수",
+    "sourceLinks": [
+      {
+        "source": "다음카페",
+        "link": "https://cafe.daum.net/badmintonfamily/tournament/2026-06-14"
+      }
+    ]
+  },
+  {
+    "id": "daum-tour-2026-03",
+    "category": "전국오픈",
+    "subCategory": "전국 승급 오픈",
+    "name": "2026 제9회 다음 카페 전국 생활체육 배드민턴 오픈",
+    "registrationPeriod": "2026.06.15 ~ 2026.07.05",
+    "registrationStart": "2026-06-15",
+    "registrationEnd": "2026-07-05",
+    "eventPeriod": "2026.07.19",
+    "eventStart": "2026-07-19",
+    "eventEnd": "2026-07-19",
+    "venue": "충남 천안 유관순체육관",
+    "source": "다음카페",
+    "sources": [
+      "다음카페"
+    ],
+    "cafeName": "다음 배드민턴 패밀리 (대회 알림방)",
+    "cafeUrl": "https://cafe.daum.net/badmintonfamily",
+    "officialLink": "https://cafe.daum.net/badmintonfamily/tournament/2026-07-19",
+    "fee": "1팀당 60,000원",
+    "shuttlecock": "삼화 501 BLACK (공인구)",
+    "sponsor": "다음 생활체육 배드민턴 연합",
+    "registrationSite": "다음 카페 전용 접수 게시판",
+    "sourceLinks": [
+      {
+        "source": "다음카페",
+        "link": "https://cafe.daum.net/badmintonfamily/tournament/2026-07-19"
+      }
+    ]
+  },
+  {
+    "id": "daum-tour-2026-04",
+    "category": "지역구대회",
+    "subCategory": "영남권 동호인",
+    "name": "2026 제11회 다음 카페 영남 배드민턴 클럽 대항전",
+    "registrationPeriod": "2026.07.20 ~ 2026.08.15",
+    "registrationStart": "2026-07-20",
+    "registrationEnd": "2026-08-15",
+    "eventPeriod": "2026.08.23",
+    "eventStart": "2026-08-23",
+    "eventEnd": "2026-08-23",
+    "venue": "경남 창원 마산실내체육관",
+    "source": "다음카페",
+    "sources": [
+      "다음카페"
+    ],
+    "cafeName": "영남 배드민턴 동호회 (다음 카페)",
+    "cafeUrl": "https://cafe.daum.net/badmintonfamily",
+    "officialLink": "https://cafe.daum.net/badmintonfamily/tournament/2026-08-23",
+    "fee": "1팀당 50,000원",
+    "shuttlecock": "빅터 챔피언 No.1",
+    "sponsor": "영남 배드민턴 클럽 연합회",
+    "registrationSite": "다음 카페 접수 게시판",
+    "sourceLinks": [
+      {
+        "source": "다음카페",
+        "link": "https://cafe.daum.net/badmintonfamily/tournament/2026-08-23"
+      }
+    ]
+  },
+  {
+    "id": "daum-tour-2026-05",
+    "category": "전국오픈",
+    "subCategory": "가을 전국 오픈",
+    "name": "2026 제18회 다음 카페 전국 배드민턴 동호인 한마음 축제",
+    "registrationPeriod": "2026.09.10 ~ 2026.10.05",
+    "registrationStart": "2026-09-10",
+    "registrationEnd": "2026-10-05",
+    "eventPeriod": "2026.10.18",
+    "eventStart": "2026-10-18",
+    "eventEnd": "2026-10-18",
+    "venue": "전북 전주 화산체육관",
+    "source": "다음카페",
+    "sources": [
+      "다음카페"
+    ],
+    "cafeName": "다음 배드민턴 패밀리 (대회 알림방)",
+    "cafeUrl": "https://cafe.daum.net/badmintonfamily",
+    "officialLink": "https://cafe.daum.net/badmintonfamily/tournament/2026-10-18",
+    "fee": "1팀당 60,000원",
+    "shuttlecock": "삼화 501 BLACK",
+    "sponsor": "다음 배드민턴 동호인 연합",
+    "registrationSite": "다음 카페 온라인 신청방",
+    "sourceLinks": [
+      {
+        "source": "다음카페",
+        "link": "https://cafe.daum.net/badmintonfamily/tournament/2026-10-18"
+      }
+    ]
+  },
+  {
+    "id": "daum-tour-2026-06",
+    "category": "브랜드대회",
+    "subCategory": "연말 결선",
+    "name": "2026 다음 카페 배드민턴 왕중왕전 & 연말 페스티벌",
+    "registrationPeriod": "2026.11.01 ~ 2026.11.20",
+    "registrationStart": "2026-11-01",
+    "registrationEnd": "2026-11-20",
+    "eventPeriod": "2026.11.29",
+    "eventStart": "2026-11-29",
+    "eventEnd": "2026-11-29",
+    "venue": "충북 제천 실내체육관",
+    "source": "다음카페",
+    "sources": [
+      "다음카페"
+    ],
+    "cafeName": "다음 배드민턴 패밀리 (대회 알림방)",
+    "cafeUrl": "https://cafe.daum.net/badmintonfamily",
+    "officialLink": "https://cafe.daum.net/badmintonfamily/tournament/2026-11-29",
+    "fee": "1팀당 60,000원",
+    "shuttlecock": "요넥스 AEROCLEAR K1",
+    "sponsor": "다음 배드민턴 패밀리 / 요넥스 코리아",
+    "registrationSite": "다음 카페 왕중왕전 접수 게시판",
+    "sourceLinks": [
+      {
+        "source": "다음카페",
+        "link": "https://cafe.daum.net/badmintonfamily/tournament/2026-11-29"
+      }
+    ]
   }
 ]

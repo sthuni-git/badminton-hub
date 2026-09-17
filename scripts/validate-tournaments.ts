@@ -32,9 +32,11 @@ const allowedSources = new Set([
   '인포민턴',
   '콕콕',
   '네이버카페',
+  '다음카페',
   '네이버블로그',
   '웹검색',
   '네이버밴드',
+  '관리자수동등록',
 ]);
 const genericListLinks = new Set([
   'https://facecock.co.kr/page/?pid=game',
