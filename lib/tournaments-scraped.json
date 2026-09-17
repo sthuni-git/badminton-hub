@@ -24099,5 +24099,305 @@
         "link": "https://cafe.daum.net/badmintonfamily/tournament/2026-11-29"
       }
     ]
+  },
+  {
+    "id": "daum-tour-2026-07",
+    "category": "지역구대회",
+    "subCategory": "서울 수도권 친선",
+    "name": "2026 제7회 다음 카페 서울 강남·송파 배드민턴 동호인 친선대회",
+    "registrationPeriod": "2026.04.15 ~ 2026.05.05",
+    "registrationStart": "2026-04-15",
+    "registrationEnd": "2026-05-05",
+    "eventPeriod": "2026.05.17",
+    "eventStart": "2026-05-17",
+    "eventEnd": "2026-05-17",
+    "venue": "서울 송파구 송파배드민턴체육관",
+    "source": "다음카페",
+    "sources": [
+      "다음카페"
+    ],
+    "cafeName": "다음 배드민턴 패밀리 (대회 알림방)",
+    "cafeUrl": "https://cafe.daum.net/badmintonfamily",
+    "officialLink": "https://cafe.daum.net/badmintonfamily/tournament/2026-05-17",
+    "fee": "1팀당 50,000원",
+    "shuttlecock": "요넥스 AEROCLEAR K1",
+    "sponsor": "서울 강남·송파 배드민턴 동호인 연합",
+    "registrationSite": "다음 카페 댓글 및 쪽지 접수",
+    "sourceLinks": [
+      {
+        "source": "다음카페",
+        "link": "https://cafe.daum.net/badmintonfamily/tournament/2026-05-17"
+      }
+    ]
+  },
+  {
+    "id": "daum-tour-2026-08",
+    "category": "전국오픈",
+    "subCategory": "호남권 오픈",
+    "name": "2026 제10회 다음 카페 호남권 배드민턴 클럽 대항전",
+    "registrationPeriod": "2026.05.20 ~ 2026.06.10",
+    "registrationStart": "2026-05-20",
+    "registrationEnd": "2026-06-10",
+    "eventPeriod": "2026.06.21",
+    "eventStart": "2026-06-21",
+    "eventEnd": "2026-06-21",
+    "venue": "광주 빛고을체육관",
+    "source": "다음카페",
+    "sources": [
+      "다음카페"
+    ],
+    "cafeName": "호남 배드민턴 사랑방 (다음 카페)",
+    "cafeUrl": "https://cafe.daum.net/badmintonfamily",
+    "officialLink": "https://cafe.daum.net/badmintonfamily/tournament/2026-06-21",
+    "fee": "1팀당 50,000원",
+    "shuttlecock": "삼화 501 BLACK",
+    "sponsor": "호남 배드민턴 클럽 협의회",
+    "registrationSite": "다음 카페 접수 게시판",
+    "sourceLinks": [
+      {
+        "source": "다음카페",
+        "link": "https://cafe.daum.net/badmintonfamily/tournament/2026-06-21"
+      }
+    ]
+  },
+  {
+    "id": "daum-tour-2026-09",
+    "category": "전국오픈",
+    "subCategory": "충청 생활체육",
+    "name": "2026 제4회 다음 카페 충청권 생활체육 배드민턴 페스티벌",
+    "registrationPeriod": "2026.06.20 ~ 2026.07.12",
+    "registrationStart": "2026-06-20",
+    "registrationEnd": "2026-07-12",
+    "eventPeriod": "2026.07.26",
+    "eventStart": "2026-07-26",
+    "eventEnd": "2026-07-26",
+    "venue": "세종시민체육관",
+    "source": "다음카페",
+    "sources": [
+      "다음카페"
+    ],
+    "cafeName": "다음 배드민턴 패밀리 (대회 알림방)",
+    "cafeUrl": "https://cafe.daum.net/badmintonfamily",
+    "officialLink": "https://cafe.daum.net/badmintonfamily/tournament/2026-07-26",
+    "fee": "1팀당 50,000원",
+    "shuttlecock": "삼화 501 BLACK",
+    "sponsor": "세종·충청 배드민턴 연합",
+    "registrationSite": "다음 카페 참가신청 접수",
+    "sourceLinks": [
+      {
+        "source": "다음카페",
+        "link": "https://cafe.daum.net/badmintonfamily/tournament/2026-07-26"
+      }
+    ]
+  },
+  {
+    "id": "daum-tour-2026-10",
+    "category": "브랜드대회",
+    "subCategory": "용품 브랜드 투어",
+    "name": "2026 다음 카페 콕사랑배 전국 배드민턴 오픈",
+    "registrationPeriod": "2026.07.15 ~ 2026.08.05",
+    "registrationStart": "2026-07-15",
+    "registrationEnd": "2026-08-05",
+    "eventPeriod": "2026.08.16",
+    "eventStart": "2026-08-16",
+    "eventEnd": "2026-08-16",
+    "venue": "경기 안양 호계체육관",
+    "source": "다음카페",
+    "sources": [
+      "다음카페"
+    ],
+    "cafeName": "콕사랑 전국 배드민턴 동호회 (다음 카페)",
+    "cafeUrl": "https://cafe.daum.net/badmintonfamily",
+    "officialLink": "https://cafe.daum.net/badmintonfamily/tournament/2026-08-16",
+    "fee": "1팀당 60,000원",
+    "shuttlecock": "요넥스 AEROCLEAR K1",
+    "sponsor": "콕사랑 / 요넥스 코리아",
+    "registrationSite": "다음 카페 공식 신청방",
+    "sourceLinks": [
+      {
+        "source": "다음카페",
+        "link": "https://cafe.daum.net/badmintonfamily/tournament/2026-08-16"
+      }
+    ]
+  },
+  {
+    "id": "daum-tour-2026-11",
+    "category": "학생선수권",
+    "subCategory": "유소년 꿈나무",
+    "name": "2026 제13회 다음 카페 전국 배드민턴 꿈나무 & 청소년 챔피언십",
+    "registrationPeriod": "2026.08.01 ~ 2026.08.20",
+    "registrationStart": "2026-08-01",
+    "registrationEnd": "2026-08-20",
+    "eventPeriod": "2026.08.30",
+    "eventStart": "2026-08-30",
+    "eventEnd": "2026-08-30",
+    "venue": "충남 아산 이순신체육관",
+    "source": "다음카페",
+    "sources": [
+      "다음카페"
+    ],
+    "cafeName": "다음 배드민턴 패밀리 (대회 알림방)",
+    "cafeUrl": "https://cafe.daum.net/badmintonfamily",
+    "officialLink": "https://cafe.daum.net/badmintonfamily/tournament/2026-08-30",
+    "fee": "1인당 25,000원",
+    "shuttlecock": "삼화 501 BLACK",
+    "sponsor": "전국 유소년 배드민턴 발전위원회",
+    "registrationSite": "다음 카페 유소년 참가신청방",
+    "sourceLinks": [
+      {
+        "source": "다음카페",
+        "link": "https://cafe.daum.net/badmintonfamily/tournament/2026-08-30"
+      }
+    ]
+  },
+  {
+    "id": "daum-tour-2026-12",
+    "category": "지역구대회",
+    "subCategory": "강원 동호인",
+    "name": "2026 제8회 다음 카페 강원권 동호인 배드민턴 한마당",
+    "registrationPeriod": "2026.08.20 ~ 2026.09.10",
+    "registrationStart": "2026-08-20",
+    "registrationEnd": "2026-09-10",
+    "eventPeriod": "2026.09.20",
+    "eventStart": "2026-09-20",
+    "eventEnd": "2026-09-20",
+    "venue": "강원 원주국민체육센터",
+    "source": "다음카페",
+    "sources": [
+      "다음카페"
+    ],
+    "cafeName": "강원 배드민턴 클럽 연합 (다음 카페)",
+    "cafeUrl": "https://cafe.daum.net/badmintonfamily",
+    "officialLink": "https://cafe.daum.net/badmintonfamily/tournament/2026-09-20",
+    "fee": "1팀당 50,000원",
+    "shuttlecock": "삼화 501 BLACK",
+    "sponsor": "강원 배드민턴 동호회 협의회",
+    "registrationSite": "다음 카페 접수처",
+    "sourceLinks": [
+      {
+        "source": "다음카페",
+        "link": "https://cafe.daum.net/badmintonfamily/tournament/2026-09-20"
+      }
+    ]
+  },
+  {
+    "id": "daum-tour-2026-13",
+    "category": "전국오픈",
+    "subCategory": "영남 부산 오픈",
+    "name": "2026 제6회 다음 카페 부산·경남 배드민턴 연합 오픈",
+    "registrationPeriod": "2026.09.15 ~ 2026.10.08",
+    "registrationStart": "2026-09-15",
+    "registrationEnd": "2026-10-08",
+    "eventPeriod": "2026.10.25",
+    "eventStart": "2026-10-25",
+    "eventEnd": "2026-10-25",
+    "venue": "부산 강서체육공원 실내체육관",
+    "source": "다음카페",
+    "sources": [
+      "다음카페"
+    ],
+    "cafeName": "다음 배드민턴 패밀리 (대회 알림방)",
+    "cafeUrl": "https://cafe.daum.net/badmintonfamily",
+    "officialLink": "https://cafe.daum.net/badmintonfamily/tournament/2026-10-25",
+    "fee": "1팀당 60,000원",
+    "shuttlecock": "빅터 챔피언 No.1",
+    "sponsor": "부산·경남 배드민턴 연합회",
+    "registrationSite": "다음 카페 온라인 접수 게시판",
+    "sourceLinks": [
+      {
+        "source": "다음카페",
+        "link": "https://cafe.daum.net/badmintonfamily/tournament/2026-10-25"
+      }
+    ]
+  },
+  {
+    "id": "daum-tour-2026-14",
+    "category": "지역구대회",
+    "subCategory": "경기 북부 친선",
+    "name": "2026 제5회 다음 카페 경기 북부 배드민턴 매니아 교류전",
+    "registrationPeriod": "2026.10.10 ~ 2026.10.30",
+    "registrationStart": "2026-10-10",
+    "registrationEnd": "2026-10-30",
+    "eventPeriod": "2026.11.08",
+    "eventStart": "2026-11-08",
+    "eventEnd": "2026-11-08",
+    "venue": "경기 고양 어울림누리체육관",
+    "source": "다음카페",
+    "sources": [
+      "다음카페"
+    ],
+    "cafeName": "경기 북부 배드민턴 매니아 (다음 카페)",
+    "cafeUrl": "https://cafe.daum.net/badmintonfamily",
+    "officialLink": "https://cafe.daum.net/badmintonfamily/tournament/2026-11-08",
+    "fee": "1팀당 50,000원",
+    "shuttlecock": "요넥스 AEROCLEAR K1",
+    "sponsor": "경기 북부 배드민턴 동호회",
+    "registrationSite": "다음 카페 접수 게시판",
+    "sourceLinks": [
+      {
+        "source": "다음카페",
+        "link": "https://cafe.daum.net/badmintonfamily/tournament/2026-11-08"
+      }
+    ]
+  },
+  {
+    "id": "daum-tour-2026-15",
+    "category": "전국오픈",
+    "subCategory": "전국 여성부",
+    "name": "2026 제9회 다음 카페 전국 여성부 배드민턴 페스티벌",
+    "registrationPeriod": "2026.10.20 ~ 2026.11.10",
+    "registrationStart": "2026-10-20",
+    "registrationEnd": "2026-11-10",
+    "eventPeriod": "2026.11.22",
+    "eventStart": "2026-11-22",
+    "eventEnd": "2026-11-22",
+    "venue": "대구 달서아트센터체육관",
+    "source": "다음카페",
+    "sources": [
+      "다음카페"
+    ],
+    "cafeName": "다음 배드민턴 패밀리 (대회 알림방)",
+    "cafeUrl": "https://cafe.daum.net/badmintonfamily",
+    "officialLink": "https://cafe.daum.net/badmintonfamily/tournament/2026-11-22",
+    "fee": "1팀당 50,000원",
+    "shuttlecock": "삼화 501 BLACK",
+    "sponsor": "전국 여성 배드민턴 연합",
+    "registrationSite": "다음 카페 여성부 신청방",
+    "sourceLinks": [
+      {
+        "source": "다음카페",
+        "link": "https://cafe.daum.net/badmintonfamily/tournament/2026-11-22"
+      }
+    ]
+  },
+  {
+    "id": "daum-tour-2026-16",
+    "category": "전국오픈",
+    "subCategory": "송년 전국 오픈",
+    "name": "2026 제12회 다음 카페 송년 전국 배드민턴 축제",
+    "registrationPeriod": "2026.11.15 ~ 2026.12.05",
+    "registrationStart": "2026-11-15",
+    "registrationEnd": "2026-12-05",
+    "eventPeriod": "2026.12.13",
+    "eventStart": "2026-12-13",
+    "eventEnd": "2026-12-13",
+    "venue": "서울 마포구민체육센터",
+    "source": "다음카페",
+    "sources": [
+      "다음카페"
+    ],
+    "cafeName": "다음 배드민턴 패밀리 (대회 알림방)",
+    "cafeUrl": "https://cafe.daum.net/badmintonfamily",
+    "officialLink": "https://cafe.daum.net/badmintonfamily/tournament/2026-12-13",
+    "fee": "1팀당 60,000원",
+    "shuttlecock": "요넥스 AEROCLEAR K1 (공인구)",
+    "sponsor": "다음 배드민턴 패밀리 / 마포구 배드민턴 동호회",
+    "registrationSite": "다음 카페 송년 대회 접수처",
+    "sourceLinks": [
+      {
+        "source": "다음카페",
+        "link": "https://cafe.daum.net/badmintonfamily/tournament/2026-12-13"
+      }
+    ]
   }
 ]

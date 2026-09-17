@@ -763,11 +763,18 @@ export function TournamentExplorer({ tournaments }: { tournaments: Tournament[] 
         return { ...t, distanceKm };
       })
       .filter((t) => {
-        const allSources = t.sources && t.sources.length > 0 ? t.sources.join(' ') : t.source;
-        const text = `${t.name} ${t.venue} ${allSources} ${t.category}`.toLowerCase();
+        const rawSources = t.sources && t.sources.length > 0 ? t.sources : [t.source];
+        const expandedSources = rawSources
+          .map((s) => {
+            if (s === '다음카페') return '다음카페 다음 카페 daum cafe daumcafe 다음';
+            if (s === '네이버밴드') return '네이버밴드 네이버 밴드 naver band naverband 밴드';
+            if (s === '네이버카페') return '네이버카페 네이버 카페 naver cafe';
+            return s;
+          })
+          .join(' ');
+        const text = `${t.name} ${t.venue} ${expandedSources} ${t.cafeName || ''} ${t.bandName || ''} ${t.category}`.toLowerCase();
 
         const matchesSource =
-          query.trim().length > 0 ||
           sources.size === 0 ||
           (t.sources
             ? t.sources.some((s) => sources.has(s))
@@ -886,7 +893,7 @@ export function TournamentExplorer({ tournaments }: { tournaments: Tournament[] 
     }
   };
 
-  // 수집된 대회 데이터로부터 실제 존재하는 출처 목록 및 개수 동적 추출 (중복 출처 포함)
+  // 수집된 대회 데이터로부터 실제 존재하는 출처 목록 및 개수 동적 추출 (중복 출처 포함, 커뮤니티 출처 우선순위)
   const dynamicSources = useMemo(() => {
     const counts = new Map<string, number>();
     for (const t of activeTournaments) {
@@ -895,13 +902,26 @@ export function TournamentExplorer({ tournaments }: { tournaments: Tournament[] 
         counts.set(s, (counts.get(s) || 0) + 1);
       }
     }
+    // 사용자가 자주 찾는 커뮤니티 출처(네이버밴드, 다음카페)를 최우선 노출
+    const prioritySources = ['다음카페', '네이버밴드'];
     const sortedSources = Array.from(counts.entries())
-      .sort((a, b) => b[1] - a[1])
-      .map(([name, count]) => ({ name, count }));
+      .sort((a, b) => {
+        const aPri = prioritySources.indexOf(a[0]);
+        const bPri = prioritySources.indexOf(b[0]);
+        if (aPri !== -1 && bPri !== -1) return aPri - bPri;
+        if (aPri !== -1) return -1;
+        if (bPri !== -1) return 1;
+        return b[1] - a[1];
+      })
+      .map(([name, count]) => {
+        const icon = name === '네이버밴드' ? '📱 ' : name === '다음카페' ? '☕ ' : name === '네이버카페' ? '☕ ' : '';
+        const displayName = name === '다음카페' ? '다음 카페' : name === '네이버밴드' ? '네이버 밴드' : name === '네이버카페' ? '네이버 카페' : name;
+        return { label: `${icon}${displayName} (${count})`, value: name };
+      });
 
     return [
       { label: `전체 (${activeTournaments.length})`, value: '전체' },
-      ...sortedSources.map(({ name, count }) => ({ label: `${name} (${count})`, value: name })),
+      ...sortedSources,
     ];
   }, [activeTournaments]);
 
@@ -2405,6 +2425,16 @@ function TournamentCard({
           <Badge variant="outline" className="border-emerald-300 bg-emerald-50 text-emerald-800 font-bold">
             📍 {regionOf(t.venue, t.name)}
           </Badge>
+          {t.source === '다음카페' && (
+            <span className="inline-flex items-center gap-1 rounded-full border border-amber-300 bg-amber-50 px-2 py-0.5 text-[11px] font-extrabold text-amber-900 shadow-xs">
+              ☕ 다음 카페
+            </span>
+          )}
+          {t.source === '네이버밴드' && (
+            <span className="inline-flex items-center gap-1 rounded-full border border-emerald-300 bg-emerald-50 px-2 py-0.5 text-[11px] font-extrabold text-emerald-900 shadow-xs">
+              📱 네이버 밴드
+            </span>
+          )}
           <Badge
             variant="secondary"
             className={
@@ -2638,7 +2668,7 @@ function TableView({
               <th scope="col" className="px-3 py-3 font-bold">대회 일정</th>
               <th scope="col" className="px-3 py-3 font-bold">접수 기간</th>
               <th scope="col" className="px-3 py-3 font-bold">장소 및 거리 ({userLocationLabel} 기준)</th>
-              {isAdmin && <th scope="col" className="px-3 py-3 font-bold">출처 (동시 등록 포함)</th>}
+              <th scope="col" className="px-3 py-3 font-bold">출처</th>
               <th scope="col" className="py-3 pl-2 pr-4 text-center font-bold">요강 / 관리</th>
             </tr>
           </thead>
@@ -2715,21 +2745,38 @@ function TableView({
                       )}
                     </div>
                   </td>
-                  {isAdmin && (
-                    <td aria-label="출처" className="px-3 py-3 whitespace-nowrap">
-                      {t.sources && t.sources.length > 1 ? (
-                        <div className="flex flex-wrap items-center gap-1">
-                          {t.sources.map((s) => (
-                            <span key={s} className="rounded border border-emerald-300 bg-emerald-50 px-1.5 py-0.5 text-[10px] font-bold text-emerald-800">
-                              {s}
-                            </span>
-                          ))}
-                        </div>
-                      ) : (
-                        <span className="rounded bg-slate-100 px-1.5 py-0.5 text-[11px] font-bold text-slate-700">{t.source}</span>
-                      )}
-                    </td>
-                  )}
+                  <td aria-label="출처" className="px-3 py-3 whitespace-nowrap">
+                    {t.sources && t.sources.length > 1 ? (
+                      <div className="flex flex-wrap items-center gap-1">
+                        {t.sources.map((s) => (
+                          <span
+                            key={s}
+                            className={`rounded px-1.5 py-0.5 text-[10px] font-bold ${
+                              s === '다음카페'
+                                ? 'bg-amber-100 text-amber-900 border border-amber-300'
+                                : s === '네이버밴드'
+                                ? 'bg-emerald-100 text-emerald-900 border border-emerald-300'
+                                : 'bg-slate-100 text-slate-700'
+                            }`}
+                          >
+                            {s === '다음카페' ? '☕ 다음 카페' : s === '네이버밴드' ? '📱 네이버 밴드' : s}
+                          </span>
+                        ))}
+                      </div>
+                    ) : (
+                      <span
+                        className={`rounded px-2 py-0.5 text-[11px] font-bold ${
+                          t.source === '다음카페'
+                            ? 'bg-amber-100 text-amber-900 border border-amber-300'
+                            : t.source === '네이버밴드'
+                            ? 'bg-emerald-100 text-emerald-900 border border-emerald-300'
+                            : 'bg-slate-100 text-slate-700'
+                        }`}
+                      >
+                        {t.source === '다음카페' ? '☕ 다음 카페' : t.source === '네이버밴드' ? '📱 네이버 밴드' : t.source}
+                      </span>
+                    )}
+                  </td>
                   <td aria-label="요강 및 관리" className="py-3 pl-2 pr-4 text-center whitespace-nowrap">
                     <div className="flex items-center justify-center gap-1.5">
                       {isAdmin && onDeleteTournament && (
@@ -2913,12 +2960,12 @@ function SourcesHubSection({
   categoryFilter: string;
   onCategoryChange: (cat: string) => void;
 }) {
-  const categories: readonly (SourceCategory | '전체')[] = [
-    '전체',
-    '모바일·온라인 접수 플랫폼',
-    '협회 및 공공 체육 기관',
-    '네이버 밴드 & 커뮤니티',
-    '전문 언론 및 국제기구',
+  const categories = [
+    { label: '전체', value: '전체' },
+    { label: '모바일·온라인 접수 플랫폼', value: '모바일·온라인 접수 플랫폼' },
+    { label: '협회 및 공공 체육 기관', value: '협회 및 공공 체육 기관' },
+    { label: '밴드 & 다음/네이버 카페', value: '네이버 밴드 & 커뮤니티' },
+    { label: '전문 언론 및 국제기구', value: '전문 언론 및 국제기구' },
   ];
 
   // 각 출처별 실시간 수집 개수 집계 (중복 출처 포함)
@@ -3030,16 +3077,16 @@ function SourcesHubSection({
       <div className="no-scrollbar flex gap-2 overflow-x-auto py-1">
         {categories.map((cat) => (
           <button
-            key={cat}
+            key={cat.value}
             type="button"
-            onClick={() => onCategoryChange(cat)}
+            onClick={() => onCategoryChange(cat.value)}
             className={`shrink-0 rounded-full border px-3.5 py-1.5 text-xs font-bold transition ${
-              categoryFilter === cat
+              categoryFilter === cat.value
                 ? 'border-emerald-700 bg-emerald-700 text-white shadow-sm'
                 : 'border-slate-200 bg-white text-muted-foreground hover:border-emerald-300 hover:text-foreground'
             }`}
           >
-            {cat}
+            {cat.label}
           </button>
         ))}
       </div>
