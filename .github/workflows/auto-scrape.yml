@@ -1,12 +1,12 @@
 name: 24/7 Automated Badminton Tournament Scraper
 
 on:
-  # 1. 정기 자동 실행 (매일 한국 시간 새벽 04시, 오후 16시 = UTC 19:00, 07:00)
-  schedule:
-    - cron: '0 19 * * *'
-    - cron: '0 7 * * *'
+  # 이전 버전 스케줄러: 신규 scrape-tournaments.yml(AI 통합 파이프라인)으로 일원화됨
+  # schedule:
+  #   - cron: '0 19 * * *'
+  #   - cron: '0 7 * * *'
   
-  # 2. GitHub 웹 화면에서 'Run workflow' 버튼으로 언제든 수동 즉시 실행 가능
+  # 수동 실행 전용으로 보존
   workflow_dispatch:
 
 # 저장소 쓰기 권한 부여 (자동 커밋 및 푸시용)

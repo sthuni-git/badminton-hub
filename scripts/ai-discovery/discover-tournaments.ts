@@ -1,5 +1,6 @@
 import fs from 'node:fs';
 import path from 'node:path';
+import crypto from 'node:crypto';
 import { extractTournamentHeuristic, parseWithGemini, type ParsedTournament } from './llm-parser.js';
 
 interface SearchTarget {
@@ -200,17 +201,29 @@ export async function runAiDiscovery(): Promise<number> {
         parsed = extractTournamentHeuristic(effectiveText, effectiveTitle, target.link);
       }
 
-      if (parsed && parsed.isTournament && parsed.name && parsed.eventStart && parsed.eventEnd) {
-        const id = `ai-${target.source === '네이버카페' ? 'cafe' : target.source === '네이버블로그' ? 'blog' : 'web'}-${Buffer.from(target.link).toString('base64').slice(0, 10).replace(/[^a-zA-Z0-9]/g, '')}`;
+      if (parsed && parsed.isTournament && parsed.name?.trim() && parsed.eventStart && parsed.eventEnd) {
+        const isoDate = /^20\d{2}-\d{2}-\d{2}$/;
+        if (!isoDate.test(parsed.eventStart) || !isoDate.test(parsed.eventEnd)) continue;
+        if (parsed.eventStart > parsed.eventEnd) continue;
+
+        let regStart = (parsed.registrationStart || '').trim();
+        let regEnd = (parsed.registrationEnd || '').trim();
+        if (!isoDate.test(regStart) || !isoDate.test(regEnd) || regStart > regEnd) {
+          regStart = '';
+          regEnd = '';
+        }
+
+        const linkHash = crypto.createHash('sha256').update(`${target.source}-${target.link}-${parsed.name}`).digest('hex').slice(0, 10);
+        const id = `ai-${target.source === '네이버카페' ? 'cafe' : target.source === '네이버블로그' ? 'blog' : 'web'}-${linkHash}`;
 
         candidateTournaments.push({
           id,
           category: parsed.category || '전국오픈',
-          name: parsed.name,
-          registrationPeriod: parsed.registrationPeriod || '원문 요강 참조',
-          registrationStart: parsed.registrationStart || '',
-          registrationEnd: parsed.registrationEnd || '',
-          eventPeriod: parsed.eventPeriod,
+          name: parsed.name.trim(),
+          registrationPeriod: regStart && regEnd ? `${regStart.replace(/-/g, '.')} ~ ${regEnd.replace(/-/g, '.')}` : (parsed.registrationPeriod || '원문 요강 참조'),
+          registrationStart: regStart,
+          registrationEnd: regEnd,
+          eventPeriod: parsed.eventPeriod || (parsed.eventStart === parsed.eventEnd ? parsed.eventStart.replace(/-/g, '.') : `${parsed.eventStart.replace(/-/g, '.')} ~ ${parsed.eventEnd.replace(/-/g, '.')}`),
           eventStart: parsed.eventStart,
           eventEnd: parsed.eventEnd,
           venue: parsed.venue || '상세 요강 참조',
@@ -273,9 +286,37 @@ export async function runAiDiscovery(): Promise<number> {
         }
       }
 
-      existingList.sort((a, b) => a.eventStart.localeCompare(b.eventStart) || a.name.localeCompare(b.name, 'ko'));
-      fs.writeFileSync(scrapedPath, `${JSON.stringify(existingList, null, 2)}\n`, 'utf-8');
-      console.log(`💾 데이터셋 자동 갱신 완료: 신규 추가 ${addedCount}건 / 출처 보강 ${enrichedCount}건 (총 ${existingList.length}건 저장)`);
+      // 저장 전 validate:data 검증 통과를 보장하는 자동 정제(Sanitization)
+      const isoDate = /^20\d{2}-\d{2}-\d{2}$/;
+      const seenIds = new Set<string>();
+      const sanitizedList = existingList.filter((item) => {
+        if (!item.id || seenIds.has(item.id)) return false;
+        if (!item.name?.trim()) return false;
+        if (!isoDate.test(item.eventStart) || !isoDate.test(item.eventEnd)) return false;
+        if (item.eventStart > item.eventEnd) return false;
+        if (!/^https?:\/\//.test(item.officialLink)) return false;
+
+        // 접수 날짜 유효성 보정
+        const hasReg = item.registrationStart || item.registrationEnd;
+        if (hasReg && (!isoDate.test(item.registrationStart) || !isoDate.test(item.registrationEnd) || item.registrationStart > item.registrationEnd)) {
+          item.registrationStart = '';
+          item.registrationEnd = '';
+        }
+
+        // sourceLinks에 주 출처 링크 필수 보장
+        if (!item.sourceLinks || !Array.isArray(item.sourceLinks)) {
+          item.sourceLinks = [{ source: item.source, link: item.officialLink }];
+        } else if (!item.sourceLinks.some((sl: any) => sl.source === item.source && sl.link === item.officialLink)) {
+          item.sourceLinks.unshift({ source: item.source, link: item.officialLink });
+        }
+
+        seenIds.add(item.id);
+        return true;
+      });
+
+      sanitizedList.sort((a, b) => a.eventStart.localeCompare(b.eventStart) || a.name.localeCompare(b.name, 'ko'));
+      fs.writeFileSync(scrapedPath, `${JSON.stringify(sanitizedList, null, 2)}\n`, 'utf-8');
+      console.log(`💾 데이터셋 자동 갱신 완료: 신규 추가 ${addedCount}건 / 출처 보강 ${enrichedCount}건 (총 ${sanitizedList.length}건 무결성 검증 저장)`);
     }
   }
 
