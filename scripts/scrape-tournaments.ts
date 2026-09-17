@@ -1210,7 +1210,19 @@ async function main(): Promise<void> {
     safelyCollect('콕콕', scrapeCockcock),
   ]);
 
+  // 1. 기존 데이터셋 보존 (일부 플랫폼 네트워크 오류 시 데이터 유실 방지)
+  const outputPath = path.resolve(process.cwd(), 'lib/tournaments-scraped.json');
+  let existingTournaments: ScrapedTournament[] = [];
+  if (fs.existsSync(outputPath)) {
+    try {
+      existingTournaments = JSON.parse(fs.readFileSync(outputPath, 'utf-8'));
+    } catch (e) {
+      console.warn('기존 데이터 읽기 실패, 새로 생성합니다:', e);
+    }
+  }
+
   const tournaments = mergeAndDeduplicate([
+    ...existingTournaments,
     ...facecock,
     ...badmintok,
     ...badmintonTimes,
@@ -1226,7 +1238,6 @@ async function main(): Promise<void> {
   ]);
   if (tournaments.length === 0) throw new Error('검증 가능한 대회를 한 건도 수집하지 못해 기존 파일을 보존합니다.');
 
-  const outputPath = path.resolve(process.cwd(), 'lib/tournaments-scraped.json');
   fs.writeFileSync(outputPath, `${JSON.stringify(tournaments, null, 2)}\n`, 'utf-8');
 
   console.log(`✅ ${tournaments.length}건 저장 완료: ${outputPath}`);
