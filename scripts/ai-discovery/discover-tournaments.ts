@@ -6,7 +6,7 @@ import { extractTournamentHeuristic, parseWithGemini, type ParsedTournament } fr
 interface SearchTarget {
   title: string;
   link: string;
-  source: '네이버카페' | '네이버블로그' | '웹검색';
+  source: '네이버카페' | '네이버블로그' | '웹검색' | '네이버밴드';
   snippet: string;
 }
 
@@ -25,10 +25,11 @@ function getRandomUserAgent(): string {
 const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 
 /**
- * 공개 웹 검색 및 네이버 Open API를 통한 배드민턴 대회 관련 글 탐색
+ * 구글 및 네이버 검색 API/웹 스크랩을 통한 다각도 대회 탐색
  */
 async function fetchSearchTargets(query: string): Promise<SearchTarget[]> {
   const results: SearchTarget[] = [];
+  const seenLinks = new Set<string>();
 
   // 1. 네이버 Open API 사용 (키가 있는 경우)
   const naverClientId = process.env.NAVER_CLIENT_ID;
@@ -58,7 +59,8 @@ async function fetchSearchTargets(query: string): Promise<SearchTarget[]> {
               const cleanTitle = (item.title || '').replace(/<[^>]+>/g, '').trim();
               const link = item.link || '';
               const snippet = (item.description || '').replace(/<[^>]+>/g, '').trim();
-              if (link && cleanTitle) {
+              if (link && cleanTitle && !seenLinks.has(link)) {
+                seenLinks.add(link);
                 results.push({ title: cleanTitle, link, source: ep.source, snippet });
               }
             }
@@ -66,13 +68,54 @@ async function fetchSearchTargets(query: string): Promise<SearchTarget[]> {
         }
         await sleep(300); // API Rate-limit 보호
       }
-      return results;
     } catch (e) {
       console.warn('Naver Open API search failed:', e);
     }
   }
 
-  // 2. Fallback: 네이버 공개 모바일/웹 검색 결과 파싱 (지능형 차단 방어)
+  // 2. Google 공개 검색 파싱 (네이버 카페, 블로그, 밴드, 다음 카페, 지역 협회 사이트 망라)
+  try {
+    const googleQuery = `${query} (site:cafe.naver.com OR site:blog.naver.com OR site:band.us OR 요강)`;
+    const googleUrl = `https://html.duckduckgo.com/html/?q=${encodeURIComponent(googleQuery)}`;
+    const res = await fetch(googleUrl, {
+      headers: {
+        'User-Agent': getRandomUserAgent(),
+        'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+        'Accept-Language': 'ko-KR,ko;q=0.9,en-US;q=0.8',
+      },
+      signal: AbortSignal.timeout(10000),
+    });
+
+    if (res.ok) {
+      const html = await res.text();
+      const resultBlocks = [...html.matchAll(/<a[^>]+class="result__url"[^>]+href="([^"]+)"[^>]*>([\s\S]*?)<\/a>/gi)];
+      for (const b of resultBlocks) {
+        let rawHref = b[1];
+        if (rawHref.includes('uddg=')) {
+          const m = rawHref.match(/uddg=([^&]+)/);
+          if (m) rawHref = decodeURIComponent(m[1]);
+        }
+        if (!rawHref.startsWith('http') || seenLinks.has(rawHref)) continue;
+
+        let src: SearchTarget['source'] = '웹검색';
+        if (rawHref.includes('cafe.naver.com')) src = '네이버카페';
+        else if (rawHref.includes('blog.naver.com')) src = '네이버블로그';
+        else if (rawHref.includes('band.us')) src = '네이버밴드';
+
+        seenLinks.add(rawHref);
+        results.push({
+          title: cleanText(b[2]) || '배드민턴 대회 공고',
+          link: rawHref,
+          source: src,
+          snippet: '',
+        });
+      }
+    }
+  } catch (gErr) {
+    console.warn('Web search engine fallback notice:', gErr);
+  }
+
+  // 3. Fallback: 네이버 공개 모바일/웹 검색 결과 파싱 (지능형 차단 방어)
   try {
     const webUrl = 'https://search.naver.com/search.naver?where=article&query=' + encodeURIComponent(query);
     const res = await fetch(webUrl, {
@@ -90,26 +133,46 @@ async function fetchSearchTargets(query: string): Promise<SearchTarget[]> {
       // 블로그 및 카페 링크 정밀 추출
       const blogMatches = html.match(/https?:\/\/blog\.naver\.com\/[a-zA-Z0-9_-]+\/\d+/g) || [];
       const cafeMatches = html.match(/https?:\/\/cafe\.naver\.com\/[a-zA-Z0-9_-]+\/\d+/g) || [];
+      const bandMatches = html.match(/https?:\/\/band\.us\/band\/\d+\/post\/\d+/g) || [];
 
       const uniqueBlogs = Array.from(new Set(blogMatches));
       const uniqueCafes = Array.from(new Set(cafeMatches));
+      const uniqueBands = Array.from(new Set(bandMatches));
 
       for (const b of uniqueBlogs.slice(0, 10)) {
-        results.push({
-          title: '네이버 블로그 배드민턴 대회 공고',
-          link: b,
-          source: '네이버블로그',
-          snippet: '',
-        });
+        if (!seenLinks.has(b)) {
+          seenLinks.add(b);
+          results.push({
+            title: '네이버 블로그 배드민턴 대회 공고',
+            link: b,
+            source: '네이버블로그',
+            snippet: '',
+          });
+        }
       }
 
       for (const c of uniqueCafes.slice(0, 10)) {
-        results.push({
-          title: '네이버 카페 배드민턴 대회 공고',
-          link: c,
-          source: '네이버카페',
-          snippet: '',
-        });
+        if (!seenLinks.has(c)) {
+          seenLinks.add(c);
+          results.push({
+            title: '네이버 카페 배드민턴 대회 공고',
+            link: c,
+            source: '네이버카페',
+            snippet: '',
+          });
+        }
+      }
+
+      for (const bnd of uniqueBands.slice(0, 5)) {
+        if (!seenLinks.has(bnd)) {
+          seenLinks.add(bnd);
+          results.push({
+            title: '네이버 밴드 배드민턴 대회 공고',
+            link: bnd,
+            source: '네이버밴드',
+            snippet: '',
+          });
+        }
       }
     }
   } catch (err) {
@@ -119,13 +182,23 @@ async function fetchSearchTargets(query: string): Promise<SearchTarget[]> {
   return results;
 }
 
+function cleanText(text: string): string {
+  return text
+    .replace(/<[^>]+>/g, '')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
 /**
- * 게시글 본문 추출 (모바일 블로그/카페 타깃 및 지연 로직)
+ * 게시글 본문 추출 (모바일 블로그/카페/밴드 타깃 및 지연 로직)
  */
 async function extractPageContent(targetUrl: string): Promise<{ title: string; text: string }> {
   let url = targetUrl;
   if (url.includes('blog.naver.com') && !url.includes('m.blog.naver.com')) {
     url = url.replace('blog.naver.com', 'm.blog.naver.com');
+  }
+  if (url.includes('cafe.naver.com') && !url.includes('m.cafe.naver.com')) {
+    url = url.replace('cafe.naver.com', 'm.cafe.naver.com');
   }
 
   try {
@@ -141,7 +214,7 @@ async function extractPageContent(targetUrl: string): Promise<{ title: string; t
 
     const html = await res.text();
     const titleMatch = html.match(/<meta property="og:title" content="([^"]+)"/i) || html.match(/<title>([\s\S]*?)<\/title>/i);
-    const title = titleMatch ? titleMatch[1].trim() : '';
+    const title = titleMatch ? cleanText(titleMatch[1]) : '';
 
     const clean = html
       .replace(/<script[\s\S]*?<\/script>/gi, '')
@@ -160,7 +233,7 @@ async function extractPageContent(targetUrl: string): Promise<{ title: string; t
  * 메인 실행기
  */
 export async function runAiDiscovery(): Promise<number> {
-  console.log('🤖 최신 AI 기반 대회 탐색(Gemini Flash 최신 모델 & 차단 방지 가드) 파이프라인 가동');
+  console.log('🤖 최신 AI 기반 대회 탐색(네이버 카페/블로그/밴드/구글 웹 & 차단 방지 가드) 파이프라인 가동');
   const geminiApiKey = process.env.GEMINI_API_KEY || process.env.GOOGLE_API_KEY || '';
   if (geminiApiKey) {
     console.log('✨ 최신 Google Gemini Flash 분석 엔진 활성화');
@@ -168,10 +241,14 @@ export async function runAiDiscovery(): Promise<number> {
     console.log('ℹ️ Gemini API 키 미제공 - 무차단 고신뢰 정밀 텍스트 파서로 가동');
   }
 
+  // 2026/2027 시즌 전역 및 지역별 세부 검색 쿼리 세트
   const queries = [
     '배드민턴대회 요강 2026',
-    '배드민턴 오픈대회 접수',
-    '배드민턴 협회장기 요강',
+    '배드민턴 오픈대회 접수 2026',
+    '배드민턴 협회장기 요강 2026',
+    '배드민턴 시대회 구대회 요강 2026',
+    '배드민턴 동호인대회 참가신청',
+    '배드민턴 승급대회 접수',
   ];
 
   const candidateTournaments: any[] = [];
@@ -214,7 +291,8 @@ export async function runAiDiscovery(): Promise<number> {
         }
 
         const linkHash = crypto.createHash('sha256').update(`${target.source}-${target.link}-${parsed.name}`).digest('hex').slice(0, 10);
-        const id = `ai-${target.source === '네이버카페' ? 'cafe' : target.source === '네이버블로그' ? 'blog' : 'web'}-${linkHash}`;
+        const sourcePrefix = target.source === '네이버카페' ? 'cafe' : target.source === '네이버블로그' ? 'blog' : target.source === '네이버밴드' ? 'band' : 'web';
+        const id = `ai-${sourcePrefix}-${linkHash}`;
 
         candidateTournaments.push({
           id,
