@@ -45,7 +45,7 @@ import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle } from '
 import { ClubExplorer } from '@/components/club-explorer';
 import { CRAWLER_SOURCES, CRAWLER_TIPS, type SourceCategory } from '@/lib/crawler-sources';
 import { calculateDistanceKm, formatDistanceKm, getVenueCoordinates, isInternationalVenue, PRESET_LOCATIONS, reverseGeocodeCoords, type Coordinates } from '@/lib/geo-utils';
-import { ALL_REGIONS, getTournamentOutline, regionOf, type Tournament, type TournamentCategory } from '@/lib/tournaments';
+import { ALL_REGIONS, getTournamentOutline, regionOf, type Tournament, type TournamentCategory, type TournamentSource } from '@/lib/tournaments';
 
 export type Status = '접수중' | '접수예정' | '마감임박' | '접수마감' | '접수정보확인' | '대회종료';
 export type StatusFilter = '전체' | '종료 제외' | Status;
@@ -121,7 +121,7 @@ function statusStyle(status: Status) {
 }
 
 function googleCalendarUrl(t: Tournament) {
-  const end = new Date(atMidnight(t.eventEnd).getTime() + 86400000).toISOString().slice(0, 10).replaceAll('-', '');
+  const end = new Date(Date.parse(`${t.eventEnd}T00:00:00Z`) + 86400000).toISOString().slice(0, 10).replaceAll('-', '');
   return `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(
     t.name
   )}&dates=${t.eventStart.replaceAll('-', '')}/${end}&location=${encodeURIComponent(
@@ -2092,6 +2092,7 @@ export function TournamentExplorer({ tournaments }: { tournaments: Tournament[] 
             </form>
           </div>
         </div>
+      )}
       {/* 대회 수동 등록 모달 (관리자 전용) */}
       {isAddModalOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4 backdrop-blur-xs overflow-y-auto">
@@ -2906,7 +2907,7 @@ function CalendarView({
         {cells.map((day, i) => {
           const events = day
             ? tournaments.filter((t) => {
-                const d = atMidnight(t.eventStart);
+                const d = new Date(parseDateToMidnight(t.eventStart));
                 return d.getFullYear() === year && d.getMonth() === month && d.getDate() === day;
               })
             : [];

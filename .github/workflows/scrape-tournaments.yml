@@ -31,7 +31,10 @@ jobs:
         run: npm ci
 
       - name: 1단계 - 공식 12개 플랫폼 대회 수집
-        run: npm run scrape
+        # Stable source IDs and retained source links must survive each refresh.
+        run: |
+          npx tsx scripts/merge-tournaments.test.ts
+          npm run scrape
 
       - name: 2단계 - AI 숨은 대회 발굴 (네이버 카페/블로그/웹)
         env:

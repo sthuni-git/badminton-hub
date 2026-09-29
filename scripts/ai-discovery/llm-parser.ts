@@ -186,7 +186,7 @@ ${text.slice(0, 3500)}
         continue;
       }
 
-      const data = await res.json();
+      const data = await res.json() as { candidates?: Array<{ content?: { parts?: Array<{ text?: string }> } }> };
       const rawJson = data.candidates?.[0]?.content?.parts?.[0]?.text;
       if (!rawJson) continue;
 

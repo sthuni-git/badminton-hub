@@ -53,7 +53,7 @@ async function fetchSearchTargets(query: string): Promise<SearchTarget[]> {
           signal: AbortSignal.timeout(10000),
         });
         if (res.ok) {
-          const data = await res.json();
+          const data = await res.json() as { items?: Array<{ title?: string; link?: string; description?: string }> };
           if (Array.isArray(data.items)) {
             for (const item of data.items) {
               const cleanTitle = (item.title || '').replace(/<[^>]+>/g, '').trim();

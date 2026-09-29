@@ -1,5 +1,6 @@
 import fs from 'node:fs';
 import path from 'node:path';
+import { pathToFileURL } from 'node:url';
 
 type TournamentCategory = '전국오픈' | '지역구대회' | '학생선수권' | '브랜드대회' | '국제대회';
 type TournamentSource = '배드민톡' | '배드민턴타임즈' | '페이스콕' | '배드민턴게임' | '코트엑스' | '오마이플레이' | '스포넷' | '위꾹' | '대한배드민턴협회' | '대한체육회' | '인포민턴' | '콕콕';
@@ -620,6 +621,7 @@ async function scrapeBadmintonGame(): Promise<ScrapedTournament[]> {
 }
 
 interface CourtXTournament {
+  DESCRIPTION?: string;
   TOURNAMENT_UID?: number | string;
   TITLE?: string;
   START_DATE?: string;
@@ -681,7 +683,7 @@ async function scrapeCourtX(): Promise<ScrapedTournament[]> {
       venue,
       source: '코트엑스',
       officialLink: `${origin}/Tournament/Details/${encodeURIComponent(id)}`,
-      posterImage,
+      posterImage: row.POSTER_URL ? toAbsoluteUrl('https://imgs.courtx.co.kr/', row.POSTER_URL) : undefined,
       fee: specs.fee || '요강 참조',
       shuttlecock: specs.shuttlecock,
       sponsor: specs.sponsor || '코트엑스',
@@ -1338,10 +1340,27 @@ function normalizeName(name: string): string {
     .replace(/[^0-9a-z가-힣]/g, '');
 }
 
-function mergeAndDeduplicate(all: ScrapedTournament[]): ScrapedTournament[] {
+export function mergeAndDeduplicate(all: ScrapedTournament[]): ScrapedTournament[] {
   const merged = new Map<string, ScrapedTournament>();
 
-  for (const tournament of all) {
+  // A source may rename/reschedule the same event. Reconcile stable IDs before
+  // grouping across sources by name/date; later observations are fresher.
+  const byId = new Map<string, ScrapedTournament>();
+  for (const item of all) {
+    const previous = byId.get(item.id);
+    const links = [...(previous?.sourceLinks ?? []), ...(item.sourceLinks ?? []),
+      { source: item.source, link: item.officialLink }];
+    const sourceLinks = links.filter((link, index) =>
+      links.findIndex((other) => other.source === link.source && other.link === link.link) === index);
+    byId.set(item.id, {
+      ...previous,
+      ...item,
+      sources: [...new Set([...(previous?.sources ?? []), ...(item.sources ?? []), item.source, ...sourceLinks.map(link => link.source)])],
+      sourceLinks,
+    });
+  }
+
+  for (const tournament of byId.values()) {
     if (!tournament.officialLink || !/\/|\?/.test(tournament.officialLink)) continue;
 
     // 날짜 역전 방어 보정
@@ -1358,20 +1377,17 @@ function mergeAndDeduplicate(all: ScrapedTournament[]): ScrapedTournament[] {
     if (!existing) {
       merged.set(key, {
         ...tournament,
-        sources: [tournament.source],
-        sourceLinks: [{ source: tournament.source, link: tournament.officialLink }],
+        sources: [...(tournament.sources ?? [tournament.source])],
+        sourceLinks: [...(tournament.sourceLinks ?? [{ source: tournament.source, link: tournament.officialLink }])],
       });
       continue;
     }
 
-    if (!existing.sources?.includes(tournament.source)) {
-      existing.sources = [...(existing.sources ?? [existing.source]), tournament.source];
-    }
-    
-    // 출처명 또는 링크가 이미 등록되어 있지 않은 경우에만 추가 (URL 및 출처 중복 완벽 제거)
-    const normalizedLink = tournament.officialLink.trim();
-    if (!existing.sourceLinks?.some((link) => link.source === tournament.source || link.link === normalizedLink)) {
-      existing.sourceLinks = [...(existing.sourceLinks ?? []), { source: tournament.source, link: normalizedLink }];
+    existing.sources = [...new Set([...(existing.sources ?? [existing.source]), ...(tournament.sources ?? [tournament.source])])];
+    for (const link of tournament.sourceLinks ?? []) {
+      if (!existing.sourceLinks?.some(other => other.source === link.source && other.link === link.link)) {
+        existing.sourceLinks = [...(existing.sourceLinks ?? []), link];
+      }
     }
 
     if (!existing.registrationStart && tournament.registrationStart) {
@@ -1402,8 +1418,9 @@ function mergeAndDeduplicate(all: ScrapedTournament[]): ScrapedTournament[] {
     if (item.sourceLinks && item.sourceLinks.length > 1) {
       const seenLinks = new Set<string>();
       item.sourceLinks = item.sourceLinks.filter((sl) => {
-        if (seenLinks.has(sl.link)) return false;
-        seenLinks.add(sl.link);
+        const key = `${sl.source}|${sl.link}`;
+        if (seenLinks.has(key)) return false;
+        seenLinks.add(key);
         return true;
       });
     }
@@ -1476,7 +1493,7 @@ async function main(): Promise<void> {
   );
 }
 
-main().catch((error) => {
+if (process.argv[1] && import.meta.url === pathToFileURL(path.resolve(process.argv[1])).href) main().catch((error) => {
   console.error(error);
   process.exitCode = 1;
 });
