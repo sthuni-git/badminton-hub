@@ -5,7 +5,7 @@
   "outputDirectory": "dist/client",
   "rewrites": [
     {
-      "source": "/((?!_next|favicon|og).*)",
+      "source": "/((?!api(?:/|$)|_next|favicon|og).*)",
       "destination": "/index.html"
     }
   ]

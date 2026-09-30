@@ -116,6 +116,11 @@ export interface TournamentOutline {
  * 대회 정보를 기반으로 체계적인 공식 요강 요약 정보를 생성합니다.
  */
 export function getTournamentOutline(t: Tournament): TournamentOutline {
+  if (t.source === '관리자수동등록') {
+    return { host: t.sponsor || '미등록', eligibility: '포스터 또는 주최측 안내 확인',
+      events: '포스터 또는 주최측 안내 확인', rules: '포스터 또는 주최측 안내 확인',
+      awards: '포스터 또는 주최측 안내 확인', notes: ['관리자가 직접 등록한 정보입니다. 최신 변경 사항은 주최측에 확인해주세요.'] };
+  }
   const isNational = t.category === '전국오픈';
   const isStudent = t.category === '학생선수권';
   const isBrand = t.category === '브랜드대회';

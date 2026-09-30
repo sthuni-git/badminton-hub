@@ -43,6 +43,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle } from '@/components/ui/sheet';
 import { ClubExplorer } from '@/components/club-explorer';
+import { TournamentRegistrationDialog } from '@/components/tournament-registration-dialog';
 import { CRAWLER_SOURCES, CRAWLER_TIPS, type SourceCategory } from '@/lib/crawler-sources';
 import { calculateDistanceKm, formatDistanceKm, getVenueCoordinates, isInternationalVenue, PRESET_LOCATIONS, reverseGeocodeCoords, type Coordinates } from '@/lib/geo-utils';
 import { ALL_REGIONS, getTournamentOutline, regionOf, type Tournament, type TournamentCategory, type TournamentSource } from '@/lib/tournaments';
@@ -131,7 +132,7 @@ function googleCalendarUrl(t: Tournament) {
 
 function getSecurePosterUrl(url?: string): string {
   if (!url) return '';
-  if (url.startsWith('data:') || url.startsWith('blob:')) return url;
+  if (url.startsWith('data:') || url.startsWith('blob:') || /^https:\/\/[^/]+\.public\.blob\.vercel-storage\.com\//.test(url)) return url;
 
   let raw = url;
   while (raw.includes('images.weserv.nl/?url=')) {
@@ -337,48 +338,30 @@ export function TournamentExplorer({ tournaments }: { tournaments: Tournament[] 
 
   // 대회 수동 등록 모달 상태
   const [isAddModalOpen, setIsAddModalOpen] = useState(false);
-  const [newTournamentForm, setNewTournamentForm] = useState<{
-    name: string;
-    category: TournamentCategory;
-    subCategory?: string;
-    eventStart: string;
-    eventEnd: string;
-    registrationStart: string;
-    registrationEnd: string;
-    venue: string;
-    fee: string;
-    source: TournamentSource;
-    officialLink: string;
-    bandName?: string;
-    bandUrl?: string;
-    cafeName?: string;
-    cafeUrl?: string;
-    shuttlecock?: string;
-    sponsor?: string;
-  }>({
-    name: '',
-    category: '전국오픈',
-    subCategory: '전국 승급',
-    eventStart: '',
-    eventEnd: '',
-    registrationStart: '',
-    registrationEnd: '',
-    venue: '',
-    fee: '1팀당 60,000원',
-    source: '다음카페',
-    officialLink: '',
-    bandName: '배드민턴 대회 일정 및 요강 (전국)',
-    bandUrl: 'https://band.us/@mintoncontest',
-    cafeName: '다음 배드민턴 패밀리 (대회 알림방)',
-    cafeUrl: 'https://cafe.daum.net/badmintonfamily',
-    shuttlecock: '요넥스 AEROCLEAR K1 (또는 공인구)',
-    sponsor: '요넥스 코리아',
-  });
-  const [addFormError, setAddFormError] = useState('');
+  const [sharedTournaments, setSharedTournaments] = useState<Tournament[]>([]);
+  const [sharedError, setSharedError] = useState('');
+  const [sharedLoaded, setSharedLoaded] = useState(false);
+  useEffect(() => {
+    let disposed = false;
+    const refresh = async () => {
+      try {
+        const response = await fetch('/api/tournaments', { signal: AbortSignal.timeout(30000) });
+        const data = await response.json() as { tournaments?: Tournament[]; error?: string };
+        if (!response.ok || !Array.isArray(data.tournaments)) throw new Error(data.error || '공용 대회를 불러오지 못했습니다.');
+        if (!disposed) { setSharedTournaments(data.tournaments); setSharedError(''); setSharedLoaded(true); }
+      } catch {
+        if (!disposed) setSharedError('공용 등록 대회를 불러오지 못했습니다. 기존 수집 목록은 계속 볼 수 있습니다. 잠시 후 새로고침해주세요.');
+      }
+    };
+    void refresh();
+    const timer = window.setInterval(refresh, 60000);
+    window.addEventListener('focus', refresh);
+    return () => { disposed = true; window.clearInterval(timer); window.removeEventListener('focus', refresh); };
+  }, []);
 
   // 실존하는 대회 ID만 유효한 찜 목록으로 추출 (삭제된 대회 ID 배제)
   const validFavorites = useMemo(() => {
-    const tournamentIdSet = new Set(tournaments.map((t) => t.id));
+    const tournamentIdSet = new Set([...tournaments, ...manualTournaments, ...sharedTournaments].map((t) => t.id));
     const valid = new Set<string>();
     for (const id of favorites) {
       if (tournamentIdSet.has(id)) {
@@ -386,12 +369,12 @@ export function TournamentExplorer({ tournaments }: { tournaments: Tournament[] 
       }
     }
     return valid;
-  }, [tournaments, favorites]);
+  }, [tournaments, manualTournaments, sharedTournaments, favorites, sharedLoaded]);
 
   // DB/목록에서 삭제된 이전 대회 ID 자동 정리 (localStorage 동기화)
   useEffect(() => {
-    if (tournaments.length === 0) return;
-    const tournamentIdSet = new Set(tournaments.map((t) => t.id));
+    if (tournaments.length === 0 || !sharedLoaded) return;
+    const tournamentIdSet = new Set([...tournaments, ...manualTournaments, ...sharedTournaments].map((t) => t.id));
     let hasStale = false;
     for (const id of favorites) {
       if (!tournamentIdSet.has(id)) {
@@ -411,7 +394,7 @@ export function TournamentExplorer({ tournaments }: { tournaments: Tournament[] 
         // ignore
       }
     }
-  }, [tournaments, favorites]);
+  }, [tournaments, manualTournaments, sharedTournaments, favorites, sharedLoaded]);
 
   // 멀티 필터 토글 헬퍼
   const toggleFilter = (setter: React.Dispatch<React.SetStateAction<Set<string>>>, value: string) => {
@@ -524,9 +507,15 @@ export function TournamentExplorer({ tournaments }: { tournaments: Tournament[] 
   };
 
   // 관리자 인증 핸들러
-  const handleLoginAdmin = (e?: React.SyntheticEvent) => {
+  const handleLoginAdmin = async (e?: React.SyntheticEvent) => {
     if (e) e.preventDefault();
-    if (adminInputPassword === '4545') {
+    try {
+      const response = await fetch('/api/tournaments', {
+        method: 'POST', headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${adminInputPassword}` },
+        body: JSON.stringify({ action: 'authenticate' }), signal: AbortSignal.timeout(30000),
+      });
+      const data = await response.json() as { error?: string };
+      if (!response.ok) throw new Error(data.error || '관리자 인증에 실패했습니다.');
       try {
         localStorage.setItem('minton_is_admin', 'true');
       } catch {
@@ -536,8 +525,8 @@ export function TournamentExplorer({ tournaments }: { tournaments: Tournament[] 
       setAdminModalOpen(false);
       setAdminInputPassword('');
       setAdminErrorMessage('');
-    } else {
-      setAdminErrorMessage('관리자 비밀번호가 올바르지 않습니다.');
+    } catch (error) {
+      setAdminErrorMessage(error instanceof Error ? error.message : '관리자 인증에 실패했습니다.');
     }
   };
 
@@ -551,29 +540,6 @@ export function TournamentExplorer({ tournaments }: { tournaments: Tournament[] 
     setIsAdmin(false);
     setActiveTab('tournaments');
   };
-
-  // 전역 window 트리거 등록 (HTML 레벨 클릭 즉각 반응)
-  useEffect(() => {
-    if (typeof window !== 'undefined') {
-      const win = window as unknown as Record<string, unknown>;
-      win.__openAdminModal = () => {
-        setAdminModalOpen(true);
-        setAdminErrorMessage('');
-        setAdminInputPassword('');
-      };
-      win.__loginAdminDirect = (pw: string) => {
-        if (pw === '4545') {
-          try {
-            localStorage.setItem('minton_is_admin', 'true');
-          } catch {}
-          setIsAdmin(true);
-          return true;
-        }
-        return false;
-      };
-      win.__logoutAdmin = handleLogoutAdmin;
-    }
-  }, []);
 
   // 프리셋 기준 지역 선택 핸들러
   const handleSelectPresetLocation = (presetId: string) => {
@@ -596,112 +562,24 @@ export function TournamentExplorer({ tournaments }: { tournaments: Tournament[] 
   };
 
   // 관리자 대회 수동 등록 핸들러
-  const handleAddTournament = (e: React.FormEvent) => {
-    e.preventDefault();
-    setAddFormError('');
-
-    if (!newTournamentForm.name.trim()) {
-      setAddFormError('대회명을 입력해주세요.');
-      return;
-    }
-    if (!/^\d{4}-\d{2}-\d{2}$/.test(newTournamentForm.eventStart) || !/^\d{4}-\d{2}-\d{2}$/.test(newTournamentForm.eventEnd)) {
-      setAddFormError('대회 일정 날짜는 YYYY-MM-DD 형식이어야 합니다.');
-      return;
-    }
-    if (newTournamentForm.eventStart > newTournamentForm.eventEnd) {
-      setAddFormError('대회 종료일이 시작일보다 빠를 수 없습니다.');
-      return;
-    }
-    if (newTournamentForm.registrationStart || newTournamentForm.registrationEnd) {
-      if (!/^\d{4}-\d{2}-\d{2}$/.test(newTournamentForm.registrationStart) || !/^\d{4}-\d{2}-\d{2}$/.test(newTournamentForm.registrationEnd)) {
-        setAddFormError('접수 일정은 둘 다 YYYY-MM-DD 형식으로 입력하거나 비워두셔야 합니다.');
-        return;
-      }
-      if (newTournamentForm.registrationStart > newTournamentForm.registrationEnd) {
-        setAddFormError('접수 마감일이 접수 시작일보다 빠를 수 없습니다.');
-        return;
-      }
-    }
-    if (!newTournamentForm.venue.trim()) {
-      setAddFormError('개최 장소(체육관)를 입력해주세요.');
-      return;
-    }
-    if (!/^https?:\/\//.test(newTournamentForm.officialLink.trim())) {
-      setAddFormError('공식 요강 링크(URL)는 http:// 또는 https:// 로 시작해야 합니다.');
-      return;
-    }
-
-    const newId = `manual-${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 6)}`;
-    const eventPeriod = newTournamentForm.eventStart === newTournamentForm.eventEnd
-      ? newTournamentForm.eventStart.replace(/-/g, '.')
-      : `${newTournamentForm.eventStart.replace(/-/g, '.')} ~ ${newTournamentForm.eventEnd.replace(/-/g, '.')}`;
-
-    const registrationPeriod = (newTournamentForm.registrationStart && newTournamentForm.registrationEnd)
-      ? `${newTournamentForm.registrationStart.replace(/-/g, '.')} ~ ${newTournamentForm.registrationEnd.replace(/-/g, '.')}`
-      : '공식 상세 페이지 확인';
-
-    const currentSource = newTournamentForm.source || '네이버밴드';
-
-    const created: Tournament = {
-      id: newId,
-      name: newTournamentForm.name.trim(),
-      category: newTournamentForm.category,
-      subCategory: newTournamentForm.subCategory || newTournamentForm.category,
-      eventStart: newTournamentForm.eventStart,
-      eventEnd: newTournamentForm.eventEnd,
-      eventPeriod,
-      registrationStart: newTournamentForm.registrationStart || '',
-      registrationEnd: newTournamentForm.registrationEnd || '',
-      registrationPeriod,
-      venue: newTournamentForm.venue.trim(),
-      fee: newTournamentForm.fee.trim() || '요강 참조',
-      source: currentSource,
-      sources: [currentSource],
-      officialLink: newTournamentForm.officialLink.trim(),
-      sourceLinks: [{ source: currentSource, link: newTournamentForm.officialLink.trim() }],
-      bandName: currentSource === '네이버밴드' ? (newTournamentForm.bandName?.trim() || '배드민턴 대회 일정 및 요강 (전국)') : undefined,
-      bandUrl: currentSource === '네이버밴드' ? (newTournamentForm.bandUrl?.trim() || 'https://band.us/@mintoncontest') : undefined,
-      cafeName: (currentSource === '다음카페' || currentSource === '네이버카페') ? (newTournamentForm.cafeName?.trim() || (currentSource === '다음카페' ? '다음 배드민턴 패밀리' : '네이버 배드민턴 카페')) : undefined,
-      cafeUrl: (currentSource === '다음카페' || currentSource === '네이버카페') ? (newTournamentForm.cafeUrl?.trim() || (currentSource === '다음카페' ? 'https://cafe.daum.net/badmintonfamily' : 'https://cafe.naver.com/badmintonmarket')) : undefined,
-      shuttlecock: newTournamentForm.shuttlecock?.trim() || undefined,
-      sponsor: newTournamentForm.sponsor?.trim() || undefined,
-      registrationSite: currentSource === '네이버밴드' ? '네이버 밴드 공식 접수' : currentSource === '다음카페' ? '다음 카페 대회 게시판' : '공식 접수처',
-    };
-
-    const updated = [created, ...manualTournaments];
-    setManualTournaments(updated);
-    try {
-      localStorage.setItem('minton_manual_added', JSON.stringify(updated));
-    } catch {}
-
-    setIsAddModalOpen(false);
-    setNewTournamentForm({
-      name: '',
-      category: '전국오픈',
-      subCategory: '전국 승급',
-      eventStart: '',
-      eventEnd: '',
-      registrationStart: '',
-      registrationEnd: '',
-      venue: '',
-      fee: '1팀당 60,000원',
-      source: '다음카페',
-      officialLink: '',
-      bandName: '배드민턴 대회 일정 및 요강 (전국)',
-      bandUrl: 'https://band.us/@mintoncontest',
-      cafeName: '다음 배드민턴 패밀리 (대회 알림방)',
-      cafeUrl: 'https://cafe.daum.net/badmintonfamily',
-      shuttlecock: '요넥스 AEROCLEAR K1 (또는 공인구)',
-      sponsor: '요넥스 코리아',
-    });
-    alert(`✅ [${created.name}] (${created.source}) 대회가 성공적으로 등록되었습니다!`);
-  };
-
   // 관리자 대회 수동 삭제 핸들러
-  const handleDeleteTournament = (t: Tournament, e?: React.SyntheticEvent) => {
+  const handleDeleteTournament = async (t: Tournament, e?: React.SyntheticEvent) => {
     if (e) {
       e.preventDefault();
       e.stopPropagation();
+    }
+    if (t.id.startsWith('shared-')) {
+      if (!window.confirm(`[${t.name}] 대회의 공개를 해제할까요? 모든 방문자 목록에서 숨겨집니다.`)) return;
+      const password = window.prompt('공개 등록용 관리자 비밀번호를 입력해주세요.');
+      if (!password) return;
+      try {
+        const response = await fetch('/api/tournaments', { method: 'DELETE', headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${password}` }, body: JSON.stringify({ id: t.id }) });
+        const data = await response.json() as { error?: string };
+        if (!response.ok) throw new Error(data.error || '공개 해제에 실패했습니다.');
+        setSharedTournaments(prev => prev.filter(item => item.id !== t.id));
+        if (selected?.id === t.id) setSelected(null);
+      } catch (error) { window.alert((error as Error).message); }
+      return;
     }
     const confirmDelete = window.confirm(`정말 [${t.name}] 대회를 삭제하시겠습니까?\n삭제된 대회는 목록에서 즉시 제거됩니다.`);
     if (!confirmDelete) return;
@@ -751,8 +629,8 @@ export function TournamentExplorer({ tournaments }: { tournaments: Tournament[] 
     // 2) 수동 등록된 대회 중 삭제된 ID 제외
     const manual = manualTournaments.filter((t) => !deletedTournamentIds.has(t.id));
     // 3) 합치기 (수동 등록이 우선되도록)
-    return [...manual, ...base];
-  }, [tournaments, manualTournaments, deletedTournamentIds]);
+    return [...new Map([...base, ...manual, ...sharedTournaments].map(t => [t.id, t])).values()];
+  }, [tournaments, manualTournaments, sharedTournaments, deletedTournamentIds]);
 
   // 대회 목록 필터 및 정렬 (거리 계산 및 다중 출처 매칭 포함)
   const filtered = useMemo(() => {
@@ -1764,14 +1642,14 @@ export function TournamentExplorer({ tournaments }: { tournaments: Tournament[] 
                     {selected.registrationSite || `${selected.source} 공식 웹 / 모바일`}
                   </span>
                 </div>
-                <a
+                {selected.officialLink && (<a
                   href={selected.officialLink}
                   target="_blank"
                   rel="noreferrer"
                   className="shrink-0 inline-flex items-center gap-1 rounded-lg bg-emerald-700 px-3 py-1 text-xs font-extrabold text-white shadow-xs hover:bg-emerald-800 transition"
                 >
                   접수처 바로가기 ↗
-                </a>
+                </a>)}
               </div>
             </div>
 
@@ -1890,7 +1768,7 @@ export function TournamentExplorer({ tournaments }: { tournaments: Tournament[] 
                 </div>
               ) : (
                 <div className="space-y-2">
-                  <a
+                  {selected.officialLink && (<a
                     href={selected.officialLink}
                     target="_blank"
                     rel="noreferrer"
@@ -1920,7 +1798,7 @@ export function TournamentExplorer({ tournaments }: { tournaments: Tournament[] 
                       '배드민턴타임즈', '배드민턴게임', 'BWF', '네이버밴드', '다음카페', '네이버카페'
                     ].includes(selected.source) && `📄 ${selected.source} 공식 접수·요강 바로가기`}
                     <ExternalLink className="size-4" />
-                  </a>
+                  </a>)}
 
                   {selected.source === '네이버밴드' && selected.bandUrl && (
                     <a
@@ -2093,288 +1971,11 @@ export function TournamentExplorer({ tournaments }: { tournaments: Tournament[] 
           </div>
         </div>
       )}
-      {/* 대회 수동 등록 모달 (관리자 전용) */}
-      {isAddModalOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4 backdrop-blur-xs overflow-y-auto">
-          <div className="w-full max-w-lg rounded-3xl bg-white p-6 shadow-2xl my-8 max-h-[90vh] overflow-y-auto">
-            <div className="flex items-center justify-between border-b pb-3">
-              <div className="flex items-center gap-2">
-                <div className="grid size-8 place-items-center rounded-xl bg-emerald-100 text-emerald-800">
-                  <PlusCircle className="size-4" />
-                </div>
-                <h3 className="text-base font-extrabold text-slate-900">배드민턴 대회 수동 등록</h3>
-              </div>
-              <button
-                type="button"
-                onClick={() => setIsAddModalOpen(false)}
-                className="rounded-full p-1 text-slate-400 hover:bg-slate-100 hover:text-slate-700"
-              >
-                <X className="size-4" />
-              </button>
-            </div>
-
-            <p className="mt-2 text-xs leading-relaxed text-muted-foreground">
-              크롤링되지 않는 밴드, 지역 협회, 클럽 주최 대회를 직접 등록합니다. 등록 즉시 화면에 반영됩니다.
-            </p>
-
-            <form onSubmit={handleAddTournament} className="mt-4 space-y-3.5 text-xs">
-              {addFormError && (
-                <div className="rounded-xl border border-rose-200 bg-rose-50 p-2.5 text-xs font-bold text-rose-700">
-                  ⚠️ {addFormError}
-                </div>
-              )}
-
-              {/* 대회명 */}
-              <div>
-                <label className="block font-bold text-slate-700 mb-1">대회 공식 명칭 *</label>
-                <Input
-                  type="text"
-                  placeholder="예: 2026 제1회 계룡시 전국 배드민턴 오픈대회"
-                  value={newTournamentForm.name}
-                  onChange={(e) => setNewTournamentForm((prev) => ({ ...prev, name: e.target.value }))}
-                  required
-                  className="rounded-xl text-xs"
-                />
-              </div>
-
-              {/* 대회 출처 선택 (네이버 밴드 / 다음 카페 등) */}
-              <div className="rounded-2xl border border-emerald-200 bg-emerald-50/50 p-3 space-y-2">
-                <div>
-                  <label className="block font-bold text-emerald-900 mb-1">🏷️ 대회 정보 출처 *</label>
-                  <select
-                    value={newTournamentForm.source}
-                    onChange={(e) => setNewTournamentForm((prev) => ({ ...prev, source: e.target.value as TournamentSource }))}
-                    className="w-full rounded-xl border border-emerald-300 p-2 text-xs font-bold bg-white text-slate-900 outline-none"
-                  >
-                    <option value="다음카페">☕ 다음 카페 (Daum Cafe)</option>
-                    <option value="네이버밴드">📱 네이버 밴드 (권장)</option>
-                    <option value="네이버카페">☕ 네이버 카페</option>
-                    <option value="관리자수동등록">🛡️ 관리자 직접 등록</option>
-                    <option value="네이버블로그">📝 네이버 블로그</option>
-                    <option value="웹검색">🌐 웹 공식 요강 검색</option>
-                    <option value="페이스콕">페이스콕</option>
-                    <option value="코트엑스">코트엑스</option>
-                    <option value="스포넷">스포넷</option>
-                    <option value="위꾹">위꾹</option>
-                    <option value="오마이플레이">오마이플레이</option>
-                    <option value="콕콕">콕콕</option>
-                    <option value="대한배드민턴협회">대한배드민턴협회</option>
-                  </select>
-                </div>
-
-                {newTournamentForm.source === '네이버밴드' && (
-                  <div className="grid grid-cols-2 gap-2 pt-1 border-t border-emerald-200/60">
-                    <div>
-                      <label className="block font-bold text-emerald-900 mb-1">밴드 채널명</label>
-                      <Input
-                        type="text"
-                        placeholder="예: 배드민턴 대회 일정 및 요강 (전국)"
-                        value={newTournamentForm.bandName || ''}
-                        onChange={(e) => setNewTournamentForm((prev) => ({ ...prev, bandName: e.target.value }))}
-                        className="rounded-xl text-xs bg-white"
-                      />
-                    </div>
-                    <div>
-                      <label className="block font-bold text-emerald-900 mb-1">밴드 홈 링크 (URL)</label>
-                      <Input
-                        type="url"
-                        placeholder="https://band.us/@mintoncontest"
-                        value={newTournamentForm.bandUrl || ''}
-                        onChange={(e) => setNewTournamentForm((prev) => ({ ...prev, bandUrl: e.target.value }))}
-                        className="rounded-xl text-xs bg-white"
-                      />
-                    </div>
-                  </div>
-                )}
-
-                {(newTournamentForm.source === '다음카페' || newTournamentForm.source === '네이버카페') && (
-                  <div className="grid grid-cols-2 gap-2 pt-1 border-t border-emerald-200/60">
-                    <div>
-                      <label className="block font-bold text-emerald-900 mb-1">
-                        {newTournamentForm.source === '다음카페' ? '다음 카페 이름' : '네이버 카페 이름'}
-                      </label>
-                      <Input
-                        type="text"
-                        placeholder={newTournamentForm.source === '다음카페' ? '예: 다음 배드민턴 패밀리' : '예: 배드민턴마켓'}
-                        value={newTournamentForm.cafeName || ''}
-                        onChange={(e) => setNewTournamentForm((prev) => ({ ...prev, cafeName: e.target.value }))}
-                        className="rounded-xl text-xs bg-white"
-                      />
-                    </div>
-                    <div>
-                      <label className="block font-bold text-emerald-900 mb-1">
-                        {newTournamentForm.source === '다음카페' ? '다음 카페 홈 링크' : '네이버 카페 홈 링크'}
-                      </label>
-                      <Input
-                        type="url"
-                        placeholder={newTournamentForm.source === '다음카페' ? 'https://cafe.daum.net/badmintonfamily' : 'https://cafe.naver.com/...'}
-                        value={newTournamentForm.cafeUrl || ''}
-                        onChange={(e) => setNewTournamentForm((prev) => ({ ...prev, cafeUrl: e.target.value }))}
-                        className="rounded-xl text-xs bg-white"
-                      />
-                    </div>
-                  </div>
-                )}
-              </div>
-
-              {/* 대회 구분 & 세부 분류 */}
-              <div className="grid grid-cols-2 gap-2">
-                <div>
-                  <label className="block font-bold text-slate-700 mb-1">대회 구분 *</label>
-                  <select
-                    value={newTournamentForm.category}
-                    onChange={(e) => setNewTournamentForm((prev) => ({ ...prev, category: e.target.value as TournamentCategory }))}
-                    className="w-full rounded-xl border border-slate-300 p-2 text-xs font-semibold bg-white outline-none"
-                  >
-                    <option value="전국오픈">전국오픈</option>
-                    <option value="지역구대회">지역구대회</option>
-                    <option value="브랜드대회">브랜드대회</option>
-                    <option value="학생선수권">학생선수권</option>
-                    <option value="국제대회">국제대회</option>
-                  </select>
-                </div>
-                <div>
-                  <label className="block font-bold text-slate-700 mb-1">세부 분류</label>
-                  <Input
-                    type="text"
-                    placeholder="예: 전국 승급, 생활체육"
-                    value={newTournamentForm.subCategory}
-                    onChange={(e) => setNewTournamentForm((prev) => ({ ...prev, subCategory: e.target.value }))}
-                    className="rounded-xl text-xs"
-                  />
-                </div>
-              </div>
-
-              {/* 대회 일정 (시작일 ~ 종료일) */}
-              <div className="grid grid-cols-2 gap-2">
-                <div>
-                  <label className="block font-bold text-slate-700 mb-1">대회 시작일 * (YYYY-MM-DD)</label>
-                  <Input
-                    type="date"
-                    value={newTournamentForm.eventStart}
-                    onChange={(e) => setNewTournamentForm((prev) => ({ ...prev, eventStart: e.target.value }))}
-                    required
-                    className="rounded-xl text-xs"
-                  />
-                </div>
-                <div>
-                  <label className="block font-bold text-slate-700 mb-1">대회 종료일 * (YYYY-MM-DD)</label>
-                  <Input
-                    type="date"
-                    value={newTournamentForm.eventEnd}
-                    onChange={(e) => setNewTournamentForm((prev) => ({ ...prev, eventEnd: e.target.value }))}
-                    required
-                    className="rounded-xl text-xs"
-                  />
-                </div>
-              </div>
-
-              {/* 접수 일정 (시작일 ~ 종료일) */}
-              <div className="grid grid-cols-2 gap-2">
-                <div>
-                  <label className="block font-bold text-slate-700 mb-1">접수 시작일 (선택)</label>
-                  <Input
-                    type="date"
-                    value={newTournamentForm.registrationStart}
-                    onChange={(e) => setNewTournamentForm((prev) => ({ ...prev, registrationStart: e.target.value }))}
-                    className="rounded-xl text-xs"
-                  />
-                </div>
-                <div>
-                  <label className="block font-bold text-slate-700 mb-1">접수 종료일 (선택)</label>
-                  <Input
-                    type="date"
-                    value={newTournamentForm.registrationEnd}
-                    onChange={(e) => setNewTournamentForm((prev) => ({ ...prev, registrationEnd: e.target.value }))}
-                    className="rounded-xl text-xs"
-                  />
-                </div>
-              </div>
-
-              {/* 개최 장소 (체육관) */}
-              <div>
-                <label className="block font-bold text-slate-700 mb-1">개최 장소 (체육관명) *</label>
-                <Input
-                  type="text"
-                  placeholder="예: 서울 마포구민체육센터 또는 계룡시민체육관"
-                  value={newTournamentForm.venue}
-                  onChange={(e) => setNewTournamentForm((prev) => ({ ...prev, venue: e.target.value }))}
-                  required
-                  className="rounded-xl text-xs"
-                />
-              </div>
-
-              {/* 참가비 */}
-              <div>
-                <label className="block font-bold text-slate-700 mb-1">참가비</label>
-                <Input
-                  type="text"
-                  placeholder="예: 1팀당 60,000원"
-                  value={newTournamentForm.fee}
-                  onChange={(e) => setNewTournamentForm((prev) => ({ ...prev, fee: e.target.value }))}
-                  className="rounded-xl text-xs"
-                />
-              </div>
-
-              {/* 공식 요강 링크 */}
-              <div>
-                <label className="block font-bold text-slate-700 mb-1">공식 요강 / 접수 링크 (URL) *</label>
-                <Input
-                  type="url"
-                  placeholder="https://band.us/band/... 또는 접수 링크"
-                  value={newTournamentForm.officialLink}
-                  onChange={(e) => setNewTournamentForm((prev) => ({ ...prev, officialLink: e.target.value }))}
-                  required
-                  className="rounded-xl text-xs"
-                />
-              </div>
-
-              {/* 추가 메타: 공인구 / 스폰서 */}
-              <div className="grid grid-cols-2 gap-2">
-                <div>
-                  <label className="block font-bold text-slate-700 mb-1">공인 대회구 (셔틀콕)</label>
-                  <Input
-                    type="text"
-                    placeholder="예: 삼화 BLACK, 요넥스 K1"
-                    value={newTournamentForm.shuttlecock}
-                    onChange={(e) => setNewTournamentForm((prev) => ({ ...prev, shuttlecock: e.target.value }))}
-                    className="rounded-xl text-xs"
-                  />
-                </div>
-                <div>
-                  <label className="block font-bold text-slate-700 mb-1">후원 / 스폰서</label>
-                  <Input
-                    type="text"
-                    placeholder="예: 요넥스, 빅터, 테크니스트"
-                    value={newTournamentForm.sponsor}
-                    onChange={(e) => setNewTournamentForm((prev) => ({ ...prev, sponsor: e.target.value }))}
-                    className="rounded-xl text-xs"
-                  />
-                </div>
-              </div>
-
-              <div className="flex justify-end gap-2 pt-3 border-t">
-                <Button
-                  type="button"
-                  variant="outline"
-                  size="sm"
-                  onClick={() => setIsAddModalOpen(false)}
-                  className="rounded-xl text-xs"
-                >
-                  취소
-                </Button>
-                <Button
-                  type="submit"
-                  size="sm"
-                  className="rounded-xl bg-emerald-700 font-bold hover:bg-emerald-800 text-xs"
-                >
-                  대회 등록 완료
-                </Button>
-              </div>
-            </form>
-          </div>
-        </div>
-      )}
+      {sharedError && <p role="status" className="mx-auto my-4 max-w-6xl rounded-xl bg-amber-50 p-3 text-sm text-amber-900">{sharedError}</p>}
+      {isAddModalOpen && <TournamentRegistrationDialog onClose={() => setIsAddModalOpen(false)} onCreated={items => {
+        setSharedTournaments(prev => [...items, ...prev.filter(t => !items.some(item => item.id === t.id))]);
+        setSharedError('');
+      }} />}
     </main>
   );
 }
@@ -2639,7 +2240,7 @@ function TournamentCard({
               카페 홈
             </a>
           )}
-          <a
+          {t.officialLink && (<a
             href={t.officialLink}
             target="_blank"
             rel="noreferrer"
@@ -2647,7 +2248,7 @@ function TournamentCard({
             className="inline-flex items-center gap-1 rounded-lg bg-emerald-700 px-3 py-1.5 text-xs font-bold text-white transition hover:bg-emerald-800"
           >
             {status === '대회종료' ? '결과·요강' : '요강 보기'} <ChevronRight className="size-3.5" />
-          </a>
+          </a>)}
         </div>
       </div>
     </article>
@@ -2809,7 +2410,7 @@ function TableView({
                           삭제
                         </button>
                       )}
-                      <a
+                      {t.officialLink && (<a
                         href={t.officialLink}
                         target="_blank"
                         rel="noreferrer"
@@ -2817,7 +2418,7 @@ function TableView({
                         className="inline-flex items-center gap-1 rounded-lg bg-emerald-700 px-2.5 py-1 text-[11px] font-bold text-white transition hover:bg-emerald-800"
                       >
                         요강 <ExternalLink className="size-3" />
-                      </a>
+                      </a>)}
                     </div>
                   </td>
                 </tr>
